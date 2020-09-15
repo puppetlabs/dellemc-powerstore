@@ -18,7 +18,7 @@ Puppet::ResourceApi.register_type(
     },
     description:          {
       type:      'Optional[String]',
-      desc:      "New description for the volume group. The description should not have any unprintable characters.If an empty string is specified, the description will be cleared.",
+      desc:      "Description for the volume group. The description should not be more than 256characters long and should not have any unprintable characters.If description is not specified, the description for the volume group will not be set.",
       behaviour: :init_only,
     },
     force:          {
@@ -38,17 +38,17 @@ Puppet::ResourceApi.register_type(
     },
     is_write_order_consistent:          {
       type:      'Optional[Boolean]',
-      desc:      "A boolean flag to indicate whether snapshot sets of the volume group will be write-order consistent.This parameter is only valid when modifying a primary or a clone volume group.",
+      desc:      "A boolean flag to indicate whether snapshot sets of the volume group will be write-order consistent.This parameter defaults to true, if not specified.",
       behaviour: :init_only,
     },
     name:          {
       type:      'Optional[String]',
-      desc:      "New name for the volume group. The name should contain no special HTTP characters and no unprintable characters. Although the case of the name provided is reserved, uniqueness check is case-insensitive, so the same name in two different cases is not considered unique.",
+      desc:      "Unique name for the volume group. The name should contain no special HTTP characters and no unprintable characters. Although the case of the name provided is reserved, uniqueness check is case-insensitive, so the same name in two different cases is not considered unique.",
       behaviour: :init_only,
     },
     protection_policy_id:          {
       type:      'Optional[String]',
-      desc:      "Unique identifier of the protection policy to assign to a primary or clone volume group. If an empty string is specified, protection policy will be removed from the volume group.",
+      desc:      "Unique identifier of an optional protection policy to assign to the volume group.",
       behaviour: :init_only,
     },
     volume_ids:          {

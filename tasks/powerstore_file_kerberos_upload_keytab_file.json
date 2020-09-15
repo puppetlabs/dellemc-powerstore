@@ -16,15 +16,15 @@
 		
 		
 		  
-			"body":{
-			   "description": "",
+			"id":{
+			   "description": "Unique identifier of the Kerberos service object.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		
 		  
-			"id":{
-			   "description": "Unique identifier of the Kerberos service object.",
+			"body":{
+			   "description": "",
 			   "type": "Optional[String[1]]"
 			}
 			

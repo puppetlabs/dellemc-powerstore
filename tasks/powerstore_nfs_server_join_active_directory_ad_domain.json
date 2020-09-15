@@ -16,15 +16,15 @@
 		
 		
 		  
-			"id":{
-			   "description": "Unique identifier of the NFS server.",
+			"body":{
+			   "description": "",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		
 		  
-			"body":{
-			   "description": "",
+			"id":{
+			   "description": "Unique identifier of the NFS server.",
 			   "type": "Optional[String[1]]"
 			}
 			

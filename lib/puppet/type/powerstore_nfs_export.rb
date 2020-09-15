@@ -58,7 +58,7 @@ Puppet::ResourceApi.register_type(
     },
     description:          {
       type:      'Optional[String]',
-      desc:      "NFS Export description.",
+      desc:      "User defined NFS Export description.",
       behaviour: :init_only,
     },
     file_system_id:          {
@@ -103,12 +103,12 @@ Puppet::ResourceApi.register_type(
     },
     read_only_root_hosts:          {
       type:      'Optional[Array]',
-      desc:      "Hosts with read-only and ready-only for root user access to the NFS Export and its snapshots. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), Netgroups prefixed with @.",
+      desc:      "Hosts with read-only and ready-only for root user access to the NFS Export and its snapshots. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @.",
       behaviour: :init_only,
     },
     read_write_hosts:          {
       type:      'Optional[Array]',
-      desc:      "Hosts with read and write access to the NFS export and its snapshots. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask) or, Netgroups prefixed with @.",
+      desc:      "Hosts with read and write access to the NFS export and its snapshots.Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @.",
       behaviour: :init_only,
     },
     read_write_root_hosts:          {

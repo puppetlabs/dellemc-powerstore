@@ -16,15 +16,15 @@
 		
 		
 		  
-			"body":{
-			   "description": "",
+			"id":{
+			   "description": "Unique identifier of the IP network.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		
 		  
-			"id":{
-			   "description": "Unique identifier of the IP network.",
+			"body":{
+			   "description": "",
 			   "type": "Optional[String[1]]"
 			}
 			

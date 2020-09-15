@@ -48,12 +48,12 @@ Puppet::ResourceApi.register_type(
     },
     management_address:          {
       type:      'Optional[String]',
-      desc:      "Management IP address of the remote system instance. Only IPv4 is supported for non-PowerStore remote systems.Both IPv4 and IPv6 are supported for PowerStore remote systems.",
+      desc:      "Management IP address of the remote system.",
       behaviour: :init_only,
     },
     name:          {
       type:      'Optional[String]',
-      desc:      "User-specified name of the remote system. Used only for non-PowerStore systems. This value must contain 128 or fewer printable Unicode characters.",
+      desc:      "User-specified name of the remote system. Used only for non-PowerStore type remote systems. This value must contain 128 or fewer printable Unicode characters.",
       behaviour: :init_only,
     },
     remote_password:          {
