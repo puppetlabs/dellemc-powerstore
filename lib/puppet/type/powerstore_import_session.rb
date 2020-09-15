@@ -8,7 +8,7 @@ Puppet::ResourceApi.register_type(
   attributes:   {
     ensure:      {
       type: 'Enum[present, absent]',
-      desc: 'Whether this apt key should be present or absent on the target system.'
+      desc: 'Whether this resource should be present or absent on the target system.'
     },
 
     automatic_cutover:          {

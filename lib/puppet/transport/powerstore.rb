@@ -118,7 +118,7 @@ module Puppet::Transport
           req = Net::HTTP::Post.new(uri)
         end
         add_keys_to_request(req, header_params)
-        unless body_params.empty?
+        unless ! body_params || body_params.empty?
           if body_params.key?('file_content')
             req.body = body_params['file_content']
           else

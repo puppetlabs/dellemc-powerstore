@@ -1,7 +1,7 @@
 require 'puppet/resource_api'
 require "pry"
 
-class Puppet::Provider::Powerstorehost_group::PowerstoreHost_group
+class Puppet::Provider::PowerstoreHost_group::PowerstoreHost_group
   def canonicalize(context, resources)
     #nout to do here but seems we need to implement it
     resources
@@ -9,7 +9,7 @@ class Puppet::Provider::Powerstorehost_group::PowerstoreHost_group
 
   def get(context)
 context.debug("Entered get")
-      hash = self.class.fetch_all_as_hash
+      hash = self.class.fetch_all_as_hash(context)
       context.debug("Completed get, returning hash #{hash}")
       hash
 
@@ -47,7 +47,7 @@ context.debug("Entered get")
     context.creating(name) do
       #binding.pry
       new_hash = build_hash(should)
-      response = self.class.invoke_create(should, new_hash)
+      response = self.class.invoke_create(context, should, new_hash)
 
       if response.is_a? Net::HTTPSuccess
         should[:ensure] = :present
@@ -64,7 +64,7 @@ context.debug("Entered get")
   def update(context, name, should)
     context.updating(name) do
       new_hash = build_hash(should)
-      response = self.class.invoke_update(should, new_hash)
+      response = self.class.invoke_update(context, should, new_hash)
 
       if response.is_a? Net::HTTPSuccess
         should[:ensure] = :present
@@ -101,7 +101,7 @@ context.debug("Entered get")
 
   def delete(should)
     new_hash = build_hash(should)
-    response = self.class.invoke_delete(should, new_hash)
+    response = self.class.invoke_delete(context, should, new_hash)
     if response.is_a? Net::HTTPSuccess
       should[:ensure] = :present
       Puppet.info "Added :absent to property_hash"
@@ -114,7 +114,7 @@ context.debug("Entered get")
   end
 
 
-  def self.invoke_list_all(resource = nil, body_params = nil)
+  def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
     Puppet.info("Calling operation host_groupCollectionQuery")
     path_params = {}
@@ -139,11 +139,11 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    self.call_op(path_params, query_params, header_params, body_params, '/host_group', 'Get','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/host_group', 'Get','[application/json]')
   end
 
 
-  def self.invoke_create(resource = nil, body_params = nil)
+  def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
     Puppet.info("Calling operation host_groupCreate")
     path_params = {}
@@ -169,11 +169,11 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    self.call_op(path_params, query_params, header_params, body_params, '/host_group', 'Post','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/host_group', 'Post','[application/json]')
   end
 
 
-  def self.invoke_update(resource = nil, body_params = nil)
+  def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
     Puppet.info("Calling operation host_groupModify")
     path_params = {}
@@ -200,11 +200,11 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    self.call_op(path_params, query_params, header_params, body_params, '/host_group/%{id}', 'Patch','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/host_group/%{id}', 'Patch','[application/json]')
   end
 
 
-  def self.invoke_delete(resource = nil, body_params = nil)
+  def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
     Puppet.info("Calling operation host_groupDelete")
     path_params = {}
@@ -230,13 +230,13 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    self.call_op(path_params, query_params, header_params, body_params, '/host_group/%{id}', 'Delete','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/host_group/%{id}', 'Delete','[application/json]')
   end
 
 
 
 
-  def self.invoke_get_one(resource = nil, body_params = nil)
+  def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
     Puppet.info("Calling operation host_groupInstanceQuery")
     path_params = {}
@@ -262,12 +262,12 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    self.call_op(path_params, query_params, header_params, body_params, '/host_group/%{id}', 'Get','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/host_group/%{id}', 'Get','[application/json]')
   end
 
 
-  def self.fetch_all_as_hash
-    items = self.fetch_all
+  def self.fetch_all_as_hash(context)
+    items = self.fetch_all(context)
     if items
       items.collect do |item|
         hash = {
@@ -313,8 +313,8 @@ context.debug("Entered get")
     return hash_item
   end
 
-  def self.fetch_all
-    response = invoke_list_all
+  def self.fetch_all(context)
+    response = invoke_list_all(context)
     if response.kind_of? Net::HTTPSuccess
       body = JSON.parse(response.body)
       if body.is_a? Hash and body.key? "value"
@@ -356,35 +356,35 @@ context.debug("Entered get")
     return operation_param
   end
 
-  def self.call_op(path_params, query_params, header_params, body_params, operation_path, operation_verb, parent_consumes)
-    uri_string = "https://#{ENV["gen_endpoint"]}#{operation_path}" % path_params
-    uri_string = uri_string + "?" + to_query(query_params)
-    header_params['Content-Type'] = 'application/json' # first of #{parent_consumes}
-    if authenticate(path_params, query_params, header_params, body_params)
-      Puppet.info("Authentication succeeded")
-      uri = URI(uri_string)
-      Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-        if operation_verb == 'Get'
-          req = Net::HTTP::Get.new(uri)
-        elsif operation_verb == 'Put'
-          req = Net::HTTP::Put.new(uri)
-        elsif operation_verb == 'Delete'
-          req = Net::HTTP::Delete.new(uri)
-		elsif operation_verb == 'Post'
-          req = Net::HTTP::Post.new(uri)
-        end
-        add_keys_to_request(req, header_params)
-        if body_params
-          req.body = body_params.to_json
-        end
-        Puppet.debug("URI is (#{operation_verb}) #{uri}, body is #{body_params}, query params are #{query_params}, headers are #{header_params}")
-        response = http.request req # Net::HTTPResponse object
-        Puppet.debug("response code is #{response.code} and body is #{response.body}")
-        success = response.is_a? Net::HTTPSuccess
-        Puppet.info("Called (#{operation_verb}) endpoint at #{uri}, success was #{success}")
-        return response
-      end
-    end
-  end
+  # def self.call_op(path_params, query_params, header_params, body_params, operation_path, operation_verb, parent_consumes)
+  #   uri_string = "https://#{ENV["gen_endpoint"]}#{operation_path}" % path_params
+  #   uri_string = uri_string + "?" + to_query(query_params)
+  #   header_params['Content-Type'] = 'application/json' # first of #{parent_consumes}
+  #   if authenticate(path_params, query_params, header_params, body_params)
+  #     Puppet.info("Authentication succeeded")
+  #     uri = URI(uri_string)
+  #     Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+  #       if operation_verb == 'Get'
+  #         req = Net::HTTP::Get.new(uri)
+  #       elsif operation_verb == 'Put'
+  #         req = Net::HTTP::Put.new(uri)
+  #       elsif operation_verb == 'Delete'
+  #         req = Net::HTTP::Delete.new(uri)
+	# 	elsif operation_verb == 'Post'
+  #         req = Net::HTTP::Post.new(uri)
+  #       end
+  #       add_keys_to_request(req, header_params)
+  #       if body_params
+  #         req.body = body_params.to_json
+  #       end
+  #       Puppet.debug("URI is (#{operation_verb}) #{uri}, body is #{body_params}, query params are #{query_params}, headers are #{header_params}")
+  #       response = http.request req # Net::HTTPResponse object
+  #       Puppet.debug("response code is #{response.code} and body is #{response.body}")
+  #       success = response.is_a? Net::HTTPSuccess
+  #       Puppet.info("Called (#{operation_verb}) endpoint at #{uri}, success was #{success}")
+  #       return response
+  #     end
+  #   end
+  # end
 
 end
