@@ -1,0 +1,32 @@
+{
+	"description": "Synchronize the destination resource with changes on source resource from the previous synchronization cycle. Synchronization happens either automatically according to a set schedule, or manually. User and scheduler-created snapshots are synchronized from the source system to the destination system while maintaining block sharing efficiency.  Also synchronizes any size changes, membership changes, or both, on the source resource. At the end of the synchronization cycle, the destination resource reflects the state as it was when synchronization began. Any size changes, membership changes, or both, to source resource done during the synchronization cycle are replicated in next synchronization cycle.Synchronization is allowed when the replication session is in the following states:* OK* System_PausedDuring synchronization, you can take the following actions:* Planned failover from the source system* Failover from the destination system* Pause replication sessions from the source or destination system* Delete a replication session by removing a protection policySynchronization failure places the replication session in a System_Paused state. When the system recovers, the replication session continues from the same point as when the system paused, using the restart address.",
+	"input_method": "stdin",
+	"supports_noop": false,
+  "remote": true,
+	"parameters":{
+		
+		
+		
+		
+		
+		  
+		
+		
+		
+		
+		
+		  
+			"id":{
+			   "description": "Unique identifier of the replication session.",
+			   "type": "Optional[String[1]]"
+			}
+			
+	},
+
+	"files": [
+    "powerstore/lib/puppet/util/task_helper.rb",
+    "powerstore/lib/puppet/transport/powerstore.rb",
+    "powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

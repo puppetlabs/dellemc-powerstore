@@ -1,0 +1,32 @@
+{
+	"description": "Get event by Event Id.",
+	"input_method": "stdin",
+	"supports_noop": false,
+  "remote": true,
+	"parameters":{
+		
+		
+		
+		
+		
+		  
+		
+		
+		
+		
+		
+		  
+			"id":{
+			   "description": "Event Id",
+			   "type": "Optional[String[1]]"
+			}
+			
+	},
+
+	"files": [
+    "powerstore/lib/puppet/util/task_helper.rb",
+    "powerstore/lib/puppet/transport/powerstore.rb",
+    "powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

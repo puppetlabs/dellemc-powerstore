@@ -1,0 +1,39 @@
+{
+	"description": "Modify cluster properties, such as physical MTU.",
+	"input_method": "stdin",
+	"supports_noop": false,
+  "remote": true,
+	"parameters":{
+		
+		
+		
+		
+		
+		  
+		
+		
+		
+		
+		
+		  
+			"body":{
+			   "description": "",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		
+		  
+			"id":{
+			   "description": "Unique identifier of the Cluster.",
+			   "type": "Optional[String[1]]"
+			}
+			
+	},
+
+	"files": [
+    "powerstore/lib/puppet/util/task_helper.rb",
+    "powerstore/lib/puppet/transport/powerstore.rb",
+    "powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

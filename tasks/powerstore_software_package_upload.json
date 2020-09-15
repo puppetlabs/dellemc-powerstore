@@ -1,0 +1,32 @@
+{
+	"description": "Push a software package file from the client to the cluster. When successfully uploaded and verified, the result is a software_package in the downloaded state, ready to install.",
+	"input_method": "stdin",
+	"supports_noop": false,
+  "remote": true,
+	"parameters":{
+		
+		
+		
+		
+		
+		  
+		
+		
+		
+		
+		
+		  
+			"upload_file":{
+			   "description": "Name of the software package file to upload.",
+			   "type": "Optional[String[1]]"
+			}
+			
+	},
+
+	"files": [
+    "powerstore/lib/puppet/util/task_helper.rb",
+    "powerstore/lib/puppet/transport/powerstore.rb",
+    "powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

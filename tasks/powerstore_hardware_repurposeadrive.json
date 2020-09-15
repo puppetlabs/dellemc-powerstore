@@ -1,0 +1,39 @@
+{
+	"description": "A drive that has been used in a different appliance will be locked for use only in that appliance. This operation will allow a locked drive to be used in the current appliance. All data on the drive will become unrecoverable. It will fail if the drive is not locked to a different appliance.",
+	"input_method": "stdin",
+	"supports_noop": false,
+  "remote": true,
+	"parameters":{
+		
+		
+		
+		
+		
+		  
+		
+		
+		
+		
+		
+		  
+			"body":{
+			   "description": "Fields required to repurpose the specified drive.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		
+		  
+			"id":{
+			   "description": "Identifier of the drive to repurpose.",
+			   "type": "Optional[String[1]]"
+			}
+			
+	},
+
+	"files": [
+    "powerstore/lib/puppet/util/task_helper.rb",
+    "powerstore/lib/puppet/transport/powerstore.rb",
+    "powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}
