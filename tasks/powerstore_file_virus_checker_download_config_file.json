@@ -2,31 +2,18 @@
 	"description": "Download a virus checker configuration file containing the template or the actual (if already uploaded) virus checker configuration settings.",
 	"input_method": "stdin",
 	"supports_noop": false,
-  "remote": true,
+	"remote": true,
 	"parameters":{
-		
-		
-		
-		
-		
-		  
-		
-		
-		
-		
-		
-		  
 			"id":{
 			   "description": "Unique identifier of the virus checker instance.",
 			   "type": "Optional[String[1]]"
 			}
-			
 	},
 
 	"files": [
-    "powerstore/lib/puppet/util/task_helper.rb",
-    "powerstore/lib/puppet/transport/powerstore.rb",
-    "powerstore/lib/puppet/transport/schema/powerstore.rb"
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
   ]
 
 }

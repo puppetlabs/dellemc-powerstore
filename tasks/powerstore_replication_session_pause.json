@@ -2,31 +2,18 @@
 	"description": "Pause a replication session instance. You can pause a replication session when you need to modify the source or destination system. For example, you can pause the replication session to take the source or destination system down for maintenance. The session can be paused when it is in the following states:* OK - Remembers the replication session state before pausing, and resumes to OK state* Synchronizing - Remembers the restart address before pausing, and resumes from the restart address* System_Paused - Remembers the restart address before pausing, and resumes from the restart address as recorded when the system entered the System_Paused stateIn case of loss of network connectivity between two sites, the replication session is paused only on the local system where it is issued. Pause the replication session again to pause both sites. The following operations are not allowed while only the replication session on the local system is paused:* Resume* Sync* Planned FailoverThe following operations are allowed while only the replication session on the local system is paused:* Pause - Use to place both sites into the **Paused** state* Failover - Use to get production access from the disaster recovery site* Delete the replication session by removing the protection policy on the storage resourceThe following system operations may also pause, and subsequently resume, a replication session:* Non-disruptive upgrade* Intra-cluster migration Leaving replication session in a paused state results in change accumulations on the source system, and consume more storage on the source system. Resuming a replication session that has been paused for a long time can result in long synchronization times. ",
 	"input_method": "stdin",
 	"supports_noop": false,
-  "remote": true,
+	"remote": true,
 	"parameters":{
-		
-		
-		
-		
-		
-		  
-		
-		
-		
-		
-		
-		  
 			"id":{
 			   "description": "Unique identifier of the replication session.",
 			   "type": "Optional[String[1]]"
 			}
-			
 	},
 
 	"files": [
-    "powerstore/lib/puppet/util/task_helper.rb",
-    "powerstore/lib/puppet/transport/powerstore.rb",
-    "powerstore/lib/puppet/transport/schema/powerstore.rb"
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
   ]
 
 }

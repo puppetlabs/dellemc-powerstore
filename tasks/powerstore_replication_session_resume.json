@@ -2,31 +2,18 @@
 	"description": "Resume a replication session instance that is paused. Resuming the replication session schedules a synchronization cycle if the session was in the following states when the session was paused:* Synchronizing* System_Paused When only the replication session on the local system is paused, resuming the session pauses both sites.You cannot resume replication sessions paused by the system. The following system operations may also pause, and subsequently resume, a replication session. * Paused_for_NDU* Paused_for_Migration  ",
 	"input_method": "stdin",
 	"supports_noop": false,
-  "remote": true,
+	"remote": true,
 	"parameters":{
-		
-		
-		
-		
-		
-		  
-		
-		
-		
-		
-		
-		  
 			"id":{
 			   "description": "Unique identifier of the replication session.",
 			   "type": "Optional[String[1]]"
 			}
-			
 	},
 
 	"files": [
-    "powerstore/lib/puppet/util/task_helper.rb",
-    "powerstore/lib/puppet/transport/powerstore.rb",
-    "powerstore/lib/puppet/transport/schema/powerstore.rb"
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
   ]
 
 }

@@ -2,31 +2,18 @@
 	"description": "Exchange certificates between two clusters. Add CA certificates to the trust store of each cluster and assign roles to the client certificates. After this process, certificate-based authentication can be used for communication between clusters. This exchange REST API can only be triggered with service Replication_HTTP.",
 	"input_method": "stdin",
 	"supports_noop": false,
-  "remote": true,
+	"remote": true,
 	"parameters":{
-		
-		
-		
-		
-		
-		  
-		
-		
-		
-		
-		
-		  
 			"body":{
 			   "description": "Request body.",
 			   "type": "Optional[String[1]]"
 			}
-			
 	},
 
 	"files": [
-    "powerstore/lib/puppet/util/task_helper.rb",
-    "powerstore/lib/puppet/transport/powerstore.rb",
-    "powerstore/lib/puppet/transport/schema/powerstore.rb"
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
   ]
 
 }
