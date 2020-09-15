@@ -1,5 +1,5 @@
 {
-	"description": "Returns information about when the cluster is forecast to reach 100% capacity usage.",
+	"description": "Forecast capacity usage for the cluster.",
 	"input_method": "stdin",
 	"supports_noop": false,
   "remote": true,
@@ -24,7 +24,7 @@
 		
 		  
 			"id":{
-			   "description": "Unique id of the cluster",
+			   "description": "Unique id of the cluster.",
 			   "type": "Optional[String[1]]"
 			}
 			

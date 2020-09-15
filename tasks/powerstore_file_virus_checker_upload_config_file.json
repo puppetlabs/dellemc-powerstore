@@ -16,15 +16,15 @@
 		
 		
 		  
-			"id":{
-			   "description": "Unique identifier of the virus checker instance.",
+			"body":{
+			   "description": "Upload virus checker configuration file.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		
 		  
-			"body":{
-			   "description": "Upload virus checker configuration file.",
+			"id":{
+			   "description": "Unique identifier of the virus checker instance.",
 			   "type": "Optional[String[1]]"
 			}
 			

@@ -16,15 +16,15 @@
 		
 		
 		  
-			"id":{
-			   "description": "Unique identifier of the SMTP configuration.",
+			"body":{
+			   "description": "Test operation request body.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		
 		  
-			"body":{
-			   "description": "Test operation request body.",
+			"id":{
+			   "description": "Unique identifier of the SMTP configuration.",
 			   "type": "Optional[String[1]]"
 			}
 			

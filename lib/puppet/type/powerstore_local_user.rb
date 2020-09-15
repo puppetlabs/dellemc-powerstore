@@ -38,12 +38,12 @@ Puppet::ResourceApi.register_type(
     },
     password:          {
       type:      'Optional[String]',
-      desc:      "Password for the new local user account to be created. The password value can be 8 to 40 UTF-8 characters long, and include as a minimum one uppercase character, one lowercase character, one numeric character, and one special character from this list  [!,@#$%^*>_~].",
+      desc:      "New password of the local user. Local user with administrator or security administrator role can reset the password of other local user accounts without providing the current password. You cannot reset the password of the account you are currently logged-in to.",
       behaviour: :init_only,
     },
     role_id:          {
       type:      'Optional[String]',
-      desc:      "The unique identifier of the role to which the new local user will be mapped. Where role_id '1' is for Administrator, '2' is for Storage Administrator, '3' is for Operator, '4' is for VM Administrator and '5' is for Security Administrator roles.",
+      desc:      "The unique identifier of the new role to which the local user has to be mapped. Where role_id '1' is for Administrator, '2' is for Storage Administrator, '3' is for Operator, '4' is for VM Administrator and '5' is for Security Administrator. A local user with either an administration or a security administration role can change the role of any other local user. You cannot change the role of the account you are currently logged-in to.",
       behaviour: :init_only,
     }, 
   },
