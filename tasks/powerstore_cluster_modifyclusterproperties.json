@@ -16,15 +16,15 @@
 		
 		
 		  
-			"body":{
-			   "description": "",
+			"id":{
+			   "description": "Unique identifier of the Cluster.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		
 		  
-			"id":{
-			   "description": "Unique identifier of the Cluster.",
+			"body":{
+			   "description": "",
 			   "type": "Optional[String[1]]"
 			}
 			

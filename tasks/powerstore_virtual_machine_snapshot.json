@@ -16,15 +16,15 @@
 		
 		
 		  
-			"id":{
-			   "description": "Unique identifier of the virtual machine to create a snapshot of.",
+			"body":{
+			   "description": "",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		
 		  
-			"body":{
-			   "description": "",
+			"id":{
+			   "description": "Unique identifier of the virtual machine to create a snapshot of.",
 			   "type": "Optional[String[1]]"
 			}
 			

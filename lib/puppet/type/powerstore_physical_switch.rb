@@ -28,7 +28,7 @@ Puppet::ResourceApi.register_type(
     },
     name:          {
       type:      'Optional[String]',
-      desc:      "Name of a physical switch.",
+      desc:      "Name of physical switch.",
       behaviour: :init_only,
     },
     purpose:          {

@@ -18,7 +18,7 @@ Puppet::ResourceApi.register_type(
     },
     description:          {
       type:      'Optional[String]',
-      desc:      "SMB share description.",
+      desc:      "NFS Share description.",
       behaviour: :init_only,
     },
     file_system_id:          {
@@ -33,7 +33,7 @@ Puppet::ResourceApi.register_type(
     },
     is_abe_enabled:          {
       type:      'Optional[Boolean]',
-      desc:      "Indicates whether Access-based Enumeration (ABE) is enabled. ABE filters the list of available files and folders on a server to include only those to which the requesting user has access. Values are:- true - ABE is enabled.- false - ABE is disabled.",
+      desc:      "Indicates whether Access-based Enumeration (ABE) is enabled. ABE filters the list of available files and folders on a server to include only those, that the requesting user has access to. Values are:- true - ABE is enabled.- false - ABE is disabled.",
       behaviour: :init_only,
     },
     is_branch_cache_enabled:          {
@@ -68,7 +68,7 @@ Puppet::ResourceApi.register_type(
     },
     umask:          {
       type:      'Optional[String]',
-      desc:      "The default UNIX umask for new files created on the Share. If not specified the umask defaults to 022.",
+      desc:      "The default UNIX umask for new files created on the Share.",
       behaviour: :init_only,
     }, 
   },
