@@ -33,7 +33,7 @@ context.debug("Entered get")
         create(context, name, should) unless noop
       elsif is[:ensure].to_s == 'present' && should[:ensure].to_s == 'absent'
         context.deleting(name) do
-          delete(should) unless noop
+          delete(context, should) unless noop
         end
       elsif is[:ensure].to_s == 'absent' && should[:ensure].to_s == 'absent'
         context.failed(name, message: 'Unexpected absent to absent change')
@@ -98,15 +98,15 @@ context.debug("Entered get")
     key_values
   end
 
-  def destroy
-    delete(resource)
-  end
+  # def destroy(context)
+  #   delete(context, resource)
+  # end
 
-  def delete(should)
+  def delete(context, should)
     new_hash = build_hash(should)
     response = self.class.invoke_delete(context, should, new_hash)
     if response.is_a? Net::HTTPSuccess
-      should[:ensure] = :present
+      should[:ensure] = :absent
       Puppet.info "Added :absent to property_hash"
     else
       raise("Delete failed.  The state of the resource is unknown.  Response is #{response} and body is #{response.body}")
@@ -275,16 +275,16 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
-          add_replication_rule_ids: item["add_replication_rule_ids"],
-          add_snapshot_rule_ids: item["add_snapshot_rule_ids"],
-          body: item["body"],
-          description: item["description"],
-          id: item["id"],
-          name: item["name"],
-          remove_replication_rule_ids: item["remove_replication_rule_ids"],
-          remove_snapshot_rule_ids: item["remove_snapshot_rule_ids"],
-          replication_rule_ids: item["replication_rule_ids"],
-          snapshot_rule_ids: item["snapshot_rule_ids"],
+          add_replication_rule_ids: item['add_replication_rule_ids'],
+          add_snapshot_rule_ids: item['add_snapshot_rule_ids'],
+          body: item['body'],
+          description: item['description'],
+          id: item['id'],
+          name: item['name'],
+          remove_replication_rule_ids: item['remove_replication_rule_ids'],
+          remove_snapshot_rule_ids: item['remove_snapshot_rule_ids'],
+          replication_rule_ids: item['replication_rule_ids'],
+          snapshot_rule_ids: item['snapshot_rule_ids'],
           ensure: :present,
         }
 

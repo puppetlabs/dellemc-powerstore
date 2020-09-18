@@ -2,13 +2,15 @@ require 'puppet/resource_api'
 
 Puppet::ResourceApi.register_type(
   name: 'powerstore_nfs_export',
+  features: [ 'remote_resource' ],
+
   desc: <<-EOS,
     
   EOS
   attributes:   {
     ensure:      {
       type: 'Enum[present, absent]',
-      desc: 'Whether this resource should be present or absent on the target system.'
+      desc: 'Whether this resource should be present or absent on the target system.',
     },
 
     add_no_access_hosts:          {
@@ -46,11 +48,6 @@ Puppet::ResourceApi.register_type(
       desc:      "Specifies the user ID of the anonymous account.",
       behaviour: :init_only,
     },
-    body:          {
-      type:      'Hash',
-      desc:      "",
-      behaviour: :parameter,
-    },
     default_access:          {
       type:      'Optional[String]',
       desc:      "Default access level for all hosts that can access the Export.* No_Access- Deny access to the Export for the hosts.* Read_Only- Allow read only access to the Export for the hosts.* Read_Write- Allow read write access to the Export for the hosts.* Root - Allow read write access to the Export for the hosts. Allow access to the Export for root user.* Read_Only_Root- Allow read only root access to the Export for the hosts.",
@@ -66,11 +63,6 @@ Puppet::ResourceApi.register_type(
       desc:      "Unique identifier of the file system on which the NFS Export will be created.",
       behaviour: :init_only,
     },
-    id:          {
-      type:      'String',
-      desc:      "NFS Export object id.",
-      behaviour: :parameter,
-    },
     is_no_suid:          {
       type:      'Optional[Boolean]',
       desc:      "If set, do not allow access to set SUID. Otherwise, allow access.",
@@ -84,7 +76,7 @@ Puppet::ResourceApi.register_type(
     name:          {
       type:      'Optional[String]',
       desc:      "NFS Export name.",
-      behaviour: :init_only,
+      behaviour: :namevar,
     },
     no_access_hosts:          {
       type:      'Optional[Array]',
@@ -140,10 +132,10 @@ Puppet::ResourceApi.register_type(
       type:      'Optional[Array]',
       desc:      "Hosts to remove from the current read_write_root_hosts list. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @. Error if the host is not present. Cannot combine with read_write_root_hosts.",
       behaviour: :init_only,
-    }, 
+    },
   },
   autorequires: {
     file:    '$source', # will evaluate to the value of the `source` attribute
-    package: 'apt'
+    package: 'apt',
   },
 )

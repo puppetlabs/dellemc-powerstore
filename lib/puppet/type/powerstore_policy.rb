@@ -2,13 +2,15 @@ require 'puppet/resource_api'
 
 Puppet::ResourceApi.register_type(
   name: 'powerstore_policy',
+  features: [ 'remote_resource' ],
+
   desc: <<-EOS,
     
   EOS
   attributes:   {
     ensure:      {
       type: 'Enum[present, absent]',
-      desc: 'Whether this resource should be present or absent on the target system.'
+      desc: 'Whether this resource should be present or absent on the target system.',
     },
 
     add_replication_rule_ids:          {
@@ -21,25 +23,15 @@ Puppet::ResourceApi.register_type(
       desc:      "Snapshot rule identifiers to be added to this policy.",
       behaviour: :init_only,
     },
-    body:          {
-      type:      'Hash',
-      desc:      "",
-      behaviour: :parameter,
-    },
     description:          {
       type:      'Optional[String]',
       desc:      "Policy description.",
       behaviour: :init_only,
     },
-    id:          {
-      type:      'String',
-      desc:      "Unique identifier of the protection policy to be deleted.",
-      behaviour: :parameter,
-    },
     name:          {
       type:      'Optional[String]',
       desc:      "Policy name.",
-      behaviour: :init_only,
+      behaviour: :namevar,
     },
     remove_replication_rule_ids:          {
       type:      'Optional[Array]',
@@ -60,10 +52,10 @@ Puppet::ResourceApi.register_type(
       type:      'Optional[Array]',
       desc:      "Snapshot rule identifiers that should replace the current list of snapshot rule identifiers in this policy.",
       behaviour: :init_only,
-    }, 
+    },
   },
   autorequires: {
     file:    '$source', # will evaluate to the value of the `source` attribute
-    package: 'apt'
+    package: 'apt',
   },
 )

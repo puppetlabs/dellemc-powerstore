@@ -2,24 +2,21 @@ require 'puppet/resource_api'
 
 Puppet::ResourceApi.register_type(
   name: 'powerstore_file_system',
+  features: [ 'remote_resource' ],
+
   desc: <<-EOS,
     
   EOS
   attributes:   {
     ensure:      {
       type: 'Enum[present, absent]',
-      desc: 'Whether this resource should be present or absent on the target system.'
+      desc: 'Whether this resource should be present or absent on the target system.',
     },
 
     access_policy:          {
       type:      'Optional[String]',
       desc:      "File system security access policies. Each file system uses its access policy to determine how to reconcile the differences between NFS and SMB access control. Selecting an access policy determines which mechanism is used to enforce file security on the particular file system. * Native - Native Security. * UNIX - UNIX Security. * Windows - Windows Security.",
       behaviour: :init_only,
-    },
-    body:          {
-      type:      'Hash',
-      desc:      "",
-      behaviour: :parameter,
     },
     default_hard_limit:          {
       type:      'Optional[Integer]',
@@ -50,11 +47,6 @@ Puppet::ResourceApi.register_type(
       type:      'Optional[Integer]',
       desc:      "Grace period of soft limits (seconds): -1: default: Infinite grace (Windows policy).  0: Use system default of 1 week. positive: Grace period after which the soft limit is treated as a hard limit (seconds).",
       behaviour: :init_only,
-    },
-    id:          {
-      type:      'String',
-      desc:      "File system id.",
-      behaviour: :parameter,
     },
     is_async_m_time_enabled:          {
       type:      'Optional[Boolean]',
@@ -99,7 +91,7 @@ Puppet::ResourceApi.register_type(
     name:          {
       type:      'Optional[String]',
       desc:      "Name of the file system. (255 UTF-8 characters).",
-      behaviour: :init_only,
+      behaviour: :namevar,
     },
     nas_server_id:          {
       type:      'Optional[String]',
@@ -120,10 +112,10 @@ Puppet::ResourceApi.register_type(
       type:      'Optional[Integer]',
       desc:      "Lowest directory level to which the enabled notifications apply, if any.",
       behaviour: :init_only,
-    }, 
+    },
   },
   autorequires: {
     file:    '$source', # will evaluate to the value of the `source` attribute
-    package: 'apt'
+    package: 'apt',
   },
 )

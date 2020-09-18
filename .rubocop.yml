@@ -1,20 +1,33 @@
 ---
 require:
- - rubocop-rspec
+- rubocop-rspec
+- rubocop-i18n
 AllCops:
+  DisplayCopNames: true
+  TargetRubyVersion: '2.1'
   Include:
-  - "lib/**/*.rb"
+  - "./**/*.rb"
   Exclude:
   - bin/*
   - ".vendor/**/*"
-  - Gemfile
-  - Rakefile
+  - "**/Gemfile"
+  - "**/Rakefile"
   - pkg/**/*
   - spec/fixtures/**/*
   - vendor/**/*
+  - "**/Puppetfile"
+  - "**/Vagrantfile"
+  - "**/Guardfile"
 Metrics/LineLength:
   Description: People have wide screens, use them.
   Max: 200
+  Enabled: false
+GetText:
+  Enabled: false
+GetText/DecorateString:
+  Description: We don't want to decorate test output.
+  Exclude:
+  - spec/**/*
   Enabled: false
 RSpec/BeforeAfterAll:
   Description: Beware of using after(:all) as it may cause state to leak between tests.
@@ -27,11 +40,11 @@ RSpec/HookArgument:
 Style/BlockDelimiters:
   Description: Prefer braces for chaining. Mostly an aesthetical choice. Better to
     be consistent then.
-  EnforcedStyle: semantic
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/*
-  - lib/puppet/type/*
+  EnforcedStyle: braces_for_chaining
+Style/BracesAroundHashParameters:
+  Description: Braces are required by Ruby 2.7. Cop removed from RuboCop v0.80.0.
+    See https://github.com/rubocop-hq/rubocop/pull/7643
+  Enabled: true
 Style/ClassAndModuleChildren:
   Description: Compact style reduces the required amount of indentation.
   EnforcedStyle: compact
@@ -41,7 +54,6 @@ Style/EmptyElse:
 Style/FormatString:
   Description: Following the main puppet project's style, prefer the % format format.
   EnforcedStyle: percent
-  Exclude:
 Style/FormatStringToken:
   Description: Following the main puppet project's style, prefer the simpler template
     tokens over annotated ones.
@@ -49,25 +61,50 @@ Style/FormatStringToken:
 Style/Lambda:
   Description: Prefer the keyword for easier discoverability.
   EnforcedStyle: literal
-  Enabled: true
-  Exclude:
 Style/RegexpLiteral:
   Description: Community preference. See https://github.com/voxpupuli/modulesync_config/issues/168
   EnforcedStyle: percent_r
-Style/StringLiterals:
-  Enabled: true
-  Exclude:
-  - autogen_type.rb
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-  - lib/puppet/type/azure* 
 Style/TernaryParentheses:
   Description: Checks for use of parentheses around ternary conditions. Enforce parentheses
     on complex expressions for better readability, but seriously consider breaking
     it up.
   EnforcedStyle: require_parentheses_when_complex
+Style/TrailingCommaInArguments:
+  Description: Prefer always trailing comma on multiline argument lists. This makes
+    diffs, and re-ordering nicer.
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInLiteral:
+  Description: Prefer always trailing comma on multiline literals. This makes diffs,
+    and re-ordering nicer.
+  EnforcedStyleForMultiline: comma
 Style/SymbolArray:
   Description: Using percent style obscures symbolic intent of array's contents.
+  EnforcedStyle: brackets
+Lint/ScriptPermission:
+  Enabled: false
+Style/NestedTernaryOperator:
+  Enabled: false
+Layout/EmptyLines:
+  Enabled: false
+Layout/EmptyLineBetweenDefs:
+  Enabled: false
+Style/PredicateName:
+  Enabled: false
+Lint/UnusedBlockArgument:
+  Enabled: false
+Style/Semicolon:
+  Enabled: false
+Style/MultilineIfModifier:
+  Enabled: false
+Style/EachWithObject:
+  Enabled: false
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+Style/Documentation:
+  Exclude:
+  - lib/puppet/parser/functions/**/*
+  - spec/**/*
+Style/WordArray:
   EnforcedStyle: brackets
 Style/CollectionMethods:
   Enabled: true
@@ -75,11 +112,19 @@ Style/MethodCalledOnDoEndBlock:
   Enabled: true
 Style/StringMethods:
   Enabled: true
+GetText/DecorateFunctionMessage:
+  Enabled: false
+GetText/DecorateStringFormattingUsingInterpolation:
+  Enabled: false
+GetText/DecorateStringFormattingUsingPercent:
+  Enabled: false
+Layout/EndOfLine:
+  Enabled: false
+Layout/IndentHeredoc:
+  Enabled: false
 Metrics/AbcSize:
   Enabled: false
 Metrics/BlockLength:
-  Enabled: false
-Metrics/LineLength:
   Enabled: false
 Metrics/ClassLength:
   Enabled: false
@@ -95,7 +140,13 @@ Metrics/PerceivedComplexity:
   Enabled: false
 RSpec/DescribeClass:
   Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
 RSpec/MessageExpectation:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/NestedGroups:
   Enabled: false
 Style/AsciiComments:
   Enabled: false
@@ -103,117 +154,3 @@ Style/IfUnlessModifier:
   Enabled: false
 Style/SymbolProc:
   Enabled: false
-Layout/EmptyLinesAroundClassBody:
-  EnforcedStyle: no_empty_lines
-Layout/EmptyLinesAroundModuleBody:
-  EnforcedStyle: no_empty_lines
-Style/HashSyntax:
-  UseHashRocketsWithSymbolValues: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-  - lib/puppet/type/azure*
-Style/RedundantReturn:
-  Enabled: true
-  Exclude:
-  - autogen_type.rb
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-  - lib/puppet/type/azure*
-Style/RedundantSelf:
-  Enabled: true
-  Exclude: 
-  - autogen_type.rb
-  - autogen_provider.rb 
-  - lib/puppet/provider/**/azure*
-  - lib/puppet/type/azure* 
-Style/NegatedIf:
-  Enabled: true
-  Exclude:
-  - autogen_type.rb
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-  - lib/puppet/type/azure*
-Style/GuardClause:
-  Enabled: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-  - lib/puppet/type/azure*
-Style/CollectionMethods:
-  Enabled: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-  - lib/puppet/type/azure*
-Style/TrailingCommaInArrayLiteral:
-  Enabled: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-  - lib/puppet/type/azure*
-Style/TrailingCommaInHashLiteral:
-  Enabled: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-  - lib/puppet/type/azure*
-Style/ClassCheck:
-  Enabled: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-Style/AndOr:
-  Enabled: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-Style/MethodCalledOnDoEndBlock:
-  Enabled: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-Style/IfInsideElse:
-  Enabled: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-Layout/EmptyLines:
-  Enabled: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-Layout/EmptyLineBetweenDefs:
-  Enabled: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-Layout/SpaceInsideHashLiteralBraces:
-  Enabled: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-Lint/UnusedMethodArgument:
-  Enabled: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-  - lib/puppet/type/azure*
-Lint/RescueException:
-  Enabled: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*
-  - lib/puppet/type/azure*
-Lint/UnusedBlockArgument:
-  Enabled: true
-  Exclude:
-   - autogen_type.rb
-   - autogen_provider.rb 
-   - lib/puppet/provider/**/azure*
-   - lib/puppet/type/azure*
-Naming/PredicateName:
-  Enabled: true
-  Exclude:
-  - autogen_provider.rb
-  - lib/puppet/provider/**/azure*

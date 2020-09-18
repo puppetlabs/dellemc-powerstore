@@ -2,24 +2,21 @@ require 'puppet/resource_api'
 
 Puppet::ResourceApi.register_type(
   name: 'powerstore_volume',
+  features: [ 'remote_resource' ],
+
   desc: <<-EOS,
     
   EOS
   attributes:   {
     ensure:      {
       type: 'Enum[present, absent]',
-      desc: 'Whether this resource should be present or absent on the target system.'
+      desc: 'Whether this resource should be present or absent on the target system.',
     },
 
     appliance_id:          {
       type:      'Optional[String]',
       desc:      "Identifier of the appliance on which the volume is provisioned.",
       behaviour: :init_only,
-    },
-    body:          {
-      type:      'Hash',
-      desc:      "",
-      behaviour: :parameter,
     },
     description:          {
       type:      'Optional[String]',
@@ -46,11 +43,6 @@ Puppet::ResourceApi.register_type(
       desc:      "Unique identifier of the host to be attached to the volume. If not specified, an unmapped volume is created. Only one of host_id or host_group_id can be supplied.",
       behaviour: :init_only,
     },
-    id:          {
-      type:      'String',
-      desc:      "Unique identifier of the volume to delete.",
-      behaviour: :parameter,
-    },
     is_replication_destination:          {
       type:      'Optional[Boolean]',
       desc:      "New value for is_replication_destination property. The modification is only supported for primary and clone volume, only when the current value is true and there is no longer a replication session using this volume as a destination, and only to false.",
@@ -69,7 +61,7 @@ Puppet::ResourceApi.register_type(
     name:          {
       type:      'Optional[String]',
       desc:      "New name of the volume. This value must contain 128 or fewer printable Unicode characters.",
-      behaviour: :init_only,
+      behaviour: :namevar,
     },
     node_affinity:          {
       type:      'Optional[String]',
@@ -100,10 +92,10 @@ Puppet::ResourceApi.register_type(
       type:      'Optional[String]',
       desc:      "Volume group to add the volume to.  If not specified, the volume is not added to a volume group.",
       behaviour: :init_only,
-    }, 
+    },
   },
   autorequires: {
     file:    '$source', # will evaluate to the value of the `source` attribute
-    package: 'apt'
+    package: 'apt',
   },
 )

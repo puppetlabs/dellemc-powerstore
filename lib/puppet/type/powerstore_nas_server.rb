@@ -2,13 +2,15 @@ require 'puppet/resource_api'
 
 Puppet::ResourceApi.register_type(
   name: 'powerstore_nas_server',
+  features: [ 'remote_resource' ],
+
   desc: <<-EOS,
     
   EOS
   attributes:   {
     ensure:      {
       type: 'Enum[present, absent]',
-      desc: 'Whether this resource should be present or absent on the target system.'
+      desc: 'Whether this resource should be present or absent on the target system.',
     },
 
     backup_i_pv4_interface_id:          {
@@ -20,11 +22,6 @@ Puppet::ResourceApi.register_type(
       type:      'Optional[String]',
       desc:      "Unique identifier of the preferred IPv6 backup interface.",
       behaviour: :init_only,
-    },
-    body:          {
-      type:      'Hash',
-      desc:      "",
-      behaviour: :parameter,
     },
     current_node_id:          {
       type:      'Optional[String]',
@@ -51,11 +48,6 @@ Puppet::ResourceApi.register_type(
       desc:      "Description of the NAS server.",
       behaviour: :init_only,
     },
-    id:          {
-      type:      'String',
-      desc:      "Unique identifier of the NAS server.",
-      behaviour: :parameter,
-    },
     is_auto_user_mapping_enabled:          {
       type:      'Optional[Boolean]',
       desc:      "A Windows user must have a corresponding matching Unix user (uid) in order to connect.This attribute enables you to automatically generate this Unix user (uid), if that Windows user does not have any in the configured Unix directory service (UDS).In a pure SMB or non multi-protocol environment, this should be set to true.",
@@ -69,7 +61,7 @@ Puppet::ResourceApi.register_type(
     name:          {
       type:      'Optional[String]',
       desc:      "Name of the NAS server.",
-      behaviour: :init_only,
+      behaviour: :namevar,
     },
     preferred_node_id:          {
       type:      'Optional[String]',
@@ -85,10 +77,10 @@ Puppet::ResourceApi.register_type(
       type:      'Optional[String]',
       desc:      "Unique identifier of the preferred IPv6 production interface.",
       behaviour: :init_only,
-    }, 
+    },
   },
   autorequires: {
     file:    '$source', # will evaluate to the value of the `source` attribute
-    package: 'apt'
+    package: 'apt',
   },
 )

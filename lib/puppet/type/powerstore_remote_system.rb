@@ -2,20 +2,17 @@ require 'puppet/resource_api'
 
 Puppet::ResourceApi.register_type(
   name: 'powerstore_remote_system',
+  features: [ 'remote_resource' ],
+
   desc: <<-EOS,
     
   EOS
   attributes:   {
     ensure:      {
       type: 'Enum[present, absent]',
-      desc: 'Whether this resource should be present or absent on the target system.'
+      desc: 'Whether this resource should be present or absent on the target system.',
     },
 
-    body:          {
-      type:      'Hash',
-      desc:      "Parameters to create a remote system.",
-      behaviour: :parameter,
-    },
     data_network_latency:          {
       type:      'Optional[String]',
       desc:      "Network latency choices for a remote system. Replication traffic can be tuned for higher efficiency depending on the expected network latency. This will only be used when the remote system type is PowerStore.* Low                      - Less than 5 milliseconds.* High                     - More than 5 milliseconds.",
@@ -30,11 +27,6 @@ Puppet::ResourceApi.register_type(
       type:      'Optional[String]',
       desc:      "Challenge Handshake Authentication Protocol (CHAP) status:* Disabled     * Single       - Enabled for initiator authentication.* Mutual       - Enabled for initiator and target authentication.",
       behaviour: :init_only,
-    },
-    id:          {
-      type:      'String',
-      desc:      "Unique identifier of the remote system.",
-      behaviour: :parameter,
     },
     import_chap_info:          {
       type:      'Optional[Hash]',
@@ -54,7 +46,7 @@ Puppet::ResourceApi.register_type(
     name:          {
       type:      'Optional[String]',
       desc:      "User-specified name of the remote system. Used only for non-PowerStore type remote systems. This value must contain 128 or fewer printable Unicode characters.",
-      behaviour: :init_only,
+      behaviour: :namevar,
     },
     remote_password:          {
       type:      'Optional[String]',
@@ -75,10 +67,10 @@ Puppet::ResourceApi.register_type(
       type:      'Optional[String]',
       desc:      "Remote system connection type between the local system and the following remote systems:      * PowerStore               - PowerStore system* Unity                    - Unity import system* VNX                      - VNX import system* PS_Equallogic            - PS EqualLogic import system* Storage_Center           - Storage Center import system* XtremIO                  - XtremIO import system",
       behaviour: :init_only,
-    }, 
+    },
   },
   autorequires: {
     file:    '$source', # will evaluate to the value of the `source` attribute
-    package: 'apt'
+    package: 'apt',
   },
 )

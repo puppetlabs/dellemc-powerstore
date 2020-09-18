@@ -2,29 +2,21 @@ require 'puppet/resource_api'
 
 Puppet::ResourceApi.register_type(
   name: 'powerstore_local_user',
+  features: [ 'remote_resource' ],
+
   desc: <<-EOS,
     
   EOS
   attributes:   {
     ensure:      {
       type: 'Enum[present, absent]',
-      desc: 'Whether this resource should be present or absent on the target system.'
+      desc: 'Whether this resource should be present or absent on the target system.',
     },
 
-    body:          {
-      type:      'Hash',
-      desc:      "",
-      behaviour: :parameter,
-    },
     current_password:          {
       type:      'Optional[String]',
       desc:      "Current password of the local user. Any local user can change his own password by providing current_password along with the new password.",
       behaviour: :init_only,
-    },
-    id:          {
-      type:      'String',
-      desc:      "Unique identifier of the local user account to be deleted.",
-      behaviour: :parameter,
     },
     is_locked:          {
       type:      'Optional[Boolean]',
@@ -34,7 +26,7 @@ Puppet::ResourceApi.register_type(
     name:          {
       type:      'Optional[String]',
       desc:      "Name of the new local user account to be created. The name value can be 1 to 64 UTF-8 characters long, and may only use alphanumeric characters. Dot(.) is the only special character allowed.",
-      behaviour: :init_only,
+      behaviour: :namevar,
     },
     password:          {
       type:      'Optional[String]',
@@ -45,10 +37,10 @@ Puppet::ResourceApi.register_type(
       type:      'Optional[String]',
       desc:      "The unique identifier of the new role to which the local user has to be mapped. Where role_id '1' is for Administrator, '2' is for Storage Administrator, '3' is for Operator, '4' is for VM Administrator and '5' is for Security Administrator. A local user with either an administration or a security administration role can change the role of any other local user. You cannot change the role of the account you are currently logged-in to.",
       behaviour: :init_only,
-    }, 
+    },
   },
   autorequires: {
     file:    '$source', # will evaluate to the value of the `source` attribute
-    package: 'apt'
+    package: 'apt',
   },
 )

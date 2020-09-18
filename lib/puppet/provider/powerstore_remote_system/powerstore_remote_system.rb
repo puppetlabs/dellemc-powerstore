@@ -33,7 +33,7 @@ context.debug("Entered get")
         create(context, name, should) unless noop
       elsif is[:ensure].to_s == 'present' && should[:ensure].to_s == 'absent'
         context.deleting(name) do
-          delete(should) unless noop
+          delete(context, should) unless noop
         end
       elsif is[:ensure].to_s == 'absent' && should[:ensure].to_s == 'absent'
         context.failed(name, message: 'Unexpected absent to absent change')
@@ -101,15 +101,15 @@ context.debug("Entered get")
     key_values
   end
 
-  def destroy
-    delete(resource)
-  end
+  # def destroy(context)
+  #   delete(context, resource)
+  # end
 
-  def delete(should)
+  def delete(context, should)
     new_hash = build_hash(should)
     response = self.class.invoke_delete(context, should, new_hash)
     if response.is_a? Net::HTTPSuccess
-      should[:ensure] = :present
+      should[:ensure] = :absent
       Puppet.info "Added :absent to property_hash"
     else
       raise("Delete failed.  The state of the resource is unknown.  Response is #{response} and body is #{response.body}")
@@ -279,19 +279,19 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
-          body: item["body"],
-          data_network_latency: item["data_network_latency"],
-          description: item["description"],
-          discovery_chap_mode: item["discovery_chap_mode"],
-          id: item["id"],
-          import_chap_info: item["import_chap_info"],
-          iscsi_addresses: item["iscsi_addresses"],
-          management_address: item["management_address"],
-          name: item["name"],
-          remote_password: item["remote_password"],
-          remote_username: item["remote_username"],
-          session_chap_mode: item["session_chap_mode"],
-          type: item["type"],
+          body: item['body'],
+          data_network_latency: item['data_network_latency'],
+          description: item['description'],
+          discovery_chap_mode: item['discovery_chap_mode'],
+          id: item['id'],
+          import_chap_info: item['import_chap_info'],
+          iscsi_addresses: item['iscsi_addresses'],
+          management_address: item['management_address'],
+          name: item['name'],
+          remote_password: item['remote_password'],
+          remote_username: item['remote_username'],
+          session_chap_mode: item['session_chap_mode'],
+          type: item['type'],
           ensure: :present,
         }
 

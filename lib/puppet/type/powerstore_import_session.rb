@@ -2,13 +2,15 @@ require 'puppet/resource_api'
 
 Puppet::ResourceApi.register_type(
   name: 'powerstore_import_session',
+  features: [ 'remote_resource' ],
+
   desc: <<-EOS,
     
   EOS
   attributes:   {
     ensure:      {
       type: 'Enum[present, absent]',
-      desc: 'Whether this resource should be present or absent on the target system.'
+      desc: 'Whether this resource should be present or absent on the target system.',
     },
 
     automatic_cutover:          {
@@ -16,25 +18,15 @@ Puppet::ResourceApi.register_type(
       desc:      "Indicates whether the import session cutover is manual (true) or automatic (false).",
       behaviour: :init_only,
     },
-    body:          {
-      type:      'Hash',
-      desc:      "",
-      behaviour: :parameter,
-    },
     description:          {
       type:      'Optional[String]',
       desc:      "Description of the import session. The name can contain a maximum of 128 unicode characters. It cannot contain unprintable characters.",
       behaviour: :init_only,
     },
-    id:          {
-      type:      'String',
-      desc:      "Unique identifier of the import session",
-      behaviour: :parameter,
-    },
     name:          {
       type:      'Optional[String]',
       desc:      "Name of the import session. The name must be unique in the PowerStore cluster and can contain a maximum of 128 unicode characters. It cannot contain special HTTP characters, unprintable characters, or white space.",
-      behaviour: :init_only,
+      behaviour: :namevar,
     },
     protection_policy_id:          {
       type:      'Optional[String]',
@@ -60,10 +52,10 @@ Puppet::ResourceApi.register_type(
       type:      'Optional[String]',
       desc:      "Unique identifier of the volume group to which the imported volume will belong, if any.",
       behaviour: :init_only,
-    }, 
+    },
   },
   autorequires: {
     file:    '$source', # will evaluate to the value of the `source` attribute
-    package: 'apt'
+    package: 'apt',
   },
 )

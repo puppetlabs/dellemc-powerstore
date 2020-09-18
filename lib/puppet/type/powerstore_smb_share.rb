@@ -2,20 +2,17 @@ require 'puppet/resource_api'
 
 Puppet::ResourceApi.register_type(
   name: 'powerstore_smb_share',
+  features: [ 'remote_resource' ],
+
   desc: <<-EOS,
     
   EOS
   attributes:   {
     ensure:      {
       type: 'Enum[present, absent]',
-      desc: 'Whether this resource should be present or absent on the target system.'
+      desc: 'Whether this resource should be present or absent on the target system.',
     },
 
-    body:          {
-      type:      'Hash',
-      desc:      "",
-      behaviour: :parameter,
-    },
     description:          {
       type:      'Optional[String]',
       desc:      "NFS Share description.",
@@ -25,11 +22,6 @@ Puppet::ResourceApi.register_type(
       type:      'Optional[String]',
       desc:      "Unique identifier of the file system on which the SMB Share will be created.",
       behaviour: :init_only,
-    },
-    id:          {
-      type:      'String',
-      desc:      "SMB Share object id.",
-      behaviour: :parameter,
     },
     is_abe_enabled:          {
       type:      'Optional[Boolean]',
@@ -54,7 +46,7 @@ Puppet::ResourceApi.register_type(
     name:          {
       type:      'Optional[String]',
       desc:      "SMB share name.",
-      behaviour: :init_only,
+      behaviour: :namevar,
     },
     offline_availability:          {
       type:      'Optional[String]',
@@ -70,10 +62,10 @@ Puppet::ResourceApi.register_type(
       type:      'Optional[String]',
       desc:      "The default UNIX umask for new files created on the Share.",
       behaviour: :init_only,
-    }, 
+    },
   },
   autorequires: {
     file:    '$source', # will evaluate to the value of the `source` attribute
-    package: 'apt'
+    package: 'apt',
   },
 )

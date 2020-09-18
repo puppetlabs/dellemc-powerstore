@@ -33,7 +33,7 @@ context.debug("Entered get")
         create(context, name, should) unless noop
       elsif is[:ensure].to_s == 'present' && should[:ensure].to_s == 'absent'
         context.deleting(name) do
-          delete(should) unless noop
+          delete(context, should) unless noop
         end
       elsif is[:ensure].to_s == 'absent' && should[:ensure].to_s == 'absent'
         context.failed(name, message: 'Unexpected absent to absent change')
@@ -103,15 +103,15 @@ context.debug("Entered get")
     key_values
   end
 
-  def destroy
-    delete(resource)
-  end
+  # def destroy(context)
+  #   delete(context, resource)
+  # end
 
-  def delete(should)
+  def delete(context, should)
     new_hash = build_hash(should)
     response = self.class.invoke_delete(context, should, new_hash)
     if response.is_a? Net::HTTPSuccess
-      should[:ensure] = :present
+      should[:ensure] = :absent
       Puppet.info "Added :absent to property_hash"
     else
       raise("Delete failed.  The state of the resource is unknown.  Response is #{response} and body is #{response.body}")
@@ -281,21 +281,21 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
-          backup_i_pv4_interface_id: item["backup_IPv4_interface_id"],
-          backup_i_pv6_interface_id: item["backup_IPv6_interface_id"],
-          body: item["body"],
-          current_node_id: item["current_node_id"],
-          current_unix_directory_service: item["current_unix_directory_service"],
-          default_unix_user: item["default_unix_user"],
-          default_windows_user: item["default_windows_user"],
-          description: item["description"],
-          id: item["id"],
-          is_auto_user_mapping_enabled: item["is_auto_user_mapping_enabled"],
-          is_username_translation_enabled: item["is_username_translation_enabled"],
-          name: item["name"],
-          preferred_node_id: item["preferred_node_id"],
-          production_i_pv4_interface_id: item["production_IPv4_interface_id"],
-          production_i_pv6_interface_id: item["production_IPv6_interface_id"],
+          backup_i_pv4_interface_id: item['backup_IPv4_interface_id'],
+          backup_i_pv6_interface_id: item['backup_IPv6_interface_id'],
+          body: item['body'],
+          current_node_id: item['current_node_id'],
+          current_unix_directory_service: item['current_unix_directory_service'],
+          default_unix_user: item['default_unix_user'],
+          default_windows_user: item['default_windows_user'],
+          description: item['description'],
+          id: item['id'],
+          is_auto_user_mapping_enabled: item['is_auto_user_mapping_enabled'],
+          is_username_translation_enabled: item['is_username_translation_enabled'],
+          name: item['name'],
+          preferred_node_id: item['preferred_node_id'],
+          production_i_pv4_interface_id: item['production_IPv4_interface_id'],
+          production_i_pv6_interface_id: item['production_IPv6_interface_id'],
           ensure: :present,
         }
 
