@@ -15,6 +15,7 @@ powerstore_volume {
   force => "force (optional)",
   host_group_id => "host_group_id (optional)",
   host_id => "host_id (optional)",
+  id => "id",
   is_replication_destination => "is_replication_destination (optional)",
   logical_unit_number => "1234 (optional)",
   min_size => "1234 (optional)",
@@ -36,6 +37,7 @@ powerstore_volume {
 |force | Boolean | false |
 |host_group_id | String | false |
 |host_id | String | false |
+|id | String | true |
 |is_replication_destination | Boolean | false |
 |logical_unit_number | Integer | false |
 |min_size | Integer | false |

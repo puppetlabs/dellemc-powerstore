@@ -5,7 +5,7 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique identifier of the VNX storage system.",
+			   "description": "Unique identifier of a VNX storage system.",
 			   "type": "Optional[String[1]]"
 			}
 	},

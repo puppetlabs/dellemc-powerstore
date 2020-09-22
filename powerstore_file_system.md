@@ -16,6 +16,7 @@ powerstore_file_system {
   expiration_timestamp => "expiration_timestamp (optional)",
   folder_rename_policy => "folder_rename_policy (optional)",
   grace_period => "1234 (optional)",
+  id => "id",
   is_async_m_time_enabled => "is_async_MTime_enabled (optional)",
   is_quota_enabled => "is_quota_enabled (optional)",
   is_smb_no_notify_enabled => "is_smb_no_notify_enabled (optional)",
@@ -24,8 +25,8 @@ powerstore_file_system {
   is_smb_op_locks_enabled => "is_smb_op_locks_enabled (optional)",
   is_smb_sync_writes_enabled => "is_smb_sync_writes_enabled (optional)",
   locking_policy => "locking_policy (optional)",
-  name => "name (optional)",
-  nas_server_id => "nas_server_id (optional)",
+  name => "name",
+  nas_server_id => "nas_server_id",
   protection_policy_id => "protection_policy_id (optional)",
   size_total => "1234 (optional)",
   smb_notify_on_change_dir_depth => "1234 (optional)",
@@ -41,6 +42,7 @@ powerstore_file_system {
 |expiration_timestamp | String | false |
 |folder_rename_policy | String | false |
 |grace_period | Integer | false |
+|id | String | true |
 |is_async_m_time_enabled | Boolean | false |
 |is_quota_enabled | Boolean | false |
 |is_smb_no_notify_enabled | Boolean | false |
@@ -49,8 +51,8 @@ powerstore_file_system {
 |is_smb_op_locks_enabled | Boolean | false |
 |is_smb_sync_writes_enabled | Boolean | false |
 |locking_policy | String | false |
-|name | String | false |
-|nas_server_id | String | false |
+|name | String | true |
+|nas_server_id | String | true |
 |protection_policy_id | String | false |
 |size_total | Integer | false |
 |smb_notify_on_change_dir_depth | Integer | false |

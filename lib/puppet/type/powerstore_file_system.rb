@@ -11,6 +11,7 @@ Puppet::ResourceApi.register_type(
     ensure:      {
       type: 'Enum[present, absent]',
       desc: 'Whether this resource should be present or absent on the target system.',
+      default: 'present',
     },
 
     access_policy:          {
@@ -46,6 +47,11 @@ Puppet::ResourceApi.register_type(
     grace_period:          {
       type:      'Optional[Integer]',
       desc:      "Grace period of soft limits (seconds): -1: default: Infinite grace (Windows policy).  0: Use system default of 1 week. positive: Grace period after which the soft limit is treated as a hard limit (seconds).",
+      behaviour: :init_only,
+    },
+    id:          {
+      type:      'String',
+      desc:      "File system id.",
       behaviour: :init_only,
     },
     is_async_m_time_enabled:          {
@@ -89,12 +95,12 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      'Optional[String]',
+      type:      'String',
       desc:      "Name of the file system. (255 UTF-8 characters).",
       behaviour: :namevar,
     },
     nas_server_id:          {
-      type:      'Optional[String]',
+      type:      'String',
       desc:      "Id of the NAS Server on which the file system is mounted.",
       behaviour: :init_only,
     },

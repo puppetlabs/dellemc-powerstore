@@ -11,6 +11,7 @@ Puppet::ResourceApi.register_type(
     ensure:      {
       type: 'Enum[present, absent]',
       desc: 'Whether this resource should be present or absent on the target system.',
+      default: 'present',
     },
 
     description:          {
@@ -19,8 +20,13 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     file_system_id:          {
-      type:      'Optional[String]',
+      type:      'String',
       desc:      "Unique identifier of the file system on which the SMB Share will be created.",
+      behaviour: :init_only,
+    },
+    id:          {
+      type:      'String',
+      desc:      "SMB Share object id.",
       behaviour: :init_only,
     },
     is_abe_enabled:          {
@@ -44,7 +50,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      'Optional[String]',
+      type:      'String',
       desc:      "SMB share name.",
       behaviour: :namevar,
     },
@@ -54,7 +60,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     path:          {
-      type:      'Optional[String]',
+      type:      'String',
       desc:      "Local path to the file system or any existing sub-folder of the file system that is shared over the network.This path is relative to the NAS Server and must start with the filesystem's mountpoint path, which is the filesystem name.For example to share the top-level of a filesystem named svr1fs1, which is on the /svr1fs1 mountpoint of the NAS Server, use /svr1fs1 in the path parameter.SMB shares allow you to create multiple network shares for the same local path.",
       behaviour: :init_only,
     },

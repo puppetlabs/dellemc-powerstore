@@ -11,10 +11,11 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 powerstore_host {
   add_initiators => "add_initiators (optional)",
   description => "description (optional)",
-  initiators => "initiators (optional)",
+  id => "id",
+  initiators => "initiators",
   modify_initiators => "modify_initiators (optional)",
   name => "name (optional)",
-  os_type => "os_type (optional)",
+  os_type => "os_type",
   remove_initiators => "remove_initiators (optional)",
 }
 ```
@@ -23,10 +24,11 @@ powerstore_host {
 | ------------- | ------------- | ------------- |
 |add_initiators | Array | false |
 |description | String | false |
-|initiators | Array | false |
+|id | String | true |
+|initiators | Array | true |
 |modify_initiators | Array | false |
 |name | String | false |
-|os_type | String | false |
+|os_type | String | true |
 |remove_initiators | Array | false |
 
 

@@ -10,20 +10,20 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 ```puppet
 powerstore_migration_session {
   automatic_cutover => "automatic_cutover (optional)",
-  destination_appliance_id => "destination_appliance_id (optional)",
-  family_id => "family_id (optional)",
+  destination_appliance_id => "destination_appliance_id",
+  family_id => "family_id",
   name => "name (optional)",
-  resource_type => "resource_type (optional)",
+  resource_type => "resource_type",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |automatic_cutover | Boolean | false |
-|destination_appliance_id | String | false |
-|family_id | String | false |
+|destination_appliance_id | String | true |
+|family_id | String | true |
 |name | String | false |
-|resource_type | String | false |
+|resource_type | String | true |
 
 
 

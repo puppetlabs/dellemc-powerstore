@@ -33,11 +33,15 @@ context.debug("Entered get")
         create(context, name, should) unless noop
       elsif is[:ensure].to_s == 'present' && should[:ensure].to_s == 'absent'
         context.deleting(name) do
+          # FIXME hardwired
+          should[:id] = is[:id]
           delete(context, should) unless noop
         end
       elsif is[:ensure].to_s == 'absent' && should[:ensure].to_s == 'absent'
         context.failed(name, message: 'Unexpected absent to absent change')
       elsif is[:ensure].to_s == 'present' && should[:ensure].to_s == 'present'
+          # FIXME hardwired
+          should[:id] = is[:id]
         update(context, name, should)
       end
     end
@@ -50,7 +54,7 @@ context.debug("Entered get")
       response = self.class.invoke_create(context, should, new_hash)
 
       if response.is_a? Net::HTTPSuccess
-        should[:ensure] = :present
+        should[:ensure] = 'present'
         Puppet.info("Added :ensure to property hash")
       else
         raise("Create failed.  Response is #{response} and body is #{response.body}")
@@ -67,7 +71,7 @@ context.debug("Entered get")
       response = self.class.invoke_update(context, should, new_hash)
 
       if response.is_a? Net::HTTPSuccess
-        should[:ensure] = :present
+        should[:ensure] = 'present'
         Puppet.info("Added :ensure to property hash")
       else
         raise("Flush failed.  The state of the resource is unknown.  Response is #{response} and body is #{response.body}")
@@ -81,6 +85,7 @@ context.debug("Entered get")
   def build_hash(resource)
     replication_rule = {}
     replication_rule["alert_threshold"] = resource[:alert_threshold] unless resource[:alert_threshold].nil?
+    replication_rule["id"] = resource[:id] unless resource[:id].nil?
     replication_rule["name"] = resource[:name] unless resource[:name].nil?
     replication_rule["remote_system_id"] = resource[:remote_system_id] unless resource[:remote_system_id].nil?
     replication_rule["rpo"] = resource[:rpo] unless resource[:rpo].nil?
@@ -102,8 +107,8 @@ context.debug("Entered get")
     new_hash = build_hash(should)
     response = self.class.invoke_delete(context, should, new_hash)
     if response.is_a? Net::HTTPSuccess
-      should[:ensure] = :absent
-      Puppet.info "Added :absent to property_hash"
+      should[:ensure] = 'absent'
+      Puppet.info "Added 'absent' to property_hash"
     else
       raise("Delete failed.  The state of the resource is unknown.  Response is #{response} and body is #{response.body}")
     end
@@ -138,7 +143,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/replication_rule', 'Get','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/replication_rule', 'Get','application/json')
   end
 
 
@@ -168,7 +173,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/replication_rule', 'Post','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/replication_rule', 'Post','application/json')
   end
 
 
@@ -199,7 +204,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/replication_rule/%{id}', 'Patch','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/replication_rule/%{id}', 'Patch','application/json')
   end
 
 
@@ -229,7 +234,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/replication_rule/%{id}', 'Delete','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/replication_rule/%{id}', 'Delete','application/json')
   end
 
 
@@ -261,7 +266,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/replication_rule/%{id}', 'Get','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/replication_rule/%{id}', 'Get','application/json')
   end
 
 
@@ -272,12 +277,11 @@ context.debug("Entered get")
         hash = {
 
           alert_threshold: item['alert_threshold'],
-          body: item['body'],
           id: item['id'],
           name: item['name'],
           remote_system_id: item['remote_system_id'],
           rpo: item['rpo'],
-          ensure: :present,
+          ensure: 'present',
         }
 
 
@@ -315,8 +319,8 @@ context.debug("Entered get")
     response = invoke_list_all(context)
     if response.kind_of? Net::HTTPSuccess
       body = JSON.parse(response.body)
-      if body.is_a? Hash and body.key? "value"
-        return body["value"]
+      if body.is_a? Array # and body.key? "value"
+        return body #["value"]
       end
     end
   end
@@ -328,7 +332,7 @@ context.debug("Entered get")
 
 
   def exists?
-    return_value = @property_hash[:ensure] && @property_hash[:ensure] != :absent
+    return_value = @property_hash[:ensure] && @property_hash[:ensure] != 'absent'
     Puppet.info("Checking if resource #{name} of type <no value> exists, returning #{return_value}")
     return_value
   end

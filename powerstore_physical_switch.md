@@ -10,6 +10,7 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 ```puppet
 powerstore_physical_switch {
   connections => "connections (optional)",
+  id => "id",
   name => "name (optional)",
   purpose => "purpose (optional)",
 }
@@ -18,6 +19,7 @@ powerstore_physical_switch {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |connections | Array | false |
+|id | String | true |
 |name | String | false |
 |purpose | String | false |
 

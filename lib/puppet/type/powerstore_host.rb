@@ -11,6 +11,7 @@ Puppet::ResourceApi.register_type(
     ensure:      {
       type: 'Enum[present, absent]',
       desc: 'Whether this resource should be present or absent on the target system.',
+      default: 'present',
     },
 
     add_initiators:          {
@@ -23,8 +24,13 @@ Puppet::ResourceApi.register_type(
       desc:      "An optional description for the host. The description should not be more than 256 UTF-8 characters long and should not have any unprintable characters.",
       behaviour: :init_only,
     },
+    id:          {
+      type:      'String',
+      desc:      "Unique id of the host.",
+      behaviour: :init_only,
+    },
     initiators:          {
-      type:      'Optional[Array]',
+      type:      'Array',
       desc:      "",
       behaviour: :init_only,
     },
@@ -39,7 +45,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     os_type:          {
-      type:      'Optional[String]',
+      type:      'String',
       desc:      "Operating system of the host.",
       behaviour: :init_only,
     },

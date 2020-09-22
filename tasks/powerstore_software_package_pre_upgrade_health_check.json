@@ -9,7 +9,7 @@
 			   "type": "Optional[String[1]]"
 			},
 			"id":{
-			   "description": "Unique identifier of the software package.",
+			   "description": "Unique identifier of the software package to query.",
 			   "type": "Optional[String[1]]"
 			}
 	},

@@ -11,11 +11,17 @@ Puppet::ResourceApi.register_type(
     ensure:      {
       type: 'Enum[present, absent]',
       desc: 'Whether this resource should be present or absent on the target system.',
+      default: 'present',
     },
 
     alert_threshold:          {
       type:      'Optional[Integer]',
       desc:      "Acceptable delay in minutes between the expected and actual replication sync intervals. The system generates an alert if the delay between the expected and actual sync exceeds this threshold.",
+      behaviour: :init_only,
+    },
+    id:          {
+      type:      'String',
+      desc:      "Unique identifier of the replication rule.",
       behaviour: :init_only,
     },
     name:          {

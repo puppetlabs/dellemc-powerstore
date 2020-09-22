@@ -11,6 +11,7 @@ Puppet::ResourceApi.register_type(
     ensure:      {
       type: 'Enum[present, absent]',
       desc: 'Whether this resource should be present or absent on the target system.',
+      default: 'present',
     },
 
     automatic_cutover:          {
@@ -23,8 +24,13 @@ Puppet::ResourceApi.register_type(
       desc:      "Description of the import session. The name can contain a maximum of 128 unicode characters. It cannot contain unprintable characters.",
       behaviour: :init_only,
     },
+    id:          {
+      type:      'String',
+      desc:      "Unique identifier of the import session",
+      behaviour: :init_only,
+    },
     name:          {
-      type:      'Optional[String]',
+      type:      'String',
       desc:      "Name of the import session. The name must be unique in the PowerStore cluster and can contain a maximum of 128 unicode characters. It cannot contain special HTTP characters, unprintable characters, or white space.",
       behaviour: :namevar,
     },
@@ -34,7 +40,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     remote_system_id:          {
-      type:      'Optional[String]',
+      type:      'String',
       desc:      "Unique identifier of the storage system that contains the source volume or consistency group to be imported. You can query the source volume or consistency group object to get the identifier of the source system that the volume or consistency group are part of. Alternatively, you can use the remote_system object to get this information.",
       behaviour: :init_only,
     },
@@ -44,7 +50,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     source_resource_id:          {
-      type:      'Optional[String]',
+      type:      'String',
       desc:      "Unique identifier of the volume or consistency group to be imported. Refer to the following objects for more information: * Storage Center : import_storage_center_volume, import_storage_center_consistency_group * VNX : import_vnx_volume, import_vnx_consistency_group * PS Series : import_psgroup_volume * Unity : import_unity_volume, import_unity_consistency_group",
       behaviour: :init_only,
     },

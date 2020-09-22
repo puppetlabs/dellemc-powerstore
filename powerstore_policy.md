@@ -12,6 +12,7 @@ powerstore_policy {
   add_replication_rule_ids => "add_replication_rule_ids (optional)",
   add_snapshot_rule_ids => "add_snapshot_rule_ids (optional)",
   description => "description (optional)",
+  id => "id",
   name => "name (optional)",
   remove_replication_rule_ids => "remove_replication_rule_ids (optional)",
   remove_snapshot_rule_ids => "remove_snapshot_rule_ids (optional)",
@@ -25,6 +26,7 @@ powerstore_policy {
 |add_replication_rule_ids | Array | false |
 |add_snapshot_rule_ids | Array | false |
 |description | String | false |
+|id | String | true |
 |name | String | false |
 |remove_replication_rule_ids | Array | false |
 |remove_snapshot_rule_ids | Array | false |

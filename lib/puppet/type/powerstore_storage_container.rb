@@ -11,8 +11,14 @@ Puppet::ResourceApi.register_type(
     ensure:      {
       type: 'Enum[present, absent]',
       desc: 'Whether this resource should be present or absent on the target system.',
+      default: 'present',
     },
 
+    id:          {
+      type:      'String',
+      desc:      "Storage container ID.",
+      behaviour: :init_only,
+    },
     name:          {
       type:      'Optional[String]',
       desc:      "New name for the storage container that is unique across all storage containers in the cluster. The name must be between 1 and 64 UTF-8 characters (inclusive), and not more than 127 bytes.",

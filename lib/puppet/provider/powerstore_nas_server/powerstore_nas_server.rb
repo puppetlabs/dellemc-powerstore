@@ -33,11 +33,15 @@ context.debug("Entered get")
         create(context, name, should) unless noop
       elsif is[:ensure].to_s == 'present' && should[:ensure].to_s == 'absent'
         context.deleting(name) do
+          # FIXME hardwired
+          should[:id] = is[:id]
           delete(context, should) unless noop
         end
       elsif is[:ensure].to_s == 'absent' && should[:ensure].to_s == 'absent'
         context.failed(name, message: 'Unexpected absent to absent change')
       elsif is[:ensure].to_s == 'present' && should[:ensure].to_s == 'present'
+          # FIXME hardwired
+          should[:id] = is[:id]
         update(context, name, should)
       end
     end
@@ -50,7 +54,7 @@ context.debug("Entered get")
       response = self.class.invoke_create(context, should, new_hash)
 
       if response.is_a? Net::HTTPSuccess
-        should[:ensure] = :present
+        should[:ensure] = 'present'
         Puppet.info("Added :ensure to property hash")
       else
         raise("Create failed.  Response is #{response} and body is #{response.body}")
@@ -67,7 +71,7 @@ context.debug("Entered get")
       response = self.class.invoke_update(context, should, new_hash)
 
       if response.is_a? Net::HTTPSuccess
-        should[:ensure] = :present
+        should[:ensure] = 'present'
         Puppet.info("Added :ensure to property hash")
       else
         raise("Flush failed.  The state of the resource is unknown.  Response is #{response} and body is #{response.body}")
@@ -87,6 +91,7 @@ context.debug("Entered get")
     nas_server["default_unix_user"] = resource[:default_unix_user] unless resource[:default_unix_user].nil?
     nas_server["default_windows_user"] = resource[:default_windows_user] unless resource[:default_windows_user].nil?
     nas_server["description"] = resource[:description] unless resource[:description].nil?
+    nas_server["id"] = resource[:id] unless resource[:id].nil?
     nas_server["is_auto_user_mapping_enabled"] = resource[:is_auto_user_mapping_enabled] unless resource[:is_auto_user_mapping_enabled].nil?
     nas_server["is_username_translation_enabled"] = resource[:is_username_translation_enabled] unless resource[:is_username_translation_enabled].nil?
     nas_server["name"] = resource[:name] unless resource[:name].nil?
@@ -111,8 +116,8 @@ context.debug("Entered get")
     new_hash = build_hash(should)
     response = self.class.invoke_delete(context, should, new_hash)
     if response.is_a? Net::HTTPSuccess
-      should[:ensure] = :absent
-      Puppet.info "Added :absent to property_hash"
+      should[:ensure] = 'absent'
+      Puppet.info "Added 'absent' to property_hash"
     else
       raise("Delete failed.  The state of the resource is unknown.  Response is #{response} and body is #{response.body}")
     end
@@ -147,7 +152,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/nas_server', 'Get','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/nas_server', 'Get','application/json')
   end
 
 
@@ -177,7 +182,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/nas_server', 'Post','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/nas_server', 'Post','application/json')
   end
 
 
@@ -208,7 +213,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/nas_server/%{id}', 'Patch','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/nas_server/%{id}', 'Patch','application/json')
   end
 
 
@@ -239,7 +244,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/nas_server/%{id}', 'Delete','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/nas_server/%{id}', 'Delete','application/json')
   end
 
 
@@ -271,7 +276,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/nas_server/%{id}', 'Get','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/nas_server/%{id}', 'Get','application/json')
   end
 
 
@@ -283,7 +288,6 @@ context.debug("Entered get")
 
           backup_i_pv4_interface_id: item['backup_IPv4_interface_id'],
           backup_i_pv6_interface_id: item['backup_IPv6_interface_id'],
-          body: item['body'],
           current_node_id: item['current_node_id'],
           current_unix_directory_service: item['current_unix_directory_service'],
           default_unix_user: item['default_unix_user'],
@@ -296,7 +300,7 @@ context.debug("Entered get")
           preferred_node_id: item['preferred_node_id'],
           production_i_pv4_interface_id: item['production_IPv4_interface_id'],
           production_i_pv6_interface_id: item['production_IPv6_interface_id'],
-          ensure: :present,
+          ensure: 'present',
         }
 
 
@@ -334,8 +338,8 @@ context.debug("Entered get")
     response = invoke_list_all(context)
     if response.kind_of? Net::HTTPSuccess
       body = JSON.parse(response.body)
-      if body.is_a? Hash and body.key? "value"
-        return body["value"]
+      if body.is_a? Array # and body.key? "value"
+        return body #["value"]
       end
     end
   end
@@ -347,7 +351,7 @@ context.debug("Entered get")
 
 
   def exists?
-    return_value = @property_hash[:ensure] && @property_hash[:ensure] != :absent
+    return_value = @property_hash[:ensure] && @property_hash[:ensure] != 'absent'
     Puppet.info("Checking if resource #{name} of type <no value> exists, returning #{return_value}")
     return_value
   end

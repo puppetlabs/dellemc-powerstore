@@ -33,11 +33,15 @@ context.debug("Entered get")
         create(context, name, should) unless noop
       elsif is[:ensure].to_s == 'present' && should[:ensure].to_s == 'absent'
         context.deleting(name) do
+          # FIXME hardwired
+          should[:id] = is[:id]
           delete(context, should) unless noop
         end
       elsif is[:ensure].to_s == 'absent' && should[:ensure].to_s == 'absent'
         context.failed(name, message: 'Unexpected absent to absent change')
       elsif is[:ensure].to_s == 'present' && should[:ensure].to_s == 'present'
+          # FIXME hardwired
+          should[:id] = is[:id]
         update(context, name, should)
       end
     end
@@ -50,7 +54,7 @@ context.debug("Entered get")
       response = self.class.invoke_create(context, should, new_hash)
 
       if response.is_a? Net::HTTPSuccess
-        should[:ensure] = :present
+        should[:ensure] = 'present'
         Puppet.info("Added :ensure to property hash")
       else
         raise("Create failed.  Response is #{response} and body is #{response.body}")
@@ -67,7 +71,7 @@ context.debug("Entered get")
       response = self.class.invoke_update(context, should, new_hash)
 
       if response.is_a? Net::HTTPSuccess
-        should[:ensure] = :present
+        should[:ensure] = 'present'
         Puppet.info("Added :ensure to property hash")
       else
         raise("Flush failed.  The state of the resource is unknown.  Response is #{response} and body is #{response.body}")
@@ -82,6 +86,7 @@ context.debug("Entered get")
     smb_share = {}
     smb_share["description"] = resource[:description] unless resource[:description].nil?
     smb_share["file_system_id"] = resource[:file_system_id] unless resource[:file_system_id].nil?
+    smb_share["id"] = resource[:id] unless resource[:id].nil?
     smb_share["is_ABE_enabled"] = resource[:is_abe_enabled] unless resource[:is_abe_enabled].nil?
     smb_share["is_branch_cache_enabled"] = resource[:is_branch_cache_enabled] unless resource[:is_branch_cache_enabled].nil?
     smb_share["is_continuous_availability_enabled"] = resource[:is_continuous_availability_enabled] unless resource[:is_continuous_availability_enabled].nil?
@@ -108,8 +113,8 @@ context.debug("Entered get")
     new_hash = build_hash(should)
     response = self.class.invoke_delete(context, should, new_hash)
     if response.is_a? Net::HTTPSuccess
-      should[:ensure] = :absent
-      Puppet.info "Added :absent to property_hash"
+      should[:ensure] = 'absent'
+      Puppet.info "Added 'absent' to property_hash"
     else
       raise("Delete failed.  The state of the resource is unknown.  Response is #{response} and body is #{response.body}")
     end
@@ -144,7 +149,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/smb_share', 'Get','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/smb_share', 'Get','application/json')
   end
 
 
@@ -174,7 +179,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/smb_share', 'Post','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/smb_share', 'Post','application/json')
   end
 
 
@@ -205,7 +210,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/smb_share/%{id}', 'Patch','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/smb_share/%{id}', 'Patch','application/json')
   end
 
 
@@ -235,7 +240,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/smb_share/%{id}', 'Delete','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/smb_share/%{id}', 'Delete','application/json')
   end
 
 
@@ -267,7 +272,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/api/rest/smb_share/%{id}', 'Get','[application/json]')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/smb_share/%{id}', 'Get','application/json')
   end
 
 
@@ -277,7 +282,6 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
-          body: item['body'],
           description: item['description'],
           file_system_id: item['file_system_id'],
           id: item['id'],
@@ -289,7 +293,7 @@ context.debug("Entered get")
           offline_availability: item['offline_availability'],
           path: item['path'],
           umask: item['umask'],
-          ensure: :present,
+          ensure: 'present',
         }
 
 
@@ -327,8 +331,8 @@ context.debug("Entered get")
     response = invoke_list_all(context)
     if response.kind_of? Net::HTTPSuccess
       body = JSON.parse(response.body)
-      if body.is_a? Hash and body.key? "value"
-        return body["value"]
+      if body.is_a? Array # and body.key? "value"
+        return body #["value"]
       end
     end
   end
@@ -340,7 +344,7 @@ context.debug("Entered get")
 
 
   def exists?
-    return_value = @property_hash[:ensure] && @property_hash[:ensure] != :absent
+    return_value = @property_hash[:ensure] && @property_hash[:ensure] != 'absent'
     Puppet.info("Checking if resource #{name} of type <no value> exists, returning #{return_value}")
     return_value
   end

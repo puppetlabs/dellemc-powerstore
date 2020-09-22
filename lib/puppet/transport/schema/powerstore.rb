@@ -21,5 +21,13 @@ Puppet::ResourceApi.register_transport(
       type: 'Optional[Integer]',
       desc: 'The port to connect to, defaults to 443.',
     },
+    schema: {
+      type: 'Optional[Enum[http,https]]',
+      desc: 'The protocol schema to connect over, defaults to https.',
+    },
+    auth: {
+      type: 'Optional[Enum[none]]',
+      desc: 'Whether or not to authenticate.',
+    },
   },
 )

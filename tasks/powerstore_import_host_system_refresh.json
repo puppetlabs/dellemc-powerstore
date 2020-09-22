@@ -5,7 +5,7 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique identifier of the import host system for which to refresh details.",
+			   "description": "Unique identifier of the import host system to query.",
 			   "type": "Optional[String[1]]"
 			}
 	},

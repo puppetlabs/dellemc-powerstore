@@ -11,6 +11,7 @@ Puppet::ResourceApi.register_type(
     ensure:      {
       type: 'Enum[present, absent]',
       desc: 'Whether this resource should be present or absent on the target system.',
+      default: 'present',
     },
 
     add_host_ids:          {
@@ -24,8 +25,13 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     host_ids:          {
-      type:      'Optional[Array]',
+      type:      'Array',
       desc:      "",
+      behaviour: :init_only,
+    },
+    id:          {
+      type:      'String',
+      desc:      "Unique id of the host group.",
       behaviour: :init_only,
     },
     name:          {

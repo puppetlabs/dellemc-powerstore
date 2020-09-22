@@ -9,6 +9,7 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 
 ```puppet
 powerstore_storage_container {
+  id => "id",
   name => "name (optional)",
   quota => "1234 (optional)",
 }
@@ -16,6 +17,7 @@ powerstore_storage_container {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
+|id | String | true |
 |name | String | false |
 |quota | Integer | false |
 

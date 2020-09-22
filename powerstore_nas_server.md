@@ -16,6 +16,7 @@ powerstore_nas_server {
   default_unix_user => "default_unix_user (optional)",
   default_windows_user => "default_windows_user (optional)",
   description => "description (optional)",
+  id => "id",
   is_auto_user_mapping_enabled => "is_auto_user_mapping_enabled (optional)",
   is_username_translation_enabled => "is_username_translation_enabled (optional)",
   name => "name (optional)",
@@ -34,6 +35,7 @@ powerstore_nas_server {
 |default_unix_user | String | false |
 |default_windows_user | String | false |
 |description | String | false |
+|id | String | true |
 |is_auto_user_mapping_enabled | Boolean | false |
 |is_username_translation_enabled | Boolean | false |
 |name | String | false |

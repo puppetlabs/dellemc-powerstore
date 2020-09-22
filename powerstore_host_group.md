@@ -11,7 +11,8 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 powerstore_host_group {
   add_host_ids => "add_host_ids (optional)",
   description => "description (optional)",
-  host_ids => "host_ids (optional)",
+  host_ids => "host_ids",
+  id => "id",
   name => "name (optional)",
   remove_host_ids => "remove_host_ids (optional)",
 }
@@ -21,7 +22,8 @@ powerstore_host_group {
 | ------------- | ------------- | ------------- |
 |add_host_ids | Array | false |
 |description | String | false |
-|host_ids | Array | false |
+|host_ids | Array | true |
+|id | String | true |
 |name | String | false |
 |remove_host_ids | Array | false |
 

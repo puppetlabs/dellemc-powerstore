@@ -11,6 +11,7 @@ Puppet::ResourceApi.register_type(
     ensure:      {
       type: 'Enum[present, absent]',
       desc: 'Whether this resource should be present or absent on the target system.',
+      default: 'present',
     },
 
     backup_i_pv4_interface_id:          {
@@ -46,6 +47,11 @@ Puppet::ResourceApi.register_type(
     description:          {
       type:      'Optional[String]',
       desc:      "Description of the NAS server.",
+      behaviour: :init_only,
+    },
+    id:          {
+      type:      'String',
+      desc:      "Unique identifier of the NAS server.",
       behaviour: :init_only,
     },
     is_auto_user_mapping_enabled:          {

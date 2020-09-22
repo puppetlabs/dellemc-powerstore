@@ -11,11 +11,17 @@ Puppet::ResourceApi.register_type(
     ensure:      {
       type: 'Enum[present, absent]',
       desc: 'Whether this resource should be present or absent on the target system.',
+      default: 'present',
     },
 
     current_password:          {
       type:      'Optional[String]',
       desc:      "Current password of the local user. Any local user can change his own password by providing current_password along with the new password.",
+      behaviour: :init_only,
+    },
+    id:          {
+      type:      'String',
+      desc:      "Unique identifier of the local user account.",
       behaviour: :init_only,
     },
     is_locked:          {
@@ -24,7 +30,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      'Optional[String]',
+      type:      'String',
       desc:      "Name of the new local user account to be created. The name value can be 1 to 64 UTF-8 characters long, and may only use alphanumeric characters. Dot(.) is the only special character allowed.",
       behaviour: :namevar,
     },

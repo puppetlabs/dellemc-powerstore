@@ -11,6 +11,7 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 powerstore_snapshot_rule {
   days_of_week => "days_of_week (optional)",
   desired_retention => "1234 (optional)",
+  id => "id",
   interval => "interval (optional)",
   name => "name (optional)",
   time_of_day => "time_of_day (optional)",
@@ -21,6 +22,7 @@ powerstore_snapshot_rule {
 | ------------- | ------------- | ------------- |
 |days_of_week | Array | false |
 |desired_retention | Integer | false |
+|id | String | true |
 |interval | String | false |
 |name | String | false |
 |time_of_day | String | false |

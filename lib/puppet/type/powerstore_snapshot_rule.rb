@@ -11,6 +11,7 @@ Puppet::ResourceApi.register_type(
     ensure:      {
       type: 'Enum[present, absent]',
       desc: 'Whether this resource should be present or absent on the target system.',
+      default: 'present',
     },
 
     days_of_week:          {
@@ -21,6 +22,11 @@ Puppet::ResourceApi.register_type(
     desired_retention:          {
       type:      'Optional[Integer]',
       desc:      "Desired snapshot retention period in hours. The system will retain snapshots for this time period, if space is available.",
+      behaviour: :init_only,
+    },
+    id:          {
+      type:      'String',
+      desc:      "Unique identifier of the snapshot rule.",
       behaviour: :init_only,
     },
     interval:          {

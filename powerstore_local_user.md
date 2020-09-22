@@ -10,8 +10,9 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 ```puppet
 powerstore_local_user {
   current_password => "current_password (optional)",
+  id => "id",
   is_locked => "is_locked (optional)",
-  name => "name (optional)",
+  name => "name",
   password => "password (optional)",
   role_id => "role_id (optional)",
 }
@@ -20,8 +21,9 @@ powerstore_local_user {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |current_password | String | false |
+|id | String | true |
 |is_locked | Boolean | false |
-|name | String | false |
+|name | String | true |
 |password | String | false |
 |role_id | String | false |
 

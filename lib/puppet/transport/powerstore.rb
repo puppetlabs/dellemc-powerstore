@@ -11,6 +11,8 @@ module Puppet::Transport
     end
 
     def initialize(_context, connection_info)
+      connection_info[:schema] ||= 'https'
+      connection_info[:port] ||= 443
       @connection_info = connection_info
       @auth_headers = {}
 
@@ -58,7 +60,9 @@ module Puppet::Transport
     end
   
     def authenticate(path_params, query_params, header_params, body_params)
-      uri_string = "https://#{connection_info[:host]}:#{connection_info[:port]}/api/rest/appliance"
+      return true if connection_info[:auth] == 'none'
+      
+      uri_string = "#{connection_info[:schema]}://#{connection_info[:host]}:#{connection_info[:port]}/api/rest/appliance"
       uri = URI(uri_string)
       req = Net::HTTP::Get.new(uri)
       req.basic_auth @connection_info[:user], connection_info[:password].unwrap
@@ -70,6 +74,7 @@ module Puppet::Transport
       begin
         response = http.request req # Net::HTTPResponse object
         @auth_headers['DELL-EMC-TOKEN'] = response['DELL-EMC-TOKEN'] || 'auth_token'
+        @auth_headers['Cookie'] = response['Set-Cookie'].split(';')[0] || 'auth_cookie'
         puts @auth_headers.to_s
         true
       rescue StandardError => e
@@ -88,7 +93,7 @@ module Puppet::Transport
     end
   
     def call_op(path_params, query_params, header_params, body_params, operation_path, operation_verb, parent_consumes)
-      uri_string = "https://#{connection_info[:host]}:#{connection_info[:port]}#{operation_path}" % path_params
+      uri_string = "#{connection_info[:schema]}://#{connection_info[:host]}:#{connection_info[:port]}#{operation_path}" % path_params
       if query_params.size > 0
         uri_string = uri_string + '?' + to_query(query_params)
       end

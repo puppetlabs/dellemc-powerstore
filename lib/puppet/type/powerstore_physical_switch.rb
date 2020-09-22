@@ -11,11 +11,17 @@ Puppet::ResourceApi.register_type(
     ensure:      {
       type: 'Enum[present, absent]',
       desc: 'Whether this resource should be present or absent on the target system.',
+      default: 'present',
     },
 
     connections:          {
       type:      'Optional[Array]',
       desc:      "Supported connections for a physical switch.",
+      behaviour: :init_only,
+    },
+    id:          {
+      type:      'String',
+      desc:      "Unique identifier of the physical switch settings.",
       behaviour: :init_only,
     },
     name:          {

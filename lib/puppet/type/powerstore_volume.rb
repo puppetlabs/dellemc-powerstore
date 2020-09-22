@@ -11,6 +11,7 @@ Puppet::ResourceApi.register_type(
     ensure:      {
       type: 'Enum[present, absent]',
       desc: 'Whether this resource should be present or absent on the target system.',
+      default: 'present',
     },
 
     appliance_id:          {
@@ -41,6 +42,11 @@ Puppet::ResourceApi.register_type(
     host_id:          {
       type:      'Optional[String]',
       desc:      "Unique identifier of the host to be attached to the volume. If not specified, an unmapped volume is created. Only one of host_id or host_group_id can be supplied.",
+      behaviour: :init_only,
+    },
+    id:          {
+      type:      'String',
+      desc:      "Unique identifier of the volume to query.",
       behaviour: :init_only,
     },
     is_replication_destination:          {
