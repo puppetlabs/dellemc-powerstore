@@ -26,7 +26,7 @@ class Import_host_systemRefreshTask < TaskHelper
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
     operation_verb = 'Post'
-    operation_path = '/api/rest/import_host_system/%{id}/refresh'
+    operation_path = '/import_host_system/%{id}/refresh'
     parent_consumes = 'application/json'
     query_params, body_params, path_params = format_params(arg_hash)
 

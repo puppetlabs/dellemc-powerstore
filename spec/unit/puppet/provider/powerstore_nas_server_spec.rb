@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreNas_server')
+ensure_module_defined('Puppet::Provider::PowerstoreNasServer')
 require 'puppet/provider/powerstore_nas_server/powerstore_nas_server'
 
-RSpec.describe Puppet::Provider::PowerstoreNas_server::PowerstoreNas_server do
+RSpec.describe Puppet::Provider::PowerstoreNasServer::PowerstoreNasServer do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

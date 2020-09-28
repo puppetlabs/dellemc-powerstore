@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreLocal_user')
+ensure_module_defined('Puppet::Provider::PowerstoreLocalUser')
 require 'puppet/provider/powerstore_local_user/powerstore_local_user'
 
-RSpec.describe Puppet::Provider::PowerstoreLocal_user::PowerstoreLocal_user do
+RSpec.describe Puppet::Provider::PowerstoreLocalUser::PowerstoreLocalUser do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

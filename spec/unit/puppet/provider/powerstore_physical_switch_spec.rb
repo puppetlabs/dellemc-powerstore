@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstorePhysical_switch')
+ensure_module_defined('Puppet::Provider::PowerstorePhysicalSwitch')
 require 'puppet/provider/powerstore_physical_switch/powerstore_physical_switch'
 
-RSpec.describe Puppet::Provider::PowerstorePhysical_switch::PowerstorePhysical_switch do
+RSpec.describe Puppet::Provider::PowerstorePhysicalSwitch::PowerstorePhysicalSwitch do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

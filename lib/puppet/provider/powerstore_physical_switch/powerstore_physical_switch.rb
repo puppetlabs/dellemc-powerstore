@@ -1,7 +1,7 @@
 require 'puppet/resource_api'
 require "pry"
 
-class Puppet::Provider::PowerstorePhysical_switch::PowerstorePhysical_switch
+class Puppet::Provider::PowerstorePhysicalSwitch::PowerstorePhysicalSwitch
   def canonicalize(context, resources)
     #nout to do here but seems we need to implement it
     resources

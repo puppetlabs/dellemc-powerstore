@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreSnapshot_rule')
+ensure_module_defined('Puppet::Provider::PowerstoreSnapshotRule')
 require 'puppet/provider/powerstore_snapshot_rule/powerstore_snapshot_rule'
 
-RSpec.describe Puppet::Provider::PowerstoreSnapshot_rule::PowerstoreSnapshot_rule do
+RSpec.describe Puppet::Provider::PowerstoreSnapshotRule::PowerstoreSnapshotRule do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

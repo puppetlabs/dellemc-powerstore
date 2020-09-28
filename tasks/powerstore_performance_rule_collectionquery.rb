@@ -26,7 +26,7 @@ class Performance_ruleCollectionqueryTask < TaskHelper
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
     operation_verb = 'Get'
-    operation_path = '/api/rest/performance_rule'
+    operation_path = '/performance_rule'
     parent_consumes = 'application/json'
     query_params, body_params, path_params = format_params(arg_hash)
 

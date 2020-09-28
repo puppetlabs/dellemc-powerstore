@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreImport_session')
+ensure_module_defined('Puppet::Provider::PowerstoreImportSession')
 require 'puppet/provider/powerstore_import_session/powerstore_import_session'
 
-RSpec.describe Puppet::Provider::PowerstoreImport_session::PowerstoreImport_session do
+RSpec.describe Puppet::Provider::PowerstoreImportSession::PowerstoreImportSession do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreFile_ldap')
+ensure_module_defined('Puppet::Provider::PowerstoreFileLdap')
 require 'puppet/provider/powerstore_file_ldap/powerstore_file_ldap'
 
-RSpec.describe Puppet::Provider::PowerstoreFile_ldap::PowerstoreFile_ldap do
+RSpec.describe Puppet::Provider::PowerstoreFileLdap::PowerstoreFileLdap do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

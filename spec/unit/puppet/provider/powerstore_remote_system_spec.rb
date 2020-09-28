@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreRemote_system')
+ensure_module_defined('Puppet::Provider::PowerstoreRemoteSystem')
 require 'puppet/provider/powerstore_remote_system/powerstore_remote_system'
 
-RSpec.describe Puppet::Provider::PowerstoreRemote_system::PowerstoreRemote_system do
+RSpec.describe Puppet::Provider::PowerstoreRemoteSystem::PowerstoreRemoteSystem do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

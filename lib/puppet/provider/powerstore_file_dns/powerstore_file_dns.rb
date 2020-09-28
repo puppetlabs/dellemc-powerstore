@@ -1,7 +1,7 @@
 require 'puppet/resource_api'
 require "pry"
 
-class Puppet::Provider::PowerstoreFile_dns::PowerstoreFile_dns
+class Puppet::Provider::PowerstoreFileDns::PowerstoreFileDns
   def canonicalize(context, resources)
     #nout to do here but seems we need to implement it
     resources

@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreFile_ftp')
+ensure_module_defined('Puppet::Provider::PowerstoreFileFtp')
 require 'puppet/provider/powerstore_file_ftp/powerstore_file_ftp'
 
-RSpec.describe Puppet::Provider::PowerstoreFile_ftp::PowerstoreFile_ftp do
+RSpec.describe Puppet::Provider::PowerstoreFileFtp::PowerstoreFileFtp do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

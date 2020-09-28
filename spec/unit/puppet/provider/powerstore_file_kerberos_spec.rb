@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreFile_kerberos')
+ensure_module_defined('Puppet::Provider::PowerstoreFileKerberos')
 require 'puppet/provider/powerstore_file_kerberos/powerstore_file_kerberos'
 
-RSpec.describe Puppet::Provider::PowerstoreFile_kerberos::PowerstoreFile_kerberos do
+RSpec.describe Puppet::Provider::PowerstoreFileKerberos::PowerstoreFileKerberos do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

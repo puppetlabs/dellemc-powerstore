@@ -1,7 +1,7 @@
 require 'puppet/resource_api'
 require "pry"
 
-class Puppet::Provider::PowerstoreNfs_server::PowerstoreNfs_server
+class Puppet::Provider::PowerstoreNfsServer::PowerstoreNfsServer
   def canonicalize(context, resources)
     #nout to do here but seems we need to implement it
     resources

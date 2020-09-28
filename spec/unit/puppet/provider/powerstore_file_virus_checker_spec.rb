@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreFile_virus_checker')
+ensure_module_defined('Puppet::Provider::PowerstoreFileVirusChecker')
 require 'puppet/provider/powerstore_file_virus_checker/powerstore_file_virus_checker'
 
-RSpec.describe Puppet::Provider::PowerstoreFile_virus_checker::PowerstoreFile_virus_checker do
+RSpec.describe Puppet::Provider::PowerstoreFileVirusChecker::PowerstoreFileVirusChecker do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

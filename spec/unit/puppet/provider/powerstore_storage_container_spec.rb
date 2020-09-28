@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreStorage_container')
+ensure_module_defined('Puppet::Provider::PowerstoreStorageContainer')
 require 'puppet/provider/powerstore_storage_container/powerstore_storage_container'
 
-RSpec.describe Puppet::Provider::PowerstoreStorage_container::PowerstoreStorage_container do
+RSpec.describe Puppet::Provider::PowerstoreStorageContainer::PowerstoreStorageContainer do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreMigration_session')
+ensure_module_defined('Puppet::Provider::PowerstoreMigrationSession')
 require 'puppet/provider/powerstore_migration_session/powerstore_migration_session'
 
-RSpec.describe Puppet::Provider::PowerstoreMigration_session::PowerstoreMigration_session do
+RSpec.describe Puppet::Provider::PowerstoreMigrationSession::PowerstoreMigrationSession do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

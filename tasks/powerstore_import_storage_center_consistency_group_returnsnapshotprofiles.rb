@@ -26,7 +26,7 @@ class Import_storage_center_consistency_groupReturnsnapshotprofilesTask < TaskHe
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
     operation_verb = 'Post'
-    operation_path = '/api/rest/import_storage_center_consistency_group/%{id}/import_snapshot_profiles'
+    operation_path = '/import_storage_center_consistency_group/%{id}/import_snapshot_profiles'
     parent_consumes = 'application/json'
     query_params, body_params, path_params = format_params(arg_hash)
 

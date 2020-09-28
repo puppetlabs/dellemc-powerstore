@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreFile_ndmp')
+ensure_module_defined('Puppet::Provider::PowerstoreFileNdmp')
 require 'puppet/provider/powerstore_file_ndmp/powerstore_file_ndmp'
 
-RSpec.describe Puppet::Provider::PowerstoreFile_ndmp::PowerstoreFile_ndmp do
+RSpec.describe Puppet::Provider::PowerstoreFileNdmp::PowerstoreFileNdmp do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

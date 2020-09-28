@@ -1,7 +1,7 @@
 require 'puppet/resource_api'
 require "pry"
 
-class Puppet::Provider::PowerstoreLocal_user::PowerstoreLocal_user
+class Puppet::Provider::PowerstoreLocalUser::PowerstoreLocalUser
   def canonicalize(context, resources)
     #nout to do here but seems we need to implement it
     resources

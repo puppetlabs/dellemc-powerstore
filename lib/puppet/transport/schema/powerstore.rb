@@ -25,6 +25,10 @@ Puppet::ResourceApi.register_transport(
       type: 'Optional[Enum[http,https]]',
       desc: 'The protocol schema to connect over, defaults to https.',
     },
+    base_path: {
+      type: 'Optional[String]',
+      desc: 'The BasePath value that API requests should be sent to, defaults to /api/rest',
+    },
     auth: {
       type: 'Optional[Enum[none]]',
       desc: 'Whether or not to authenticate.',

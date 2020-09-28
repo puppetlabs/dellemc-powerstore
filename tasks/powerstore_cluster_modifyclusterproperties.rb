@@ -26,7 +26,7 @@ class ClusterModifyclusterpropertiesTask < TaskHelper
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
     operation_verb = 'Patch'
-    operation_path = '/api/rest/cluster/%{id}'
+    operation_path = '/cluster/%{id}'
     parent_consumes = 'application/json'
     query_params, body_params, path_params = format_params(arg_hash)
 

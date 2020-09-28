@@ -26,7 +26,7 @@ class LicenseRetrieveLicenseTask < TaskHelper
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
     operation_verb = 'Post'
-    operation_path = '/api/rest/license/retrieve'
+    operation_path = '/license/retrieve'
     parent_consumes = 'application/json'
     query_params, body_params, path_params = format_params(arg_hash)
 

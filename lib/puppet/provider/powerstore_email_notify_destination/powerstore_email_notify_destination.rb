@@ -1,7 +1,7 @@
 require 'puppet/resource_api'
 require "pry"
 
-class Puppet::Provider::PowerstoreEmail_notify_destination::PowerstoreEmail_notify_destination
+class Puppet::Provider::PowerstoreEmailNotifyDestination::PowerstoreEmailNotifyDestination
   def canonicalize(context, resources)
     #nout to do here but seems we need to implement it
     resources

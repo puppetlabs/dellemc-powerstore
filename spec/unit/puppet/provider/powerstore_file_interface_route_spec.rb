@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreFile_interface_route')
+ensure_module_defined('Puppet::Provider::PowerstoreFileInterfaceRoute')
 require 'puppet/provider/powerstore_file_interface_route/powerstore_file_interface_route'
 
-RSpec.describe Puppet::Provider::PowerstoreFile_interface_route::PowerstoreFile_interface_route do
+RSpec.describe Puppet::Provider::PowerstoreFileInterfaceRoute::PowerstoreFileInterfaceRoute do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

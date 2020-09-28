@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreFile_tree_quota')
+ensure_module_defined('Puppet::Provider::PowerstoreFileTreeQuota')
 require 'puppet/provider/powerstore_file_tree_quota/powerstore_file_tree_quota'
 
-RSpec.describe Puppet::Provider::PowerstoreFile_tree_quota::PowerstoreFile_tree_quota do
+RSpec.describe Puppet::Provider::PowerstoreFileTreeQuota::PowerstoreFileTreeQuota do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

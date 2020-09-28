@@ -26,7 +26,7 @@ class Virtual_machineSnapshotTask < TaskHelper
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
     operation_verb = 'Post'
-    operation_path = '/api/rest/virtual_machine/%{id}/snapshot'
+    operation_path = '/virtual_machine/%{id}/snapshot'
     parent_consumes = 'application/json'
     query_params, body_params, path_params = format_params(arg_hash)
 

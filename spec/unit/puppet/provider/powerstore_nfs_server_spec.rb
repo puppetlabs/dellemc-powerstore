@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreNfs_server')
+ensure_module_defined('Puppet::Provider::PowerstoreNfsServer')
 require 'puppet/provider/powerstore_nfs_server/powerstore_nfs_server'
 
-RSpec.describe Puppet::Provider::PowerstoreNfs_server::PowerstoreNfs_server do
+RSpec.describe Puppet::Provider::PowerstoreNfsServer::PowerstoreNfsServer do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

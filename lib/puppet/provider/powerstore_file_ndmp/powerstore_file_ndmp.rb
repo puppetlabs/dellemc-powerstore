@@ -1,7 +1,7 @@
 require 'puppet/resource_api'
 require "pry"
 
-class Puppet::Provider::PowerstoreFile_ndmp::PowerstoreFile_ndmp
+class Puppet::Provider::PowerstoreFileNdmp::PowerstoreFileNdmp
   def canonicalize(context, resources)
     #nout to do here but seems we need to implement it
     resources

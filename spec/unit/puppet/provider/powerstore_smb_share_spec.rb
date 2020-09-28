@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreSmb_share')
+ensure_module_defined('Puppet::Provider::PowerstoreSmbShare')
 require 'puppet/provider/powerstore_smb_share/powerstore_smb_share'
 
-RSpec.describe Puppet::Provider::PowerstoreSmb_share::PowerstoreSmb_share do
+RSpec.describe Puppet::Provider::PowerstoreSmbShare::PowerstoreSmbShare do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

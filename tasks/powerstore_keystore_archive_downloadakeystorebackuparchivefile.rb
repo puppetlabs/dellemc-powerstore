@@ -26,7 +26,7 @@ class Keystore_archiveDownloadakeystorebackuparchivefileTask < TaskHelper
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
     operation_verb = 'Get'
-    operation_path = '/api/rest/keystore_archive/%{filename}'
+    operation_path = '/keystore_archive/%{filename}'
     parent_consumes = 'application/json'
     query_params, body_params, path_params = format_params(arg_hash)
 

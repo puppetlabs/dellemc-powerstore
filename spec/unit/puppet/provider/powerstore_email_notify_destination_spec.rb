@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreEmail_notify_destination')
+ensure_module_defined('Puppet::Provider::PowerstoreEmailNotifyDestination')
 require 'puppet/provider/powerstore_email_notify_destination/powerstore_email_notify_destination'
 
-RSpec.describe Puppet::Provider::PowerstoreEmail_notify_destination::PowerstoreEmail_notify_destination do
+RSpec.describe Puppet::Provider::PowerstoreEmailNotifyDestination::PowerstoreEmailNotifyDestination do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

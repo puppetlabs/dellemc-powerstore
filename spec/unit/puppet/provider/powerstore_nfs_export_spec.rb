@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreNfs_export')
+ensure_module_defined('Puppet::Provider::PowerstoreNfsExport')
 require 'puppet/provider/powerstore_nfs_export/powerstore_nfs_export'
 
-RSpec.describe Puppet::Provider::PowerstoreNfs_export::PowerstoreNfs_export do
+RSpec.describe Puppet::Provider::PowerstoreNfsExport::PowerstoreNfsExport do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

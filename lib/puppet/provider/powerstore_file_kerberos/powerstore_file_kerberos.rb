@@ -1,7 +1,7 @@
 require 'puppet/resource_api'
 require "pry"
 
-class Puppet::Provider::PowerstoreFile_kerberos::PowerstoreFile_kerberos
+class Puppet::Provider::PowerstoreFileKerberos::PowerstoreFileKerberos
   def canonicalize(context, resources)
     #nout to do here but seems we need to implement it
     resources

@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreFile_nis')
+ensure_module_defined('Puppet::Provider::PowerstoreFileNis')
 require 'puppet/provider/powerstore_file_nis/powerstore_file_nis'
 
-RSpec.describe Puppet::Provider::PowerstoreFile_nis::PowerstoreFile_nis do
+RSpec.describe Puppet::Provider::PowerstoreFileNis::PowerstoreFileNis do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

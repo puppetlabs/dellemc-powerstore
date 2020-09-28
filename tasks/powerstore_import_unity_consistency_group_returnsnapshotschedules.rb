@@ -26,7 +26,7 @@ class Import_unity_consistency_groupReturnsnapshotschedulesTask < TaskHelper
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
     operation_verb = 'Post'
-    operation_path = '/api/rest/import_unity_consistency_group/%{id}/import_snapshot_schedules'
+    operation_path = '/import_unity_consistency_group/%{id}/import_snapshot_schedules'
     parent_consumes = 'application/json'
     query_params, body_params, path_params = format_params(arg_hash)
 

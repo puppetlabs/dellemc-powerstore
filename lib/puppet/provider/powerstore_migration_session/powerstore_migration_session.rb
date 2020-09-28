@@ -1,7 +1,7 @@
 require 'puppet/resource_api'
 require "pry"
 
-class Puppet::Provider::PowerstoreMigration_session::PowerstoreMigration_session
+class Puppet::Provider::PowerstoreMigrationSession::PowerstoreMigrationSession
   def canonicalize(context, resources)
     #nout to do here but seems we need to implement it
     resources

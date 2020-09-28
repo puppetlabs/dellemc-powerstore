@@ -2,10 +2,10 @@
   "name": "dellemc-powerstore",
   "version": "0.1.0",
   "author": "Puppet",
-  "summary": "Generic Provider Puppet module",
+  "summary": "Resource API device module for DellEMC Powerstore",
   "license": "Apache-2.0",
-  "source": "https://github.com/puppetlabs/puppetlabs-generic",
-  "project_page": "https://github.com/puppetlabs/puppetlabs-generic",
+  "source": "https://github.com/puppetlabs/dellemc-powerstore",
+  "project_page": "https://github.com/puppetlabs/dellemc-powerstore",
   "dependencies": [
 
   ],

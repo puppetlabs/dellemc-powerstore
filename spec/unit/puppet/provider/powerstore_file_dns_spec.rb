@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreFile_dns')
+ensure_module_defined('Puppet::Provider::PowerstoreFileDns')
 require 'puppet/provider/powerstore_file_dns/powerstore_file_dns'
 
-RSpec.describe Puppet::Provider::PowerstoreFile_dns::PowerstoreFile_dns do
+RSpec.describe Puppet::Provider::PowerstoreFileDns::PowerstoreFileDns do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

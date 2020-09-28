@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 
-ensure_module_defined('Puppet::Provider::PowerstoreReplication_rule')
+ensure_module_defined('Puppet::Provider::PowerstoreReplicationRule')
 require 'puppet/provider/powerstore_replication_rule/powerstore_replication_rule'
 
-RSpec.describe Puppet::Provider::PowerstoreReplication_rule::PowerstoreReplication_rule do
+RSpec.describe Puppet::Provider::PowerstoreReplicationRule::PowerstoreReplicationRule do
   subject(:provider) { described_class.new }
 
   let(:context) { instance_double('Puppet::ResourceApi::BaseContext', 'context') }

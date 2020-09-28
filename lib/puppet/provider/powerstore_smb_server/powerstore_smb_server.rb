@@ -1,7 +1,7 @@
 require 'puppet/resource_api'
 require "pry"
 
-class Puppet::Provider::PowerstoreSmb_server::PowerstoreSmb_server
+class Puppet::Provider::PowerstoreSmbServer::PowerstoreSmbServer
   def canonicalize(context, resources)
     #nout to do here but seems we need to implement it
     resources
