@@ -3,7 +3,7 @@ require 'spec_helper_acceptance'
 describe 'powerstore_migration_session' do
   it 'get migration_session' do
     result = run_resource('powerstore_migration_session')
-    expect(result).to match(%r{ensure => 'present'})
+    expect(result).to match(%r{ensure => 'present'}).or match(%r{Completed get, returning hash \[\]})
   end
 
   it 'create migration_session' do

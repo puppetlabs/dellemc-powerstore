@@ -3,7 +3,7 @@ require 'spec_helper_acceptance'
 describe 'powerstore_physical_switch' do
   it 'get physical_switch' do
     result = run_resource('powerstore_physical_switch')
-    expect(result).to match(%r{ensure => 'present'})
+    expect(result).to match(%r{ensure => 'present'}).or match(%r{Completed get, returning hash \[\]})
   end
 
   it 'create physical_switch' do

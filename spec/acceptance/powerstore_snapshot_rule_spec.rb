@@ -3,7 +3,7 @@ require 'spec_helper_acceptance'
 describe 'powerstore_snapshot_rule' do
   it 'get snapshot_rule' do
     result = run_resource('powerstore_snapshot_rule')
-    expect(result).to match(%r{ensure => 'present'})
+    expect(result).to match(%r{ensure => 'present'}).or match(%r{Completed get, returning hash \[\]})
   end
 
   it 'create snapshot_rule' do

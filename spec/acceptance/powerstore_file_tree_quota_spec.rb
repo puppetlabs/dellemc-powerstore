@@ -3,7 +3,7 @@ require 'spec_helper_acceptance'
 describe 'powerstore_file_tree_quota' do
   it 'get file_tree_quota' do
     result = run_resource('powerstore_file_tree_quota')
-    expect(result).to match(%r{ensure => 'present'})
+    expect(result).to match(%r{ensure => 'present'}).or match(%r{Completed get, returning hash \[\]})
   end
 
   it 'create file_tree_quota' do

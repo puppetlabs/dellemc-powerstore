@@ -3,7 +3,7 @@ require 'spec_helper_acceptance'
 describe 'powerstore_host' do
   it 'get host' do
     result = run_resource('powerstore_host')
-    expect(result).to match(%r{ensure => 'present'})
+    expect(result).to match(%r{ensure => 'present'}).or match(%r{Completed get, returning hash \[\]})
   end
 
   it 'create host' do

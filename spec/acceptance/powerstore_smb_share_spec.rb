@@ -3,7 +3,7 @@ require 'spec_helper_acceptance'
 describe 'powerstore_smb_share' do
   it 'get smb_share' do
     result = run_resource('powerstore_smb_share')
-    expect(result).to match(%r{ensure => 'present'})
+    expect(result).to match(%r{ensure => 'present'}).or match(%r{Completed get, returning hash \[\]})
   end
 
   it 'create smb_share' do

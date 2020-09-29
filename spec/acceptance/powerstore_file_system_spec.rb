@@ -3,7 +3,7 @@ require 'spec_helper_acceptance'
 describe 'powerstore_file_system' do
   it 'get file_system' do
     result = run_resource('powerstore_file_system')
-    expect(result).to match(%r{ensure => 'present'})
+    expect(result).to match(%r{ensure => 'present'}).or match(%r{Completed get, returning hash \[\]})
   end
 
   it 'create file_system' do

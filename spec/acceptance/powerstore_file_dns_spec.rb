@@ -3,7 +3,7 @@ require 'spec_helper_acceptance'
 describe 'powerstore_file_dns' do
   it 'get file_dns' do
     result = run_resource('powerstore_file_dns')
-    expect(result).to match(%r{ensure => 'present'})
+    expect(result).to match(%r{ensure => 'present'}).or match(%r{Completed get, returning hash \[\]})
   end
 
   it 'create file_dns' do

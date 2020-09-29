@@ -3,7 +3,7 @@ require 'spec_helper_acceptance'
 describe 'powerstore_volume_group' do
   it 'get volume_group' do
     result = run_resource('powerstore_volume_group')
-    expect(result).to match(%r{ensure => 'present'})
+    expect(result).to match(%r{ensure => 'present'}).or match(%r{Completed get, returning hash \[\]})
   end
 
   it 'create volume_group' do
