@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_nfs_server' do
   it 'get nfs_server' do
-    result = run_resource('powerstore_nfs_server', 'string')
+    result = run_resource('powerstore_nfs_server')
     expect(result).to match(%r{ensure => 'present'})
   end
 

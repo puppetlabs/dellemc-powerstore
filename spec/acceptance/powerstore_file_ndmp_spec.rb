@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_file_ndmp' do
   it 'get file_ndmp' do
-    result = run_resource('powerstore_file_ndmp', 'string')
+    result = run_resource('powerstore_file_ndmp')
     expect(result).to match(%r{ensure => 'present'})
   end
 

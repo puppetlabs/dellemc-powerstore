@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_file_nis' do
   it 'get file_nis' do
-    result = run_resource('powerstore_file_nis', 'string')
+    result = run_resource('powerstore_file_nis')
     expect(result).to match(%r{ensure => 'present'})
   end
 

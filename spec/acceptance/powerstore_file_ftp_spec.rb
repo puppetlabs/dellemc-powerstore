@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_file_ftp' do
   it 'get file_ftp' do
-    result = run_resource('powerstore_file_ftp', 'string')
+    result = run_resource('powerstore_file_ftp')
     expect(result).to match(%r{ensure => 'present'})
   end
 

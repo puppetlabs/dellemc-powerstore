@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_import_session' do
   it 'get import_session' do
-    result = run_resource('powerstore_import_session', 'string')
+    result = run_resource('powerstore_import_session')
     expect(result).to match(%r{ensure => 'present'})
   end
 

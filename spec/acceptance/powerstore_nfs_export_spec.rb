@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_nfs_export' do
   it 'get nfs_export' do
-    result = run_resource('powerstore_nfs_export', 'string')
+    result = run_resource('powerstore_nfs_export')
     expect(result).to match(%r{ensure => 'present'})
   end
 

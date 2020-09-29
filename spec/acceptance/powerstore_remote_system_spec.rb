@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_remote_system' do
   it 'get remote_system' do
-    result = run_resource('powerstore_remote_system', 'string')
+    result = run_resource('powerstore_remote_system')
     expect(result).to match(%r{ensure => 'present'})
   end
 

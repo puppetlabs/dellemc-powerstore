@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_migration_session' do
   it 'get migration_session' do
-    result = run_resource('powerstore_migration_session', 'string')
+    result = run_resource('powerstore_migration_session')
     expect(result).to match(%r{ensure => 'present'})
   end
 

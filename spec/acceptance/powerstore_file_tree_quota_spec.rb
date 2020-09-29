@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_file_tree_quota' do
   it 'get file_tree_quota' do
-    result = run_resource('powerstore_file_tree_quota', 'string')
+    result = run_resource('powerstore_file_tree_quota')
     expect(result).to match(%r{ensure => 'present'})
   end
 

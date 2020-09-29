@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_storage_container' do
   it 'get storage_container' do
-    result = run_resource('powerstore_storage_container', 'string')
+    result = run_resource('powerstore_storage_container')
     expect(result).to match(%r{ensure => 'present'})
   end
 

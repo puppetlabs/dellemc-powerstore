@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_host' do
   it 'get host' do
-    result = run_resource('powerstore_host', 'string')
+    result = run_resource('powerstore_host')
     expect(result).to match(%r{ensure => 'present'})
   end
 

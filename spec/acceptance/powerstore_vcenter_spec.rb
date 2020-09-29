@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_vcenter' do
   it 'get vcenter' do
-    result = run_resource('powerstore_vcenter', 'string')
+    result = run_resource('powerstore_vcenter')
     expect(result).to match(%r{ensure => 'present'})
   end
 

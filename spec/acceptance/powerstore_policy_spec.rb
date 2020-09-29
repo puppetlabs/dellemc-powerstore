@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_policy' do
   it 'get policy' do
-    result = run_resource('powerstore_policy', 'string')
+    result = run_resource('powerstore_policy')
     expect(result).to match(%r{ensure => 'present'})
   end
 

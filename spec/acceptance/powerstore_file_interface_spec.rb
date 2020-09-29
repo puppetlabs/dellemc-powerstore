@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_file_interface' do
   it 'get file_interface' do
-    result = run_resource('powerstore_file_interface', 'string')
+    result = run_resource('powerstore_file_interface')
     expect(result).to match(%r{ensure => 'present'})
   end
 

@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_file_kerberos' do
   it 'get file_kerberos' do
-    result = run_resource('powerstore_file_kerberos', 'string')
+    result = run_resource('powerstore_file_kerberos')
     expect(result).to match(%r{ensure => 'present'})
   end
 

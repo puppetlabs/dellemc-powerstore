@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_file_ldap' do
   it 'get file_ldap' do
-    result = run_resource('powerstore_file_ldap', 'string')
+    result = run_resource('powerstore_file_ldap')
     expect(result).to match(%r{ensure => 'present'})
   end
 

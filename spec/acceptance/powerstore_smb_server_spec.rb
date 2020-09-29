@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_smb_server' do
   it 'get smb_server' do
-    result = run_resource('powerstore_smb_server', 'string')
+    result = run_resource('powerstore_smb_server')
     expect(result).to match(%r{ensure => 'present'})
   end
 

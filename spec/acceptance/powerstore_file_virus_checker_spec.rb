@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_file_virus_checker' do
   it 'get file_virus_checker' do
-    result = run_resource('powerstore_file_virus_checker', 'string')
+    result = run_resource('powerstore_file_virus_checker')
     expect(result).to match(%r{ensure => 'present'})
   end
 

@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_volume_group' do
   it 'get volume_group' do
-    result = run_resource('powerstore_volume_group', 'string')
+    result = run_resource('powerstore_volume_group')
     expect(result).to match(%r{ensure => 'present'})
   end
 

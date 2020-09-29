@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_email_notify_destination' do
   it 'get email_notify_destination' do
-    result = run_resource('powerstore_email_notify_destination', 'string')
+    result = run_resource('powerstore_email_notify_destination')
     expect(result).to match(%r{ensure => 'present'})
   end
 

@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_nas_server' do
   it 'get nas_server' do
-    result = run_resource('powerstore_nas_server', 'string')
+    result = run_resource('powerstore_nas_server')
     expect(result).to match(%r{ensure => 'present'})
   end
 

@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'powerstore_replication_rule' do
   it 'get replication_rule' do
-    result = run_resource('powerstore_replication_rule', 'string')
+    result = run_resource('powerstore_replication_rule')
     expect(result).to match(%r{ensure => 'present'})
   end
 
