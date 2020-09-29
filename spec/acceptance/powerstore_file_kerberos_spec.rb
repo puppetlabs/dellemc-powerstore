@@ -8,10 +8,22 @@ describe 'powerstore_file_kerberos' do
 
   it 'create file_kerberos' do
     pp = run_resource('powerstore_file_kerberos', 'string', false)
+    pp.gsub!("string", "string_1")
     make_site_pp(pp)
     result = run_device(allow_changes: true)
     expect(result).to match(%r{Applied catalog.*})
   end
+
+  
+  it 'update file_kerberos' do
+    pp = run_resource('powerstore_file_kerberos', 'string', false)
+    pp.gsub!("=> 'string'", "=> 'string_1'")
+    pp.gsub!("=> false", "=> true")
+    make_site_pp(pp)
+    result = run_device(allow_changes: true)
+    expect(result).to match(%r{Applied catalog.*})
+  end
+
 
   it 'delete file_kerberos' do
     pp = <<-EOS

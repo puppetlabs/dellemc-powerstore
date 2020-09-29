@@ -8,10 +8,22 @@ describe 'powerstore_host' do
 
   it 'create host' do
     pp = run_resource('powerstore_host', 'string', false)
+    pp.gsub!("string", "string_1")
     make_site_pp(pp)
     result = run_device(allow_changes: true)
     expect(result).to match(%r{Applied catalog.*})
   end
+
+  
+  it 'update host' do
+    pp = run_resource('powerstore_host', 'string', false)
+    pp.gsub!("=> 'string'", "=> 'string_1'")
+    pp.gsub!("=> false", "=> true")
+    make_site_pp(pp)
+    result = run_device(allow_changes: true)
+    expect(result).to match(%r{Applied catalog.*})
+  end
+
 
   it 'delete host' do
     pp = <<-EOS

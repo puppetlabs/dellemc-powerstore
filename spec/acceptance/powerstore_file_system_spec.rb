@@ -8,10 +8,22 @@ describe 'powerstore_file_system' do
 
   it 'create file_system' do
     pp = run_resource('powerstore_file_system', 'string', false)
+    pp.gsub!("string", "string_1")
     make_site_pp(pp)
     result = run_device(allow_changes: true)
     expect(result).to match(%r{Applied catalog.*})
   end
+
+  
+  it 'update file_system' do
+    pp = run_resource('powerstore_file_system', 'string', false)
+    pp.gsub!("=> 'string'", "=> 'string_1'")
+    pp.gsub!("=> false", "=> true")
+    make_site_pp(pp)
+    result = run_device(allow_changes: true)
+    expect(result).to match(%r{Applied catalog.*})
+  end
+
 
   it 'delete file_system' do
     pp = <<-EOS

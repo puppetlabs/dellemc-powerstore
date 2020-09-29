@@ -23,7 +23,8 @@ context.debug("Entered get")
     changes.each do |name, change|
       #binding.pry
       context.debug("set change with #{name} and #{change}")
-      is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:id] == name }
+      #FIXME: key[:name] below hardwires the unique key of the resource to be :name
+      is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
       should = change[:should]
 
       is = { name: name, ensure: 'absent' } if is.nil?
@@ -34,7 +35,7 @@ context.debug("Entered get")
       elsif is[:ensure].to_s == 'present' && should[:ensure].to_s == 'absent'
         context.deleting(name) do
           # FIXME hardwired
-          # should[:id] = is[:id]
+          should[:id] = is[:id]
           delete(context, should) unless noop
         end
       elsif is[:ensure].to_s == 'absent' && should[:ensure].to_s == 'absent'
@@ -108,7 +109,7 @@ context.debug("Entered get")
 
   def delete(context, should)
     new_hash = build_hash(should)
-    response = self.class.invoke_delete(context, should, new_hash)
+    response = self.class.invoke_delete(context, should) # , new_hash)
     if response.is_a? Net::HTTPSuccess
       should[:ensure] = 'absent'
       Puppet.info "Added 'absent' to property_hash"

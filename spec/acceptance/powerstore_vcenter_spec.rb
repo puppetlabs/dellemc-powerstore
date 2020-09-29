@@ -8,10 +8,22 @@ describe 'powerstore_vcenter' do
 
   it 'create vcenter' do
     pp = run_resource('powerstore_vcenter', 'string', false)
+    pp.gsub!("string", "string_1")
     make_site_pp(pp)
     result = run_device(allow_changes: true)
     expect(result).to match(%r{Applied catalog.*})
   end
+
+  
+  it 'update vcenter' do
+    pp = run_resource('powerstore_vcenter', 'string', false)
+    pp.gsub!("=> 'string'", "=> 'string_1'")
+    pp.gsub!("=> false", "=> true")
+    make_site_pp(pp)
+    result = run_device(allow_changes: true)
+    expect(result).to match(%r{Applied catalog.*})
+  end
+
 
   it 'delete vcenter' do
     pp = <<-EOS

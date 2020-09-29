@@ -8,10 +8,22 @@ describe 'powerstore_import_session' do
 
   it 'create import_session' do
     pp = run_resource('powerstore_import_session', 'string', false)
+    pp.gsub!("string", "string_1")
     make_site_pp(pp)
     result = run_device(allow_changes: true)
     expect(result).to match(%r{Applied catalog.*})
   end
+
+  
+  it 'update import_session' do
+    pp = run_resource('powerstore_import_session', 'string', false)
+    pp.gsub!("=> 'string'", "=> 'string_1'")
+    pp.gsub!("=> false", "=> true")
+    make_site_pp(pp)
+    result = run_device(allow_changes: true)
+    expect(result).to match(%r{Applied catalog.*})
+  end
+
 
   it 'delete import_session' do
     pp = <<-EOS
