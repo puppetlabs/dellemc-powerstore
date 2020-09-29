@@ -96,6 +96,8 @@ module Puppet::Transport
       uri_string = "#{connection_info[:schema]}://#{connection_info[:host]}:#{connection_info[:port]}#{connection_info[:base_path]}#{operation_path}" % path_params
       if query_params.size > 0
         uri_string = uri_string + '?' + to_query(query_params)
+      elsif operation_verb == 'Get'
+        uri_string += '?select=*'
       end
       header_params['Content-Type'] = parent_consumes
       verify_mode= OpenSSL::SSL::VERIFY_NONE
