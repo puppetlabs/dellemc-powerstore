@@ -14,22 +14,22 @@ powerstore_file_interface {
   ip_address => "ip_address (optional)",
   is_disabled => "is_disabled (optional)",
   nas_server_id => "nas_server_id",
-  prefix_length => "1234 (optional)",
+  prefix_length => "prefix_length (optional)",
   role => "role (optional)",
-  vlan_id => "1234 (optional)",
+  vlan_id => "vlan_id (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|gateway | String | false |
+|gateway | String[0,45] | false |
 |id | String | true |
-|ip_address | String | false |
+|ip_address | String[0,45] | false |
 |is_disabled | Boolean | false |
 |nas_server_id | String | true |
-|prefix_length | Integer | false |
+|prefix_length | Integer[1, 128] | false |
 |role | String | false |
-|vlan_id | Integer | false |
+|vlan_id | Integer[0, 4094] | false |
 
 
 

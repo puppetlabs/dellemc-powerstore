@@ -20,7 +20,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     domain:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,255]]',
       desc:      "Name of the DNS domain, where the NAS Server does host names lookup when an FQDN is not specified in the request.",
       behaviour: :init_only,
     },

@@ -20,7 +20,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     description:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,128]]',
       desc:      "New description of the volume. This value must contain 128 or fewer printable Unicode characters.",
       behaviour: :init_only,
     },
@@ -55,17 +55,17 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     logical_unit_number:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[0, 16383]]',
       desc:      "Optional logical unit number when creating a  attached volume.  If no host_id or host_group_id is specified, this property is ignored.",
       behaviour: :init_only,
     },
     min_size:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[0, 9223372036854775808]]',
       desc:      "Optional minimum size for the volume, in bytes.",
       behaviour: :init_only,
     },
     name:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,128]]',
       desc:      "New name of the volume. This value must contain 128 or fewer printable Unicode characters.",
       behaviour: :namevar,
     },
@@ -85,12 +85,12 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     sector_size:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[512, 4096]]',
       desc:      "Optional sector size, in bytes. Only 512-byte and 4096-byte sectors are supported.",
       behaviour: :init_only,
     },
     size:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[8192, 281474976710656]]',
       desc:      "New size of the volume in bytes,  must be a multiple of 8192, must be bigger than the current volume size. Maximum volume size is 256TB.",
       behaviour: :init_only,
     },

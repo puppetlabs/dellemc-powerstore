@@ -15,7 +15,7 @@ Puppet::ResourceApi.register_type(
     },
 
     description:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,511]]',
       desc:      "NFS Share description.",
       behaviour: :init_only,
     },
@@ -50,7 +50,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      'String',
+      type:      'String[0,80]',
       desc:      "SMB share name.",
       behaviour: :namevar,
     },

@@ -17,14 +17,14 @@ powerstore_volume {
   host_id => "host_id (optional)",
   id => "id",
   is_replication_destination => "is_replication_destination (optional)",
-  logical_unit_number => "1234 (optional)",
-  min_size => "1234 (optional)",
+  logical_unit_number => "logical_unit_number (optional)",
+  min_size => "min_size (optional)",
   name => "name (optional)",
   node_affinity => "node_affinity (optional)",
   performance_policy_id => "performance_policy_id (optional)",
   protection_policy_id => "protection_policy_id (optional)",
-  sector_size => "1234 (optional)",
-  size => "1234 (optional)",
+  sector_size => "sector_size (optional)",
+  size => "size (optional)",
   volume_group_id => "volume_group_id (optional)",
 }
 ```
@@ -32,21 +32,21 @@ powerstore_volume {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |appliance_id | String | false |
-|description | String | false |
+|description | String[0,128] | false |
 |expiration_timestamp | String | false |
 |force | Boolean | false |
 |host_group_id | String | false |
 |host_id | String | false |
 |id | String | true |
 |is_replication_destination | Boolean | false |
-|logical_unit_number | Integer | false |
-|min_size | Integer | false |
-|name | String | false |
+|logical_unit_number | Integer[0, 16383] | false |
+|min_size | Integer[0, 9223372036854775808] | false |
+|name | String[0,128] | false |
 |node_affinity | String | false |
 |performance_policy_id | String | false |
 |protection_policy_id | String | false |
-|sector_size | Integer | false |
-|size | Integer | false |
+|sector_size | Integer[512, 4096] | false |
+|size | Integer[8192, 281474976710656] | false |
 |volume_group_id | String | false |
 
 

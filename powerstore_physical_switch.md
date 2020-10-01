@@ -20,7 +20,7 @@ powerstore_physical_switch {
 | ------------- | ------------- | ------------- |
 |connections | Array | false |
 |id | String | true |
-|name | String | false |
+|name | String[0,128] | false |
 |purpose | String | false |
 
 

@@ -20,7 +20,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     domain:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,255]]',
       desc:      "Name of the NIS domain.",
       behaviour: :init_only,
     },

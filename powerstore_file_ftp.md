@@ -13,7 +13,7 @@ powerstore_file_ftp {
   add_hosts => "add_hosts (optional)",
   add_users => "add_users (optional)",
   audit_dir => "audit_dir (optional)",
-  audit_max_size => "1234 (optional)",
+  audit_max_size => "audit_max_size (optional)",
   default_homedir => "default_homedir (optional)",
   groups => "groups (optional)",
   hosts => "hosts (optional)",
@@ -44,7 +44,7 @@ powerstore_file_ftp {
 |add_hosts | Array | false |
 |add_users | Array | false |
 |audit_dir | String | false |
-|audit_max_size | Integer | false |
+|audit_max_size | Integer[40960, 9223372036854775808] | false |
 |default_homedir | String | false |
 |groups | Array | false |
 |hosts | Array | false |

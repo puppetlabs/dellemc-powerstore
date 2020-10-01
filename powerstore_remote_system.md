@@ -26,12 +26,12 @@ powerstore_remote_system {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |data_network_latency | String | false |
-|description | String | false |
+|description | String[0,256] | false |
 |discovery_chap_mode | String | false |
 |import_chap_info | Hash | false |
 |iscsi_addresses | Array | false |
 |management_address | String | false |
-|name | String | false |
+|name | String[0,128] | false |
 |remote_password | String | false |
 |remote_username | String | false |
 |session_chap_mode | String | false |

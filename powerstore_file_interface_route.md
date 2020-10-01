@@ -13,7 +13,7 @@ powerstore_file_interface_route {
   file_interface_id => "file_interface_id",
   gateway => "gateway (optional)",
   id => "id",
-  prefix_length => "1234 (optional)",
+  prefix_length => "prefix_length (optional)",
 }
 ```
 
@@ -21,9 +21,9 @@ powerstore_file_interface_route {
 | ------------- | ------------- | ------------- |
 |destination | String | false |
 |file_interface_id | String | true |
-|gateway | String | false |
+|gateway | String[0,45] | false |
 |id | String | true |
-|prefix_length | Integer | false |
+|prefix_length | Integer[1, 128] | false |
 
 
 

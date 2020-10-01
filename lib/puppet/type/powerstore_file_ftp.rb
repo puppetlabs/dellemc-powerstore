@@ -35,7 +35,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     audit_max_size:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[40960, 9223372036854775808]]',
       desc:      "(Applies when the value of is_audit_enabled is true.) Maximum size of all (current plus archived) FTP/SFTP audit files, in bytes.There is a maximum of 5 audit files, 1 current audit file (ftp.log) and 4 archived audit files.The maximum value for this setting is 5GB (each file of 1GB) if the audit directory belongs to a user file system of the NAS server.If the audit directory is '/', the maximum value is 5MB (each file of 1MB).The minimum value is 40kB (each file of 8KB) on any file system.",
       behaviour: :init_only,
     },

@@ -20,7 +20,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     description:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,128]]',
       desc:      "Description of the import session. The name can contain a maximum of 128 unicode characters. It cannot contain unprintable characters.",
       behaviour: :init_only,
     },
@@ -30,7 +30,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      'String',
+      type:      'String[0,128]',
       desc:      "Name of the import session. The name must be unique in the PowerStore cluster and can contain a maximum of 128 unicode characters. It cannot contain special HTTP characters, unprintable characters, or white space.",
       behaviour: :namevar,
     },

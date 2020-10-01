@@ -20,7 +20,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     description:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,256]]',
       desc:      "An optional description for the host group. The description should not be more than 256 UTF-8  characters long and should not have any unprintable characters.",
       behaviour: :init_only,
     },
@@ -35,7 +35,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,128]]',
       desc:      "A new host group name. The name should not be more than 128 UTF-8 characters long and should not have any unprintable characters.",
       behaviour: :namevar,
     },

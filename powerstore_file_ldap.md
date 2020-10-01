@@ -12,17 +12,17 @@ powerstore_file_ldap {
   add_addresses => "add_addresses (optional)",
   addresses => "addresses (optional)",
   authentication_type => "authentication_type (optional)",
-  base_dn => "base_dn (optional)",
-  bind_dn => "bind_dn (optional)",
+  base_dn => "base_DN (optional)",
+  bind_dn => "bind_DN (optional)",
   bind_password => "bind_password (optional)",
   id => "id",
   is_smb_account_used => "is_smb_account_used (optional)",
   is_verify_server_certificate => "is_verify_server_certificate (optional)",
   nas_server_id => "nas_server_id",
   password => "password (optional)",
-  port_number => "1234 (optional)",
+  port_number => "port_number (optional)",
   principal => "principal (optional)",
-  profile_dn => "profile_dn (optional)",
+  profile_dn => "profile_DN (optional)",
   protocol => "protocol (optional)",
   realm => "realm (optional)",
   remove_addresses => "remove_addresses (optional)",
@@ -34,19 +34,19 @@ powerstore_file_ldap {
 |add_addresses | Array | false |
 |addresses | Array | false |
 |authentication_type | String | false |
-|base_dn | String | false |
-|bind_dn | String | false |
-|bind_password | String | false |
+|base_dn | String[0,255] | false |
+|bind_dn | String[0,1023] | false |
+|bind_password | String[0,1023] | false |
 |id | String | true |
 |is_smb_account_used | Boolean | false |
 |is_verify_server_certificate | Boolean | false |
 |nas_server_id | String | true |
-|password | String | false |
-|port_number | Integer | false |
-|principal | String | false |
-|profile_dn | String | false |
+|password | String[0,1023] | false |
+|port_number | Integer[0, 65536] | false |
+|principal | String[0,1023] | false |
+|profile_dn | String[0,255] | false |
 |protocol | String | false |
-|realm | String | false |
+|realm | String[0,255] | false |
 |remove_addresses | Array | false |
 
 

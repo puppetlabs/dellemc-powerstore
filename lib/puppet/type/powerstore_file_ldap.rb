@@ -30,17 +30,17 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     base_dn:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,255]]',
       desc:      "Name of the LDAP base DN. Base Distinguished Name (BDN) of the root of the LDAP directory tree. The appliance uses the DN to bind to the LDAP service and locate in the LDAP directory tree to begin a search for information.  The base DN can be expressed as a fully-qualified domain name or in X.509 format by using the attribute dc=. For example, if the fully-qualified domain name is mycompany.com, the base DN is expressed as dc=mycompany,dc=com.",
       behaviour: :init_only,
     },
     bind_dn:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,1023]]',
       desc:      "Bind Distinguished Name (DN) to be used when binding.",
       behaviour: :init_only,
     },
     bind_password:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,1023]]',
       desc:      "The associated password to be used when binding to the server.",
       behaviour: :init_only,
     },
@@ -65,22 +65,22 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     password:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,1023]]',
       desc:      "The associated password for Kerberos authentication.",
       behaviour: :init_only,
     },
     port_number:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[0, 65536]]',
       desc:      "The TCP/IP port used by the NAS Server to connect to the LDAP servers.",
       behaviour: :init_only,
     },
     principal:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,1023]]',
       desc:      "Specifies the principal name for Kerberos authentication.",
       behaviour: :init_only,
     },
     profile_dn:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,255]]',
       desc:      "For an iPlanet LDAP server, specifies the DN of the entry with the configuration profile.",
       behaviour: :init_only,
     },
@@ -90,7 +90,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     realm:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,255]]',
       desc:      "Specifies the realm name for Kerberos authentication.",
       behaviour: :init_only,
     },

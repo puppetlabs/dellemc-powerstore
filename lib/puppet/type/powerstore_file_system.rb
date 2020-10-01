@@ -20,17 +20,17 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     default_hard_limit:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[0, 9223372036854775808]]',
       desc:      "Default hard limit of user quotas and tree quotas (bytes). The hard limit value is always rounded up to match the file system's physical block size.(0 means 'No limitation'. This value can be used to compute the amount of space consumed without limiting the space).",
       behaviour: :init_only,
     },
     default_soft_limit:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[0, 9223372036854775808]]',
       desc:      "Default soft limit of user quotas and tree quotas (bytes). Value is always rounded up to match the file system's physical block size.(0 means 'No limitation'.)",
       behaviour: :init_only,
     },
     description:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,255]]',
       desc:      "File system description. (255 UTF-8 characters).",
       behaviour: :init_only,
     },
@@ -45,7 +45,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     grace_period:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[18446744073709551615, 2147483647]]',
       desc:      "Grace period of soft limits (seconds): -1: default: Infinite grace (Windows policy).  0: Use system default of 1 week. positive: Grace period after which the soft limit is treated as a hard limit (seconds).",
       behaviour: :init_only,
     },
@@ -95,7 +95,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      'String',
+      type:      'String[0,255]',
       desc:      "Name of the file system. (255 UTF-8 characters).",
       behaviour: :namevar,
     },
@@ -110,12 +110,12 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     size_total:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[3221225472, 281474976710656]]',
       desc:      "Size, in bytes, presented to the host or end user. This can be used for both expand and shrink on a file system.",
       behaviour: :init_only,
     },
     smb_notify_on_change_dir_depth:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[1, 512]]',
       desc:      "Lowest directory level to which the enabled notifications apply, if any.",
       behaviour: :init_only,
     },

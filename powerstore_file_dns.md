@@ -22,7 +22,7 @@ powerstore_file_dns {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |add_ip_addresses | Array | false |
-|domain | String | false |
+|domain | String[0,255] | false |
 |id | String | true |
 |ip_addresses | Array | false |
 |nas_server_id | String | true |

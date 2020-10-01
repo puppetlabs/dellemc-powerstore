@@ -25,7 +25,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     gateway:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,45]]',
       desc:      "IP address of the gateway associated with the route.",
       behaviour: :init_only,
     },
@@ -35,7 +35,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     prefix_length:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[1, 128]]',
       desc:      "IPv4 or IPv6 prefix length for the route.",
       behaviour: :init_only,
     },

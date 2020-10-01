@@ -10,7 +10,7 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 ```puppet
 powerstore_snapshot_rule {
   days_of_week => "days_of_week (optional)",
-  desired_retention => "1234 (optional)",
+  desired_retention => "desired_retention (optional)",
   id => "id",
   interval => "interval (optional)",
   name => "name (optional)",
@@ -21,7 +21,7 @@ powerstore_snapshot_rule {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |days_of_week | Array | false |
-|desired_retention | Integer | false |
+|desired_retention | Integer[1, 8760] | false |
 |id | String | true |
 |interval | String | false |
 |name | String | false |

@@ -9,7 +9,7 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 
 ```puppet
 powerstore_nfs_server {
-  credentials_cache_ttl => "1234 (optional)",
+  credentials_cache_ttl => "credentials_cache_TTL (optional)",
   host_name => "host_name (optional)",
   id => "id",
   is_extended_credentials_enabled => "is_extended_credentials_enabled (optional)",
@@ -24,8 +24,8 @@ powerstore_nfs_server {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|credentials_cache_ttl | Integer | false |
-|host_name | String | false |
+|credentials_cache_ttl | Integer[0, 2147483647] | false |
+|host_name | String[0,255] | false |
 |id | String | true |
 |is_extended_credentials_enabled | Boolean | false |
 |is_nfsv3_enabled | Boolean | false |

@@ -15,7 +15,7 @@ Puppet::ResourceApi.register_type(
     },
 
     description:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,256]]',
       desc:      "New description for the volume group. The description should not have any unprintable characters.If an empty string is specified, the description will be cleared.",
       behaviour: :init_only,
     },
@@ -35,7 +35,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,128]]',
       desc:      "New name for the volume group. The name should contain no special HTTP characters and no unprintable characters. Although the case of the name provided is reserved, uniqueness check is case-insensitive, so the same name in two different cases is not considered unique.",
       behaviour: :namevar,
     },

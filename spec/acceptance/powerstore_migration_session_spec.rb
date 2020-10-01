@@ -1,14 +1,17 @@
 require 'spec_helper_acceptance'
 
-describe 'powerstore_migration_session' do
-  it 'get migration_session' do
-    result = run_resource('powerstore_migration_session')
+type_name = 'powerstore_migration_session'
+
+describe type_name do
+  it "get #{type_name}"  do
+    result = run_resource(type_name)
     expect(result).to match(%r{ensure => 'present'}).or match(%r{Completed get, returning hash \[\]})
   end
 
-  it 'create migration_session' do
-    pp = run_resource('powerstore_migration_session', 'string', false)
-    pp.gsub!("string", "string_1")
+  it "create #{type_name}" do
+    r = sample_resource(type_name)
+    r[:ensure] = 'present'
+    pp = manifest_from_values(type_name, r)
     make_site_pp(pp)
     result = run_device(allow_changes: true)
     expect(result).to match(%r{Applied catalog.*})
@@ -16,14 +19,13 @@ describe 'powerstore_migration_session' do
 
   
 
-  it 'delete migration_session' do
-    pp = <<-EOS
-    powerstore_migration_session { 'string':
-      ensure => absent,
-    }
-    EOS
+  it "delete #{type_name}" do
+    r = sample_resource(type_name)
+    r[:ensure] = 'absent'
+    pp = manifest_from_values(type_name, r)
     make_site_pp(pp)
     result = run_device(allow_changes: true)
     expect(result).to match(%r{Applied catalog.*})
   end
+
 end

@@ -11,15 +11,15 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 powerstore_storage_container {
   id => "id",
   name => "name (optional)",
-  quota => "1234 (optional)",
+  quota => "quota (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |id | String | true |
-|name | String | false |
-|quota | Integer | false |
+|name | String[0,64] | false |
+|quota | Integer[0, 4611686018427387904] | false |
 
 
 

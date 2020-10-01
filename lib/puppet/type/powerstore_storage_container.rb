@@ -20,12 +20,12 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,64]]',
       desc:      "New name for the storage container that is unique across all storage containers in the cluster. The name must be between 1 and 64 UTF-8 characters (inclusive), and not more than 127 bytes.",
       behaviour: :namevar,
     },
     quota:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[0, 4611686018427387904]]',
       desc:      "The number of bytes that can be provisioned against this storage container. It cannot be set lower than the current used space or 10Gb.  A value of 0 means unlimited.",
       behaviour: :init_only,
     },

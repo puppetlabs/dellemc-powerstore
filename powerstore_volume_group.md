@@ -21,11 +21,11 @@ powerstore_volume_group {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|description | String | false |
+|description | String[0,256] | false |
 |force | Boolean | false |
 |is_replication_destination | Boolean | false |
 |is_write_order_consistent | Boolean | false |
-|name | String | false |
+|name | String[0,128] | false |
 |protection_policy_id | String | false |
 |volume_ids | Array | false |
 

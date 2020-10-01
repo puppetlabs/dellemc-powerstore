@@ -23,11 +23,11 @@ powerstore_host {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |add_initiators | Array | false |
-|description | String | false |
+|description | String[0,256] | false |
 |id | String | true |
 |initiators | Array | true |
 |modify_initiators | Array | false |
-|name | String | false |
+|name | String[0,128] | false |
 |os_type | String | true |
 |remove_initiators | Array | false |
 

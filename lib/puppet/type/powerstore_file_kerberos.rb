@@ -35,12 +35,12 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     port_number:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[0, 65535]]',
       desc:      "KDC servers TCP port.",
       behaviour: :init_only,
     },
     realm:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,255]]',
       desc:      "Realm name of the Kerberos Service.",
       behaviour: :init_only,
     },

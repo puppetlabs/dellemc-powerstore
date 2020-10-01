@@ -13,7 +13,7 @@ powerstore_file_kerberos {
   id => "id",
   kdc_addresses => "kdc_addresses (optional)",
   nas_server_id => "nas_server_id",
-  port_number => "1234 (optional)",
+  port_number => "port_number (optional)",
   realm => "realm (optional)",
   remove_kdc_addresses => "remove_kdc_addresses (optional)",
 }
@@ -25,8 +25,8 @@ powerstore_file_kerberos {
 |id | String | true |
 |kdc_addresses | Array | false |
 |nas_server_id | String | true |
-|port_number | Integer | false |
-|realm | String | false |
+|port_number | Integer[0, 65535] | false |
+|realm | String[0,255] | false |
 |remove_kdc_addresses | Array | false |
 
 

@@ -35,17 +35,17 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     default_unix_user:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,63]]',
       desc:      "Default Unix user name used for granting access in case of Windows to Unix user mapping failure. When empty, access in such case is denied.",
       behaviour: :init_only,
     },
     default_windows_user:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,1023]]',
       desc:      "Default Windows user name used for granting access in case of Unix to Windows user mapping failure. When empty, access in such case is denied.",
       behaviour: :init_only,
     },
     description:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,255]]',
       desc:      "Description of the NAS server.",
       behaviour: :init_only,
     },
@@ -65,7 +65,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,255]]',
       desc:      "Name of the NAS server.",
       behaviour: :namevar,
     },

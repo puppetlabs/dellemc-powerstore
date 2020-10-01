@@ -21,10 +21,10 @@ powerstore_host_group {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |add_host_ids | Array | false |
-|description | String | false |
+|description | String[0,256] | false |
 |host_ids | Array | true |
 |id | String | true |
-|name | String | false |
+|name | String[0,128] | false |
 |remove_host_ids | Array | false |
 
 

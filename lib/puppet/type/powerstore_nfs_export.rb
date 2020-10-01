@@ -40,12 +40,12 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     anonymous_gid:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[18446744071562067968, 2147483647]]',
       desc:      "Specifies the group ID of the anonymous account.",
       behaviour: :init_only,
     },
     anonymous_uid:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[18446744071562067968, 2147483647]]',
       desc:      "Specifies the user ID of the anonymous account.",
       behaviour: :init_only,
     },
@@ -55,7 +55,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     description:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,511]]',
       desc:      "NFS Export description.",
       behaviour: :init_only,
     },
@@ -80,7 +80,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      'String',
+      type:      'String[0,80]',
       desc:      "NFS Export name.",
       behaviour: :namevar,
     },
@@ -90,7 +90,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     path:          {
-      type:      'String',
+      type:      'String[0,1023]',
       desc:      "Local path to export relative to the file system root directory. With NFS, each export of a file_system or file_snap must have a unique local path.Before you can create additional Exports within an NFS shared folder, you must create directories within it from a Linux/Unix host that is connected to the file system. After a directory has been created from a mounted host, you can create a corresponding Export and set access permissions accordingly.",
       behaviour: :init_only,
     },

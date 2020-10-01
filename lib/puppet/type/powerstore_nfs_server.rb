@@ -15,12 +15,12 @@ Puppet::ResourceApi.register_type(
     },
 
     credentials_cache_ttl:          {
-      type:      'Optional[Integer]',
+      type:      'Optional[Integer[0, 2147483647]]',
       desc:      "Sets the Time-To-Live (in minutes) expiration stamp for a Windows entry in the credentials cache. When failed mapping entries expire, the system retries mapping the UID to the SID.",
       behaviour: :init_only,
     },
     host_name:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,255]]',
       desc:      "The name that will be used by NFS clients to connect to this NFS server. This name is required when using secure NFS, except when is_use_smb_config_enabled is true. In this case host_name is forced to the SMB server computer name, and must not be specified.",
       behaviour: :init_only,
     },

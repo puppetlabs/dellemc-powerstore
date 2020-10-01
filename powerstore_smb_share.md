@@ -25,14 +25,14 @@ powerstore_smb_share {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|description | String | false |
+|description | String[0,511] | false |
 |file_system_id | String | true |
 |id | String | true |
 |is_abe_enabled | Boolean | false |
 |is_branch_cache_enabled | Boolean | false |
 |is_continuous_availability_enabled | Boolean | false |
 |is_encryption_enabled | Boolean | false |
-|name | String | true |
+|name | String[0,80] | true |
 |offline_availability | String | false |
 |path | String | true |
 |umask | String | false |

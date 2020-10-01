@@ -1,3 +1,4 @@
+require 'puppet/resource_api'
 # frozen_string_literal: true
 
 # device_user = ENV['DEVICE_USER']
@@ -51,6 +52,64 @@ def run_resource(resource_type, resource_title = nil, verbose = true)
   output
 end
 
+def namevars(attrs)
+  attrs.select { |_name, options|
+    options.key?(:behaviour) && options[:behaviour] == :namevar
+  }.keys
+end
+
+def type_attrs(type_name)
+  Puppet::Type.type(type_name.to_sym).context.type.attributes
+end
+
+def manifest_from_values(type_name, value_hash)
+  attrs = type_attrs(type_name)
+  resource = Puppet::ResourceApi::ResourceShim.new(value_hash, type_name, namevars(attrs), attrs)
+  manifest = resource.to_manifest
+  manifest
+end
+
+def sample_manifest(type_name)
+  value_hash = sample_resource(type_name)
+  manifest_from_values(type_name, value_hash)
+end
+
+def sample_resource(type_name)
+  attrs = type_attrs(type_name)
+  result = attrs.map { |k,v| [k, sample_value(parse_type(k, attrs[k][:type]))] }.to_h
+  # require 'pry';binding.pry
+  result
+end
+
+def parse_type(name, type)
+  Puppet::ResourceApi::DataTypeHandling.parse_puppet_type(name, type)
+end
+
+def sample_value(type)
+  # require 'pry';binding.pry
+  case type.name
+  when "Optional"
+    sample_value(type.type)
+  when "String"
+    'SomeString'
+  when "Integer"
+    if !type.from.nil? and !type.to.nil?
+      (type.from + type.to) / 2
+    else
+      1984
+    end
+  when "Boolean"
+    true
+  when "Array"
+    [ sample_value(type.element_type), sample_value(type.element_type) ]
+  when "Hash"
+    { sample_value(type.key_type) => sample_value(type.value_type) }
+  when "Enum"
+    type.values[0]
+  else
+    'UnknownType'
+  end
+end
 
 RSpec.configure do |c|
   c.filter_run_excluding(bolt: true) unless ENV['GEM_BOLT']

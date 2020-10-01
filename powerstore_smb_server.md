@@ -23,15 +23,15 @@ powerstore_smb_server {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|computer_name | String | false |
-|description | String | false |
-|domain | String | false |
+|computer_name | String[0,63] | false |
+|description | String[0,48] | false |
+|domain | String[0,255] | false |
 |id | String | true |
 |is_standalone | Boolean | false |
-|local_admin_password | String | false |
+|local_admin_password | String[0,512] | false |
 |nas_server_id | String | true |
 |netbios_name | String | false |
-|workgroup | String | false |
+|workgroup | String[0,15] | false |
 
 
 

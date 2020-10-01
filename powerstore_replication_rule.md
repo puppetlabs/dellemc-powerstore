@@ -9,7 +9,7 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 
 ```puppet
 powerstore_replication_rule {
-  alert_threshold => "1234 (optional)",
+  alert_threshold => "alert_threshold (optional)",
   id => "id",
   name => "name (optional)",
   remote_system_id => "remote_system_id (optional)",
@@ -19,7 +19,7 @@ powerstore_replication_rule {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|alert_threshold | Integer | false |
+|alert_threshold | Integer[0, 1440] | false |
 |id | String | true |
 |name | String | false |
 |remote_system_id | String | false |

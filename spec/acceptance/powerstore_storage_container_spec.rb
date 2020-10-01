@@ -1,38 +1,39 @@
 require 'spec_helper_acceptance'
 
-describe 'powerstore_storage_container' do
-  it 'get storage_container' do
-    result = run_resource('powerstore_storage_container')
+type_name = 'powerstore_storage_container'
+
+describe type_name do
+  it "get #{type_name}"  do
+    result = run_resource(type_name)
     expect(result).to match(%r{ensure => 'present'}).or match(%r{Completed get, returning hash \[\]})
   end
 
-  it 'create storage_container' do
-    pp = run_resource('powerstore_storage_container', 'string', false)
-    pp.gsub!("string", "string_1")
+  it "create #{type_name}" do
+    r = sample_resource(type_name)
+    r[:ensure] = 'present'
+    pp = manifest_from_values(type_name, r)
     make_site_pp(pp)
     result = run_device(allow_changes: true)
     expect(result).to match(%r{Applied catalog.*})
   end
 
   
-  it 'update storage_container' do
-    pp = run_resource('powerstore_storage_container', 'string', false)
-    pp.gsub!("=> 'string'", "=> 'string_1'")
-    pp.gsub!("=> false", "=> true")
+  it "update #{type_name}" do
+    r = sample_resource(type_name)
+    pp = manifest_from_values(type_name, r)
+    make_site_pp(pp)
+    result = run_device(allow_changes: true)
+    expect(result).to match(%r{Applied catalog.*})
+  end
+  
+
+  it "delete #{type_name}" do
+    r = sample_resource(type_name)
+    r[:ensure] = 'absent'
+    pp = manifest_from_values(type_name, r)
     make_site_pp(pp)
     result = run_device(allow_changes: true)
     expect(result).to match(%r{Applied catalog.*})
   end
 
-
-  it 'delete storage_container' do
-    pp = <<-EOS
-    powerstore_storage_container { 'string':
-      ensure => absent,
-    }
-    EOS
-    make_site_pp(pp)
-    result = run_device(allow_changes: true)
-    expect(result).to match(%r{Applied catalog.*})
-  end
 end

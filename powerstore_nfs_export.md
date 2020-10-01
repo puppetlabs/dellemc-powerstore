@@ -14,8 +14,8 @@ powerstore_nfs_export {
   add_read_only_root_hosts => "add_read_only_root_hosts (optional)",
   add_read_write_hosts => "add_read_write_hosts (optional)",
   add_read_write_root_hosts => "add_read_write_root_hosts (optional)",
-  anonymous_gid => "1234 (optional)",
-  anonymous_uid => "1234 (optional)",
+  anonymous_gid => "anonymous_GID (optional)",
+  anonymous_uid => "anonymous_UID (optional)",
   default_access => "default_access (optional)",
   description => "description (optional)",
   file_system_id => "file_system_id",
@@ -44,17 +44,17 @@ powerstore_nfs_export {
 |add_read_only_root_hosts | Array | false |
 |add_read_write_hosts | Array | false |
 |add_read_write_root_hosts | Array | false |
-|anonymous_gid | Integer | false |
-|anonymous_uid | Integer | false |
+|anonymous_gid | Integer[18446744071562067968, 2147483647] | false |
+|anonymous_uid | Integer[18446744071562067968, 2147483647] | false |
 |default_access | String | false |
-|description | String | false |
+|description | String[0,511] | false |
 |file_system_id | String | true |
 |id | String | true |
 |is_no_suid | Boolean | false |
 |min_security | String | false |
-|name | String | true |
+|name | String[0,80] | true |
 |no_access_hosts | Array | false |
-|path | String | true |
+|path | String[0,1023] | true |
 |read_only_hosts | Array | false |
 |read_only_root_hosts | Array | false |
 |read_write_hosts | Array | false |

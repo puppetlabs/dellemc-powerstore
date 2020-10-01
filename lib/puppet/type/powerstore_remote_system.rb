@@ -20,7 +20,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     description:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,256]]',
       desc:      "User-specified description of the remote system.",
       behaviour: :init_only,
     },
@@ -45,7 +45,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      'Optional[String]',
+      type:      'Optional[String[0,128]]',
       desc:      "User-specified name of the remote system. Used only for non-PowerStore type remote systems. This value must contain 128 or fewer printable Unicode characters.",
       behaviour: :namevar,
     },

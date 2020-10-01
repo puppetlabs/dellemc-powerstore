@@ -11,11 +11,11 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 powerstore_file_tree_quota {
   description => "description (optional)",
   file_system_id => "file_system_id",
-  hard_limit => "1234 (optional)",
+  hard_limit => "hard_limit (optional)",
   id => "id",
   is_user_quotas_enforced => "is_user_quotas_enforced (optional)",
   path => "path",
-  soft_limit => "1234 (optional)",
+  soft_limit => "soft_limit (optional)",
 }
 ```
 
@@ -23,11 +23,11 @@ powerstore_file_tree_quota {
 | ------------- | ------------- | ------------- |
 |description | String | false |
 |file_system_id | String | true |
-|hard_limit | Integer | false |
+|hard_limit | Integer[0, 9223372036854775808] | false |
 |id | String | true |
 |is_user_quotas_enforced | Boolean | false |
 |path | String | true |
-|soft_limit | Integer | false |
+|soft_limit | Integer[0, 9223372036854775808] | false |
 
 
 
