@@ -19,8 +19,7 @@ describe type_name do
 
   
   it "update #{type_name}" do
-    r = sample_resource(type_name)
-    pp = manifest_from_values(type_name, r)
+    pp = sample_manifest(type_name, true)
     make_site_pp(pp)
     result = run_device(allow_changes: true)
     expect(result).to match(%r{Applied catalog.*})
