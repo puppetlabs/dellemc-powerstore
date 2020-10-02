@@ -33,7 +33,7 @@ powerstore_smb_share {
 |is_continuous_availability_enabled | Boolean | false |
 |is_encryption_enabled | Boolean | false |
 |name | String[0,80] | true |
-|offline_availability | String | false |
+|offline_availability | Enum['Manual','Documents','Programs','None'] | false |
 |path | String | true |
 |umask | String | false |
 

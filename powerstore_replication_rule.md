@@ -23,7 +23,7 @@ powerstore_replication_rule {
 |id | String | true |
 |name | String | false |
 |remote_system_id | String | false |
-|rpo | String | false |
+|rpo | Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Six_Hours','Twelve_Hours','One_Day'] | false |
 
 
 

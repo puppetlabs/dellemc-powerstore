@@ -23,7 +23,7 @@ powerstore_migration_session {
 |destination_appliance_id | String | true |
 |family_id | String | true |
 |name | String | false |
-|resource_type | String | true |
+|resource_type | Enum['volume','virtual_volume','volume_group'] | true |
 
 
 

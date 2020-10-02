@@ -46,12 +46,12 @@ powerstore_nfs_export {
 |add_read_write_root_hosts | Array | false |
 |anonymous_gid | Integer[18446744071562067968, 2147483647] | false |
 |anonymous_uid | Integer[18446744071562067968, 2147483647] | false |
-|default_access | String | false |
+|default_access | Enum['No_Access','Read_Only','Read_Write','Root','Read_Only_Root'] | false |
 |description | String[0,511] | false |
 |file_system_id | String | true |
 |id | String | true |
 |is_no_suid | Boolean | false |
-|min_security | String | false |
+|min_security | Enum['Sys','Kerberos','Kerberos_With_Integrity','Kerberos_With_Encryption'] | false |
 |name | String[0,80] | true |
 |no_access_hosts | Array | false |
 |path | String[0,1023] | true |

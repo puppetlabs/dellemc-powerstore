@@ -21,7 +21,7 @@ powerstore_physical_switch {
 |connections | Array | false |
 |id | String | true |
 |name | String[0,128] | false |
-|purpose | String | false |
+|purpose | Enum['Data_and_Management','Management_Only'] | false |
 
 
 

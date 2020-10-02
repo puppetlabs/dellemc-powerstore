@@ -28,7 +28,7 @@ powerstore_host {
 |initiators | Array | true |
 |modify_initiators | Array | false |
 |name | String[0,128] | false |
-|os_type | String | true |
+|os_type | Enum['Windows','Linux','ESXi','AIX','HP-UX','Solaris'] | true |
 |remove_initiators | Array | false |
 
 

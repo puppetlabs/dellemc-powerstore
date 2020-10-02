@@ -25,17 +25,17 @@ powerstore_remote_system {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|data_network_latency | String | false |
+|data_network_latency | Enum['Low','High'] | false |
 |description | String[0,256] | false |
-|discovery_chap_mode | String | false |
+|discovery_chap_mode | Enum['Disabled','Single','Mutual'] | false |
 |import_chap_info | Hash | false |
 |iscsi_addresses | Array | false |
 |management_address | String | false |
 |name | String[0,128] | false |
 |remote_password | String | false |
 |remote_username | String | false |
-|session_chap_mode | String | false |
-|type | String | false |
+|session_chap_mode | Enum['Disabled','Single','Mutual'] | false |
+|type | Enum['PowerStore','Unity','VNX','PS_Equallogic','Storage_Center','XtremIO'] | false |
 
 
 

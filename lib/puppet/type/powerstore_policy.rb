@@ -9,53 +9,53 @@ Puppet::ResourceApi.register_type(
   EOS
   attributes:   {
     ensure:      {
-      type: 'Enum[present, absent]',
-      desc: 'Whether this resource should be present or absent on the target system.',
-      default: 'present',
+      type: "Enum['present', 'absent']",
+      desc: "Whether this resource should be present or absent on the target system.",
+      default: "present",
     },
 
     add_replication_rule_ids:          {
-      type:      'Optional[Array]',
+      type:      "Optional[Array]",
       desc:      "Replication rule identifiers to be added to this policy.",
       behaviour: :init_only,
     },
     add_snapshot_rule_ids:          {
-      type:      'Optional[Array]',
+      type:      "Optional[Array]",
       desc:      "Snapshot rule identifiers to be added to this policy.",
       behaviour: :init_only,
     },
     description:          {
-      type:      'Optional[String]',
+      type:      "Optional[String]",
       desc:      "Policy description.",
       behaviour: :init_only,
     },
     id:          {
-      type:      'String',
+      type:      "String",
       desc:      "Unique identifier of the policy.",
       behaviour: :init_only,
     },
     name:          {
-      type:      'Optional[String]',
+      type:      "Optional[String]",
       desc:      "Policy name.",
       behaviour: :namevar,
     },
     remove_replication_rule_ids:          {
-      type:      'Optional[Array]',
+      type:      "Optional[Array]",
       desc:      "Replication rule identifiers to be removed from this policy.",
       behaviour: :init_only,
     },
     remove_snapshot_rule_ids:          {
-      type:      'Optional[Array]',
+      type:      "Optional[Array]",
       desc:      "Snapshot rule identifiers to be removed from this policy.",
       behaviour: :init_only,
     },
     replication_rule_ids:          {
-      type:      'Optional[Array]',
+      type:      "Optional[Array]",
       desc:      "Replication rule identifiers that should replace the current list of replication rule identifiers in this policy.",
       behaviour: :init_only,
     },
     snapshot_rule_ids:          {
-      type:      'Optional[Array]',
+      type:      "Optional[Array]",
       desc:      "Snapshot rule identifiers that should replace the current list of snapshot rule identifiers in this policy.",
       behaviour: :init_only,
     },

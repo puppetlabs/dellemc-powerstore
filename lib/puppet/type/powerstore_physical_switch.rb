@@ -9,28 +9,28 @@ Puppet::ResourceApi.register_type(
   EOS
   attributes:   {
     ensure:      {
-      type: 'Enum[present, absent]',
-      desc: 'Whether this resource should be present or absent on the target system.',
-      default: 'present',
+      type: "Enum['present', 'absent']",
+      desc: "Whether this resource should be present or absent on the target system.",
+      default: "present",
     },
 
     connections:          {
-      type:      'Optional[Array]',
+      type:      "Optional[Array]",
       desc:      "Supported connections for a physical switch.",
       behaviour: :init_only,
     },
     id:          {
-      type:      'String',
+      type:      "String",
       desc:      "Unique identifier of the physical switch settings.",
       behaviour: :init_only,
     },
     name:          {
-      type:      'Optional[String[0,128]]',
+      type:      "Optional[String[0,128]]",
       desc:      "Name of physical switch.",
       behaviour: :namevar,
     },
     purpose:          {
-      type:      'Optional[String]',
+      type:      "Optional[Enum['Data_and_Management','Management_Only']]",
       desc:      "Physical switch purpose in network. Possible purposes are:  * Data_and_Management - Physical switch for all data and management networks.  * Management_Only - Physical switch for management network only.",
       behaviour: :init_only,
     },

@@ -42,7 +42,7 @@ powerstore_volume {
 |logical_unit_number | Integer[0, 16383] | false |
 |min_size | Integer[0, 9223372036854775808] | false |
 |name | String[0,128] | false |
-|node_affinity | String | false |
+|node_affinity | Enum['System_Select_At_Attach','System_Selected_Node_A','System_Selected_Node_B','Preferred_Node_A','Preferred_Node_B'] | false |
 |performance_policy_id | String | false |
 |protection_policy_id | String | false |
 |sector_size | Integer[512, 4096] | false |

@@ -9,38 +9,38 @@ Puppet::ResourceApi.register_type(
   EOS
   attributes:   {
     ensure:      {
-      type: 'Enum[present, absent]',
-      desc: 'Whether this resource should be present or absent on the target system.',
-      default: 'present',
+      type: "Enum['present', 'absent']",
+      desc: "Whether this resource should be present or absent on the target system.",
+      default: "present",
     },
 
     email_address:          {
-      type:      'Optional[String]',
+      type:      "Optional[String]",
       desc:      "Email address to receive notifications.",
       behaviour: :init_only,
     },
     id:          {
-      type:      'String',
+      type:      "String",
       desc:      "Unique identifier of the email notification destination.",
       behaviour: :namevar,
     },
     notify_critical:          {
-      type:      'Optional[Boolean]',
+      type:      "Optional[Boolean]",
       desc:      "Whether to send notifications for critical alerts.",
       behaviour: :init_only,
     },
     notify_info:          {
-      type:      'Optional[Boolean]',
+      type:      "Optional[Boolean]",
       desc:      "Whether to send notifications for informational alerts.",
       behaviour: :init_only,
     },
     notify_major:          {
-      type:      'Optional[Boolean]',
+      type:      "Optional[Boolean]",
       desc:      "Whether to send notifications for major alerts.",
       behaviour: :init_only,
     },
     notify_minor:          {
-      type:      'Optional[Boolean]',
+      type:      "Optional[Boolean]",
       desc:      "Whether to send notifications for minor alerts.",
       behaviour: :init_only,
     },

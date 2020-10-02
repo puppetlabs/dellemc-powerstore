@@ -27,7 +27,7 @@ powerstore_file_dns {
 |ip_addresses | Array | false |
 |nas_server_id | String | true |
 |remove_ip_addresses | Array | false |
-|transport | String | false |
+|transport | Enum['UDP','TCP'] | false |
 
 
 

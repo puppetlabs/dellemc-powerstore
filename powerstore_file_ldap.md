@@ -33,7 +33,7 @@ powerstore_file_ldap {
 | ------------- | ------------- | ------------- |
 |add_addresses | Array | false |
 |addresses | Array | false |
-|authentication_type | String | false |
+|authentication_type | Enum['Anonymous','Simple','Kerberos'] | false |
 |base_dn | String[0,255] | false |
 |bind_dn | String[0,1023] | false |
 |bind_password | String[0,1023] | false |
@@ -45,7 +45,7 @@ powerstore_file_ldap {
 |port_number | Integer[0, 65536] | false |
 |principal | String[0,1023] | false |
 |profile_dn | String[0,255] | false |
-|protocol | String | false |
+|protocol | Enum['LDAP','LDAPS'] | false |
 |realm | String[0,255] | false |
 |remove_addresses | Array | false |
 
