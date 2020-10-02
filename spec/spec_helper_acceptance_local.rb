@@ -69,14 +69,14 @@ def manifest_from_values(type_name, value_hash)
   manifest
 end
 
-def sample_manifest(type_name)
-  value_hash = sample_resource(type_name)
+def sample_manifest(type_name, modify_values=false)
+  value_hash = sample_resource(type_name, modify_values)
   manifest_from_values(type_name, value_hash)
 end
 
-def sample_resource(type_name)
+def sample_resource(type_name, modify_values=false)
   attrs = type_attrs(type_name)
-  result = attrs.map { |k,v| [k, sample_value(parse_type(k, attrs[k][:type]))] }.to_h
+  result = attrs.map { |k,v| [k, sample_value(parse_type(k, attrs[k][:type]), modify_values)] }.to_h
   # require 'pry';binding.pry
   result
 end
@@ -85,27 +85,33 @@ def parse_type(name, type)
   Puppet::ResourceApi::DataTypeHandling.parse_puppet_type(name, type)
 end
 
-def sample_value(type)
+def sample_value(type, modify_values=false)
   # require 'pry';binding.pry
+
+  string_postfix = modify_values ? "_updated" : ""
+  integer_add = modify_values ? 1 : 0
+  enum_index = modify_values ? 1 : 0
+  boolean_value = modify_values ? true : false
+
   case type.name
   when "Optional"
     sample_value(type.type)
   when "String"
-    'SomeString'
+    'SomeString' + string_postfix
   when "Integer"
     if !type.from.nil? and !type.to.nil?
-      (type.from + type.to) / 2
+      (type.from + type.to) / 2 + integer_add
     else
-      1984
+      1984 + integer_add
     end
   when "Boolean"
-    true
+    boolean_value
   when "Array"
     [ sample_value(type.element_type), sample_value(type.element_type) ]
   when "Hash"
     { sample_value(type.key_type) => sample_value(type.value_type) }
   when "Enum"
-    type.values[0]
+    type.values[enum_index]
   else
     'UnknownType'
   end
