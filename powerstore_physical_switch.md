@@ -9,19 +9,19 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 
 ```puppet
 powerstore_physical_switch {
-  connections => "connections (optional)",
+  connections => "connections",
   id => "id",
-  name => "name (optional)",
-  purpose => "purpose (optional)",
+  name => "name",
+  purpose => "purpose",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|connections | Array | false |
+|connections | Array[Struct[{address => String[1,255], connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0, 65535], Optional[snmp_community_string] => String, Optional[ssh_password] => String, Optional[username] => String, }]] | true |
 |id | String | true |
-|name | String[0,128] | false |
-|purpose | Enum['Data_and_Management','Management_Only'] | false |
+|name | String[1,128] | true |
+|purpose | Enum['Data_and_Management','Management_Only'] | true |
 
 
 

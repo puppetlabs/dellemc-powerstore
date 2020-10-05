@@ -66,17 +66,17 @@ Puppet::ResourceApi.register_type(
     },
     is_smb_no_notify_enabled:          {
       type:      "Optional[Boolean]",
-      desc:      "Indicates whether notifications of changes to a directory file structure are enabled. Values are:* true - Change directory notifications are enabled.* false - Change directory notifications are disabled.",
+      desc:      "Indicates whether notifications of changes to directory file structure are enabled.* true - Change directory notifications are enabled.* false - Change directory notifications are disabled.                      ",
       behaviour: :init_only,
     },
     is_smb_notify_on_access_enabled:          {
       type:      "Optional[Boolean]",
-      desc:      "Indicates whether file access notifications are enabled on the file system. Values are:* true - File access notifications are enabled on the file system.* false - File access notifications on file access are disabled on the file system.",
+      desc:      "Indicates whether file access notifications are enabled on the file system. Values are:* true - File access notifications are enabled on the file system.* false - File access notifications are disabled on the file system.",
       behaviour: :init_only,
     },
     is_smb_notify_on_write_enabled:          {
       type:      "Optional[Boolean]",
-      desc:      "Indicates whether notifications on file writes are enabled on the file system. Values are:* true - File writes notifications are enabled on the file system.* false - File writes notifications are disabled on the file system.",
+      desc:      "Indicates whether file writes notifications are enabled on the file system. Values are:* true - File writes notifications are enabled on the file system.* false - File writes notifications are disabled on the file system.",
       behaviour: :init_only,
     },
     is_smb_op_locks_enabled:          {
@@ -95,7 +95,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      "String[0,255]",
+      type:      "String[1,255]",
       desc:      "Name of the file system. (255 UTF-8 characters).",
       behaviour: :namevar,
     },
@@ -110,8 +110,8 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     size_total:          {
-      type:      "Optional[Integer[3221225472, 281474976710656]]",
-      desc:      "Size, in bytes, presented to the host or end user. This can be used for both expand and shrink on a file system.",
+      type:      "Integer[3221225472, 281474976710656]",
+      desc:      "Size that the file system presents to the host or end user. (Bytes)",
       behaviour: :init_only,
     },
     smb_notify_on_change_dir_depth:          {

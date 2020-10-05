@@ -84,7 +84,7 @@ class Virtual_machineSnapshotTask < TaskHelper
 
     op_params = [
         op_param('body', 'body', 'body', 'body'),
-        op_param('id', 'body', 'id', 'id'),
+        op_param('id', 'path', 'id', 'id'),
       ]
     op_params.each do |i|
       location = i[:location]

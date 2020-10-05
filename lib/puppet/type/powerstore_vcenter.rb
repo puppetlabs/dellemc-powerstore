@@ -16,7 +16,7 @@ Puppet::ResourceApi.register_type(
 
     address:          {
       type:      "Optional[String]",
-      desc:      "IP address of vCenter host, in IPv4, IPv6, or hostname format. Must be a new address of the same vCenter.",
+      desc:      "IP address of vCenter host, in IPv4, IPv6, or hostname format.",
       behaviour: :init_only,
     },
     id:          {
@@ -31,7 +31,7 @@ Puppet::ResourceApi.register_type(
     },
     username:          {
       type:      "Optional[String]",
-      desc:      "User name to login to vCenter. Password needs to be provided to modify the user name.",
+      desc:      "User name to login to vCenter.",
       behaviour: :init_only,
     },
   },

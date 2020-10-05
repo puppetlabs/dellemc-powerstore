@@ -51,7 +51,7 @@ context.debug("Entered get")
   def create(context, name, should)
     context.creating(name) do
       #binding.pry
-      new_hash = build_hash(should)
+      new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
 
@@ -69,7 +69,7 @@ context.debug("Entered get")
 
   def update(context, name, should)
     context.updating(name) do
-      new_hash = build_hash(should)
+      new_hash = build_update_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_update(context, should, new_hash)
 
@@ -85,12 +85,28 @@ context.debug("Entered get")
     raise
   end
 
+  def build_create_hash(resource)
+    migration_session = {}
+    migration_session["automatic_cutover"] = resource[:automatic_cutover] unless resource[:automatic_cutover].nil?
+    migration_session["destination_appliance_id"] = resource[:destination_appliance_id] unless resource[:destination_appliance_id].nil?
+    migration_session["family_id"] = resource[:family_id] unless resource[:family_id].nil?
+    migration_session["name"] = resource[:name] unless resource[:name].nil?
+    migration_session["resource_type"] = resource[:resource_type] unless resource[:resource_type].nil?
+    return migration_session
+  end
+
+  def build_update_hash(resource)
+    migration_session = {}
+    return migration_session
+  end
+
+
   def build_hash(resource)
     migration_session = {}
     migration_session["automatic_cutover"] = resource[:automatic_cutover] unless resource[:automatic_cutover].nil?
     migration_session["destination_appliance_id"] = resource[:destination_appliance_id] unless resource[:destination_appliance_id].nil?
     migration_session["family_id"] = resource[:family_id] unless resource[:family_id].nil?
-    migration_session["id"] = resource[:id] unless resource[:id].nil?
+    migration_session[""] = resource[:] unless resource[:].nil?
     migration_session["name"] = resource[:name] unless resource[:name].nil?
     migration_session["resource_type"] = resource[:resource_type] unless resource[:resource_type].nil?
     return migration_session
@@ -255,7 +271,7 @@ context.debug("Entered get")
           automatic_cutover: item['automatic_cutover'],
           destination_appliance_id: item['destination_appliance_id'],
           family_id: item['family_id'],
-          id: item['id'],
+          : item[''],
           name: item['name'],
           resource_type: item['resource_type'],
           ensure: 'present',

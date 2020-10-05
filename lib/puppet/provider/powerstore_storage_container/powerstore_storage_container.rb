@@ -51,7 +51,7 @@ context.debug("Entered get")
   def create(context, name, should)
     context.creating(name) do
       #binding.pry
-      new_hash = build_hash(should)
+      new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
 
@@ -69,7 +69,7 @@ context.debug("Entered get")
 
   def update(context, name, should)
     context.updating(name) do
-      new_hash = build_hash(should)
+      new_hash = build_update_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_update(context, should, new_hash)
 
@@ -84,6 +84,21 @@ context.debug("Entered get")
     Puppet.alert("Exception during flush. ex is #{ex} and backtrace is #{ex.backtrace}")
     raise
   end
+
+  def build_create_hash(resource)
+    storage_container = {}
+    storage_container["name"] = resource[:name] unless resource[:name].nil?
+    storage_container["quota"] = resource[:quota] unless resource[:quota].nil?
+    return storage_container
+  end
+
+  def build_update_hash(resource)
+    storage_container = {}
+    storage_container["name"] = resource[:name] unless resource[:name].nil?
+    storage_container["quota"] = resource[:quota] unless resource[:quota].nil?
+    return storage_container
+  end
+
 
   def build_hash(resource)
     storage_container = {}

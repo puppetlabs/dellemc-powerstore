@@ -39,11 +39,11 @@ powerstore_nfs_export {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|add_no_access_hosts | Array | false |
-|add_read_only_hosts | Array | false |
-|add_read_only_root_hosts | Array | false |
-|add_read_write_hosts | Array | false |
-|add_read_write_root_hosts | Array | false |
+|add_no_access_hosts | Array[String] | false |
+|add_read_only_hosts | Array[String] | false |
+|add_read_only_root_hosts | Array[String] | false |
+|add_read_write_hosts | Array[String] | false |
+|add_read_write_root_hosts | Array[String] | false |
 |anonymous_gid | Integer[18446744071562067968, 2147483647] | false |
 |anonymous_uid | Integer[18446744071562067968, 2147483647] | false |
 |default_access | Enum['No_Access','Read_Only','Read_Write','Root','Read_Only_Root'] | false |
@@ -52,18 +52,18 @@ powerstore_nfs_export {
 |id | String | true |
 |is_no_suid | Boolean | false |
 |min_security | Enum['Sys','Kerberos','Kerberos_With_Integrity','Kerberos_With_Encryption'] | false |
-|name | String[0,80] | true |
-|no_access_hosts | Array | false |
-|path | String[0,1023] | true |
-|read_only_hosts | Array | false |
-|read_only_root_hosts | Array | false |
-|read_write_hosts | Array | false |
-|read_write_root_hosts | Array | false |
-|remove_no_access_hosts | Array | false |
-|remove_read_only_hosts | Array | false |
-|remove_read_only_root_hosts | Array | false |
-|remove_read_write_hosts | Array | false |
-|remove_read_write_root_hosts | Array | false |
+|name | String[1,80] | true |
+|no_access_hosts | Array[String] | false |
+|path | String[1,1023] | true |
+|read_only_hosts | Array[String] | false |
+|read_only_root_hosts | Array[String] | false |
+|read_write_hosts | Array[String] | false |
+|read_write_root_hosts | Array[String] | false |
+|remove_no_access_hosts | Array[String] | false |
+|remove_read_only_hosts | Array[String] | false |
+|remove_read_only_root_hosts | Array[String] | false |
+|remove_read_write_hosts | Array[String] | false |
+|remove_read_write_root_hosts | Array[String] | false |
 
 
 

@@ -13,19 +13,19 @@ powerstore_host_group {
   description => "description (optional)",
   host_ids => "host_ids",
   id => "id",
-  name => "name (optional)",
+  name => "name",
   remove_host_ids => "remove_host_ids (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|add_host_ids | Array | false |
-|description | String[0,256] | false |
-|host_ids | Array | true |
+|add_host_ids | Array[String] | false |
+|description | String | false |
+|host_ids | Array[String] | true |
 |id | String | true |
-|name | String[0,128] | false |
-|remove_host_ids | Array | false |
+|name | String | true |
+|remove_host_ids | Array[String] | false |
 
 
 

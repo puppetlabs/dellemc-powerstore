@@ -9,7 +9,7 @@
 			   "type": "Optional[String[1]]"
 			},
 			"id":{
-			   "description": "Unique identifier of the virtual machine to query.",
+			   "description": "Unique identifier of the virtual machine to create a snapshot of.",
 			   "type": "Optional[String[1]]"
 			}
 	},

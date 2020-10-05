@@ -20,8 +20,8 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     description:          {
-      type:      "Optional[String[0,128]]",
-      desc:      "New description of the volume. This value must contain 128 or fewer printable Unicode characters.",
+      type:      "Optional[String]",
+      desc:      "Description of the volume. This value must contain 128 or fewer printable Unicode characters.",
       behaviour: :init_only,
     },
     expiration_timestamp:          {
@@ -46,7 +46,7 @@ Puppet::ResourceApi.register_type(
     },
     id:          {
       type:      "String",
-      desc:      "Unique identifier of the volume to query.",
+      desc:      "Unique identifier of the volume to modify.",
       behaviour: :init_only,
     },
     is_replication_destination:          {
@@ -65,8 +65,8 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      "Optional[String[0,128]]",
-      desc:      "New name of the volume. This value must contain 128 or fewer printable Unicode characters.",
+      type:      "String",
+      desc:      "Unique name for the volume to be created. This value must contain 128 or fewer printable Unicode characters.",
       behaviour: :namevar,
     },
     node_affinity:          {
@@ -90,8 +90,8 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     size:          {
-      type:      "Optional[Integer[8192, 281474976710656]]",
-      desc:      "New size of the volume in bytes,  must be a multiple of 8192, must be bigger than the current volume size. Maximum volume size is 256TB.",
+      type:      "Integer[1048576, 281474976710656]",
+      desc:      "Size of the volume to be created, in bytes. Minimum volume size is 1MB. Maximum volume size is 256TB. Size must be a multiple of 8192.",
       behaviour: :init_only,
     },
     volume_group_id:          {

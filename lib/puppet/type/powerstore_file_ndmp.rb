@@ -25,12 +25,12 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     password:          {
-      type:      "Optional[String]",
+      type:      "String",
       desc:      "Password for the NDMP service user.",
       behaviour: :init_only,
     },
     user_name:          {
-      type:      "Optional[String]",
+      type:      "String",
       desc:      "User name for accessing the NDMP service.",
       behaviour: :init_only,
     },

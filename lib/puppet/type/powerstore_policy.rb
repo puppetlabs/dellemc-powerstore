@@ -15,12 +15,12 @@ Puppet::ResourceApi.register_type(
     },
 
     add_replication_rule_ids:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Replication rule identifiers to be added to this policy.",
       behaviour: :init_only,
     },
     add_snapshot_rule_ids:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Snapshot rule identifiers to be added to this policy.",
       behaviour: :init_only,
     },
@@ -31,32 +31,32 @@ Puppet::ResourceApi.register_type(
     },
     id:          {
       type:      "String",
-      desc:      "Unique identifier of the policy.",
+      desc:      "Unique identifier of the policy to be modified.",
       behaviour: :init_only,
     },
     name:          {
-      type:      "Optional[String]",
+      type:      "String",
       desc:      "Policy name.",
       behaviour: :namevar,
     },
     remove_replication_rule_ids:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Replication rule identifiers to be removed from this policy.",
       behaviour: :init_only,
     },
     remove_snapshot_rule_ids:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Snapshot rule identifiers to be removed from this policy.",
       behaviour: :init_only,
     },
     replication_rule_ids:          {
-      type:      "Optional[Array]",
-      desc:      "Replication rule identifiers that should replace the current list of replication rule identifiers in this policy.",
+      type:      "Optional[Array[String]]",
+      desc:      "Replication rule identifiers included in this policy. At least one snapshot rule or one replication rule must be specified to create a protection policy.",
       behaviour: :init_only,
     },
     snapshot_rule_ids:          {
-      type:      "Optional[Array]",
-      desc:      "Snapshot rule identifiers that should replace the current list of snapshot rule identifiers in this policy.",
+      type:      "Optional[Array[String]]",
+      desc:      "Snapshot rule identifiers included in this policy. At least one snapshot rule or one replication rule must be specified to create a protection policy.",
       behaviour: :init_only,
     },
   },

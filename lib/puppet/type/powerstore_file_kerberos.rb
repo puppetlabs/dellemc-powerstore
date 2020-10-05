@@ -15,7 +15,7 @@ Puppet::ResourceApi.register_type(
     },
 
     add_kdc_addresses:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String[1,255]]]",
       desc:      "Fully Qualified domain names of the Kerberos Key Distribution Center (KDC) servers to add to the current list. Error occurs if name already exists. Cannot be combined with kdc_addresses. IPv4 and IPv6 addresses are not supported.",
       behaviour: :init_only,
     },
@@ -25,7 +25,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     kdc_addresses:          {
-      type:      "Optional[Array]",
+      type:      "Array[String[1,255]]",
       desc:      "Fully Qualified domain names of the Kerberos Key Distribution Center (KDC) servers. IPv4 and IPv6 addresses are not supported.",
       behaviour: :init_only,
     },
@@ -40,12 +40,12 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     realm:          {
-      type:      "Optional[String[0,255]]",
+      type:      "String[1,255]",
       desc:      "Realm name of the Kerberos Service.",
       behaviour: :init_only,
     },
     remove_kdc_addresses:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String[1,255]]]",
       desc:      "Fully Qualified domain names of the Kerberos Key Distribution Center (KDC) servers to remove from the current list. Error occurs if name is not in the existing list. Cannot be combined with kdc_addresses. IPv4 and IPv6 addresses are not supported.",
       behaviour: :init_only,
     },

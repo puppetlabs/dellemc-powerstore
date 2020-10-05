@@ -13,8 +13,8 @@ powerstore_smb_server {
   description => "description (optional)",
   domain => "domain (optional)",
   id => "id",
-  is_standalone => "is_standalone (optional)",
-  local_admin_password => "local_admin_password (optional)",
+  is_standalone => "is_standalone",
+  local_admin_password => "local_admin_password",
   nas_server_id => "nas_server_id",
   netbios_name => "netbios_name (optional)",
   workgroup => "workgroup (optional)",
@@ -23,15 +23,15 @@ powerstore_smb_server {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|computer_name | String[0,63] | false |
+|computer_name | String[1,63] | false |
 |description | String[0,48] | false |
-|domain | String[0,255] | false |
+|domain | String[1,255] | false |
 |id | String | true |
-|is_standalone | Boolean | false |
-|local_admin_password | String[0,512] | false |
+|is_standalone | Boolean | true |
+|local_admin_password | String[0,512] | true |
 |nas_server_id | String | true |
-|netbios_name | String | false |
-|workgroup | String[0,15] | false |
+|netbios_name | String[1,15] | false |
+|workgroup | String[1,15] | false |
 
 
 

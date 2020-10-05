@@ -51,7 +51,7 @@ context.debug("Entered get")
   def create(context, name, should)
     context.creating(name) do
       #binding.pry
-      new_hash = build_hash(should)
+      new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
 
@@ -69,7 +69,7 @@ context.debug("Entered get")
 
   def update(context, name, should)
     context.updating(name) do
-      new_hash = build_hash(should)
+      new_hash = build_update_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_update(context, should, new_hash)
 
@@ -84,6 +84,38 @@ context.debug("Entered get")
     Puppet.alert("Exception during flush. ex is #{ex} and backtrace is #{ex.backtrace}")
     raise
   end
+
+  def build_create_hash(resource)
+    volume = {}
+    volume["appliance_id"] = resource[:appliance_id] unless resource[:appliance_id].nil?
+    volume["description"] = resource[:description] unless resource[:description].nil?
+    volume["host_group_id"] = resource[:host_group_id] unless resource[:host_group_id].nil?
+    volume["host_id"] = resource[:host_id] unless resource[:host_id].nil?
+    volume["logical_unit_number"] = resource[:logical_unit_number] unless resource[:logical_unit_number].nil?
+    volume["min_size"] = resource[:min_size] unless resource[:min_size].nil?
+    volume["name"] = resource[:name] unless resource[:name].nil?
+    volume["performance_policy_id"] = resource[:performance_policy_id] unless resource[:performance_policy_id].nil?
+    volume["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
+    volume["sector_size"] = resource[:sector_size] unless resource[:sector_size].nil?
+    volume["size"] = resource[:size] unless resource[:size].nil?
+    volume["volume_group_id"] = resource[:volume_group_id] unless resource[:volume_group_id].nil?
+    return volume
+  end
+
+  def build_update_hash(resource)
+    volume = {}
+    volume["description"] = resource[:description] unless resource[:description].nil?
+    volume["expiration_timestamp"] = resource[:expiration_timestamp] unless resource[:expiration_timestamp].nil?
+    volume["force"] = resource[:force] unless resource[:force].nil?
+    volume["is_replication_destination"] = resource[:is_replication_destination] unless resource[:is_replication_destination].nil?
+    volume["name"] = resource[:name] unless resource[:name].nil?
+    volume["node_affinity"] = resource[:node_affinity] unless resource[:node_affinity].nil?
+    volume["performance_policy_id"] = resource[:performance_policy_id] unless resource[:performance_policy_id].nil?
+    volume["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
+    volume["size"] = resource[:size] unless resource[:size].nil?
+    return volume
+  end
+
 
   def build_hash(resource)
     volume = {}

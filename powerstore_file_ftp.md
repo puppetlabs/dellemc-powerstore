@@ -40,14 +40,14 @@ powerstore_file_ftp {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|add_groups | Array | false |
-|add_hosts | Array | false |
-|add_users | Array | false |
+|add_groups | Array[String] | false |
+|add_hosts | Array[String] | false |
+|add_users | Array[String] | false |
 |audit_dir | String | false |
 |audit_max_size | Integer[40960, 9223372036854775808] | false |
 |default_homedir | String | false |
-|groups | Array | false |
-|hosts | Array | false |
+|groups | Array[String] | false |
+|hosts | Array[String] | false |
 |id | String | true |
 |is_allowed_groups | Boolean | false |
 |is_allowed_hosts | Boolean | false |
@@ -61,10 +61,10 @@ powerstore_file_ftp {
 |is_unix_authentication_enabled | Boolean | false |
 |message_of_the_day | String | false |
 |nas_server_id | String | true |
-|remove_groups | Array | false |
-|remove_hosts | Array | false |
-|remove_users | Array | false |
-|users | Array | false |
+|remove_groups | Array[String] | false |
+|remove_hosts | Array[String] | false |
+|remove_users | Array[String] | false |
+|users | Array[String] | false |
 |welcome_message | String | false |
 
 

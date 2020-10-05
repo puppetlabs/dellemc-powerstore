@@ -56,16 +56,16 @@ Puppet::ResourceApi.register_type(
     },
     is_auto_user_mapping_enabled:          {
       type:      "Optional[Boolean]",
-      desc:      "A Windows user must have a corresponding matching Unix user (uid) in order to connect.This attribute enables you to automatically generate this Unix user (uid), if that Windows user does not have any in the configured Unix directory service (UDS).In a pure SMB or non multi-protocol environment, this should be set to true.",
+      desc:      "A Windows user must have a corresponding matching Unix user (uid) in order to connect.This attribute enables you to automatically generates this Unix user (uid), if that Windows user does not have any in the configured Unix directory service (UDS).In a pure SMB or non multi-protocol environment, this should be set to true.",
       behaviour: :init_only,
     },
     is_username_translation_enabled:          {
       type:      "Optional[Boolean]",
-      desc:      "Enable the possibility to match a windows account to a Unix account with different names",
+      desc:      "Enable the possibility to match a Windows account with an Unix account with different names.",
       behaviour: :init_only,
     },
     name:          {
-      type:      "Optional[String[0,255]]",
+      type:      "String[1,255]",
       desc:      "Name of the NAS server.",
       behaviour: :namevar,
     },

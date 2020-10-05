@@ -24,9 +24,9 @@ powerstore_import_session {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |automatic_cutover | Boolean | false |
-|description | String[0,128] | false |
+|description | String | false |
 |id | String | true |
-|name | String[0,128] | true |
+|name | String | true |
 |protection_policy_id | String | false |
 |remote_system_id | String | true |
 |scheduled_timestamp | String | false |

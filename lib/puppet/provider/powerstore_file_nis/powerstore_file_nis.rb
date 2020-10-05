@@ -51,7 +51,7 @@ context.debug("Entered get")
   def create(context, name, should)
     context.creating(name) do
       #binding.pry
-      new_hash = build_hash(should)
+      new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
 
@@ -69,7 +69,7 @@ context.debug("Entered get")
 
   def update(context, name, should)
     context.updating(name) do
-      new_hash = build_hash(should)
+      new_hash = build_update_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_update(context, should, new_hash)
 
@@ -84,6 +84,24 @@ context.debug("Entered get")
     Puppet.alert("Exception during flush. ex is #{ex} and backtrace is #{ex.backtrace}")
     raise
   end
+
+  def build_create_hash(resource)
+    file_nis = {}
+    file_nis["domain"] = resource[:domain] unless resource[:domain].nil?
+    file_nis["ip_addresses"] = resource[:ip_addresses] unless resource[:ip_addresses].nil?
+    file_nis["nas_server_id"] = resource[:nas_server_id] unless resource[:nas_server_id].nil?
+    return file_nis
+  end
+
+  def build_update_hash(resource)
+    file_nis = {}
+    file_nis["add_ip_addresses"] = resource[:add_ip_addresses] unless resource[:add_ip_addresses].nil?
+    file_nis["domain"] = resource[:domain] unless resource[:domain].nil?
+    file_nis["ip_addresses"] = resource[:ip_addresses] unless resource[:ip_addresses].nil?
+    file_nis["remove_ip_addresses"] = resource[:remove_ip_addresses] unless resource[:remove_ip_addresses].nil?
+    return file_nis
+  end
+
 
   def build_hash(resource)
     file_nis = {}

@@ -15,12 +15,12 @@ Puppet::ResourceApi.register_type(
     },
 
     add_ip_addresses:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "IP addresses to add to the current list. The addresses may be IPv4 or IPv6. Error occurs if an IP address already exists. Cannot be combined with ip_addresses.",
       behaviour: :init_only,
     },
     domain:          {
-      type:      "Optional[String[0,255]]",
+      type:      "String[1,255]",
       desc:      "Name of the DNS domain, where the NAS Server does host names lookup when an FQDN is not specified in the request.",
       behaviour: :init_only,
     },
@@ -30,8 +30,8 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     ip_addresses:          {
-      type:      "Optional[Array]",
-      desc:      "A new list of DNS server IP addresses to replace the existing list. The addresses may be IPv4 or IPv6.",
+      type:      "Array[String]",
+      desc:      "The list of DNS server IP addresses. The addresses may be IPv4 or IPv6.",
       behaviour: :init_only,
     },
     nas_server_id:          {
@@ -40,7 +40,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     remove_ip_addresses:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "IP addresses to remove from the current list. The addresses may be IPv4 or IPv6. Error occurs if IP address is not present. Cannot be combined with ip_addresses.",
       behaviour: :init_only,
     },

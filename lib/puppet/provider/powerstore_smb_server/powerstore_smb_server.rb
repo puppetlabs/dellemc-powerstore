@@ -51,7 +51,7 @@ context.debug("Entered get")
   def create(context, name, should)
     context.creating(name) do
       #binding.pry
-      new_hash = build_hash(should)
+      new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
 
@@ -69,7 +69,7 @@ context.debug("Entered get")
 
   def update(context, name, should)
     context.updating(name) do
-      new_hash = build_hash(should)
+      new_hash = build_update_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_update(context, should, new_hash)
 
@@ -84,6 +84,32 @@ context.debug("Entered get")
     Puppet.alert("Exception during flush. ex is #{ex} and backtrace is #{ex.backtrace}")
     raise
   end
+
+  def build_create_hash(resource)
+    smb_server = {}
+    smb_server["computer_name"] = resource[:computer_name] unless resource[:computer_name].nil?
+    smb_server["description"] = resource[:description] unless resource[:description].nil?
+    smb_server["domain"] = resource[:domain] unless resource[:domain].nil?
+    smb_server["is_standalone"] = resource[:is_standalone] unless resource[:is_standalone].nil?
+    smb_server["local_admin_password"] = resource[:local_admin_password] unless resource[:local_admin_password].nil?
+    smb_server["nas_server_id"] = resource[:nas_server_id] unless resource[:nas_server_id].nil?
+    smb_server["netbios_name"] = resource[:netbios_name] unless resource[:netbios_name].nil?
+    smb_server["workgroup"] = resource[:workgroup] unless resource[:workgroup].nil?
+    return smb_server
+  end
+
+  def build_update_hash(resource)
+    smb_server = {}
+    smb_server["computer_name"] = resource[:computer_name] unless resource[:computer_name].nil?
+    smb_server["description"] = resource[:description] unless resource[:description].nil?
+    smb_server["domain"] = resource[:domain] unless resource[:domain].nil?
+    smb_server["is_standalone"] = resource[:is_standalone] unless resource[:is_standalone].nil?
+    smb_server["local_admin_password"] = resource[:local_admin_password] unless resource[:local_admin_password].nil?
+    smb_server["netbios_name"] = resource[:netbios_name] unless resource[:netbios_name].nil?
+    smb_server["workgroup"] = resource[:workgroup] unless resource[:workgroup].nil?
+    return smb_server
+  end
+
 
   def build_hash(resource)
     smb_server = {}

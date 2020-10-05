@@ -51,7 +51,7 @@ context.debug("Entered get")
   def create(context, name, should)
     context.creating(name) do
       #binding.pry
-      new_hash = build_hash(should)
+      new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
 
@@ -69,7 +69,7 @@ context.debug("Entered get")
 
   def update(context, name, should)
     context.updating(name) do
-      new_hash = build_hash(should)
+      new_hash = build_update_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_update(context, should, new_hash)
 
@@ -84,6 +84,27 @@ context.debug("Entered get")
     Puppet.alert("Exception during flush. ex is #{ex} and backtrace is #{ex.backtrace}")
     raise
   end
+
+  def build_create_hash(resource)
+    file_tree_quota = {}
+    file_tree_quota["description"] = resource[:description] unless resource[:description].nil?
+    file_tree_quota["file_system_id"] = resource[:file_system_id] unless resource[:file_system_id].nil?
+    file_tree_quota["hard_limit"] = resource[:hard_limit] unless resource[:hard_limit].nil?
+    file_tree_quota["is_user_quotas_enforced"] = resource[:is_user_quotas_enforced] unless resource[:is_user_quotas_enforced].nil?
+    file_tree_quota["path"] = resource[:path] unless resource[:path].nil?
+    file_tree_quota["soft_limit"] = resource[:soft_limit] unless resource[:soft_limit].nil?
+    return file_tree_quota
+  end
+
+  def build_update_hash(resource)
+    file_tree_quota = {}
+    file_tree_quota["description"] = resource[:description] unless resource[:description].nil?
+    file_tree_quota["hard_limit"] = resource[:hard_limit] unless resource[:hard_limit].nil?
+    file_tree_quota["is_user_quotas_enforced"] = resource[:is_user_quotas_enforced] unless resource[:is_user_quotas_enforced].nil?
+    file_tree_quota["soft_limit"] = resource[:soft_limit] unless resource[:soft_limit].nil?
+    return file_tree_quota
+  end
+
 
   def build_hash(resource)
     file_tree_quota = {}

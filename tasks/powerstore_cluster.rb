@@ -84,7 +84,7 @@ class ClusterTask < TaskHelper
 
     op_params = [
         op_param('body', 'body', 'body', 'body'),
-        op_param('id', 'body', 'id', 'id'),
+        op_param('', 'body', '', ''),
       ]
     op_params.each do |i|
       location = i[:location]

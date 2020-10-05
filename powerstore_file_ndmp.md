@@ -11,8 +11,8 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 powerstore_file_ndmp {
   id => "id",
   nas_server_id => "nas_server_id",
-  password => "password (optional)",
-  user_name => "user_name (optional)",
+  password => "password",
+  user_name => "user_name",
 }
 ```
 
@@ -20,8 +20,8 @@ powerstore_file_ndmp {
 | ------------- | ------------- | ------------- |
 |id | String | true |
 |nas_server_id | String | true |
-|password | String | false |
-|user_name | String | false |
+|password | String | true |
+|user_name | String | true |
 
 
 

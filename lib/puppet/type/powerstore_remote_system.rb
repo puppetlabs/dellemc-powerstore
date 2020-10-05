@@ -20,7 +20,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     description:          {
-      type:      "Optional[String[0,256]]",
+      type:      "Optional[String]",
       desc:      "User-specified description of the remote system.",
       behaviour: :init_only,
     },
@@ -30,23 +30,23 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     import_chap_info:          {
-      type:      "Optional[Hash]",
+      type:      "Optional[Struct[{Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, }]]",
       desc:      "Information about the initiator, target session, or discovery CHAP secrets.",
       behaviour: :init_only,
     },
     iscsi_addresses:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "iSCSI target IP addresses for the data connection to the remote system. Must be specified when creating a non-PowerStore remote system.",
       behaviour: :init_only,
     },
     management_address:          {
-      type:      "Optional[String]",
-      desc:      "Management IP address of the remote system.",
+      type:      "String",
+      desc:      "Management IP address of the remote system instance. Only IPv4 is supported for non-PowerStore remote systems.Both IPv4 and IPv6 are supported for PowerStore remote systems.",
       behaviour: :init_only,
     },
     name:          {
-      type:      "Optional[String[0,128]]",
-      desc:      "User-specified name of the remote system. Used only for non-PowerStore type remote systems. This value must contain 128 or fewer printable Unicode characters.",
+      type:      "Optional[String]",
+      desc:      "User-specified name of the remote system. Used only for non-PowerStore systems. This value must contain 128 or fewer printable Unicode characters.",
       behaviour: :namevar,
     },
     remote_password:          {

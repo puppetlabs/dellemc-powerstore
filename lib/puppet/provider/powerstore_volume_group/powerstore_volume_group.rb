@@ -51,7 +51,7 @@ context.debug("Entered get")
   def create(context, name, should)
     context.creating(name) do
       #binding.pry
-      new_hash = build_hash(should)
+      new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
 
@@ -69,7 +69,7 @@ context.debug("Entered get")
 
   def update(context, name, should)
     context.updating(name) do
-      new_hash = build_hash(should)
+      new_hash = build_update_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_update(context, should, new_hash)
 
@@ -84,6 +84,28 @@ context.debug("Entered get")
     Puppet.alert("Exception during flush. ex is #{ex} and backtrace is #{ex.backtrace}")
     raise
   end
+
+  def build_create_hash(resource)
+    volume_group = {}
+    volume_group["description"] = resource[:description] unless resource[:description].nil?
+    volume_group["is_write_order_consistent"] = resource[:is_write_order_consistent] unless resource[:is_write_order_consistent].nil?
+    volume_group["name"] = resource[:name] unless resource[:name].nil?
+    volume_group["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
+    volume_group["volume_ids"] = resource[:volume_ids] unless resource[:volume_ids].nil?
+    return volume_group
+  end
+
+  def build_update_hash(resource)
+    volume_group = {}
+    volume_group["description"] = resource[:description] unless resource[:description].nil?
+    volume_group["force"] = resource[:force] unless resource[:force].nil?
+    volume_group["is_replication_destination"] = resource[:is_replication_destination] unless resource[:is_replication_destination].nil?
+    volume_group["is_write_order_consistent"] = resource[:is_write_order_consistent] unless resource[:is_write_order_consistent].nil?
+    volume_group["name"] = resource[:name] unless resource[:name].nil?
+    volume_group["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
+    return volume_group
+  end
+
 
   def build_hash(resource)
     volume_group = {}

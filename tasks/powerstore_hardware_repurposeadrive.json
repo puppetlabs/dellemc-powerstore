@@ -9,7 +9,7 @@
 			   "type": "Optional[String[1]]"
 			},
 			"id":{
-			   "description": "Unique id of hardware component to get.",
+			   "description": "Identifier of the drive to repurpose.",
 			   "type": "Optional[String[1]]"
 			}
 	},

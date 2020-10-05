@@ -16,11 +16,11 @@ Puppet::ResourceApi.register_type(
 
     credentials_cache_ttl:          {
       type:      "Optional[Integer[0, 2147483647]]",
-      desc:      "Sets the Time-To-Live (in minutes) expiration stamp for a Windows entry in the credentials cache. When failed mapping entries expire, the system retries mapping the UID to the SID.",
+      desc:      "Sets the Time-To-Live (in minutes) expiration time in minutes for a Windows entry in the credentials cache. When failed mapping entries expire, the system retries mapping the UID to the SID.",
       behaviour: :init_only,
     },
     host_name:          {
-      type:      "Optional[String[0,255]]",
+      type:      "Optional[String[1,255]]",
       desc:      "The name that will be used by NFS clients to connect to this NFS server. This name is required when using secure NFS, except when is_use_smb_config_enabled is true. In this case host_name is forced to the SMB server computer name, and must not be specified.",
       behaviour: :init_only,
     },
@@ -36,12 +36,12 @@ Puppet::ResourceApi.register_type(
     },
     is_nfsv3_enabled:          {
       type:      "Optional[Boolean]",
-      desc:      "Indicates whether NFSv3 is enabled on the NAS server. When enabled, NFS shares can be accessed with NFSv3. When disabled, NFS shares cannot be accessed with NFSv3 protocol.- true - NFSv3 is enabled on the specified NAS server.- false - NFSv3 is disabled on the specified NAS server.",
+      desc:      "Indicates whether NFSv3 is enabled on the NAS server. When enabled, NFS shares can be accessed with NFSv3. When disabled, NFS shares can not be accessed with NFSv3 protocol.- true - NFSv3 is enabled on the specified NAS server.- false - NFSv3 is disabled on the specified NAS server.",
       behaviour: :init_only,
     },
     is_nfsv4_enabled:          {
       type:      "Optional[Boolean]",
-      desc:      "Indicates whether NFSv4 is enabled on the NAS server. When enabled, NFS shares can be accessed with NFSv4. When disabled, NFS shares cannot be accessed with NFSv4 protocol.- true - NFSv4 is enabled on the specified NAS server.- false - NFSv4 is disabled on the specified NAS server.",
+      desc:      "Indicates whether NFSv4 is enabled on the NAS server. When enabled, NFS shares can be accessed with NFSv4. When disabled, NFS shares can not be accessed with NFSv4 protocol.- true - NFSv4 is enabled on the specified NAS server.- false - NFSv4 is disabled on the specified NAS server.",
       behaviour: :init_only,
     },
     is_secure_enabled:          {
@@ -56,7 +56,7 @@ Puppet::ResourceApi.register_type(
     },
     is_use_smb_config_enabled:          {
       type:      "Optional[Boolean]",
-      desc:      "Indicates whether SMB authentication is used to authenticate to the KDC. Values are:- true: Indicates that the the configured SMB Server settings are used for Kerberos authentication.- false: Indicates that Kerberos uses its own settings.",
+      desc:      "Indicates whether SMB authentication is used to authenticate to the KDC. Values are:- true: Indicates that the configured SMB Server settings are used for Kerberos authentication.- false: Indicates that Kerberos uses its own settings.",
       behaviour: :init_only,
     },
     nas_server_id:          {

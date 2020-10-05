@@ -15,7 +15,7 @@ Puppet::ResourceApi.register_type(
     },
 
     email_address:          {
-      type:      "Optional[String]",
+      type:      "String",
       desc:      "Email address to receive notifications.",
       behaviour: :init_only,
     },
@@ -31,7 +31,7 @@ Puppet::ResourceApi.register_type(
     },
     notify_info:          {
       type:      "Optional[Boolean]",
-      desc:      "Whether to send notifications for informational alerts.",
+      desc:      "Whether send notifications for informational alerts.",
       behaviour: :init_only,
     },
     notify_major:          {

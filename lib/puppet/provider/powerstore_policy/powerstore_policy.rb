@@ -51,7 +51,7 @@ context.debug("Entered get")
   def create(context, name, should)
     context.creating(name) do
       #binding.pry
-      new_hash = build_hash(should)
+      new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
 
@@ -69,7 +69,7 @@ context.debug("Entered get")
 
   def update(context, name, should)
     context.updating(name) do
-      new_hash = build_hash(should)
+      new_hash = build_update_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_update(context, should, new_hash)
 
@@ -84,6 +84,29 @@ context.debug("Entered get")
     Puppet.alert("Exception during flush. ex is #{ex} and backtrace is #{ex.backtrace}")
     raise
   end
+
+  def build_create_hash(resource)
+    policy = {}
+    policy["description"] = resource[:description] unless resource[:description].nil?
+    policy["name"] = resource[:name] unless resource[:name].nil?
+    policy["replication_rule_ids"] = resource[:replication_rule_ids] unless resource[:replication_rule_ids].nil?
+    policy["snapshot_rule_ids"] = resource[:snapshot_rule_ids] unless resource[:snapshot_rule_ids].nil?
+    return policy
+  end
+
+  def build_update_hash(resource)
+    policy = {}
+    policy["add_replication_rule_ids"] = resource[:add_replication_rule_ids] unless resource[:add_replication_rule_ids].nil?
+    policy["add_snapshot_rule_ids"] = resource[:add_snapshot_rule_ids] unless resource[:add_snapshot_rule_ids].nil?
+    policy["description"] = resource[:description] unless resource[:description].nil?
+    policy["name"] = resource[:name] unless resource[:name].nil?
+    policy["remove_replication_rule_ids"] = resource[:remove_replication_rule_ids] unless resource[:remove_replication_rule_ids].nil?
+    policy["remove_snapshot_rule_ids"] = resource[:remove_snapshot_rule_ids] unless resource[:remove_snapshot_rule_ids].nil?
+    policy["replication_rule_ids"] = resource[:replication_rule_ids] unless resource[:replication_rule_ids].nil?
+    policy["snapshot_rule_ids"] = resource[:snapshot_rule_ids] unless resource[:snapshot_rule_ids].nil?
+    return policy
+  end
+
 
   def build_hash(resource)
     policy = {}

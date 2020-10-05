@@ -16,7 +16,7 @@ Puppet::ResourceApi.register_type(
 
     alert_threshold:          {
       type:      "Optional[Integer[0, 1440]]",
-      desc:      "Acceptable delay in minutes between the expected and actual replication sync intervals. The system generates an alert if the delay between the expected and actual sync exceeds this threshold.",
+      desc:      "Acceptable delay in minutes between the expected and actual replication sync intervals. The system generates an alert if the delay between the expected and actual sync exceeds this threshold. Alert threshold has the default value of one RPO in minutes.",
       behaviour: :init_only,
     },
     id:          {
@@ -25,17 +25,17 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      "Optional[String]",
+      type:      "String",
       desc:      "Name of the replication rule.",
       behaviour: :namevar,
     },
     remote_system_id:          {
-      type:      "Optional[String]",
+      type:      "String",
       desc:      "Unique identifier of the remote system to which this rule will replicate the associated resources.",
       behaviour: :init_only,
     },
     rpo:          {
-      type:      "Optional[Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Six_Hours','Twelve_Hours','One_Day']]",
+      type:      "Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Six_Hours','Twelve_Hours','One_Day']",
       desc:      "Recovery point objective (RPO), which is the acceptable amount of data, measured in units of time, that may be lost in case of a failure.",
       behaviour: :init_only,
     },

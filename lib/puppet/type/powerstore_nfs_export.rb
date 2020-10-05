@@ -15,27 +15,27 @@ Puppet::ResourceApi.register_type(
     },
 
     add_no_access_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Hosts to add to the no_access_host list. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @. Error if the host already exists in the list. Cannot be combined with no_access_hosts.",
       behaviour: :init_only,
     },
     add_read_only_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Hosts to add to the current read_only_hosts list. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @. Error if the host already exists. Cannot combine with read_only_hosts.",
       behaviour: :init_only,
     },
     add_read_only_root_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Hosts to add to the current read_only_root_hosts list. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @. Error if the host already exists. Cannot combine with read_only_root_hosts.",
       behaviour: :init_only,
     },
     add_read_write_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Hosts to add to the current read_write_hosts list. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @. Error if Host is already exists. Cannot combine with read_write_hosts.",
       behaviour: :init_only,
     },
     add_read_write_root_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Hosts to add to the current read_write_root_hosts list. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @. Error if the host already exists. Cannot combine with read_write_root_hosts.",
       behaviour: :init_only,
     },
@@ -56,7 +56,7 @@ Puppet::ResourceApi.register_type(
     },
     description:          {
       type:      "Optional[String[0,511]]",
-      desc:      "NFS Export description.",
+      desc:      "User defined NFS Export description.",
       behaviour: :init_only,
     },
     file_system_id:          {
@@ -80,62 +80,62 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          {
-      type:      "String[0,80]",
+      type:      "String[1,80]",
       desc:      "NFS Export name.",
       behaviour: :namevar,
     },
     no_access_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Hosts with no access to the NFS export or its snapshots. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @.",
       behaviour: :init_only,
     },
     path:          {
-      type:      "String[0,1023]",
+      type:      "String[1,1023]",
       desc:      "Local path to export relative to the file system root directory. With NFS, each export of a file_system or file_snap must have a unique local path.Before you can create additional Exports within an NFS shared folder, you must create directories within it from a Linux/Unix host that is connected to the file system. After a directory has been created from a mounted host, you can create a corresponding Export and set access permissions accordingly.",
       behaviour: :init_only,
     },
     read_only_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Hosts with read-only access to the NFS export and its snapshots. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @.",
       behaviour: :init_only,
     },
     read_only_root_hosts:          {
-      type:      "Optional[Array]",
-      desc:      "Hosts with read-only and ready-only for root user access to the NFS Export and its snapshots. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), Netgroups prefixed with @.",
+      type:      "Optional[Array[String]]",
+      desc:      "Hosts with read-only and ready-only for root user access to the NFS Export and its snapshots. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @.",
       behaviour: :init_only,
     },
     read_write_hosts:          {
-      type:      "Optional[Array]",
-      desc:      "Hosts with read and write access to the NFS export and its snapshots. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask) or, Netgroups prefixed with @.",
+      type:      "Optional[Array[String]]",
+      desc:      "Hosts with read and write access to the NFS export and its snapshots.Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @.",
       behaviour: :init_only,
     },
     read_write_root_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Hosts with read and write and read and write for root user access to the NFS Export and its snapshots. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @.",
       behaviour: :init_only,
     },
     remove_no_access_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Hosts to remove from the current no_access_hosts list. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @. Error if the host is not present. Cannot combine with no_access_hosts.",
       behaviour: :init_only,
     },
     remove_read_only_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Hosts to remove from the current read_only_hosts list. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @. Error if the host is not present. Cannot combine with read_only_hosts.",
       behaviour: :init_only,
     },
     remove_read_only_root_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Hosts to remove from the current read_only_root_hosts list. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @. Error if The host is not present. Cannot combine with read_only_root_hosts.",
       behaviour: :init_only,
     },
     remove_read_write_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Hosts to remove from the current read_write_hosts list. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @. Error if Host is not present. Cannot combine with read_write_hosts.",
       behaviour: :init_only,
     },
     remove_read_write_root_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Hosts to remove from the current read_write_root_hosts list. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @. Error if the host is not present. Cannot combine with read_write_root_hosts.",
       behaviour: :init_only,
     },

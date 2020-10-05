@@ -15,7 +15,7 @@ Puppet::ResourceApi.register_type(
     },
 
     gateway:          {
-      type:      "Optional[String[0,45]]",
+      type:      "Optional[String[1,45]]",
       desc:      "Gateway address for the network interface. IPv4 and IPv6 are supported.",
       behaviour: :init_only,
     },
@@ -25,7 +25,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     ip_address:          {
-      type:      "Optional[String[0,45]]",
+      type:      "String[1,45]",
       desc:      "IP address of the network interface. IPv4 and IPv6 are supported.",
       behaviour: :init_only,
     },
@@ -40,7 +40,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     prefix_length:          {
-      type:      "Optional[Integer[1, 128]]",
+      type:      "Integer[1, 128]",
       desc:      "Prefix length for the interface. IPv4 and IPv6 are supported.",
       behaviour: :init_only,
     },

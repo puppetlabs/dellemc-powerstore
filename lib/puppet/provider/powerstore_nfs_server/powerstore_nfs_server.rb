@@ -51,7 +51,7 @@ context.debug("Entered get")
   def create(context, name, should)
     context.creating(name) do
       #binding.pry
-      new_hash = build_hash(should)
+      new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
 
@@ -69,7 +69,7 @@ context.debug("Entered get")
 
   def update(context, name, should)
     context.updating(name) do
-      new_hash = build_hash(should)
+      new_hash = build_update_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_update(context, should, new_hash)
 
@@ -84,6 +84,33 @@ context.debug("Entered get")
     Puppet.alert("Exception during flush. ex is #{ex} and backtrace is #{ex.backtrace}")
     raise
   end
+
+  def build_create_hash(resource)
+    nfs_server = {}
+    nfs_server["credentials_cache_TTL"] = resource[:credentials_cache_ttl] unless resource[:credentials_cache_ttl].nil?
+    nfs_server["host_name"] = resource[:host_name] unless resource[:host_name].nil?
+    nfs_server["is_extended_credentials_enabled"] = resource[:is_extended_credentials_enabled] unless resource[:is_extended_credentials_enabled].nil?
+    nfs_server["is_nfsv3_enabled"] = resource[:is_nfsv3_enabled] unless resource[:is_nfsv3_enabled].nil?
+    nfs_server["is_nfsv4_enabled"] = resource[:is_nfsv4_enabled] unless resource[:is_nfsv4_enabled].nil?
+    nfs_server["is_secure_enabled"] = resource[:is_secure_enabled] unless resource[:is_secure_enabled].nil?
+    nfs_server["is_use_smb_config_enabled"] = resource[:is_use_smb_config_enabled] unless resource[:is_use_smb_config_enabled].nil?
+    nfs_server["nas_server_id"] = resource[:nas_server_id] unless resource[:nas_server_id].nil?
+    return nfs_server
+  end
+
+  def build_update_hash(resource)
+    nfs_server = {}
+    nfs_server["credentials_cache_TTL"] = resource[:credentials_cache_ttl] unless resource[:credentials_cache_ttl].nil?
+    nfs_server["host_name"] = resource[:host_name] unless resource[:host_name].nil?
+    nfs_server["is_extended_credentials_enabled"] = resource[:is_extended_credentials_enabled] unless resource[:is_extended_credentials_enabled].nil?
+    nfs_server["is_nfsv3_enabled"] = resource[:is_nfsv3_enabled] unless resource[:is_nfsv3_enabled].nil?
+    nfs_server["is_nfsv4_enabled"] = resource[:is_nfsv4_enabled] unless resource[:is_nfsv4_enabled].nil?
+    nfs_server["is_secure_enabled"] = resource[:is_secure_enabled] unless resource[:is_secure_enabled].nil?
+    nfs_server["is_skip_unjoin"] = resource[:is_skip_unjoin] unless resource[:is_skip_unjoin].nil?
+    nfs_server["is_use_smb_config_enabled"] = resource[:is_use_smb_config_enabled] unless resource[:is_use_smb_config_enabled].nil?
+    return nfs_server
+  end
+
 
   def build_hash(resource)
     nfs_server = {}

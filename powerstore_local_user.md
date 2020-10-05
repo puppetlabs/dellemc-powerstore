@@ -13,8 +13,8 @@ powerstore_local_user {
   id => "id",
   is_locked => "is_locked (optional)",
   name => "name",
-  password => "password (optional)",
-  role_id => "role_id (optional)",
+  password => "password",
+  role_id => "role_id",
 }
 ```
 
@@ -24,8 +24,8 @@ powerstore_local_user {
 |id | String | true |
 |is_locked | Boolean | false |
 |name | String | true |
-|password | String | false |
-|role_id | String | false |
+|password | String | true |
+|role_id | String | true |
 
 
 

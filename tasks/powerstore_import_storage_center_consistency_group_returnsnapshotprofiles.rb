@@ -83,7 +83,7 @@ class Import_storage_center_consistency_groupReturnsnapshotprofilesTask < TaskHe
     end
 
     op_params = [
-        op_param('id', 'body', 'id', 'id'),
+        op_param('', 'body', '', ''),
       ]
     op_params.each do |i|
       location = i[:location]

@@ -20,17 +20,17 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     description:          {
-      type:      "Optional[String[0,128]]",
+      type:      "Optional[String]",
       desc:      "Description of the import session. The name can contain a maximum of 128 unicode characters. It cannot contain unprintable characters.",
       behaviour: :init_only,
     },
     id:          {
       type:      "String",
-      desc:      "Unique identifier of the import session",
+      desc:      "Unique identifier of the import session.",
       behaviour: :init_only,
     },
     name:          {
-      type:      "String[0,128]",
+      type:      "String",
       desc:      "Name of the import session. The name must be unique in the PowerStore cluster and can contain a maximum of 128 unicode characters. It cannot contain special HTTP characters, unprintable characters, or white space.",
       behaviour: :namevar,
     },
@@ -46,7 +46,7 @@ Puppet::ResourceApi.register_type(
     },
     scheduled_timestamp:          {
       type:      "Optional[String]",
-      desc:      "Indicates the new date and time at which the import session is scheduled to run. The date is specified in ISO 8601 format with time expressed in UTC format.",
+      desc:      "Date and time at which the import session is scheduled to start. The date time is specified in ISO 8601 format with the time expressed in UTC format.",
       behaviour: :init_only,
     },
     source_resource_id:          {

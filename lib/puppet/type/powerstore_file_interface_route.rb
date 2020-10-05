@@ -25,7 +25,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     gateway:          {
-      type:      "Optional[String[0,45]]",
+      type:      "Optional[String[1,45]]",
       desc:      "IP address of the gateway associated with the route.",
       behaviour: :init_only,
     },

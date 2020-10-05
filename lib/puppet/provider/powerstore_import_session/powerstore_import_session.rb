@@ -51,7 +51,7 @@ context.debug("Entered get")
   def create(context, name, should)
     context.creating(name) do
       #binding.pry
-      new_hash = build_hash(should)
+      new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
 
@@ -69,7 +69,7 @@ context.debug("Entered get")
 
   def update(context, name, should)
     context.updating(name) do
-      new_hash = build_hash(should)
+      new_hash = build_update_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_update(context, should, new_hash)
 
@@ -84,6 +84,26 @@ context.debug("Entered get")
     Puppet.alert("Exception during flush. ex is #{ex} and backtrace is #{ex.backtrace}")
     raise
   end
+
+  def build_create_hash(resource)
+    import_session = {}
+    import_session["automatic_cutover"] = resource[:automatic_cutover] unless resource[:automatic_cutover].nil?
+    import_session["description"] = resource[:description] unless resource[:description].nil?
+    import_session["name"] = resource[:name] unless resource[:name].nil?
+    import_session["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
+    import_session["remote_system_id"] = resource[:remote_system_id] unless resource[:remote_system_id].nil?
+    import_session["scheduled_timestamp"] = resource[:scheduled_timestamp] unless resource[:scheduled_timestamp].nil?
+    import_session["source_resource_id"] = resource[:source_resource_id] unless resource[:source_resource_id].nil?
+    import_session["volume_group_id"] = resource[:volume_group_id] unless resource[:volume_group_id].nil?
+    return import_session
+  end
+
+  def build_update_hash(resource)
+    import_session = {}
+    import_session["scheduled_timestamp"] = resource[:scheduled_timestamp] unless resource[:scheduled_timestamp].nil?
+    return import_session
+  end
+
 
   def build_hash(resource)
     import_session = {}

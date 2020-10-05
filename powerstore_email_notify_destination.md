@@ -9,7 +9,7 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 
 ```puppet
 powerstore_email_notify_destination {
-  email_address => "email_address (optional)",
+  email_address => "email_address",
   id => "id",
   notify_critical => "notify_critical (optional)",
   notify_info => "notify_info (optional)",
@@ -20,7 +20,7 @@ powerstore_email_notify_destination {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|email_address | String | false |
+|email_address | String | true |
 |id | String | true |
 |notify_critical | Boolean | false |
 |notify_info | Boolean | false |

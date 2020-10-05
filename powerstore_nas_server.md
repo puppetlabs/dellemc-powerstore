@@ -19,7 +19,7 @@ powerstore_nas_server {
   id => "id",
   is_auto_user_mapping_enabled => "is_auto_user_mapping_enabled (optional)",
   is_username_translation_enabled => "is_username_translation_enabled (optional)",
-  name => "name (optional)",
+  name => "name",
   preferred_node_id => "preferred_node_id (optional)",
   production_i_pv4_interface_id => "production_i_pv4_interface_id (optional)",
   production_i_pv6_interface_id => "production_i_pv6_interface_id (optional)",
@@ -38,7 +38,7 @@ powerstore_nas_server {
 |id | String | true |
 |is_auto_user_mapping_enabled | Boolean | false |
 |is_username_translation_enabled | Boolean | false |
-|name | String[0,255] | false |
+|name | String[1,255] | true |
 |preferred_node_id | String | false |
 |production_i_pv4_interface_id | String | false |
 |production_i_pv6_interface_id | String | false |

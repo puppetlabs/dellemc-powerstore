@@ -83,7 +83,7 @@ class Import_vnx_arrayDiscoverImportableResourcesTask < TaskHelper
     end
 
     op_params = [
-        op_param('id', 'body', 'id', 'id'),
+        op_param('', 'body', '', ''),
       ]
     op_params.each do |i|
       location = i[:location]

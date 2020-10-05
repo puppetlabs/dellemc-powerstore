@@ -15,17 +15,17 @@ Puppet::ResourceApi.register_type(
     },
 
     add_groups:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Groups to add to the current groups. Error occurs if the group already exists. Cannot be combined with groups.",
       behaviour: :init_only,
     },
     add_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Host IP addresses to add to the current hosts. The addresses may be IPv4 or IPv6. Error occurs if the IP address already exists. Cannot be combined with hosts.",
       behaviour: :init_only,
     },
     add_users:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Users to add to the current users. Error occurs if the user already exist. Cannot be combined with users.",
       behaviour: :init_only,
     },
@@ -41,16 +41,16 @@ Puppet::ResourceApi.register_type(
     },
     default_homedir:          {
       type:      "Optional[String]",
-      desc:      "(Applies when the value of is_homedir_limit_enabled is false.) Default directory of FTP and SFTP clients that have a home directory which is not defined or accessible.",
+      desc:      "(Applies when the value of is_homedir_limit_enabled is false.) Default directory of FTP and SFTP clients who have a home directory that is not defined or accessible.",
       behaviour: :init_only,
     },
     groups:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Allowed or denied user groups, depending on the value of the is_allowed_groups attribute.- If allowed groups exist, only users who are members of these groups and no others can connect to the NAS server through FTP or SFTP.- If denied groups exist, all users who are members of those groups always have access denied to the NAS server through FTP or SFTP.- If the list is empty, there is no restriction to the NAS server access through FTP or SFTP based on the user group.",
       behaviour: :init_only,
     },
     hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Allowed or denied hosts, depending on the value of the is_allowed_hosts attribute. A host is defined using its IP address. Subnets using CIDR notation are also supported.- If allowed hosts exist, only those hosts and no others can connect to the NAS server through FTP or SFTP.- If denied hosts exist, they always have access denied to the NAS server through FTP or SFTP.- If the list is empty, there is no restriction to NAS server access through FTP or SFTP based on the host IP address.- The addresses may be IPv4 or IPv6.",
       behaviour: :init_only,
     },
@@ -120,23 +120,23 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     remove_groups:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Groups to remove from the current groups. Error occurs if the group is not present. Cannot be combined with groups.",
       behaviour: :init_only,
     },
     remove_hosts:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Host IP addresses to remove from the current hosts. The addresses may be IPv4 or IPv6. Error occurs if the IP address is not present. Cannot be combined with hosts.",
       behaviour: :init_only,
     },
     remove_users:          {
-      type:      "Optional[Array]",
+      type:      "Optional[Array[String]]",
       desc:      "Users to remove from the current users. Error occurs if the user is not present. Cannot be combined with users.",
       behaviour: :init_only,
     },
     users:          {
-      type:      "Optional[Array]",
-      desc:      "Allowed or denied users, depending on the value of the is_allowed_users attribute.- If allowed users exist, only those users and no others can connect to the NAS server through FTP or SFTP.- If denied users exist, they always have access denied to the NAS server through FTP or SFTP.- If the list is empty, there is no restriction to the NAS server access through FTP or SFTP based on the user name.",
+      type:      "Optional[Array[String]]",
+      desc:      "Allowed or denied users, depending on the value of the is_allowed_user attribute.- If allowed users exist, only those users and no others can connect to the NAS server through FTP or SFTP.- If denied users exist, they have always access denied to the NAS server through FTP or SFTP.- If the list is empty, there is no restriction to the NAS server access through FTP or SFTP based on the user name.",
       behaviour: :init_only,
     },
     welcome_message:          {

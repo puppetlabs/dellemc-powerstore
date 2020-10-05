@@ -11,23 +11,23 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 powerstore_file_kerberos {
   add_kdc_addresses => "add_kdc_addresses (optional)",
   id => "id",
-  kdc_addresses => "kdc_addresses (optional)",
+  kdc_addresses => "kdc_addresses",
   nas_server_id => "nas_server_id",
   port_number => "port_number (optional)",
-  realm => "realm (optional)",
+  realm => "realm",
   remove_kdc_addresses => "remove_kdc_addresses (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|add_kdc_addresses | Array | false |
+|add_kdc_addresses | Array[String[1,255]] | false |
 |id | String | true |
-|kdc_addresses | Array | false |
+|kdc_addresses | Array[String[1,255]] | true |
 |nas_server_id | String | true |
 |port_number | Integer[0, 65535] | false |
-|realm | String[0,255] | false |
-|remove_kdc_addresses | Array | false |
+|realm | String[1,255] | true |
+|remove_kdc_addresses | Array[String[1,255]] | false |
 
 
 

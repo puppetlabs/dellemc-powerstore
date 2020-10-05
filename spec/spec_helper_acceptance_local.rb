@@ -91,6 +91,10 @@ def sample_value(type)
   when "Optional"
     sample_value(type.type)
   when "String"
+    # require 'pry';binding.pry
+    if !type.size_type.nil? and !type.size_type.from.nil? and type.size_type.from > 10
+      return type.size_type.from.times.map { [*'0'..'9', *'a'..'z', *'A'..'Z'].sample }.join
+    end
     'SomeString'
   when "Integer"
     if !type.from.nil? and !type.to.nil?
@@ -104,8 +108,15 @@ def sample_value(type)
     [ sample_value(type.element_type), sample_value(type.element_type) ]
   when "Hash"
     { sample_value(type.key_type) => sample_value(type.value_type) }
+  when "Struct"
+    type.elements.reduce({}) { |retval, el| 
+      # require 'pry';binding.pry
+      retval[el.name] = sample_value(el.value_type); retval
+    }
   when "Enum"
     type.values[0]
+  when "Any"
+    'AnyValue'
   else
     'UnknownType'
   end

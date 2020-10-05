@@ -51,7 +51,7 @@ context.debug("Entered get")
   def create(context, name, should)
     context.creating(name) do
       #binding.pry
-      new_hash = build_hash(should)
+      new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
 
@@ -69,7 +69,7 @@ context.debug("Entered get")
 
   def update(context, name, should)
     context.updating(name) do
-      new_hash = build_hash(should)
+      new_hash = build_update_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_update(context, should, new_hash)
 
@@ -84,6 +84,50 @@ context.debug("Entered get")
     Puppet.alert("Exception during flush. ex is #{ex} and backtrace is #{ex.backtrace}")
     raise
   end
+
+  def build_create_hash(resource)
+    file_system = {}
+    file_system["access_policy"] = resource[:access_policy] unless resource[:access_policy].nil?
+    file_system["description"] = resource[:description] unless resource[:description].nil?
+    file_system["folder_rename_policy"] = resource[:folder_rename_policy] unless resource[:folder_rename_policy].nil?
+    file_system["is_async_MTime_enabled"] = resource[:is_async_m_time_enabled] unless resource[:is_async_m_time_enabled].nil?
+    file_system["is_smb_no_notify_enabled"] = resource[:is_smb_no_notify_enabled] unless resource[:is_smb_no_notify_enabled].nil?
+    file_system["is_smb_notify_on_access_enabled"] = resource[:is_smb_notify_on_access_enabled] unless resource[:is_smb_notify_on_access_enabled].nil?
+    file_system["is_smb_notify_on_write_enabled"] = resource[:is_smb_notify_on_write_enabled] unless resource[:is_smb_notify_on_write_enabled].nil?
+    file_system["is_smb_op_locks_enabled"] = resource[:is_smb_op_locks_enabled] unless resource[:is_smb_op_locks_enabled].nil?
+    file_system["is_smb_sync_writes_enabled"] = resource[:is_smb_sync_writes_enabled] unless resource[:is_smb_sync_writes_enabled].nil?
+    file_system["locking_policy"] = resource[:locking_policy] unless resource[:locking_policy].nil?
+    file_system["name"] = resource[:name] unless resource[:name].nil?
+    file_system["nas_server_id"] = resource[:nas_server_id] unless resource[:nas_server_id].nil?
+    file_system["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
+    file_system["size_total"] = resource[:size_total] unless resource[:size_total].nil?
+    file_system["smb_notify_on_change_dir_depth"] = resource[:smb_notify_on_change_dir_depth] unless resource[:smb_notify_on_change_dir_depth].nil?
+    return file_system
+  end
+
+  def build_update_hash(resource)
+    file_system = {}
+    file_system["access_policy"] = resource[:access_policy] unless resource[:access_policy].nil?
+    file_system["default_hard_limit"] = resource[:default_hard_limit] unless resource[:default_hard_limit].nil?
+    file_system["default_soft_limit"] = resource[:default_soft_limit] unless resource[:default_soft_limit].nil?
+    file_system["description"] = resource[:description] unless resource[:description].nil?
+    file_system["expiration_timestamp"] = resource[:expiration_timestamp] unless resource[:expiration_timestamp].nil?
+    file_system["folder_rename_policy"] = resource[:folder_rename_policy] unless resource[:folder_rename_policy].nil?
+    file_system["grace_period"] = resource[:grace_period] unless resource[:grace_period].nil?
+    file_system["is_async_MTime_enabled"] = resource[:is_async_m_time_enabled] unless resource[:is_async_m_time_enabled].nil?
+    file_system["is_quota_enabled"] = resource[:is_quota_enabled] unless resource[:is_quota_enabled].nil?
+    file_system["is_smb_no_notify_enabled"] = resource[:is_smb_no_notify_enabled] unless resource[:is_smb_no_notify_enabled].nil?
+    file_system["is_smb_notify_on_access_enabled"] = resource[:is_smb_notify_on_access_enabled] unless resource[:is_smb_notify_on_access_enabled].nil?
+    file_system["is_smb_notify_on_write_enabled"] = resource[:is_smb_notify_on_write_enabled] unless resource[:is_smb_notify_on_write_enabled].nil?
+    file_system["is_smb_op_locks_enabled"] = resource[:is_smb_op_locks_enabled] unless resource[:is_smb_op_locks_enabled].nil?
+    file_system["is_smb_sync_writes_enabled"] = resource[:is_smb_sync_writes_enabled] unless resource[:is_smb_sync_writes_enabled].nil?
+    file_system["locking_policy"] = resource[:locking_policy] unless resource[:locking_policy].nil?
+    file_system["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
+    file_system["size_total"] = resource[:size_total] unless resource[:size_total].nil?
+    file_system["smb_notify_on_change_dir_depth"] = resource[:smb_notify_on_change_dir_depth] unless resource[:smb_notify_on_change_dir_depth].nil?
+    return file_system
+  end
+
 
   def build_hash(resource)
     file_system = {}

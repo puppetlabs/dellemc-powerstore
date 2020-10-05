@@ -13,7 +13,7 @@ powerstore_volume_group {
   force => "force (optional)",
   is_replication_destination => "is_replication_destination (optional)",
   is_write_order_consistent => "is_write_order_consistent (optional)",
-  name => "name (optional)",
+  name => "name",
   protection_policy_id => "protection_policy_id (optional)",
   volume_ids => "volume_ids (optional)",
 }
@@ -21,13 +21,13 @@ powerstore_volume_group {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|description | String[0,256] | false |
+|description | String | false |
 |force | Boolean | false |
 |is_replication_destination | Boolean | false |
 |is_write_order_consistent | Boolean | false |
-|name | String[0,128] | false |
+|name | String | true |
 |protection_policy_id | String | false |
-|volume_ids | Array | false |
+|volume_ids | Array[String] | false |
 
 
 

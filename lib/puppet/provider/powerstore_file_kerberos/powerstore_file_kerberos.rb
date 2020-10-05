@@ -51,7 +51,7 @@ context.debug("Entered get")
   def create(context, name, should)
     context.creating(name) do
       #binding.pry
-      new_hash = build_hash(should)
+      new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
 
@@ -69,7 +69,7 @@ context.debug("Entered get")
 
   def update(context, name, should)
     context.updating(name) do
-      new_hash = build_hash(should)
+      new_hash = build_update_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_update(context, should, new_hash)
 
@@ -84,6 +84,26 @@ context.debug("Entered get")
     Puppet.alert("Exception during flush. ex is #{ex} and backtrace is #{ex.backtrace}")
     raise
   end
+
+  def build_create_hash(resource)
+    file_kerberos = {}
+    file_kerberos["kdc_addresses"] = resource[:kdc_addresses] unless resource[:kdc_addresses].nil?
+    file_kerberos["nas_server_id"] = resource[:nas_server_id] unless resource[:nas_server_id].nil?
+    file_kerberos["port_number"] = resource[:port_number] unless resource[:port_number].nil?
+    file_kerberos["realm"] = resource[:realm] unless resource[:realm].nil?
+    return file_kerberos
+  end
+
+  def build_update_hash(resource)
+    file_kerberos = {}
+    file_kerberos["add_kdc_addresses"] = resource[:add_kdc_addresses] unless resource[:add_kdc_addresses].nil?
+    file_kerberos["kdc_addresses"] = resource[:kdc_addresses] unless resource[:kdc_addresses].nil?
+    file_kerberos["port_number"] = resource[:port_number] unless resource[:port_number].nil?
+    file_kerberos["realm"] = resource[:realm] unless resource[:realm].nil?
+    file_kerberos["remove_kdc_addresses"] = resource[:remove_kdc_addresses] unless resource[:remove_kdc_addresses].nil?
+    return file_kerberos
+  end
+
 
   def build_hash(resource)
     file_kerberos = {}

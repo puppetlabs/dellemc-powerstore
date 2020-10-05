@@ -11,8 +11,8 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 powerstore_file_ldap {
   add_addresses => "add_addresses (optional)",
   addresses => "addresses (optional)",
-  authentication_type => "authentication_type (optional)",
-  base_dn => "base_DN (optional)",
+  authentication_type => "authentication_type",
+  base_dn => "base_DN",
   bind_dn => "bind_DN (optional)",
   bind_password => "bind_password (optional)",
   id => "id",
@@ -31,10 +31,10 @@ powerstore_file_ldap {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|add_addresses | Array | false |
-|addresses | Array | false |
-|authentication_type | Enum['Anonymous','Simple','Kerberos'] | false |
-|base_dn | String[0,255] | false |
+|add_addresses | Array[String] | false |
+|addresses | Array[String] | false |
+|authentication_type | Enum['Anonymous','Simple','Kerberos'] | true |
+|base_dn | String[3,255] | true |
 |bind_dn | String[0,1023] | false |
 |bind_password | String[0,1023] | false |
 |id | String | true |
@@ -47,7 +47,7 @@ powerstore_file_ldap {
 |profile_dn | String[0,255] | false |
 |protocol | Enum['LDAP','LDAPS'] | false |
 |realm | String[0,255] | false |
-|remove_addresses | Array | false |
+|remove_addresses | Array[String] | false |
 
 
 
