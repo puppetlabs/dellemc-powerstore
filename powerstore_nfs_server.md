@@ -24,7 +24,7 @@ powerstore_nfs_server {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|credentials_cache_ttl | Integer[0, 2147483647] | false |
+|credentials_cache_ttl | Integer[0,2147483647] | false |
 |host_name | String[1,255] | false |
 |id | String | true |
 |is_extended_credentials_enabled | Boolean | false |

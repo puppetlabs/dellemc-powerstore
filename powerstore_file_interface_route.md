@@ -23,7 +23,7 @@ powerstore_file_interface_route {
 |file_interface_id | String | true |
 |gateway | String[1,45] | false |
 |id | String | true |
-|prefix_length | Integer[1, 128] | false |
+|prefix_length | Integer[1,128] | false |
 
 
 

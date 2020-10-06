@@ -21,7 +21,7 @@ powerstore_storage_container {
 |force | Boolean | false |
 |id | String | true |
 |name | String[1,64] | true |
-|quota | Integer[0, 4611686018427387904] | false |
+|quota | Integer[0,4611686018427387904] | false |
 
 
 

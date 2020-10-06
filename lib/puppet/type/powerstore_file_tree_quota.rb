@@ -24,7 +24,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     hard_limit:          {
-      type:      "Optional[Integer[0, 9223372036854775808]]",
+      type:      "Optional[Integer[0,9223372036854775807]]",
       desc:      "Hard limit of the tree quota, in bytes. No hard limit when set to 0. This value can be used to compute amount of space that is consumed without limiting the space. Value is always rounded up to match the physical block size of the filesystem.",
     },
     id:          {
@@ -42,7 +42,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     soft_limit:          {
-      type:      "Optional[Integer[0, 9223372036854775808]]",
+      type:      "Optional[Integer[0,9223372036854775807]]",
       desc:      "Soft limit of the tree quota, in bytes. No hard limit when set to 0. Value is always rounded up to match the physical block size of the filesystem.",
     },
   },

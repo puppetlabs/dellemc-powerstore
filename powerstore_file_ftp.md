@@ -44,7 +44,7 @@ powerstore_file_ftp {
 |add_hosts | Array[String] | false |
 |add_users | Array[String] | false |
 |audit_dir | String | false |
-|audit_max_size | Integer[40960, 9223372036854775808] | false |
+|audit_max_size | Integer[40960,9223372036854775807] | false |
 |default_homedir | String | false |
 |groups | Array[String] | false |
 |hosts | Array[String] | false |

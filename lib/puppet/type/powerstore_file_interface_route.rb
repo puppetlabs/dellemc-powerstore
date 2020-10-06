@@ -33,7 +33,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     prefix_length:          {
-      type:      "Optional[Integer[1, 128]]",
+      type:      "Optional[Integer[1,128]]",
       desc:      "IPv4 or IPv6 prefix length for the route.",
     },
   },

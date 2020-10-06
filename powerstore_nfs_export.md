@@ -44,8 +44,8 @@ powerstore_nfs_export {
 |add_read_only_root_hosts | Array[String] | false |
 |add_read_write_hosts | Array[String] | false |
 |add_read_write_root_hosts | Array[String] | false |
-|anonymous_gid | Integer[18446744071562067968, 2147483647] | false |
-|anonymous_uid | Integer[18446744071562067968, 2147483647] | false |
+|anonymous_gid | Integer[-2147483648,2147483647] | false |
+|anonymous_uid | Integer[-2147483648,2147483647] | false |
 |default_access | Enum['No_Access','Read_Only','Read_Write','Root','Read_Only_Root'] | false |
 |description | String[0,511] | false |
 |file_system_id | String | true |

@@ -27,9 +27,9 @@ powerstore_file_interface {
 |ip_address | String[1,45] | true |
 |is_disabled | Boolean | false |
 |nas_server_id | String | true |
-|prefix_length | Integer[1, 128] | true |
+|prefix_length | Integer[1,128] | true |
 |role | Enum['Production','Backup'] | false |
-|vlan_id | Integer[0, 4094] | false |
+|vlan_id | Integer[0,4094] | false |
 
 
 

@@ -15,7 +15,7 @@ Puppet::ResourceApi.register_type(
     },
 
     credentials_cache_ttl:          {
-      type:      "Optional[Integer[0, 2147483647]]",
+      type:      "Optional[Integer[0,2147483647]]",
       desc:      "Sets the Time-To-Live (in minutes) expiration time in minutes for a Windows entry in the credentials cache. When failed mapping entries expire, the system retries mapping the UID to the SID.",
     },
     host_name:          {

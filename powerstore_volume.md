@@ -39,14 +39,14 @@ powerstore_volume {
 |host_id | String | false |
 |id | String | true |
 |is_replication_destination | Boolean | false |
-|logical_unit_number | Integer[0, 16383] | false |
-|min_size | Integer[0, 9223372036854775808] | false |
+|logical_unit_number | Integer[0,16383] | false |
+|min_size | Integer[0,9223372036854775807] | false |
 |name | String | true |
 |node_affinity | Enum['System_Select_At_Attach','System_Selected_Node_A','System_Selected_Node_B','Preferred_Node_A','Preferred_Node_B'] | false |
 |performance_policy_id | String | false |
 |protection_policy_id | String | false |
-|sector_size | Integer[512, 4096] | false |
-|size | Integer[1048576, 281474976710656] | true |
+|sector_size | Integer[512,4096] | false |
+|size | Integer[1048576,281474976710656] | true |
 |volume_group_id | String | false |
 
 

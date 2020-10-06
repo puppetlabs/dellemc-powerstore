@@ -42,7 +42,7 @@ powerstore_file_ldap {
 |is_verify_server_certificate | Boolean | false |
 |nas_server_id | String | true |
 |password | String[0,1023] | false |
-|port_number | Integer[0, 65536] | false |
+|port_number | Integer[0,65536] | false |
 |principal | String[0,1023] | false |
 |profile_dn | String[0,255] | false |
 |protocol | Enum['LDAP','LDAPS'] | false |

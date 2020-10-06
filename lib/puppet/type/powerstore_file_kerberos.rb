@@ -33,7 +33,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     port_number:          {
-      type:      "Optional[Integer[0, 65535]]",
+      type:      "Optional[Integer[0,65535]]",
       desc:      "KDC servers TCP port.",
     },
     realm:          {

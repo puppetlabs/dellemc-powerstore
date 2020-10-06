@@ -15,7 +15,7 @@ Puppet::ResourceApi.register_type(
     },
 
     add_initiators:          {
-      type:      "Optional[Array[Struct[{port_name => String, port_type => Enum['iSCSI','FC'], Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], }]]]",
+      type:      "Optional[Array[Struct[{Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], port_name => String, port_type => Enum['iSCSI','FC'], }]]]",
       desc:      "The list of initiators to be added. CHAP username and password are optional.",
     },
     description:          {

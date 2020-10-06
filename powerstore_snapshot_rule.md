@@ -23,7 +23,7 @@ powerstore_snapshot_rule {
 | ------------- | ------------- | ------------- |
 |days_of_week | Array[Enum['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']] | false |
 |delete_snaps | Boolean | false |
-|desired_retention | Integer[1, 8760] | true |
+|desired_retention | Integer[1,8760] | true |
 |id | String | true |
 |interval | Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Two_Hours','Three_Hours','Four_Hours','Six_Hours','Eight_Hours','Twelve_Hours','One_Day'] | false |
 |name | String | true |

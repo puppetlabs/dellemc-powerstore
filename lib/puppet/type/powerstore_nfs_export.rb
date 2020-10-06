@@ -35,11 +35,11 @@ Puppet::ResourceApi.register_type(
       desc:      "Hosts to add to the current read_write_root_hosts list. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @. Error if the host already exists. Cannot combine with read_write_root_hosts.",
     },
     anonymous_gid:          {
-      type:      "Optional[Integer[18446744071562067968, 2147483647]]",
+      type:      "Optional[Integer[-2147483648,2147483647]]",
       desc:      "Specifies the group ID of the anonymous account.",
     },
     anonymous_uid:          {
-      type:      "Optional[Integer[18446744071562067968, 2147483647]]",
+      type:      "Optional[Integer[-2147483648,2147483647]]",
       desc:      "Specifies the user ID of the anonymous account.",
     },
     default_access:          {

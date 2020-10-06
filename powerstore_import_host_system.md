@@ -25,7 +25,7 @@ powerstore_import_host_system {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |agent_address | String | true |
-|agent_port | Integer[0, 65535] | true |
+|agent_port | Integer[0,65535] | true |
 |chap_mutual_password | String | false |
 |chap_mutual_username | String | false |
 |chap_single_password | String | false |

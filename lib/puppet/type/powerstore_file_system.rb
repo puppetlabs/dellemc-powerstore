@@ -19,11 +19,11 @@ Puppet::ResourceApi.register_type(
       desc:      "File system security access policies. Each file system uses its access policy to determine how to reconcile the differences between NFS and SMB access control. Selecting an access policy determines which mechanism is used to enforce file security on the particular file system. * Native - Native Security. * UNIX - UNIX Security. * Windows - Windows Security.",
     },
     default_hard_limit:          {
-      type:      "Optional[Integer[0, 9223372036854775808]]",
+      type:      "Optional[Integer[0,9223372036854775807]]",
       desc:      "Default hard limit of user quotas and tree quotas (bytes). The hard limit value is always rounded up to match the file system's physical block size.(0 means 'No limitation'. This value can be used to compute the amount of space consumed without limiting the space).",
     },
     default_soft_limit:          {
-      type:      "Optional[Integer[0, 9223372036854775808]]",
+      type:      "Optional[Integer[0,9223372036854775807]]",
       desc:      "Default soft limit of user quotas and tree quotas (bytes). Value is always rounded up to match the file system's physical block size.(0 means 'No limitation'.)",
     },
     description:          {
@@ -39,7 +39,7 @@ Puppet::ResourceApi.register_type(
       desc:      "File system folder rename policies for the file system with multiprotocol access enabled. These policies control whether the directory can be renamed from NFS or SMB clients when at least one file is opened in the directory, or in one of its child directories. * All_Allowed - All protocols are allowed to rename directories without any restrictions. * SMB_Forbidden - A directory rename from the SMB protocol will be denied if at least one file is opened in the directory or in one of its child directories. * All_Forbidden - Any directory rename request will be denied regardless of the protocol used, if at least one file is opened in the directory or in one of its child directories.",
     },
     grace_period:          {
-      type:      "Optional[Integer[18446744073709551615, 2147483647]]",
+      type:      "Optional[Integer[-1,2147483647]]",
       desc:      "Grace period of soft limits (seconds): -1: default: Infinite grace (Windows policy).  0: Use system default of 1 week. positive: Grace period after which the soft limit is treated as a hard limit (seconds).",
     },
     id:          {
@@ -94,11 +94,11 @@ Puppet::ResourceApi.register_type(
       desc:      "Id of the protection policy applied to the file system.",
     },
     size_total:          {
-      type:      "Integer[3221225472, 281474976710656]",
+      type:      "Integer[3221225472,281474976710656]",
       desc:      "Size that the file system presents to the host or end user. (Bytes)",
     },
     smb_notify_on_change_dir_depth:          {
-      type:      "Optional[Integer[1, 512]]",
+      type:      "Optional[Integer[1,512]]",
       desc:      "Lowest directory level to which the enabled notifications apply, if any.",
     },
   },

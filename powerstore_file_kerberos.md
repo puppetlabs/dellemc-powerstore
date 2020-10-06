@@ -25,7 +25,7 @@ powerstore_file_kerberos {
 |id | String | true |
 |kdc_addresses | Array[String[1,255]] | true |
 |nas_server_id | String | true |
-|port_number | Integer[0, 65535] | false |
+|port_number | Integer[0,65535] | false |
 |realm | String[1,255] | true |
 |remove_kdc_addresses | Array[String[1,255]] | false |
 

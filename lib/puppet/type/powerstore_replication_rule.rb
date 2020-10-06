@@ -15,7 +15,7 @@ Puppet::ResourceApi.register_type(
     },
 
     alert_threshold:          {
-      type:      "Optional[Integer[0, 1440]]",
+      type:      "Optional[Integer[0,1440]]",
       desc:      "Acceptable delay in minutes between the expected and actual replication sync intervals. The system generates an alert if the delay between the expected and actual sync exceeds this threshold. Alert threshold has the default value of one RPO in minutes.",
     },
     id:          {

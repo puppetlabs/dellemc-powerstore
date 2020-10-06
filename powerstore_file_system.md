@@ -36,12 +36,12 @@ powerstore_file_system {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |access_policy | Enum['Native','UNIX','Windows'] | false |
-|default_hard_limit | Integer[0, 9223372036854775808] | false |
-|default_soft_limit | Integer[0, 9223372036854775808] | false |
+|default_hard_limit | Integer[0,9223372036854775807] | false |
+|default_soft_limit | Integer[0,9223372036854775807] | false |
 |description | String[0,255] | false |
 |expiration_timestamp | String | false |
 |folder_rename_policy | Enum['All_Allowed','SMB_Forbidden','All_Forbidden'] | false |
-|grace_period | Integer[18446744073709551615, 2147483647] | false |
+|grace_period | Integer[-1,2147483647] | false |
 |id | String | true |
 |is_async_m_time_enabled | Boolean | false |
 |is_quota_enabled | Boolean | false |
@@ -54,8 +54,8 @@ powerstore_file_system {
 |name | String[1,255] | true |
 |nas_server_id | String | true |
 |protection_policy_id | String | false |
-|size_total | Integer[3221225472, 281474976710656] | true |
-|smb_notify_on_change_dir_depth | Integer[1, 512] | false |
+|size_total | Integer[3221225472,281474976710656] | true |
+|smb_notify_on_change_dir_depth | Integer[1,512] | false |
 
 
 

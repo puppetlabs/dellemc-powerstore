@@ -37,7 +37,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     prefix_length:          {
-      type:      "Integer[1, 128]",
+      type:      "Integer[1,128]",
       desc:      "Prefix length for the interface. IPv4 and IPv6 are supported.",
     },
     role:          {
@@ -46,7 +46,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     vlan_id:          {
-      type:      "Optional[Integer[0, 4094]]",
+      type:      "Optional[Integer[0,4094]]",
       desc:      "Virtual Local Area Network (VLAN) identifier for the interface. The interface uses the identifier to accept packets that have matching VLAN tags.",
     },
   },

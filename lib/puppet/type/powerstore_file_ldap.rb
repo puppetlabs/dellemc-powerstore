@@ -61,7 +61,7 @@ Puppet::ResourceApi.register_type(
       desc:      "The associated password for Kerberos authentication.",
     },
     port_number:          {
-      type:      "Optional[Integer[0, 65536]]",
+      type:      "Optional[Integer[0,65536]]",
       desc:      "The TCP/IP port used by the NAS Server to connect to the LDAP servers. The default port number for LDAP is 389 and LDAPS is 636.",
     },
     principal:          {

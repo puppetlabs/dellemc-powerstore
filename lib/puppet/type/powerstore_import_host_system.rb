@@ -20,7 +20,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     agent_port:          {
-      type:      "Integer[0, 65535]",
+      type:      "Integer[0,65535]",
       desc:      "TCP port of the import host system.",
       behaviour: :init_only,
     },

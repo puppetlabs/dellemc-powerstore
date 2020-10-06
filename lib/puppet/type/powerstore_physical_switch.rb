@@ -15,7 +15,7 @@ Puppet::ResourceApi.register_type(
     },
 
     connections:          {
-      type:      "Array[Struct[{Optional[snmp_community_string] => String, Optional[ssh_password] => String, Optional[username] => String, address => String[1,255], connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0, 65535], }]]",
+      type:      "Array[Struct[{address => String[1,255], connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String, Optional[ssh_password] => String, Optional[username] => String, }]]",
       desc:      "Supported connections for a physical switch.",
     },
     id:          {

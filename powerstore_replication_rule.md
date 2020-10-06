@@ -19,7 +19,7 @@ powerstore_replication_rule {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|alert_threshold | Integer[0, 1440] | false |
+|alert_threshold | Integer[0,1440] | false |
 |id | String | true |
 |name | String | true |
 |remote_system_id | String | true |

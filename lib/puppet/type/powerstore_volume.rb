@@ -51,12 +51,12 @@ Puppet::ResourceApi.register_type(
       desc:      "New value for is_replication_destination property. The modification is only supported for primary and clone volume, only when the current value is true and there is no longer a replication session using this volume as a destination, and only to false.",
     },
     logical_unit_number:          {
-      type:      "Optional[Integer[0, 16383]]",
+      type:      "Optional[Integer[0,16383]]",
       desc:      "Optional logical unit number when creating a  attached volume.  If no host_id or host_group_id is specified, this property is ignored.",
       behaviour: :init_only,
     },
     min_size:          {
-      type:      "Optional[Integer[0, 9223372036854775808]]",
+      type:      "Optional[Integer[0,9223372036854775807]]",
       desc:      "Optional minimum size for the volume, in bytes.",
       behaviour: :init_only,
     },
@@ -78,12 +78,12 @@ Puppet::ResourceApi.register_type(
       desc:      "Unique identifier of the protection policy assigned to the volume.",
     },
     sector_size:          {
-      type:      "Optional[Integer[512, 4096]]",
+      type:      "Optional[Integer[512,4096]]",
       desc:      "Optional sector size, in bytes. Only 512-byte and 4096-byte sectors are supported.",
       behaviour: :init_only,
     },
     size:          {
-      type:      "Integer[1048576, 281474976710656]",
+      type:      "Integer[1048576,281474976710656]",
       desc:      "Size of the volume to be created, in bytes. Minimum volume size is 1MB. Maximum volume size is 256TB. Size must be a multiple of 8192.",
     },
     volume_group_id:          {
