@@ -1,7 +1,7 @@
 require 'puppet/resource_api'
 require "pry"
 
-class Puppet::Provider::PowerstoreHostGroup::PowerstoreHostGroup
+class Puppet::Provider::PowerstoreImportHostSystem::PowerstoreImportHostSystem
   def canonicalize(context, resources)
     #nout to do here but seems we need to implement it
     resources
@@ -86,36 +86,42 @@ context.debug("Entered get")
   end
 
   def build_create_hash(resource)
-    host_group = {}
-    host_group["description"] = resource[:description] unless resource[:description].nil?
-    host_group["host_ids"] = resource[:host_ids] unless resource[:host_ids].nil?
-    host_group["name"] = resource[:name] unless resource[:name].nil?
-    return host_group
+    import_host_system = {}
+    import_host_system["agent_address"] = resource[:agent_address] unless resource[:agent_address].nil?
+    import_host_system["agent_port"] = resource[:agent_port] unless resource[:agent_port].nil?
+    import_host_system["chap_mutual_password"] = resource[:chap_mutual_password] unless resource[:chap_mutual_password].nil?
+    import_host_system["chap_mutual_username"] = resource[:chap_mutual_username] unless resource[:chap_mutual_username].nil?
+    import_host_system["chap_single_password"] = resource[:chap_single_password] unless resource[:chap_single_password].nil?
+    import_host_system["chap_single_username"] = resource[:chap_single_username] unless resource[:chap_single_username].nil?
+    import_host_system["os_type"] = resource[:os_type] unless resource[:os_type].nil?
+    import_host_system["password"] = resource[:password] unless resource[:password].nil?
+    import_host_system["user_name"] = resource[:user_name] unless resource[:user_name].nil?
+    return import_host_system
   end
 
   def build_update_hash(resource)
-    host_group = {}
-    host_group["add_host_ids"] = resource[:add_host_ids] unless resource[:add_host_ids].nil?
-    host_group["description"] = resource[:description] unless resource[:description].nil?
-    host_group["name"] = resource[:name] unless resource[:name].nil?
-    host_group["remove_host_ids"] = resource[:remove_host_ids] unless resource[:remove_host_ids].nil?
-    return host_group
+    import_host_system = {}
+    return import_host_system
   end
 
   def build_delete_hash(resource)
-    host_group = {}
-    return host_group
+    import_host_system = {}
+    return import_host_system
   end
 
   def build_hash(resource)
-    host_group = {}
-    host_group["add_host_ids"] = resource[:add_host_ids] unless resource[:add_host_ids].nil?
-    host_group["description"] = resource[:description] unless resource[:description].nil?
-    host_group["host_ids"] = resource[:host_ids] unless resource[:host_ids].nil?
-    host_group["id"] = resource[:id] unless resource[:id].nil?
-    host_group["name"] = resource[:name] unless resource[:name].nil?
-    host_group["remove_host_ids"] = resource[:remove_host_ids] unless resource[:remove_host_ids].nil?
-    return host_group
+    import_host_system = {}
+    import_host_system["agent_address"] = resource[:agent_address] unless resource[:agent_address].nil?
+    import_host_system["agent_port"] = resource[:agent_port] unless resource[:agent_port].nil?
+    import_host_system["chap_mutual_password"] = resource[:chap_mutual_password] unless resource[:chap_mutual_password].nil?
+    import_host_system["chap_mutual_username"] = resource[:chap_mutual_username] unless resource[:chap_mutual_username].nil?
+    import_host_system["chap_single_password"] = resource[:chap_single_password] unless resource[:chap_single_password].nil?
+    import_host_system["chap_single_username"] = resource[:chap_single_username] unless resource[:chap_single_username].nil?
+    import_host_system["id"] = resource[:id] unless resource[:id].nil?
+    import_host_system["os_type"] = resource[:os_type] unless resource[:os_type].nil?
+    import_host_system["password"] = resource[:password] unless resource[:password].nil?
+    import_host_system["user_name"] = resource[:user_name] unless resource[:user_name].nil?
+    return import_host_system
   end
 
   def self.build_key_values
@@ -146,7 +152,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation host_groupCollectionQuery")
+    Puppet.info("Calling operation import_host_systemCollectionQuery")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -169,20 +175,20 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/host_group', 'Get','application/json')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/import_host_system', 'Get','application/json')
   end
 
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation host_groupCreate")
+    Puppet.info("Calling operation import_host_systemCreate")
     path_params = {}
     query_params = {}
     header_params = {}
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('request', 'body', 'request', 'request'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -199,44 +205,15 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/host_group', 'Post','application/json')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/import_host_system', 'Post','application/json')
   end
 
 
-  def self.invoke_update(context, resource = nil, body_params = nil)
-    key_values = self.build_key_values
-    Puppet.info("Calling operation host_groupModify")
-    path_params = {}
-    query_params = {}
-    header_params = {}
-    header_params["User-Agent"] = ""
-    
-    op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
-      self.op_param('id', 'path', 'id', 'id'),
-    ]
-    op_params.each do |i|
-      inquery = i[:inquery]
-      name    = i[:name]
-      paramalias = i[:paramalias]
-      name_snake = i[:namesnake]
-      if inquery == 'query'
-        query_params[name] = key_values[name] unless key_values[name].nil?
-        query_params[name] = ENV["powerstore_#{name_snake}"] unless ENV["powerstore_#{name_snake}"].nil?
-        query_params[name] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
-      else
-        path_params[name_snake.to_sym] = key_values[name] unless key_values[name].nil?
-        path_params[name_snake.to_sym] = ENV["powerstore_#{name_snake}"] unless ENV["powerstore_#{name_snake}"].nil?
-        path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
-      end
-    end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/host_group/%{id}', 'Patch','application/json')
-  end
 
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation host_groupDelete")
+    Puppet.info("Calling operation import_host_systemDelete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -260,7 +237,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/host_group/%{id}', 'Delete','application/json')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/import_host_system/%{id}', 'Delete','application/json')
   end
 
 
@@ -268,7 +245,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation host_groupInstanceQuery")
+    Puppet.info("Calling operation import_host_systemInstanceQuery")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -292,7 +269,7 @@ context.debug("Entered get")
         path_params[name_snake.to_sym] = resource[paramalias.to_sym] unless resource.nil? || resource[paramalias.to_sym].nil?
       end
     end
-    context.transport.call_op(path_params, query_params, header_params, body_params, '/host_group/%{id}', 'Get','application/json')
+    context.transport.call_op(path_params, query_params, header_params, body_params, '/import_host_system/%{id}', 'Get','application/json')
   end
 
 
@@ -302,12 +279,16 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
-          add_host_ids: item['add_host_ids'],
-          description: item['description'],
-          host_ids: item['host_ids'],
+          agent_address: item['agent_address'],
+          agent_port: item['agent_port'],
+          chap_mutual_password: item['chap_mutual_password'],
+          chap_mutual_username: item['chap_mutual_username'],
+          chap_single_password: item['chap_single_password'],
+          chap_single_username: item['chap_single_username'],
           id: item['id'],
-          name: item['name'],
-          remove_host_ids: item['remove_host_ids'],
+          os_type: item['os_type'],
+          password: item['password'],
+          user_name: item['user_name'],
           ensure: 'present',
         }
 

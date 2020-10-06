@@ -105,10 +105,16 @@ context.debug("Entered get")
     return snapshot_rule
   end
 
+  def build_delete_hash(resource)
+    snapshot_rule = {}
+    snapshot_rule["delete_snaps"] = resource[:delete_snaps] unless resource[:delete_snaps].nil?
+    return snapshot_rule
+  end
 
   def build_hash(resource)
     snapshot_rule = {}
     snapshot_rule["days_of_week"] = resource[:days_of_week] unless resource[:days_of_week].nil?
+    snapshot_rule["delete_snaps"] = resource[:delete_snaps] unless resource[:delete_snaps].nil?
     snapshot_rule["desired_retention"] = resource[:desired_retention] unless resource[:desired_retention].nil?
     snapshot_rule["id"] = resource[:id] unless resource[:id].nil?
     snapshot_rule["interval"] = resource[:interval] unless resource[:interval].nil?
@@ -129,8 +135,8 @@ context.debug("Entered get")
   # end
 
   def delete(context, should)
-    new_hash = build_hash(should)
-    response = self.class.invoke_delete(context, should) # , new_hash)
+    new_hash = build_delete_hash(should)
+    response = self.class.invoke_delete(context, should, new_hash)
     if response.is_a? Net::HTTPSuccess
       should[:ensure] = 'absent'
       Puppet.info "Added 'absent' to property_hash"
@@ -303,6 +309,7 @@ context.debug("Entered get")
         hash = {
 
           days_of_week: item['days_of_week'],
+          delete_snaps: item['delete_snaps'],
           desired_retention: item['desired_retention'],
           id: item['id'],
           interval: item['interval'],

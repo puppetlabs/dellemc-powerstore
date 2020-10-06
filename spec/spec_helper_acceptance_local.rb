@@ -25,7 +25,7 @@ end
 
 def run_device(options = { allow_changes: true, allow_warnings: false, allow_errors: false })
   command = "bundle exec puppet device --apply #{@file.path} #{COMMON_ARGS} --verbose --trace --debug"
-  puts "run_device: ", command
+  # puts "run_device: ", command
 
   output, _status = Open3.capture2e("bundle exec puppet device --apply #{@file.path} #{COMMON_ARGS} --verbose --trace --debug")
 
@@ -47,7 +47,7 @@ end
 def run_resource(resource_type, resource_title = nil, verbose = true)
   verbose_args = verbose ? '--verbose --trace --debug' : ''
   command = "bundle exec puppet device --resource #{resource_type} #{resource_title} #{COMMON_ARGS} #{verbose_args}"
-  puts "run_resource: ", command
+  # puts "run_resource: ", command
   output, _status = Open3.capture2e(command)
   output
 end
@@ -95,7 +95,7 @@ def sample_value(type)
     if !type.size_type.nil? and !type.size_type.from.nil? and type.size_type.from > 10
       return type.size_type.from.times.map { [*'0'..'9', *'a'..'z', *'A'..'Z'].sample }.join
     end
-    'SomeString'
+    return 8.times.map { [*'0'..'9', *'a'..'z', *'A'..'Z'].sample }.join
   when "Integer"
     if !type.from.nil? and !type.to.nil?
       (type.from + type.to) / 2

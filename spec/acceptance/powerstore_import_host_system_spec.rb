@@ -1,6 +1,6 @@
 require 'spec_helper_acceptance'
 
-type_name = 'powerstore_file_tree_quota'
+type_name = 'powerstore_import_host_system'
 
 describe type_name do
   it "get #{type_name}"  do
@@ -17,15 +17,6 @@ describe type_name do
     expect(result).to match(%r{Applied catalog.*})
   end
 
-  
-  it "update #{type_name}" do
-    r = sample_resource(type_name)
-    r[:name] = 'string' if ENV["MOCK_ACCEPTANCE"]
-    pp = manifest_from_values(type_name, r)
-    make_site_pp(pp)
-    result = run_device(allow_changes: true)
-    expect(result).to match(%r{Applied catalog.*})
-  end
   
 
   it "delete #{type_name}" do

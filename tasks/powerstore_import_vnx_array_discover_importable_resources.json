@@ -4,8 +4,8 @@
 	"supports_noop": false,
 	"remote": true,
 	"parameters":{
-			"":{
-			   "description": "",
+			"id":{
+			   "description": "Unique identifier of a VNX storage system.",
 			   "type": "Optional[String[1]]"
 			}
 	},

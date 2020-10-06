@@ -12,6 +12,7 @@ powerstore_smb_server {
   computer_name => "computer_name (optional)",
   description => "description (optional)",
   domain => "domain (optional)",
+  force => "force (optional)",
   id => "id",
   is_standalone => "is_standalone",
   local_admin_password => "local_admin_password",
@@ -26,6 +27,7 @@ powerstore_smb_server {
 |computer_name | String[1,63] | false |
 |description | String[0,48] | false |
 |domain | String[1,255] | false |
+|force | Boolean | false |
 |id | String | true |
 |is_standalone | Boolean | true |
 |local_admin_password | String[0,512] | true |

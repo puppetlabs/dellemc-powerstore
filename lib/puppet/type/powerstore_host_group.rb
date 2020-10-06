@@ -17,12 +17,10 @@ Puppet::ResourceApi.register_type(
     add_host_ids:          {
       type:      "Optional[Array[String]]",
       desc:      "List of hosts to be added to host group. The operation fails if the host(s) to be added are attached to volume.",
-      behaviour: :init_only,
     },
     description:          {
       type:      "Optional[String]",
       desc:      "An optional description for the host group. The description should not have any unprintable characters.",
-      behaviour: :init_only,
     },
     host_ids:          {
       type:      "Array[String]",
@@ -42,7 +40,6 @@ Puppet::ResourceApi.register_type(
     remove_host_ids:          {
       type:      "Optional[Array[String]]",
       desc:      "List of hosts to be removed from the host group. The operation fails if host group is attached to volume.",
-      behaviour: :init_only,
     },
   },
   autorequires: {

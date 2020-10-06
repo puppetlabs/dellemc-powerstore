@@ -15,6 +15,7 @@ Here is a list of the types and providers with links to more detailed descriptio
  * [powerstore_file_virus_checker](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_file_virus_checker.md)
  * [powerstore_host](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_host.md)
  * [powerstore_host_group](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_host_group.md)
+ * [powerstore_import_host_system](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_import_host_system.md)
  * [powerstore_import_session](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_import_session.md)
  * [powerstore_local_user](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_local_user.md)
  * [powerstore_migration_session](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_migration_session.md)

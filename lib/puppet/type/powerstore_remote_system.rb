@@ -17,12 +17,10 @@ Puppet::ResourceApi.register_type(
     data_network_latency:          {
       type:      "Optional[Enum['Low','High']]",
       desc:      "Network latency choices for a remote system. Replication traffic can be tuned for higher efficiency depending on the expected network latency. This will only be used when the remote system type is PowerStore.* Low                      - Less than 5 milliseconds.* High                     - More than 5 milliseconds.",
-      behaviour: :init_only,
     },
     description:          {
       type:      "Optional[String]",
       desc:      "User-specified description of the remote system.",
-      behaviour: :init_only,
     },
     discovery_chap_mode:          {
       type:      "Optional[Enum['Disabled','Single','Mutual']]",
@@ -30,7 +28,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     import_chap_info:          {
-      type:      "Optional[Struct[{Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, }]]",
+      type:      "Optional[Struct[{Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, }]]",
       desc:      "Information about the initiator, target session, or discovery CHAP secrets.",
       behaviour: :init_only,
     },
@@ -42,7 +40,6 @@ Puppet::ResourceApi.register_type(
     management_address:          {
       type:      "String",
       desc:      "Management IP address of the remote system instance. Only IPv4 is supported for non-PowerStore remote systems.Both IPv4 and IPv6 are supported for PowerStore remote systems.",
-      behaviour: :init_only,
     },
     name:          {
       type:      "Optional[String]",
@@ -52,12 +49,10 @@ Puppet::ResourceApi.register_type(
     remote_password:          {
       type:      "Optional[String]",
       desc:      "Password used to access the remote system. Used only for non-PowerStore systems.",
-      behaviour: :init_only,
     },
     remote_username:          {
       type:      "Optional[String]",
       desc:      "Username used to access the remote system. Used only for non-PowerStore systems.",
-      behaviour: :init_only,
     },
     session_chap_mode:          {
       type:      "Optional[Enum['Disabled','Single','Mutual']]",

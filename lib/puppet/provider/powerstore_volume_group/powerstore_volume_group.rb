@@ -106,9 +106,15 @@ context.debug("Entered get")
     return volume_group
   end
 
+  def build_delete_hash(resource)
+    volume_group = {}
+    volume_group["delete_members"] = resource[:delete_members] unless resource[:delete_members].nil?
+    return volume_group
+  end
 
   def build_hash(resource)
     volume_group = {}
+    volume_group["delete_members"] = resource[:delete_members] unless resource[:delete_members].nil?
     volume_group["description"] = resource[:description] unless resource[:description].nil?
     volume_group["force"] = resource[:force] unless resource[:force].nil?
     volume_group["is_replication_destination"] = resource[:is_replication_destination] unless resource[:is_replication_destination].nil?
@@ -131,8 +137,8 @@ context.debug("Entered get")
   # end
 
   def delete(context, should)
-    new_hash = build_hash(should)
-    response = self.class.invoke_delete(context, should) # , new_hash)
+    new_hash = build_delete_hash(should)
+    response = self.class.invoke_delete(context, should, new_hash)
     if response.is_a? Net::HTTPSuccess
       should[:ensure] = 'absent'
       Puppet.info "Added 'absent' to property_hash"
@@ -304,6 +310,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+          delete_members: item['delete_members'],
           description: item['description'],
           force: item['force'],
           is_replication_destination: item['is_replication_destination'],

@@ -20,6 +20,7 @@ describe type_name do
   
   it "update #{type_name}" do
     r = sample_resource(type_name)
+    r[:name] = 'string' if ENV["MOCK_ACCEPTANCE"]
     pp = manifest_from_values(type_name, r)
     make_site_pp(pp)
     result = run_device(allow_changes: true)
@@ -30,6 +31,7 @@ describe type_name do
   it "delete #{type_name}" do
     r = sample_resource(type_name)
     r[:ensure] = 'absent'
+    r[:name] = 'string' if ENV["MOCK_ACCEPTANCE"]
     pp = manifest_from_values(type_name, r)
     make_site_pp(pp)
     result = run_device(allow_changes: true)

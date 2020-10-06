@@ -17,7 +17,6 @@ Puppet::ResourceApi.register_type(
     destination:          {
       type:      "Optional[String]",
       desc:      "IPv4 or IPv6 address of the target network node based on the specific route type. Values are:* For a default route, there is no value because the system will use the specified gateway IP address.* For a host route, the value is the host IP address.* For a subnet route, the value is a subnet IP address.",
-      behaviour: :init_only,
     },
     file_interface_id:          {
       type:      "String",
@@ -27,7 +26,6 @@ Puppet::ResourceApi.register_type(
     gateway:          {
       type:      "Optional[String[1,45]]",
       desc:      "IP address of the gateway associated with the route.",
-      behaviour: :init_only,
     },
     id:          {
       type:      "String",
@@ -37,7 +35,6 @@ Puppet::ResourceApi.register_type(
     prefix_length:          {
       type:      "Optional[Integer[1, 128]]",
       desc:      "IPv4 or IPv6 prefix length for the route.",
-      behaviour: :init_only,
     },
   },
   autorequires: {

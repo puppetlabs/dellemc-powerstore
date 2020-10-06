@@ -115,6 +115,13 @@ context.debug("Entered get")
     return nas_server
   end
 
+  def build_delete_hash(resource)
+    nas_server = {}
+    nas_server["domain_password"] = resource[:domain_password] unless resource[:domain_password].nil?
+    nas_server["domain_user_name"] = resource[:domain_user_name] unless resource[:domain_user_name].nil?
+    nas_server["is_skip_domain_unjoin"] = resource[:is_skip_domain_unjoin] unless resource[:is_skip_domain_unjoin].nil?
+    return nas_server
+  end
 
   def build_hash(resource)
     nas_server = {}
@@ -125,8 +132,11 @@ context.debug("Entered get")
     nas_server["default_unix_user"] = resource[:default_unix_user] unless resource[:default_unix_user].nil?
     nas_server["default_windows_user"] = resource[:default_windows_user] unless resource[:default_windows_user].nil?
     nas_server["description"] = resource[:description] unless resource[:description].nil?
+    nas_server["domain_password"] = resource[:domain_password] unless resource[:domain_password].nil?
+    nas_server["domain_user_name"] = resource[:domain_user_name] unless resource[:domain_user_name].nil?
     nas_server["id"] = resource[:id] unless resource[:id].nil?
     nas_server["is_auto_user_mapping_enabled"] = resource[:is_auto_user_mapping_enabled] unless resource[:is_auto_user_mapping_enabled].nil?
+    nas_server["is_skip_domain_unjoin"] = resource[:is_skip_domain_unjoin] unless resource[:is_skip_domain_unjoin].nil?
     nas_server["is_username_translation_enabled"] = resource[:is_username_translation_enabled] unless resource[:is_username_translation_enabled].nil?
     nas_server["name"] = resource[:name] unless resource[:name].nil?
     nas_server["preferred_node_id"] = resource[:preferred_node_id] unless resource[:preferred_node_id].nil?
@@ -147,8 +157,8 @@ context.debug("Entered get")
   # end
 
   def delete(context, should)
-    new_hash = build_hash(should)
-    response = self.class.invoke_delete(context, should) # , new_hash)
+    new_hash = build_delete_hash(should)
+    response = self.class.invoke_delete(context, should, new_hash)
     if response.is_a? Net::HTTPSuccess
       should[:ensure] = 'absent'
       Puppet.info "Added 'absent' to property_hash"
@@ -327,8 +337,11 @@ context.debug("Entered get")
           default_unix_user: item['default_unix_user'],
           default_windows_user: item['default_windows_user'],
           description: item['description'],
+          domain_password: item['domain_password'],
+          domain_user_name: item['domain_user_name'],
           id: item['id'],
           is_auto_user_mapping_enabled: item['is_auto_user_mapping_enabled'],
+          is_skip_domain_unjoin: item['is_skip_domain_unjoin'],
           is_username_translation_enabled: item['is_username_translation_enabled'],
           name: item['name'],
           preferred_node_id: item['preferred_node_id'],

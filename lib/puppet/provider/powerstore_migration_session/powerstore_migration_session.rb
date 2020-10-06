@@ -100,13 +100,19 @@ context.debug("Entered get")
     return migration_session
   end
 
+  def build_delete_hash(resource)
+    migration_session = {}
+    migration_session["force"] = resource[:force] unless resource[:force].nil?
+    return migration_session
+  end
 
   def build_hash(resource)
     migration_session = {}
     migration_session["automatic_cutover"] = resource[:automatic_cutover] unless resource[:automatic_cutover].nil?
     migration_session["destination_appliance_id"] = resource[:destination_appliance_id] unless resource[:destination_appliance_id].nil?
     migration_session["family_id"] = resource[:family_id] unless resource[:family_id].nil?
-    migration_session[""] = resource[:] unless resource[:].nil?
+    migration_session["force"] = resource[:force] unless resource[:force].nil?
+    migration_session["id"] = resource[:id] unless resource[:id].nil?
     migration_session["name"] = resource[:name] unless resource[:name].nil?
     migration_session["resource_type"] = resource[:resource_type] unless resource[:resource_type].nil?
     return migration_session
@@ -124,8 +130,8 @@ context.debug("Entered get")
   # end
 
   def delete(context, should)
-    new_hash = build_hash(should)
-    response = self.class.invoke_delete(context, should) # , new_hash)
+    new_hash = build_delete_hash(should)
+    response = self.class.invoke_delete(context, should, new_hash)
     if response.is_a? Net::HTTPSuccess
       should[:ensure] = 'absent'
       Puppet.info "Added 'absent' to property_hash"
@@ -271,7 +277,8 @@ context.debug("Entered get")
           automatic_cutover: item['automatic_cutover'],
           destination_appliance_id: item['destination_appliance_id'],
           family_id: item['family_id'],
-          : item[''],
+          force: item['force'],
+          id: item['id'],
           name: item['name'],
           resource_type: item['resource_type'],
           ensure: 'present',

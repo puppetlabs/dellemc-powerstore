@@ -9,6 +9,7 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 
 ```puppet
 powerstore_volume_group {
+  delete_members => "delete_members (optional)",
   description => "description (optional)",
   force => "force (optional)",
   is_replication_destination => "is_replication_destination (optional)",
@@ -21,6 +22,7 @@ powerstore_volume_group {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
+|delete_members | Boolean | false |
 |description | String | false |
 |force | Boolean | false |
 |is_replication_destination | Boolean | false |

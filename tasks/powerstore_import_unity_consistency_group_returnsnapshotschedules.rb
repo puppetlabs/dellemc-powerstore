@@ -83,7 +83,7 @@ class Import_unity_consistency_groupReturnsnapshotschedulesTask < TaskHelper
     end
 
     op_params = [
-        op_param('', 'body', '', ''),
+        op_param('id', 'body', 'id', 'id'),
       ]
     op_params.each do |i|
       location = i[:location]

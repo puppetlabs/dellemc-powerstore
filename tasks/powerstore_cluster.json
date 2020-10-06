@@ -8,8 +8,8 @@
 			   "description": "",
 			   "type": "Optional[String[1]]"
 			},
-			"":{
-			   "description": "",
+			"id":{
+			   "description": "ID of the cluster.",
 			   "type": "Optional[String[1]]"
 			}
 	},

@@ -110,12 +110,18 @@ context.debug("Entered get")
     return smb_server
   end
 
+  def build_delete_hash(resource)
+    smb_server = {}
+    smb_server["force"] = resource[:force] unless resource[:force].nil?
+    return smb_server
+  end
 
   def build_hash(resource)
     smb_server = {}
     smb_server["computer_name"] = resource[:computer_name] unless resource[:computer_name].nil?
     smb_server["description"] = resource[:description] unless resource[:description].nil?
     smb_server["domain"] = resource[:domain] unless resource[:domain].nil?
+    smb_server["force"] = resource[:force] unless resource[:force].nil?
     smb_server["id"] = resource[:id] unless resource[:id].nil?
     smb_server["is_standalone"] = resource[:is_standalone] unless resource[:is_standalone].nil?
     smb_server["local_admin_password"] = resource[:local_admin_password] unless resource[:local_admin_password].nil?
@@ -137,8 +143,8 @@ context.debug("Entered get")
   # end
 
   def delete(context, should)
-    new_hash = build_hash(should)
-    response = self.class.invoke_delete(context, should) # , new_hash)
+    new_hash = build_delete_hash(should)
+    response = self.class.invoke_delete(context, should, new_hash)
     if response.is_a? Net::HTTPSuccess
       should[:ensure] = 'absent'
       Puppet.info "Added 'absent' to property_hash"
@@ -313,6 +319,7 @@ context.debug("Entered get")
           computer_name: item['computer_name'],
           description: item['description'],
           domain: item['domain'],
+          force: item['force'],
           id: item['id'],
           is_standalone: item['is_standalone'],
           local_admin_password: item['local_admin_password'],

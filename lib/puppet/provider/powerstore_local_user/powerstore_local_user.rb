@@ -102,6 +102,10 @@ context.debug("Entered get")
     return local_user
   end
 
+  def build_delete_hash(resource)
+    local_user = {}
+    return local_user
+  end
 
   def build_hash(resource)
     local_user = {}
@@ -126,8 +130,8 @@ context.debug("Entered get")
   # end
 
   def delete(context, should)
-    new_hash = build_hash(should)
-    response = self.class.invoke_delete(context, should) # , new_hash)
+    new_hash = build_delete_hash(should)
+    response = self.class.invoke_delete(context, should, new_hash)
     if response.is_a? Net::HTTPSuccess
       should[:ensure] = 'absent'
       Puppet.info "Added 'absent' to property_hash"

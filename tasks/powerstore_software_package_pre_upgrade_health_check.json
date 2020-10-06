@@ -8,8 +8,8 @@
 			   "description": "",
 			   "type": "Optional[String[1]]"
 			},
-			"":{
-			   "description": "",
+			"id":{
+			   "description": "Unique identifier of the software package.",
 			   "type": "Optional[String[1]]"
 			}
 	},

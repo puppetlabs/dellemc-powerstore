@@ -12,6 +12,8 @@ powerstore_migration_session {
   automatic_cutover => "automatic_cutover (optional)",
   destination_appliance_id => "destination_appliance_id",
   family_id => "family_id",
+  force => "force (optional)",
+  id => "id",
   name => "name (optional)",
   resource_type => "resource_type",
 }
@@ -22,6 +24,8 @@ powerstore_migration_session {
 |automatic_cutover | Boolean | false |
 |destination_appliance_id | String | true |
 |family_id | String | true |
+|force | Boolean | false |
+|id | String | true |
 |name | String | false |
 |resource_type | Enum['volume','virtual_volume','volume_group'] | true |
 

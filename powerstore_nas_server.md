@@ -16,8 +16,11 @@ powerstore_nas_server {
   default_unix_user => "default_unix_user (optional)",
   default_windows_user => "default_windows_user (optional)",
   description => "description (optional)",
+  domain_password => "domain_password (optional)",
+  domain_user_name => "domain_user_name (optional)",
   id => "id",
   is_auto_user_mapping_enabled => "is_auto_user_mapping_enabled (optional)",
+  is_skip_domain_unjoin => "is_skip_domain_unjoin (optional)",
   is_username_translation_enabled => "is_username_translation_enabled (optional)",
   name => "name",
   preferred_node_id => "preferred_node_id (optional)",
@@ -35,8 +38,11 @@ powerstore_nas_server {
 |default_unix_user | String[0,63] | false |
 |default_windows_user | String[0,1023] | false |
 |description | String[0,255] | false |
+|domain_password | String | false |
+|domain_user_name | String | false |
 |id | String | true |
 |is_auto_user_mapping_enabled | Boolean | false |
+|is_skip_domain_unjoin | Boolean | false |
 |is_username_translation_enabled | Boolean | false |
 |name | String[1,255] | true |
 |preferred_node_id | String | false |
