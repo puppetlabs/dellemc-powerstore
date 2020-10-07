@@ -1,21 +1,9 @@
 require 'puppet/resource_api'
+require 'date'
+
 # frozen_string_literal: true
 
-# device_user = ENV['DEVICE_USER']
-# device_password = ENV['DEVICE_PASSWORD']
-
-# if device_ip.nil? || device_user.nil? || device_password.nil? || device_ip.empty? || device_user.empty? || device_password.empty?
-#   warning = <<-EOS
-#   DEVICE_IP DEVICE_USER DEVICE_PASSWORD environment variables need to be set eg:
-#   export DEVICE_IP=1.1.1.1
-#   export DEVICE_USER=admin
-#   export DEVICE_PASSWORD=password
-#   export DEVICE_ENABLE_PASSWORD=password
-#   EOS
-#   abort warning
-# end
-
-COMMON_ARGS = '--modulepath spec/fixtures/modules --deviceconfig spec/fixtures/acceptance-device.conf --target prism'.freeze
+COMMON_ARGS = '--modulepath spec/fixtures/modules --deviceconfig spec/fixtures/acceptance-device.conf --target sut'.freeze
 
 def make_site_pp(pp)
   @file = Tempfile.new('site.pp')
@@ -74,10 +62,20 @@ def sample_manifest(type_name)
   manifest_from_values(type_name, value_hash)
 end
 
-def sample_resource(type_name)
+def sample_attr_value(name, attr)
+  type = parse_type(name, attr[:type])
+  if name =~ /timestamp/
+    DateTime.now().iso8601
+  else
+    sample_value(type)
+  end
+end
+
+def sample_resource(type_name, options = {ensure: :present, namevars_value: nil})
   attrs = type_attrs(type_name)
-  result = attrs.map { |k,v| [k, sample_value(parse_type(k, attrs[k][:type]))] }.to_h
-  # require 'pry';binding.pry
+  result = attrs.map { |k,v| [k, sample_attr_value(k,v)] }.to_h
+  result[:ensure] = options[:ensure]
+  namevars(attrs).each { |nv| result[nv] = options[:namevars_value] } if options[:namevars_value]
   result
 end
 
@@ -91,11 +89,11 @@ def sample_value(type)
   when "Optional"
     sample_value(type.type)
   when "String"
-    # require 'pry';binding.pry
-    if !type.size_type.nil? and !type.size_type.from.nil? and type.size_type.from > 10
-      return type.size_type.from.times.map { [*'0'..'9', *'a'..'z', *'A'..'Z'].sample }.join
-    end
-    return 8.times.map { [*'0'..'9', *'a'..'z', *'A'..'Z'].sample }.join
+    min_length = type.size_type.from if !type.size_type.nil? and !type.size_type.from.nil? 
+    max_length = type.size_type.to if !type.size_type.nil? and !type.size_type.to.nil? 
+    length = (!min_length or min_length < 8) ? 8 : min_length
+    length = max_length if max_length and length > max_length
+    return length.times.map { [*'0'..'9', *'a'..'z', *'A'..'Z'].sample }.join
   when "Integer"
     if !type.from.nil? and !type.to.nil?
       (type.from + type.to) / 2
@@ -125,14 +123,48 @@ end
 RSpec.configure do |c|
   c.filter_run_excluding(bolt: true) unless ENV['GEM_BOLT']
 
-  FileUtils.mkdir('spec/fixtures/modules') unless Dir.exist?('spec/fixtures/modules')
+  mode = ENV['MOCK_ACCEPTANCE'] ? 'mock' : 'device'
+
+  c.filter_run_excluding(update: true) unless mode == 'device'
+
+  device = {
+    'user'     => ENV['DEVICE_USER'] || 'admin',
+    'password' => ENV['DEVICE_PASSWORD'] || 'Dell!2020',
+    'host'     => ENV['DEVICE_IP'] || '10.119.0.150'
+  }
+
+  mock = {
+    'port'      => 4010,
+    'host'      => '127.0.0.1',
+    'user'      => 'admin',
+    'password'  => 'admin',
+    'schema'    => 'http',
+    'base_path' => ''
+  }
+
+  FileUtils.mkdir_p('spec/fixtures/modules') unless Dir.exist?('spec/fixtures/modules')
   FileUtils.ln_sf("#{Dir.getwd}", "#{Dir.getwd}/spec/fixtures/modules/powerstore")
+
+  if mode == 'device'
+    if device['user'].empty? || device['password'].empty? || device['host'].empty?
+      puts "To test a real device, export environment variables DEVICE_USER, DEVICE_PASSWORD, DEVICE_IP!"
+      exit 1
+    else
+      sut = device
+    end
+  else
+    sut = mock
+  end
+
+  File.open('spec/fixtures/sut.json', 'w') do |file|
+    file.puts JSON.generate(sut)
+  end
 
   File.open('spec/fixtures/acceptance-device.conf', 'w') do |file|
     file.puts <<DEVICE
-[prism]
+[sut]
 type powerstore
-url file://#{Dir.getwd}/spec/fixtures/prism.conf
+url file://#{Dir.getwd}/spec/fixtures/sut.json
 DEVICE
   end
 end

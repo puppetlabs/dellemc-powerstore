@@ -30,7 +30,6 @@ Puppet::ResourceApi.register_type(
     id:          {
       type:      "String",
       desc:      "Unique id of the host group.",
-      behaviour: :init_only,
     },
     name:          {
       type:      "String",

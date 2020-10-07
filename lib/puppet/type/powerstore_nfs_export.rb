@@ -58,7 +58,6 @@ Puppet::ResourceApi.register_type(
     id:          {
       type:      "String",
       desc:      "NFS Export object id.",
-      behaviour: :init_only,
     },
     is_no_suid:          {
       type:      "Optional[Boolean]",

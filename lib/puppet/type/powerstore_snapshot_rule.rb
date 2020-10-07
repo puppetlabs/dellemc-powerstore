@@ -21,7 +21,6 @@ Puppet::ResourceApi.register_type(
     delete_snaps:          {
       type:      "Optional[Boolean]",
       desc:      "Specify whether all snapshots previously created by this rule should also be deleted when this rule is removed.",
-      behaviour: :init_only,
     },
     desired_retention:          {
       type:      "Integer[1,8760]",
@@ -30,7 +29,6 @@ Puppet::ResourceApi.register_type(
     id:          {
       type:      "String",
       desc:      "Unique identifier of the snapshot rule.",
-      behaviour: :init_only,
     },
     interval:          {
       type:      "Optional[Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Two_Hours','Three_Hours','Four_Hours','Six_Hours','Eight_Hours','Twelve_Hours','One_Day']]",

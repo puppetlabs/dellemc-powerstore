@@ -17,12 +17,10 @@ Puppet::ResourceApi.register_type(
     force:          {
       type:      "Optional[Boolean]",
       desc:      "Normally, deletion of a storage container that is mounted or still contains virtual volumes will be rejected. This option overrides that error and allows the delete to continue. Use with great caution.",
-      behaviour: :init_only,
     },
     id:          {
       type:      "String",
       desc:      "Storage container ID.",
-      behaviour: :init_only,
     },
     name:          {
       type:      "String[1,64]",

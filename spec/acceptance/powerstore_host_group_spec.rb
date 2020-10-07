@@ -9,8 +9,7 @@ describe type_name do
   end
 
   it "create #{type_name}" do
-    r = sample_resource(type_name)
-    r[:ensure] = 'present'
+    r = sample_resource(type_name, ensure: :present)
     pp = manifest_from_values(type_name, r)
     make_site_pp(pp)
     result = run_device(allow_changes: true)
@@ -18,9 +17,9 @@ describe type_name do
   end
 
   
-  it "update #{type_name}" do
-    r = sample_resource(type_name)
-    r[:name] = 'string' if ENV["MOCK_ACCEPTANCE"]
+  it "update #{type_name}", :update do
+    namevars_value = 'string' if ENV["MOCK_ACCEPTANCE"]
+    r = sample_resource(type_name, ensure: :present, namevars_value: namevars_value)
     pp = manifest_from_values(type_name, r)
     make_site_pp(pp)
     result = run_device(allow_changes: true)
@@ -29,9 +28,8 @@ describe type_name do
   
 
   it "delete #{type_name}" do
-    r = sample_resource(type_name)
-    r[:ensure] = 'absent'
-    r[:name] = 'string' if ENV["MOCK_ACCEPTANCE"]
+    namevars_value = 'string' if ENV["MOCK_ACCEPTANCE"]
+    r = sample_resource(type_name, ensure: :absent, namevars_value: namevars_value)
     pp = manifest_from_values(type_name, r)
     make_site_pp(pp)
     result = run_device(allow_changes: true)

@@ -29,7 +29,6 @@ Puppet::ResourceApi.register_type(
     force:          {
       type:      "Optional[Boolean]",
       desc:      "If false, the delete will fail if the SMB server is still joined, else the SMB server is deleted but AD account is not removed.",
-      behaviour: :init_only,
     },
     id:          {
       type:      "String",

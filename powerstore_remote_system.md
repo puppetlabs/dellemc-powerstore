@@ -28,7 +28,7 @@ powerstore_remote_system {
 |data_network_latency | Enum['Low','High'] | false |
 |description | String | false |
 |discovery_chap_mode | Enum['Disabled','Single','Mutual'] | false |
-|import_chap_info | Struct[{Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, }] | false |
+|import_chap_info | Struct[{Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, Optional[initiator_discovery_password] => String, }] | false |
 |iscsi_addresses | Array[String] | false |
 |management_address | String | true |
 |name | String | false |

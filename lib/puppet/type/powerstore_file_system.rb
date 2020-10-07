@@ -45,7 +45,6 @@ Puppet::ResourceApi.register_type(
     id:          {
       type:      "String",
       desc:      "File system id.",
-      behaviour: :init_only,
     },
     is_async_m_time_enabled:          {
       type:      "Optional[Boolean]",

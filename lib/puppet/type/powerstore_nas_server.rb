@@ -45,17 +45,14 @@ Puppet::ResourceApi.register_type(
     domain_password:          {
       type:      "Optional[String]",
       desc:      "Administrator password used to unjoin the associated SMB servers from the Active Directory (AD) domain before deleting the NAS server. This parameter is required when the skipDomainUnjoin parameter is false or not set, and the NAS server has SMB servers joined to an AD domain.",
-      behaviour: :init_only,
     },
     domain_user_name:          {
       type:      "Optional[String]",
       desc:      "Administrator login used to unjoin the associated SMB servers from the Active Directory (AD) domain before deleting the NAS server. This parameter is required when the skipDomainUnjoin parameter is false or not set, and the NAS server has SMB servers joined to an AD domain.",
-      behaviour: :init_only,
     },
     id:          {
       type:      "String",
       desc:      "Unique identifier of the NAS server.",
-      behaviour: :init_only,
     },
     is_auto_user_mapping_enabled:          {
       type:      "Optional[Boolean]",
@@ -64,7 +61,6 @@ Puppet::ResourceApi.register_type(
     is_skip_domain_unjoin:          {
       type:      "Optional[Boolean]",
       desc:      "Indicates whether to keep the associated SMB servers joined to the Active Directory when the NAS server is deleted. Values are:\n - true - Keep the associated SMB servers joined to the Active Directory when the NAS server is deleted. - false - (Default) Try to unjoin the associated SMB servers from the Active Directory before deleting the NAS server.",
-      behaviour: :init_only,
     },
     is_username_translation_enabled:          {
       type:      "Optional[Boolean]",

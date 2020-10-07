@@ -21,7 +21,6 @@ Puppet::ResourceApi.register_type(
     id:          {
       type:      "String",
       desc:      "Unique identifier of the replication rule.",
-      behaviour: :init_only,
     },
     name:          {
       type:      "String",

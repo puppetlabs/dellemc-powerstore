@@ -17,7 +17,6 @@ Puppet::ResourceApi.register_type(
     delete_members:          {
       type:      "Optional[Boolean]",
       desc:      "By default, the members of a volume group being deleted are only removed. Set this optional parameter to true to override this behavior and also delete the members after they are removed from the volume group.This parameter defaults to false, if not specified.",
-      behaviour: :init_only,
     },
     description:          {
       type:      "Optional[String]",

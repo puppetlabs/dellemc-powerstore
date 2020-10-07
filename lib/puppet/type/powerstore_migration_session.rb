@@ -32,12 +32,10 @@ Puppet::ResourceApi.register_type(
     force:          {
       type:      "Optional[Boolean]",
       desc:      "Indicates whether all migration activities will be canceled before deleting the session.",
-      behaviour: :init_only,
     },
     id:          {
       type:      "String",
       desc:      "Unique identifier of the migration session.",
-      behaviour: :init_only,
     },
     name:          {
       type:      "Optional[String]",

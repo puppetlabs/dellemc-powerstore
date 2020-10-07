@@ -21,7 +21,6 @@ Puppet::ResourceApi.register_type(
     id:          {
       type:      "String",
       desc:      "Unique identifier of the physical switch settings.",
-      behaviour: :init_only,
     },
     name:          {
       type:      "String[1,128]",

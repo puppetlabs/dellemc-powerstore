@@ -21,7 +21,6 @@ Puppet::ResourceApi.register_type(
     id:          {
       type:      "String",
       desc:      "Unique identifier of the local user account to be modified.",
-      behaviour: :init_only,
     },
     is_locked:          {
       type:      "Optional[Boolean]",

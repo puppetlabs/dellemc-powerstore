@@ -26,7 +26,6 @@ Puppet::ResourceApi.register_type(
     id:          {
       type:      "String",
       desc:      "SMB share object id.",
-      behaviour: :init_only,
     },
     is_abe_enabled:          {
       type:      "Optional[Boolean]",

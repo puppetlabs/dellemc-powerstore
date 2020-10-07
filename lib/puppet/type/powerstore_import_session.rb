@@ -27,7 +27,6 @@ Puppet::ResourceApi.register_type(
     id:          {
       type:      "String",
       desc:      "Unique identifier of the import session.",
-      behaviour: :init_only,
     },
     name:          {
       type:      "String",

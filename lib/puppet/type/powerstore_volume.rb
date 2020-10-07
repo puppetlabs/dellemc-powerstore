@@ -44,7 +44,6 @@ Puppet::ResourceApi.register_type(
     id:          {
       type:      "String",
       desc:      "Unique identifier of the volume to modify.",
-      behaviour: :init_only,
     },
     is_replication_destination:          {
       type:      "Optional[Boolean]",
