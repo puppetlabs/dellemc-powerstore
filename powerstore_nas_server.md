@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Nas_server
 
@@ -18,11 +18,10 @@ powerstore_nas_server {
   description => "description (optional)",
   domain_password => "domain_password (optional)",
   domain_user_name => "domain_user_name (optional)",
-  id => "id",
   is_auto_user_mapping_enabled => "is_auto_user_mapping_enabled (optional)",
   is_skip_domain_unjoin => "is_skip_domain_unjoin (optional)",
   is_username_translation_enabled => "is_username_translation_enabled (optional)",
-  name => "name",
+  name => "name (optional)",
   preferred_node_id => "preferred_node_id (optional)",
   production_i_pv4_interface_id => "production_i_pv4_interface_id (optional)",
   production_i_pv6_interface_id => "production_i_pv6_interface_id (optional)",
@@ -40,11 +39,10 @@ powerstore_nas_server {
 |description | String[0,255] | false |
 |domain_password | String | false |
 |domain_user_name | String | false |
-|id | String | true |
 |is_auto_user_mapping_enabled | Boolean | false |
 |is_skip_domain_unjoin | Boolean | false |
 |is_username_translation_enabled | Boolean | false |
-|name | String[1,255] | true |
+|name | String[1,255] | false |
 |preferred_node_id | String | false |
 |production_i_pv4_interface_id | String | false |
 |production_i_pv6_interface_id | String | false |

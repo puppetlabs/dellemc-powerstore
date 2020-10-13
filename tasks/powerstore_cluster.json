@@ -9,7 +9,7 @@
 			   "type": "Optional[String[1]]"
 			},
 			"id":{
-			   "description": "ID of the cluster.",
+			   "description": "Unique id of the cluster.",
 			   "type": "Optional[String[1]]"
 			}
 	},

@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -119,24 +116,36 @@ context.debug("Entered get")
 
   def build_hash(resource)
     remote_system = {}
+    remote_system["data_connection_state"] = resource[:data_connection_state] unless resource[:data_connection_state].nil?
+    remote_system["data_connection_state_l10n"] = resource[:data_connection_state_l10n] unless resource[:data_connection_state_l10n].nil?
+    remote_system["data_connections"] = resource[:data_connections] unless resource[:data_connections].nil?
     remote_system["data_network_latency"] = resource[:data_network_latency] unless resource[:data_network_latency].nil?
+    remote_system["data_network_latency_l10n"] = resource[:data_network_latency_l10n] unless resource[:data_network_latency_l10n].nil?
     remote_system["description"] = resource[:description] unless resource[:description].nil?
     remote_system["discovery_chap_mode"] = resource[:discovery_chap_mode] unless resource[:discovery_chap_mode].nil?
+    remote_system["discovery_chap_mode_l10n"] = resource[:discovery_chap_mode_l10n] unless resource[:discovery_chap_mode_l10n].nil?
+    remote_system["id"] = resource[:id] unless resource[:id].nil?
     remote_system["import_chap_info"] = resource[:import_chap_info] unless resource[:import_chap_info].nil?
     remote_system["iscsi_addresses"] = resource[:iscsi_addresses] unless resource[:iscsi_addresses].nil?
     remote_system["management_address"] = resource[:management_address] unless resource[:management_address].nil?
     remote_system["name"] = resource[:name] unless resource[:name].nil?
     remote_system["remote_password"] = resource[:remote_password] unless resource[:remote_password].nil?
     remote_system["remote_username"] = resource[:remote_username] unless resource[:remote_username].nil?
+    remote_system["serial_number"] = resource[:serial_number] unless resource[:serial_number].nil?
     remote_system["session_chap_mode"] = resource[:session_chap_mode] unless resource[:session_chap_mode].nil?
+    remote_system["session_chap_mode_l10n"] = resource[:session_chap_mode_l10n] unless resource[:session_chap_mode_l10n].nil?
+    remote_system["state"] = resource[:state] unless resource[:state].nil?
+    remote_system["state_l10n"] = resource[:state_l10n] unless resource[:state_l10n].nil?
     remote_system["type"] = resource[:type] unless resource[:type].nil?
+    remote_system["type_l10n"] = resource[:type_l10n] unless resource[:type_l10n].nil?
+    remote_system["user_name"] = resource[:user_name] unless resource[:user_name].nil?
     return remote_system
   end
 
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -318,17 +327,29 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+          data_connection_state: item['data_connection_state'],
+          data_connection_state_l10n: item['data_connection_state_l10n'],
+          data_connections: item['data_connections'],
           data_network_latency: item['data_network_latency'],
+          data_network_latency_l10n: item['data_network_latency_l10n'],
           description: item['description'],
           discovery_chap_mode: item['discovery_chap_mode'],
+          discovery_chap_mode_l10n: item['discovery_chap_mode_l10n'],
+          id: item['id'],
           import_chap_info: item['import_chap_info'],
           iscsi_addresses: item['iscsi_addresses'],
           management_address: item['management_address'],
           name: item['name'],
           remote_password: item['remote_password'],
           remote_username: item['remote_username'],
+          serial_number: item['serial_number'],
           session_chap_mode: item['session_chap_mode'],
+          session_chap_mode_l10n: item['session_chap_mode_l10n'],
+          state: item['state'],
+          state_l10n: item['state_l10n'],
           type: item['type'],
+          type_l10n: item['type_l10n'],
+          user_name: item['user_name'],
           ensure: 'present',
         }
 

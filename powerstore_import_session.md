@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Import_session
 
@@ -12,11 +12,11 @@ powerstore_import_session {
   automatic_cutover => "automatic_cutover (optional)",
   description => "description (optional)",
   id => "id",
-  name => "name",
+  name => "name (optional)",
   protection_policy_id => "protection_policy_id (optional)",
-  remote_system_id => "remote_system_id",
+  remote_system_id => "remote_system_id (optional)",
   scheduled_timestamp => "scheduled_timestamp (optional)",
-  source_resource_id => "source_resource_id",
+  source_resource_id => "source_resource_id (optional)",
   volume_group_id => "volume_group_id (optional)",
 }
 ```
@@ -26,11 +26,11 @@ powerstore_import_session {
 |automatic_cutover | Boolean | false |
 |description | String | false |
 |id | String | true |
-|name | String | true |
+|name | String | false |
 |protection_policy_id | String | false |
-|remote_system_id | String | true |
+|remote_system_id | String | false |
 |scheduled_timestamp | String | false |
-|source_resource_id | String | true |
+|source_resource_id | String | false |
 |volume_group_id | String | false |
 
 

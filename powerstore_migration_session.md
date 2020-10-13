@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Migration_session
 
@@ -10,24 +10,22 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 ```puppet
 powerstore_migration_session {
   automatic_cutover => "automatic_cutover (optional)",
-  destination_appliance_id => "destination_appliance_id",
-  family_id => "family_id",
+  destination_appliance_id => "destination_appliance_id (optional)",
+  family_id => "family_id (optional)",
   force => "force (optional)",
-  id => "id",
   name => "name (optional)",
-  resource_type => "resource_type",
+  resource_type => "resource_type (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |automatic_cutover | Boolean | false |
-|destination_appliance_id | String | true |
-|family_id | String | true |
+|destination_appliance_id | String | false |
+|family_id | String | false |
 |force | Boolean | false |
-|id | String | true |
 |name | String | false |
-|resource_type | Enum['volume','virtual_volume','volume_group'] | true |
+|resource_type | Enum['volume','virtual_volume','volume_group'] | false |
 
 
 

@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -110,6 +107,7 @@ context.debug("Entered get")
     vcenter = {}
     vcenter["address"] = resource[:address] unless resource[:address].nil?
     vcenter["id"] = resource[:id] unless resource[:id].nil?
+    vcenter["instance_uuid"] = resource[:instance_uuid] unless resource[:instance_uuid].nil?
     vcenter["password"] = resource[:password] unless resource[:password].nil?
     vcenter["username"] = resource[:username] unless resource[:username].nil?
     return vcenter
@@ -118,7 +116,7 @@ context.debug("Entered get")
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -301,6 +299,7 @@ context.debug("Entered get")
 
           address: item['address'],
           id: item['id'],
+          instance_uuid: item['instance_uuid'],
           password: item['password'],
           username: item['username'],
           ensure: 'present',

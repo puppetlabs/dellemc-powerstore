@@ -1,0 +1,19 @@
+{
+	"description": "Delete a migration recommendation.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+			   "description": "Unique ID of the migration recommendation.",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

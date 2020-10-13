@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -113,11 +110,14 @@ context.debug("Entered get")
     host = {}
     host["add_initiators"] = resource[:add_initiators] unless resource[:add_initiators].nil?
     host["description"] = resource[:description] unless resource[:description].nil?
+    host["host_group_id"] = resource[:host_group_id] unless resource[:host_group_id].nil?
+    host["host_initiators"] = resource[:host_initiators] unless resource[:host_initiators].nil?
     host["id"] = resource[:id] unless resource[:id].nil?
     host["initiators"] = resource[:initiators] unless resource[:initiators].nil?
     host["modify_initiators"] = resource[:modify_initiators] unless resource[:modify_initiators].nil?
     host["name"] = resource[:name] unless resource[:name].nil?
     host["os_type"] = resource[:os_type] unless resource[:os_type].nil?
+    host["os_type_l10n"] = resource[:os_type_l10n] unless resource[:os_type_l10n].nil?
     host["remove_initiators"] = resource[:remove_initiators] unless resource[:remove_initiators].nil?
     return host
   end
@@ -125,7 +125,7 @@ context.debug("Entered get")
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -309,11 +309,14 @@ context.debug("Entered get")
 
           add_initiators: item['add_initiators'],
           description: item['description'],
+          host_group_id: item['host_group_id'],
+          host_initiators: item['host_initiators'],
           id: item['id'],
           initiators: item['initiators'],
           modify_initiators: item['modify_initiators'],
           name: item['name'],
           os_type: item['os_type'],
+          os_type_l10n: item['os_type_l10n'],
           remove_initiators: item['remove_initiators'],
           ensure: 'present',
         }

@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Volume_group
 
@@ -12,9 +12,10 @@ powerstore_volume_group {
   delete_members => "delete_members (optional)",
   description => "description (optional)",
   force => "force (optional)",
+  id => "id",
   is_replication_destination => "is_replication_destination (optional)",
   is_write_order_consistent => "is_write_order_consistent (optional)",
-  name => "name",
+  name => "name (optional)",
   protection_policy_id => "protection_policy_id (optional)",
   volume_ids => "volume_ids (optional)",
 }
@@ -25,9 +26,10 @@ powerstore_volume_group {
 |delete_members | Boolean | false |
 |description | String | false |
 |force | Boolean | false |
+|id | String | true |
 |is_replication_destination | Boolean | false |
 |is_write_order_consistent | Boolean | false |
-|name | String | true |
+|name | String | false |
 |protection_policy_id | String | false |
 |volume_ids | Array[String] | false |
 

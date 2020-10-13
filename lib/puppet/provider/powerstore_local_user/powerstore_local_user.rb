@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -111,6 +108,8 @@ context.debug("Entered get")
     local_user = {}
     local_user["current_password"] = resource[:current_password] unless resource[:current_password].nil?
     local_user["id"] = resource[:id] unless resource[:id].nil?
+    local_user["is_built_in"] = resource[:is_built_in] unless resource[:is_built_in].nil?
+    local_user["is_default_password"] = resource[:is_default_password] unless resource[:is_default_password].nil?
     local_user["is_locked"] = resource[:is_locked] unless resource[:is_locked].nil?
     local_user["name"] = resource[:name] unless resource[:name].nil?
     local_user["password"] = resource[:password] unless resource[:password].nil?
@@ -121,7 +120,7 @@ context.debug("Entered get")
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -304,6 +303,8 @@ context.debug("Entered get")
 
           current_password: item['current_password'],
           id: item['id'],
+          is_built_in: item['is_built_in'],
+          is_default_password: item['is_default_password'],
           is_locked: item['is_locked'],
           name: item['name'],
           password: item['password'],

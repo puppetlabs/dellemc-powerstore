@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_interface_route
 
@@ -10,7 +10,7 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 ```puppet
 powerstore_file_interface_route {
   destination => "destination (optional)",
-  file_interface_id => "file_interface_id",
+  file_interface_id => "file_interface_id (optional)",
   gateway => "gateway (optional)",
   id => "id",
   prefix_length => "prefix_length (optional)",
@@ -20,7 +20,7 @@ powerstore_file_interface_route {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |destination | String | false |
-|file_interface_id | String | true |
+|file_interface_id | String | false |
 |gateway | String[1,45] | false |
 |id | String | true |
 |prefix_length | Integer[1,128] | false |

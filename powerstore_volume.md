@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Volume
 
@@ -19,12 +19,12 @@ powerstore_volume {
   is_replication_destination => "is_replication_destination (optional)",
   logical_unit_number => "logical_unit_number (optional)",
   min_size => "min_size (optional)",
-  name => "name",
+  name => "name (optional)",
   node_affinity => "node_affinity (optional)",
   performance_policy_id => "performance_policy_id (optional)",
   protection_policy_id => "protection_policy_id (optional)",
   sector_size => "sector_size (optional)",
-  size => "size",
+  size => "size (optional)",
   volume_group_id => "volume_group_id (optional)",
 }
 ```
@@ -41,12 +41,12 @@ powerstore_volume {
 |is_replication_destination | Boolean | false |
 |logical_unit_number | Integer[0,16383] | false |
 |min_size | Integer[0,9223372036854775807] | false |
-|name | String | true |
+|name | String | false |
 |node_affinity | Enum['System_Select_At_Attach','System_Selected_Node_A','System_Selected_Node_B','Preferred_Node_A','Preferred_Node_B'] | false |
 |performance_policy_id | String | false |
 |protection_policy_id | String | false |
 |sector_size | Integer[512,4096] | false |
-|size | Integer[1048576,281474976710656] | true |
+|size | Integer[1048576,281474976710656] | false |
 |volume_group_id | String | false |
 
 

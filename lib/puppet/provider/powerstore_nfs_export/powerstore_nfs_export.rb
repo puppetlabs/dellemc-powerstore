@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -145,12 +142,15 @@ context.debug("Entered get")
     nfs_export["anonymous_GID"] = resource[:anonymous_gid] unless resource[:anonymous_gid].nil?
     nfs_export["anonymous_UID"] = resource[:anonymous_uid] unless resource[:anonymous_uid].nil?
     nfs_export["default_access"] = resource[:default_access] unless resource[:default_access].nil?
+    nfs_export["default_access_l10n"] = resource[:default_access_l10n] unless resource[:default_access_l10n].nil?
     nfs_export["description"] = resource[:description] unless resource[:description].nil?
     nfs_export["file_system_id"] = resource[:file_system_id] unless resource[:file_system_id].nil?
     nfs_export["id"] = resource[:id] unless resource[:id].nil?
     nfs_export["is_no_SUID"] = resource[:is_no_suid] unless resource[:is_no_suid].nil?
     nfs_export["min_security"] = resource[:min_security] unless resource[:min_security].nil?
+    nfs_export["min_security_l10n"] = resource[:min_security_l10n] unless resource[:min_security_l10n].nil?
     nfs_export["name"] = resource[:name] unless resource[:name].nil?
+    nfs_export["nfs_owner_username"] = resource[:nfs_owner_username] unless resource[:nfs_owner_username].nil?
     nfs_export["no_access_hosts"] = resource[:no_access_hosts] unless resource[:no_access_hosts].nil?
     nfs_export["path"] = resource[:path] unless resource[:path].nil?
     nfs_export["read_only_hosts"] = resource[:read_only_hosts] unless resource[:read_only_hosts].nil?
@@ -168,7 +168,7 @@ context.debug("Entered get")
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -357,12 +357,15 @@ context.debug("Entered get")
           anonymous_gid: item['anonymous_GID'],
           anonymous_uid: item['anonymous_UID'],
           default_access: item['default_access'],
+          default_access_l10n: item['default_access_l10n'],
           description: item['description'],
           file_system_id: item['file_system_id'],
           id: item['id'],
           is_no_suid: item['is_no_SUID'],
           min_security: item['min_security'],
+          min_security_l10n: item['min_security_l10n'],
           name: item['name'],
+          nfs_owner_username: item['nfs_owner_username'],
           no_access_hosts: item['no_access_hosts'],
           path: item['path'],
           read_only_hosts: item['read_only_hosts'],
@@ -378,6 +381,9 @@ context.debug("Entered get")
         }
 
 
+        self.deep_delete(hash, [:anonymous_gid])
+        self.deep_delete(hash, [:anonymous_uid])
+        self.deep_delete(hash, [:is_no_suid])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

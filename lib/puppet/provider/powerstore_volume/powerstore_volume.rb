@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -124,6 +121,7 @@ context.debug("Entered get")
   def build_hash(resource)
     volume = {}
     volume["appliance_id"] = resource[:appliance_id] unless resource[:appliance_id].nil?
+    volume["creation_timestamp"] = resource[:creation_timestamp] unless resource[:creation_timestamp].nil?
     volume["description"] = resource[:description] unless resource[:description].nil?
     volume["expiration_timestamp"] = resource[:expiration_timestamp] unless resource[:expiration_timestamp].nil?
     volume["force"] = resource[:force] unless resource[:force].nil?
@@ -131,22 +129,31 @@ context.debug("Entered get")
     volume["host_id"] = resource[:host_id] unless resource[:host_id].nil?
     volume["id"] = resource[:id] unless resource[:id].nil?
     volume["is_replication_destination"] = resource[:is_replication_destination] unless resource[:is_replication_destination].nil?
+    volume["location_history"] = resource[:location_history] unless resource[:location_history].nil?
     volume["logical_unit_number"] = resource[:logical_unit_number] unless resource[:logical_unit_number].nil?
+    volume["migration_session_id"] = resource[:migration_session_id] unless resource[:migration_session_id].nil?
     volume["min_size"] = resource[:min_size] unless resource[:min_size].nil?
     volume["name"] = resource[:name] unless resource[:name].nil?
     volume["node_affinity"] = resource[:node_affinity] unless resource[:node_affinity].nil?
+    volume["node_affinity_l10n"] = resource[:node_affinity_l10n] unless resource[:node_affinity_l10n].nil?
     volume["performance_policy_id"] = resource[:performance_policy_id] unless resource[:performance_policy_id].nil?
+    volume["protection_data"] = resource[:protection_data] unless resource[:protection_data].nil?
     volume["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
     volume["sector_size"] = resource[:sector_size] unless resource[:sector_size].nil?
     volume["size"] = resource[:size] unless resource[:size].nil?
+    volume["state"] = resource[:state] unless resource[:state].nil?
+    volume["state_l10n"] = resource[:state_l10n] unless resource[:state_l10n].nil?
+    volume["type"] = resource[:type] unless resource[:type].nil?
+    volume["type_l10n"] = resource[:type_l10n] unless resource[:type_l10n].nil?
     volume["volume_group_id"] = resource[:volume_group_id] unless resource[:volume_group_id].nil?
+    volume["wwn"] = resource[:wwn] unless resource[:wwn].nil?
     return volume
   end
 
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -328,6 +335,7 @@ context.debug("Entered get")
         hash = {
 
           appliance_id: item['appliance_id'],
+          creation_timestamp: item['creation_timestamp'],
           description: item['description'],
           expiration_timestamp: item['expiration_timestamp'],
           force: item['force'],
@@ -335,15 +343,24 @@ context.debug("Entered get")
           host_id: item['host_id'],
           id: item['id'],
           is_replication_destination: item['is_replication_destination'],
+          location_history: item['location_history'],
           logical_unit_number: item['logical_unit_number'],
+          migration_session_id: item['migration_session_id'],
           min_size: item['min_size'],
           name: item['name'],
           node_affinity: item['node_affinity'],
+          node_affinity_l10n: item['node_affinity_l10n'],
           performance_policy_id: item['performance_policy_id'],
+          protection_data: item['protection_data'],
           protection_policy_id: item['protection_policy_id'],
           sector_size: item['sector_size'],
           size: item['size'],
+          state: item['state'],
+          state_l10n: item['state_l10n'],
+          type: item['type'],
+          type_l10n: item['type_l10n'],
           volume_group_id: item['volume_group_id'],
+          wwn: item['wwn'],
           ensure: 'present',
         }
 

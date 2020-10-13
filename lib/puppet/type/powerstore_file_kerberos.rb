@@ -24,11 +24,11 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     kdc_addresses:          {
-      type:      "Array[String[1,255]]",
+      type:      "Optional[Array[String[1,255]]]",
       desc:      "Fully Qualified domain names of the Kerberos Key Distribution Center (KDC) servers. IPv4 and IPv6 addresses are not supported.",
     },
     nas_server_id:          {
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the associated NAS Server instance that uses this Kerberos object. Only one Kerberos object per NAS Server is supported.",
       behaviour: :init_only,
     },
@@ -37,7 +37,7 @@ Puppet::ResourceApi.register_type(
       desc:      "KDC servers TCP port.",
     },
     realm:          {
-      type:      "String[1,255]",
+      type:      "Optional[String[1,255]]",
       desc:      "Realm name of the Kerberos Service.",
     },
     remove_kdc_addresses:          {

@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Policy
 
@@ -13,7 +13,7 @@ powerstore_policy {
   add_snapshot_rule_ids => "add_snapshot_rule_ids (optional)",
   description => "description (optional)",
   id => "id",
-  name => "name",
+  name => "name (optional)",
   remove_replication_rule_ids => "remove_replication_rule_ids (optional)",
   remove_snapshot_rule_ids => "remove_snapshot_rule_ids (optional)",
   replication_rule_ids => "replication_rule_ids (optional)",
@@ -27,7 +27,7 @@ powerstore_policy {
 |add_snapshot_rule_ids | Array[String] | false |
 |description | String | false |
 |id | String | true |
-|name | String | true |
+|name | String | false |
 |remove_replication_rule_ids | Array[String] | false |
 |remove_snapshot_rule_ids | Array[String] | false |
 |replication_rule_ids | Array[String] | false |

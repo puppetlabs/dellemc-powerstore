@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_kerberos
 
@@ -11,10 +11,10 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 powerstore_file_kerberos {
   add_kdc_addresses => "add_kdc_addresses (optional)",
   id => "id",
-  kdc_addresses => "kdc_addresses",
-  nas_server_id => "nas_server_id",
+  kdc_addresses => "kdc_addresses (optional)",
+  nas_server_id => "nas_server_id (optional)",
   port_number => "port_number (optional)",
-  realm => "realm",
+  realm => "realm (optional)",
   remove_kdc_addresses => "remove_kdc_addresses (optional)",
 }
 ```
@@ -23,10 +23,10 @@ powerstore_file_kerberos {
 | ------------- | ------------- | ------------- |
 |add_kdc_addresses | Array[String[1,255]] | false |
 |id | String | true |
-|kdc_addresses | Array[String[1,255]] | true |
-|nas_server_id | String | true |
+|kdc_addresses | Array[String[1,255]] | false |
+|nas_server_id | String | false |
 |port_number | Integer[0,65535] | false |
-|realm | String[1,255] | true |
+|realm | String[1,255] | false |
 |remove_kdc_addresses | Array[String[1,255]] | false |
 
 

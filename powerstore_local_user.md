@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Local_user
 
@@ -12,9 +12,9 @@ powerstore_local_user {
   current_password => "current_password (optional)",
   id => "id",
   is_locked => "is_locked (optional)",
-  name => "name",
-  password => "password",
-  role_id => "role_id",
+  name => "name (optional)",
+  password => "password (optional)",
+  role_id => "role_id (optional)",
 }
 ```
 
@@ -23,9 +23,9 @@ powerstore_local_user {
 |current_password | String | false |
 |id | String | true |
 |is_locked | Boolean | false |
-|name | String | true |
-|password | String | true |
-|role_id | String | true |
+|name | String | false |
+|password | String | false |
+|role_id | String | false |
 
 
 

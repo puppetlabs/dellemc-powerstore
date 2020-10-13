@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -134,10 +131,13 @@ context.debug("Entered get")
     file_ldap["add_addresses"] = resource[:add_addresses] unless resource[:add_addresses].nil?
     file_ldap["addresses"] = resource[:addresses] unless resource[:addresses].nil?
     file_ldap["authentication_type"] = resource[:authentication_type] unless resource[:authentication_type].nil?
+    file_ldap["authentication_type_l10n"] = resource[:authentication_type_l10n] unless resource[:authentication_type_l10n].nil?
     file_ldap["base_DN"] = resource[:base_dn] unless resource[:base_dn].nil?
     file_ldap["bind_DN"] = resource[:bind_dn] unless resource[:bind_dn].nil?
     file_ldap["bind_password"] = resource[:bind_password] unless resource[:bind_password].nil?
     file_ldap["id"] = resource[:id] unless resource[:id].nil?
+    file_ldap["is_certificate_uploaded"] = resource[:is_certificate_uploaded] unless resource[:is_certificate_uploaded].nil?
+    file_ldap["is_config_file_uploaded"] = resource[:is_config_file_uploaded] unless resource[:is_config_file_uploaded].nil?
     file_ldap["is_smb_account_used"] = resource[:is_smb_account_used] unless resource[:is_smb_account_used].nil?
     file_ldap["is_verify_server_certificate"] = resource[:is_verify_server_certificate] unless resource[:is_verify_server_certificate].nil?
     file_ldap["nas_server_id"] = resource[:nas_server_id] unless resource[:nas_server_id].nil?
@@ -146,15 +146,18 @@ context.debug("Entered get")
     file_ldap["principal"] = resource[:principal] unless resource[:principal].nil?
     file_ldap["profile_DN"] = resource[:profile_dn] unless resource[:profile_dn].nil?
     file_ldap["protocol"] = resource[:protocol] unless resource[:protocol].nil?
+    file_ldap["protocol_l10n"] = resource[:protocol_l10n] unless resource[:protocol_l10n].nil?
     file_ldap["realm"] = resource[:realm] unless resource[:realm].nil?
     file_ldap["remove_addresses"] = resource[:remove_addresses] unless resource[:remove_addresses].nil?
+    file_ldap["schema_type"] = resource[:schema_type] unless resource[:schema_type].nil?
+    file_ldap["schema_type_l10n"] = resource[:schema_type_l10n] unless resource[:schema_type_l10n].nil?
     return file_ldap
   end
 
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -338,10 +341,13 @@ context.debug("Entered get")
           add_addresses: item['add_addresses'],
           addresses: item['addresses'],
           authentication_type: item['authentication_type'],
+          authentication_type_l10n: item['authentication_type_l10n'],
           base_dn: item['base_DN'],
           bind_dn: item['bind_DN'],
           bind_password: item['bind_password'],
           id: item['id'],
+          is_certificate_uploaded: item['is_certificate_uploaded'],
+          is_config_file_uploaded: item['is_config_file_uploaded'],
           is_smb_account_used: item['is_smb_account_used'],
           is_verify_server_certificate: item['is_verify_server_certificate'],
           nas_server_id: item['nas_server_id'],
@@ -350,12 +356,18 @@ context.debug("Entered get")
           principal: item['principal'],
           profile_dn: item['profile_DN'],
           protocol: item['protocol'],
+          protocol_l10n: item['protocol_l10n'],
           realm: item['realm'],
           remove_addresses: item['remove_addresses'],
+          schema_type: item['schema_type'],
+          schema_type_l10n: item['schema_type_l10n'],
           ensure: 'present',
         }
 
 
+        self.deep_delete(hash, [:addresses])
+        self.deep_delete(hash, [:is_certificate_uploaded])
+        self.deep_delete(hash, [:is_config_file_uploaded])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

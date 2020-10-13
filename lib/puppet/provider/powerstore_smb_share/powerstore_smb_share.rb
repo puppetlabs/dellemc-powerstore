@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -128,6 +125,7 @@ context.debug("Entered get")
     smb_share["is_encryption_enabled"] = resource[:is_encryption_enabled] unless resource[:is_encryption_enabled].nil?
     smb_share["name"] = resource[:name] unless resource[:name].nil?
     smb_share["offline_availability"] = resource[:offline_availability] unless resource[:offline_availability].nil?
+    smb_share["offline_availability_l10n"] = resource[:offline_availability_l10n] unless resource[:offline_availability_l10n].nil?
     smb_share["path"] = resource[:path] unless resource[:path].nil?
     smb_share["umask"] = resource[:umask] unless resource[:umask].nil?
     return smb_share
@@ -136,7 +134,7 @@ context.debug("Entered get")
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -326,12 +324,19 @@ context.debug("Entered get")
           is_encryption_enabled: item['is_encryption_enabled'],
           name: item['name'],
           offline_availability: item['offline_availability'],
+          offline_availability_l10n: item['offline_availability_l10n'],
           path: item['path'],
           umask: item['umask'],
           ensure: 'present',
         }
 
 
+        self.deep_delete(hash, [:is_abe_enabled])
+        self.deep_delete(hash, [:is_branch_cache_enabled])
+        self.deep_delete(hash, [:is_continuous_availability_enabled])
+        self.deep_delete(hash, [:is_encryption_enabled])
+        self.deep_delete(hash, [:offline_availability])
+        self.deep_delete(hash, [:umask])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

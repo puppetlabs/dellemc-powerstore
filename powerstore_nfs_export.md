@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Nfs_export
 
@@ -18,13 +18,13 @@ powerstore_nfs_export {
   anonymous_uid => "anonymous_UID (optional)",
   default_access => "default_access (optional)",
   description => "description (optional)",
-  file_system_id => "file_system_id",
+  file_system_id => "file_system_id (optional)",
   id => "id",
   is_no_suid => "is_no_SUID (optional)",
   min_security => "min_security (optional)",
-  name => "name",
+  name => "name (optional)",
   no_access_hosts => "no_access_hosts (optional)",
-  path => "path",
+  path => "path (optional)",
   read_only_hosts => "read_only_hosts (optional)",
   read_only_root_hosts => "read_only_root_hosts (optional)",
   read_write_hosts => "read_write_hosts (optional)",
@@ -48,13 +48,13 @@ powerstore_nfs_export {
 |anonymous_uid | Integer[-2147483648,2147483647] | false |
 |default_access | Enum['No_Access','Read_Only','Read_Write','Root','Read_Only_Root'] | false |
 |description | String[0,511] | false |
-|file_system_id | String | true |
+|file_system_id | String | false |
 |id | String | true |
 |is_no_suid | Boolean | false |
 |min_security | Enum['Sys','Kerberos','Kerberos_With_Integrity','Kerberos_With_Encryption'] | false |
-|name | String[1,80] | true |
+|name | String[1,80] | false |
 |no_access_hosts | Array[String] | false |
-|path | String[1,1023] | true |
+|path | String[1,1023] | false |
 |read_only_hosts | Array[String] | false |
 |read_only_root_hosts | Array[String] | false |
 |read_write_hosts | Array[String] | false |

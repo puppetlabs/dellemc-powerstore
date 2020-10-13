@@ -22,18 +22,26 @@ Puppet::ResourceApi.register_type(
       type:      "String",
       desc:      "Unique identifier of the replication rule.",
     },
+    is_replica:          {
+      type:      "Optional[Boolean]",
+      desc:      "Indicates if this is a replica of a rule or policy on a remote system that is the source of a replication session replicating a resource to the local system.",
+    },
     name:          {
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Name of the replication rule.",
       behaviour: :namevar,
     },
     remote_system_id:          {
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the remote system to which this rule will replicate the associated resources.",
     },
     rpo:          {
-      type:      "Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Six_Hours','Twelve_Hours','One_Day']",
+      type:      "Optional[Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Six_Hours','Twelve_Hours','One_Day']]",
       desc:      "Recovery point objective (RPO), which is the acceptable amount of data, measured in units of time, that may be lost in case of a failure.",
+    },
+    rpo_l10n:          {
+      type:      "Optional[String]",
+      desc:      "Localized message string corresponding to rpo",
     },
   },
   autorequires: {

@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_interface
 
@@ -11,10 +11,10 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 powerstore_file_interface {
   gateway => "gateway (optional)",
   id => "id",
-  ip_address => "ip_address",
+  ip_address => "ip_address (optional)",
   is_disabled => "is_disabled (optional)",
-  nas_server_id => "nas_server_id",
-  prefix_length => "prefix_length",
+  nas_server_id => "nas_server_id (optional)",
+  prefix_length => "prefix_length (optional)",
   role => "role (optional)",
   vlan_id => "vlan_id (optional)",
 }
@@ -24,10 +24,10 @@ powerstore_file_interface {
 | ------------- | ------------- | ------------- |
 |gateway | String[1,45] | false |
 |id | String | true |
-|ip_address | String[1,45] | true |
+|ip_address | String[1,45] | false |
 |is_disabled | Boolean | false |
-|nas_server_id | String | true |
-|prefix_length | Integer[1,128] | true |
+|nas_server_id | String | false |
+|prefix_length | Integer[1,128] | false |
 |role | Enum['Production','Backup'] | false |
 |vlan_id | Integer[0,4094] | false |
 

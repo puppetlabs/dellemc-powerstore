@@ -23,7 +23,7 @@ Puppet::ResourceApi.register_type(
       desc:      "An optional description for the host group. The description should not have any unprintable characters.",
     },
     host_ids:          {
-      type:      "Array[String]",
+      type:      "Optional[Array[String]]",
       desc:      "",
       behaviour: :init_only,
     },
@@ -32,7 +32,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Unique id of the host group.",
     },
     name:          {
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "The host group name. The name should not be more than 128 UTF-8 characters long and should not have any unprintable characters.",
       behaviour: :namevar,
     },

@@ -20,8 +20,12 @@ Puppet::ResourceApi.register_type(
     },
     id:          {
       type:      "String",
-      desc:      "Unique identifier of the vCenter to modify.",
+      desc:      "Unique identifier of the vCenter to delete.",
       behaviour: :namevar,
+    },
+    instance_uuid:          {
+      type:      "Optional[String]",
+      desc:      "UUID instance of the vCenter.",
     },
     password:          {
       type:      "Optional[String]",

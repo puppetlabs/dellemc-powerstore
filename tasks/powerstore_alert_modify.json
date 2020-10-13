@@ -1,0 +1,23 @@
+{
+	"description": "Modify an alert. acknowledged_severity parameter, if included, will cause the request to fail when the alert's severity is higher than the acknowledged_severity parameter value. acknowledged_severity  is ignored when is_acknowledged is set to false.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"alert_modify":{
+			   "description": "",
+			   "type": "Optional[String[1]]"
+			},
+			"id":{
+			   "description": "Unique identifier of the specific alert.",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

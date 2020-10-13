@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -112,16 +109,18 @@ context.debug("Entered get")
     replication_rule = {}
     replication_rule["alert_threshold"] = resource[:alert_threshold] unless resource[:alert_threshold].nil?
     replication_rule["id"] = resource[:id] unless resource[:id].nil?
+    replication_rule["is_replica"] = resource[:is_replica] unless resource[:is_replica].nil?
     replication_rule["name"] = resource[:name] unless resource[:name].nil?
     replication_rule["remote_system_id"] = resource[:remote_system_id] unless resource[:remote_system_id].nil?
     replication_rule["rpo"] = resource[:rpo] unless resource[:rpo].nil?
+    replication_rule["rpo_l10n"] = resource[:rpo_l10n] unless resource[:rpo_l10n].nil?
     return replication_rule
   end
 
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -304,13 +303,16 @@ context.debug("Entered get")
 
           alert_threshold: item['alert_threshold'],
           id: item['id'],
+          is_replica: item['is_replica'],
           name: item['name'],
           remote_system_id: item['remote_system_id'],
           rpo: item['rpo'],
+          rpo_l10n: item['rpo_l10n'],
           ensure: 'present',
         }
 
 
+        self.deep_delete(hash, [:is_replica])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

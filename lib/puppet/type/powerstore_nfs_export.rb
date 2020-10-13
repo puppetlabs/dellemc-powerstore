@@ -46,12 +46,16 @@ Puppet::ResourceApi.register_type(
       type:      "Optional[Enum['No_Access','Read_Only','Read_Write','Root','Read_Only_Root']]",
       desc:      "Default access level for all hosts that can access the Export.* No_Access- Deny access to the Export for the hosts.* Read_Only- Allow read only access to the Export for the hosts.* Read_Write- Allow read write access to the Export for the hosts.* Root - Allow read write access to the Export for the hosts. Allow access to the Export for root user.* Read_Only_Root- Allow read only root access to the Export for the hosts.",
     },
+    default_access_l10n:          {
+      type:      "Optional[String]",
+      desc:      "Localized message string corresponding to default_access",
+    },
     description:          {
       type:      "Optional[String[0,511]]",
       desc:      "User defined NFS Export description.",
     },
     file_system_id:          {
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the file system on which the NFS Export will be created.",
       behaviour: :init_only,
     },
@@ -67,17 +71,25 @@ Puppet::ResourceApi.register_type(
       type:      "Optional[Enum['Sys','Kerberos','Kerberos_With_Integrity','Kerberos_With_Encryption']]",
       desc:      "NFS enforced security type for users accessing an NFS Export.* Sys - Allow the user to authenticate with any NFS security types: UNIX, Kerberos, Kerberos with integrity, or Kerberos with encryption.* Kerberos - Allow only Kerberos security for user authentication.* Kerberos_With_Integrity- Allow only Kerberos with integrity and Kerberos with encryption security for user authentication.* Kerberos_With_Encryption- Allow only Kerberos with encryption security for user authentication.",
     },
+    min_security_l10n:          {
+      type:      "Optional[String]",
+      desc:      "Localized message string corresponding to min_security",
+    },
     name:          {
-      type:      "String[1,80]",
+      type:      "Optional[String[1,80]]",
       desc:      "NFS Export name.",
       behaviour: :namevar,
+    },
+    nfs_owner_username:          {
+      type:      "Optional[String]",
+      desc:      "(*Applies to NFS shares of VMware NFS storage resources.*) Default owner of the NFS Export associated with the datastore. Required if secure NFS enabled. For NFSv3 or NFSv4 without Kerberos, the default owner is root.",
     },
     no_access_hosts:          {
       type:      "Optional[Array[String]]",
       desc:      "Hosts with no access to the NFS export or its snapshots. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @.",
     },
     path:          {
-      type:      "String[1,1023]",
+      type:      "Optional[String[1,1023]]",
       desc:      "Local path to export relative to the file system root directory. With NFS, each export of a file_system or file_snap must have a unique local path.Before you can create additional Exports within an NFS shared folder, you must create directories within it from a Linux/Unix host that is connected to the file system. After a directory has been created from a mounted host, you can create a corresponding Export and set access permissions accordingly.",
       behaviour: :init_only,
     },

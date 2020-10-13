@@ -28,10 +28,14 @@ Puppet::ResourceApi.register_type(
     },
     id:          {
       type:      "String",
-      desc:      "Unique identifier of the policy to be modified.",
+      desc:      "Unique identifier of the protection policy to be deleted.",
+    },
+    is_replica:          {
+      type:      "Optional[Boolean]",
+      desc:      "Indicates whether this is a replica policy, which is applied to replication destination storage resources. A policy of this type is restricted from many operations.",
     },
     name:          {
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Policy name.",
       behaviour: :namevar,
     },
@@ -50,6 +54,14 @@ Puppet::ResourceApi.register_type(
     snapshot_rule_ids:          {
       type:      "Optional[Array[String]]",
       desc:      "Snapshot rule identifiers included in this policy. At least one snapshot rule or one replication rule must be specified to create a protection policy.",
+    },
+    type:          {
+      type:      "Optional[Enum['Protection','Performance']]",
+      desc:      "Supported policy types. * Protection - A protection policy, consisting of snapshot and replication rules. * Performance - A performance policy, consisting of performance rules.",
+    },
+    type_l10n:          {
+      type:      "Optional[String]",
+      desc:      "Localized message string corresponding to type",
     },
   },
   autorequires: {

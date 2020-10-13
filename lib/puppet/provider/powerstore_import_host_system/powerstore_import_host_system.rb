@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -112,13 +109,22 @@ context.debug("Entered get")
   def build_hash(resource)
     import_host_system = {}
     import_host_system["agent_address"] = resource[:agent_address] unless resource[:agent_address].nil?
+    import_host_system["agent_api_version"] = resource[:agent_api_version] unless resource[:agent_api_version].nil?
     import_host_system["agent_port"] = resource[:agent_port] unless resource[:agent_port].nil?
+    import_host_system["agent_status"] = resource[:agent_status] unless resource[:agent_status].nil?
+    import_host_system["agent_status_l10n"] = resource[:agent_status_l10n] unless resource[:agent_status_l10n].nil?
+    import_host_system["agent_type"] = resource[:agent_type] unless resource[:agent_type].nil?
+    import_host_system["agent_type_l10n"] = resource[:agent_type_l10n] unless resource[:agent_type_l10n].nil?
+    import_host_system["agent_version"] = resource[:agent_version] unless resource[:agent_version].nil?
     import_host_system["chap_mutual_password"] = resource[:chap_mutual_password] unless resource[:chap_mutual_password].nil?
     import_host_system["chap_mutual_username"] = resource[:chap_mutual_username] unless resource[:chap_mutual_username].nil?
     import_host_system["chap_single_password"] = resource[:chap_single_password] unless resource[:chap_single_password].nil?
     import_host_system["chap_single_username"] = resource[:chap_single_username] unless resource[:chap_single_username].nil?
     import_host_system["id"] = resource[:id] unless resource[:id].nil?
+    import_host_system["last_update_time"] = resource[:last_update_time] unless resource[:last_update_time].nil?
     import_host_system["os_type"] = resource[:os_type] unless resource[:os_type].nil?
+    import_host_system["os_type_l10n"] = resource[:os_type_l10n] unless resource[:os_type_l10n].nil?
+    import_host_system["os_version"] = resource[:os_version] unless resource[:os_version].nil?
     import_host_system["password"] = resource[:password] unless resource[:password].nil?
     import_host_system["user_name"] = resource[:user_name] unless resource[:user_name].nil?
     return import_host_system
@@ -127,7 +133,7 @@ context.debug("Entered get")
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -280,13 +286,22 @@ context.debug("Entered get")
         hash = {
 
           agent_address: item['agent_address'],
+          agent_api_version: item['agent_api_version'],
           agent_port: item['agent_port'],
+          agent_status: item['agent_status'],
+          agent_status_l10n: item['agent_status_l10n'],
+          agent_type: item['agent_type'],
+          agent_type_l10n: item['agent_type_l10n'],
+          agent_version: item['agent_version'],
           chap_mutual_password: item['chap_mutual_password'],
           chap_mutual_username: item['chap_mutual_username'],
           chap_single_password: item['chap_single_password'],
           chap_single_username: item['chap_single_username'],
           id: item['id'],
+          last_update_time: item['last_update_time'],
           os_type: item['os_type'],
+          os_type_l10n: item['os_type_l10n'],
+          os_version: item['os_version'],
           password: item['password'],
           user_name: item['user_name'],
           ensure: 'present',

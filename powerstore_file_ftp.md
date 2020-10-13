@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_ftp
 
@@ -29,7 +29,7 @@ powerstore_file_ftp {
   is_smb_authentication_enabled => "is_smb_authentication_enabled (optional)",
   is_unix_authentication_enabled => "is_unix_authentication_enabled (optional)",
   message_of_the_day => "message_of_the_day (optional)",
-  nas_server_id => "nas_server_id",
+  nas_server_id => "nas_server_id (optional)",
   remove_groups => "remove_groups (optional)",
   remove_hosts => "remove_hosts (optional)",
   remove_users => "remove_users (optional)",
@@ -60,7 +60,7 @@ powerstore_file_ftp {
 |is_smb_authentication_enabled | Boolean | false |
 |is_unix_authentication_enabled | Boolean | false |
 |message_of_the_day | String | false |
-|nas_server_id | String | true |
+|nas_server_id | String | false |
 |remove_groups | Array[String] | false |
 |remove_hosts | Array[String] | false |
 |remove_users | Array[String] | false |

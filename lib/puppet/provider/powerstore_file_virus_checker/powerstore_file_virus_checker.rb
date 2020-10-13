@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -105,6 +102,7 @@ context.debug("Entered get")
   def build_hash(resource)
     file_virus_checker = {}
     file_virus_checker["id"] = resource[:id] unless resource[:id].nil?
+    file_virus_checker["is_config_file_uploaded"] = resource[:is_config_file_uploaded] unless resource[:is_config_file_uploaded].nil?
     file_virus_checker["is_enabled"] = resource[:is_enabled] unless resource[:is_enabled].nil?
     file_virus_checker["nas_server_id"] = resource[:nas_server_id] unless resource[:nas_server_id].nil?
     return file_virus_checker
@@ -113,7 +111,7 @@ context.debug("Entered get")
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -295,12 +293,14 @@ context.debug("Entered get")
         hash = {
 
           id: item['id'],
+          is_config_file_uploaded: item['is_config_file_uploaded'],
           is_enabled: item['is_enabled'],
           nas_server_id: item['nas_server_id'],
           ensure: 'present',
         }
 
 
+        self.deep_delete(hash, [:is_config_file_uploaded])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

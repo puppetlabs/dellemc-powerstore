@@ -1,0 +1,23 @@
+{
+	"description": "Modify a hardware instance.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"body":{
+			   "description": "",
+			   "type": "Optional[String[1]]"
+			},
+			"id":{
+			   "description": "The hardware component to modify.",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

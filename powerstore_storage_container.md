@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Storage_container
 
@@ -10,8 +10,7 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 ```puppet
 powerstore_storage_container {
   force => "force (optional)",
-  id => "id",
-  name => "name",
+  name => "name (optional)",
   quota => "quota (optional)",
 }
 ```
@@ -19,8 +18,7 @@ powerstore_storage_container {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |force | Boolean | false |
-|id | String | true |
-|name | String[1,64] | true |
+|name | String[1,64] | false |
 |quota | Integer[0,4611686018427387904] | false |
 
 

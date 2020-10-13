@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_ldap
 
@@ -11,14 +11,14 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 powerstore_file_ldap {
   add_addresses => "add_addresses (optional)",
   addresses => "addresses (optional)",
-  authentication_type => "authentication_type",
-  base_dn => "base_DN",
+  authentication_type => "authentication_type (optional)",
+  base_dn => "base_DN (optional)",
   bind_dn => "bind_DN (optional)",
   bind_password => "bind_password (optional)",
   id => "id",
   is_smb_account_used => "is_smb_account_used (optional)",
   is_verify_server_certificate => "is_verify_server_certificate (optional)",
-  nas_server_id => "nas_server_id",
+  nas_server_id => "nas_server_id (optional)",
   password => "password (optional)",
   port_number => "port_number (optional)",
   principal => "principal (optional)",
@@ -33,14 +33,14 @@ powerstore_file_ldap {
 | ------------- | ------------- | ------------- |
 |add_addresses | Array[String] | false |
 |addresses | Array[String] | false |
-|authentication_type | Enum['Anonymous','Simple','Kerberos'] | true |
-|base_dn | String[3,255] | true |
+|authentication_type | Enum['Anonymous','Simple','Kerberos'] | false |
+|base_dn | String[3,255] | false |
 |bind_dn | String[0,1023] | false |
 |bind_password | String[0,1023] | false |
 |id | String | true |
 |is_smb_account_used | Boolean | false |
 |is_verify_server_certificate | Boolean | false |
-|nas_server_id | String | true |
+|nas_server_id | String | false |
 |password | String[0,1023] | false |
 |port_number | Integer[0,65536] | false |
 |principal | String[0,1023] | false |

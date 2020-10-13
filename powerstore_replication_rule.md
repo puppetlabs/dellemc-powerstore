@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Replication_rule
 
@@ -11,9 +11,9 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 powerstore_replication_rule {
   alert_threshold => "alert_threshold (optional)",
   id => "id",
-  name => "name",
-  remote_system_id => "remote_system_id",
-  rpo => "rpo",
+  name => "name (optional)",
+  remote_system_id => "remote_system_id (optional)",
+  rpo => "rpo (optional)",
 }
 ```
 
@@ -21,9 +21,9 @@ powerstore_replication_rule {
 | ------------- | ------------- | ------------- |
 |alert_threshold | Integer[0,1440] | false |
 |id | String | true |
-|name | String | true |
-|remote_system_id | String | true |
-|rpo | Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Six_Hours','Twelve_Hours','One_Day'] | true |
+|name | String | false |
+|remote_system_id | String | false |
+|rpo | Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Six_Hours','Twelve_Hours','One_Day'] | false |
 
 
 

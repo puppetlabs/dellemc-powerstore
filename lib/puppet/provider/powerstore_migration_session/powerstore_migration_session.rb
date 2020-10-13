@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -112,7 +109,6 @@ context.debug("Entered get")
     migration_session["destination_appliance_id"] = resource[:destination_appliance_id] unless resource[:destination_appliance_id].nil?
     migration_session["family_id"] = resource[:family_id] unless resource[:family_id].nil?
     migration_session["force"] = resource[:force] unless resource[:force].nil?
-    migration_session["id"] = resource[:id] unless resource[:id].nil?
     migration_session["name"] = resource[:name] unless resource[:name].nil?
     migration_session["resource_type"] = resource[:resource_type] unless resource[:resource_type].nil?
     return migration_session
@@ -121,7 +117,7 @@ context.debug("Entered get")
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -278,7 +274,6 @@ context.debug("Entered get")
           destination_appliance_id: item['destination_appliance_id'],
           family_id: item['family_id'],
           force: item['force'],
-          id: item['id'],
           name: item['name'],
           resource_type: item['resource_type'],
           ensure: 'present',

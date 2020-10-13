@@ -83,7 +83,7 @@ class Import_psgroup_volumeReturnsnapshotschedulesTask < TaskHelper
     end
 
     op_params = [
-        op_param('id', 'body', 'id', 'id'),
+        op_param('id', 'path', 'id', 'id'),
       ]
     op_params.each do |i|
       location = i[:location]

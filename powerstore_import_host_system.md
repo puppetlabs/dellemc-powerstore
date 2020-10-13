@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Import_host_system
 
@@ -9,31 +9,31 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 
 ```puppet
 powerstore_import_host_system {
-  agent_address => "agent_address",
-  agent_port => "agent_port",
+  agent_address => "agent_address (optional)",
+  agent_port => "agent_port (optional)",
   chap_mutual_password => "chap_mutual_password (optional)",
   chap_mutual_username => "chap_mutual_username (optional)",
   chap_single_password => "chap_single_password (optional)",
   chap_single_username => "chap_single_username (optional)",
   id => "id",
-  os_type => "os_type",
-  password => "password",
-  user_name => "user_name",
+  os_type => "os_type (optional)",
+  password => "password (optional)",
+  user_name => "user_name (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|agent_address | String | true |
-|agent_port | Integer[0,65535] | true |
+|agent_address | String | false |
+|agent_port | Integer[0,65535] | false |
 |chap_mutual_password | String | false |
 |chap_mutual_username | String | false |
 |chap_single_password | String | false |
 |chap_single_username | String | false |
 |id | String | true |
-|os_type | Enum['Windows','Linux','ESXi','Unknown'] | true |
-|password | String | true |
-|user_name | String | true |
+|os_type | Enum['Windows','Linux','ESXi','Unknown'] | false |
+|password | String | false |
+|user_name | String | false |
 
 
 

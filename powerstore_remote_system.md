@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Remote_system
 
@@ -12,9 +12,10 @@ powerstore_remote_system {
   data_network_latency => "data_network_latency (optional)",
   description => "description (optional)",
   discovery_chap_mode => "discovery_chap_mode (optional)",
+  id => "id",
   import_chap_info => "import_chap_info (optional)",
   iscsi_addresses => "iscsi_addresses (optional)",
-  management_address => "management_address",
+  management_address => "management_address (optional)",
   name => "name (optional)",
   remote_password => "remote_password (optional)",
   remote_username => "remote_username (optional)",
@@ -28,9 +29,10 @@ powerstore_remote_system {
 |data_network_latency | Enum['Low','High'] | false |
 |description | String | false |
 |discovery_chap_mode | Enum['Disabled','Single','Mutual'] | false |
-|import_chap_info | Struct[{Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, Optional[initiator_discovery_password] => String, }] | false |
+|id | String | true |
+|import_chap_info | Struct[{Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, }] | false |
 |iscsi_addresses | Array[String] | false |
-|management_address | String | true |
+|management_address | String | false |
 |name | String | false |
 |remote_password | String | false |
 |remote_username | String | false |

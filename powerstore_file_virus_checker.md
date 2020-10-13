@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_virus_checker
 
@@ -10,16 +10,16 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 ```puppet
 powerstore_file_virus_checker {
   id => "id",
-  is_enabled => "is_enabled",
-  nas_server_id => "nas_server_id",
+  is_enabled => "is_enabled (optional)",
+  nas_server_id => "nas_server_id (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |id | String | true |
-|is_enabled | Boolean | true |
-|nas_server_id | String | true |
+|is_enabled | Boolean | false |
+|nas_server_id | String | false |
 
 
 

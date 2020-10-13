@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -118,9 +115,11 @@ context.debug("Entered get")
     file_interface["id"] = resource[:id] unless resource[:id].nil?
     file_interface["ip_address"] = resource[:ip_address] unless resource[:ip_address].nil?
     file_interface["is_disabled"] = resource[:is_disabled] unless resource[:is_disabled].nil?
+    file_interface["name"] = resource[:name] unless resource[:name].nil?
     file_interface["nas_server_id"] = resource[:nas_server_id] unless resource[:nas_server_id].nil?
     file_interface["prefix_length"] = resource[:prefix_length] unless resource[:prefix_length].nil?
     file_interface["role"] = resource[:role] unless resource[:role].nil?
+    file_interface["role_l10n"] = resource[:role_l10n] unless resource[:role_l10n].nil?
     file_interface["vlan_id"] = resource[:vlan_id] unless resource[:vlan_id].nil?
     return file_interface
   end
@@ -128,7 +127,7 @@ context.debug("Entered get")
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -313,14 +312,18 @@ context.debug("Entered get")
           id: item['id'],
           ip_address: item['ip_address'],
           is_disabled: item['is_disabled'],
+          name: item['name'],
           nas_server_id: item['nas_server_id'],
           prefix_length: item['prefix_length'],
           role: item['role'],
+          role_l10n: item['role_l10n'],
           vlan_id: item['vlan_id'],
           ensure: 'present',
         }
 
 
+        self.deep_delete(hash, [:is_disabled])
+        self.deep_delete(hash, [:vlan_id])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

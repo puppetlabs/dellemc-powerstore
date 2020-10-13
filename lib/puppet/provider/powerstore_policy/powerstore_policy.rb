@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -118,18 +115,21 @@ context.debug("Entered get")
     policy["add_snapshot_rule_ids"] = resource[:add_snapshot_rule_ids] unless resource[:add_snapshot_rule_ids].nil?
     policy["description"] = resource[:description] unless resource[:description].nil?
     policy["id"] = resource[:id] unless resource[:id].nil?
+    policy["is_replica"] = resource[:is_replica] unless resource[:is_replica].nil?
     policy["name"] = resource[:name] unless resource[:name].nil?
     policy["remove_replication_rule_ids"] = resource[:remove_replication_rule_ids] unless resource[:remove_replication_rule_ids].nil?
     policy["remove_snapshot_rule_ids"] = resource[:remove_snapshot_rule_ids] unless resource[:remove_snapshot_rule_ids].nil?
     policy["replication_rule_ids"] = resource[:replication_rule_ids] unless resource[:replication_rule_ids].nil?
     policy["snapshot_rule_ids"] = resource[:snapshot_rule_ids] unless resource[:snapshot_rule_ids].nil?
+    policy["type"] = resource[:type] unless resource[:type].nil?
+    policy["type_l10n"] = resource[:type_l10n] unless resource[:type_l10n].nil?
     return policy
   end
 
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -314,15 +314,19 @@ context.debug("Entered get")
           add_snapshot_rule_ids: item['add_snapshot_rule_ids'],
           description: item['description'],
           id: item['id'],
+          is_replica: item['is_replica'],
           name: item['name'],
           remove_replication_rule_ids: item['remove_replication_rule_ids'],
           remove_snapshot_rule_ids: item['remove_snapshot_rule_ids'],
           replication_rule_ids: item['replication_rule_ids'],
           snapshot_rule_ids: item['snapshot_rule_ids'],
+          type: item['type'],
+          type_l10n: item['type_l10n'],
           ensure: 'present',
         }
 
 
+        self.deep_delete(hash, [:is_replica])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

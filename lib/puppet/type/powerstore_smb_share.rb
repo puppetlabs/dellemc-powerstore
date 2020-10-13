@@ -19,13 +19,13 @@ Puppet::ResourceApi.register_type(
       desc:      "SMB share description.",
     },
     file_system_id:          {
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the file system on which the SMB Share will be created.",
       behaviour: :init_only,
     },
     id:          {
       type:      "String",
-      desc:      "SMB share object id.",
+      desc:      "SMB Share object id.",
     },
     is_abe_enabled:          {
       type:      "Optional[Boolean]",
@@ -44,7 +44,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Indicates whether encryption for Server Message Block (SMB) 3.0 is enabled at the shared folder level. Values are:- true - encryption for SMB 3.0 is enabled.- false - encryption for SMB 3.0 is disabled.",
     },
     name:          {
-      type:      "String[1,80]",
+      type:      "Optional[String[1,80]]",
       desc:      "SMB share name.",
       behaviour: :namevar,
     },
@@ -52,8 +52,12 @@ Puppet::ResourceApi.register_type(
       type:      "Optional[Enum['Manual','Documents','Programs','None']]",
       desc:      "Defines valid states of Offline Availability,   * Manual - Only specified files will be available offline.   * Documents - All files that users open will be available offline.   * Programs - Program will preferably run from the offline cache even when connected to the network. All files that users open will be available offline.   * None - Prevents clients from storing documents and programs in offline cache (default).",
     },
+    offline_availability_l10n:          {
+      type:      "Optional[String]",
+      desc:      "Localized message string corresponding to offline_availability",
+    },
     path:          {
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Local path to the file system or any existing sub-folder of the file system that is shared over the network.This path is relative to the NAS Server and must start with the filesystem's mountpoint path, which is the filesystem name.For example to share the top-level of a filesystem named svr1fs1, which is on the /svr1fs1 mountpoint of the NAS Server, use /svr1fs1 in the path parameter.SMB shares allow you to create multiple network shares for the same local path.",
       behaviour: :init_only,
     },

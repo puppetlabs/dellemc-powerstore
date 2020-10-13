@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Smb_share
 
@@ -10,15 +10,15 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 ```puppet
 powerstore_smb_share {
   description => "description (optional)",
-  file_system_id => "file_system_id",
+  file_system_id => "file_system_id (optional)",
   id => "id",
   is_abe_enabled => "is_ABE_enabled (optional)",
   is_branch_cache_enabled => "is_branch_cache_enabled (optional)",
   is_continuous_availability_enabled => "is_continuous_availability_enabled (optional)",
   is_encryption_enabled => "is_encryption_enabled (optional)",
-  name => "name",
+  name => "name (optional)",
   offline_availability => "offline_availability (optional)",
-  path => "path",
+  path => "path (optional)",
   umask => "umask (optional)",
 }
 ```
@@ -26,15 +26,15 @@ powerstore_smb_share {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |description | String[0,511] | false |
-|file_system_id | String | true |
+|file_system_id | String | false |
 |id | String | true |
 |is_abe_enabled | Boolean | false |
 |is_branch_cache_enabled | Boolean | false |
 |is_continuous_availability_enabled | Boolean | false |
 |is_encryption_enabled | Boolean | false |
-|name | String[1,80] | true |
+|name | String[1,80] | false |
 |offline_availability | Enum['Manual','Documents','Programs','None'] | false |
-|path | String | true |
+|path | String | false |
 |umask | String | false |
 
 

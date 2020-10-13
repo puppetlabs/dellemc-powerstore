@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Host
 
@@ -11,24 +11,22 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 powerstore_host {
   add_initiators => "add_initiators (optional)",
   description => "description (optional)",
-  id => "id",
-  initiators => "initiators",
+  initiators => "initiators (optional)",
   modify_initiators => "modify_initiators (optional)",
-  name => "name",
-  os_type => "os_type",
+  name => "name (optional)",
+  os_type => "os_type (optional)",
   remove_initiators => "remove_initiators (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|add_initiators | Array[Struct[{Optional[chap_single_username] => String[1,64], port_name => String, port_type => Enum['iSCSI','FC'], Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], }]] | false |
+|add_initiators | Array[Struct[{port_name => String, port_type => Enum['iSCSI','FC'], Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], }]] | false |
 |description | String | false |
-|id | String | true |
-|initiators | Array[Struct[{Optional[chap_single_username] => String[1,64], port_name => String, port_type => Enum['iSCSI','FC'], Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], }]] | true |
-|modify_initiators | Array[Struct[{Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], Optional[port_name] => String, Optional[chap_mutual_password] => String[12,64], }]] | false |
-|name | String | true |
-|os_type | Enum['Windows','Linux','ESXi','AIX','HP-UX','Solaris'] | true |
+|initiators | Array[Struct[{Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], port_name => String, port_type => Enum['iSCSI','FC'], }]] | false |
+|modify_initiators | Array[Struct[{Optional[port_name] => String, Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], }]] | false |
+|name | String | false |
+|os_type | Enum['Windows','Linux','ESXi','AIX','HP-UX','Solaris'] | false |
 |remove_initiators | Array[String] | false |
 
 

@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -128,7 +125,10 @@ context.debug("Entered get")
     nas_server["backup_IPv4_interface_id"] = resource[:backup_i_pv4_interface_id] unless resource[:backup_i_pv4_interface_id].nil?
     nas_server["backup_IPv6_interface_id"] = resource[:backup_i_pv6_interface_id] unless resource[:backup_i_pv6_interface_id].nil?
     nas_server["current_node_id"] = resource[:current_node_id] unless resource[:current_node_id].nil?
+    nas_server["current_preferred_IPv4_interface_id"] = resource[:current_preferred_i_pv4_interface_id] unless resource[:current_preferred_i_pv4_interface_id].nil?
+    nas_server["current_preferred_IPv6_interface_id"] = resource[:current_preferred_i_pv6_interface_id] unless resource[:current_preferred_i_pv6_interface_id].nil?
     nas_server["current_unix_directory_service"] = resource[:current_unix_directory_service] unless resource[:current_unix_directory_service].nil?
+    nas_server["current_unix_directory_service_l10n"] = resource[:current_unix_directory_service_l10n] unless resource[:current_unix_directory_service_l10n].nil?
     nas_server["default_unix_user"] = resource[:default_unix_user] unless resource[:default_unix_user].nil?
     nas_server["default_windows_user"] = resource[:default_windows_user] unless resource[:default_windows_user].nil?
     nas_server["description"] = resource[:description] unless resource[:description].nil?
@@ -139,6 +139,8 @@ context.debug("Entered get")
     nas_server["is_skip_domain_unjoin"] = resource[:is_skip_domain_unjoin] unless resource[:is_skip_domain_unjoin].nil?
     nas_server["is_username_translation_enabled"] = resource[:is_username_translation_enabled] unless resource[:is_username_translation_enabled].nil?
     nas_server["name"] = resource[:name] unless resource[:name].nil?
+    nas_server["operational_status"] = resource[:operational_status] unless resource[:operational_status].nil?
+    nas_server["operational_status_l10n"] = resource[:operational_status_l10n] unless resource[:operational_status_l10n].nil?
     nas_server["preferred_node_id"] = resource[:preferred_node_id] unless resource[:preferred_node_id].nil?
     nas_server["production_IPv4_interface_id"] = resource[:production_i_pv4_interface_id] unless resource[:production_i_pv4_interface_id].nil?
     nas_server["production_IPv6_interface_id"] = resource[:production_i_pv6_interface_id] unless resource[:production_i_pv6_interface_id].nil?
@@ -148,7 +150,7 @@ context.debug("Entered get")
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -333,7 +335,10 @@ context.debug("Entered get")
           backup_i_pv4_interface_id: item['backup_IPv4_interface_id'],
           backup_i_pv6_interface_id: item['backup_IPv6_interface_id'],
           current_node_id: item['current_node_id'],
+          current_preferred_i_pv4_interface_id: item['current_preferred_IPv4_interface_id'],
+          current_preferred_i_pv6_interface_id: item['current_preferred_IPv6_interface_id'],
           current_unix_directory_service: item['current_unix_directory_service'],
+          current_unix_directory_service_l10n: item['current_unix_directory_service_l10n'],
           default_unix_user: item['default_unix_user'],
           default_windows_user: item['default_windows_user'],
           description: item['description'],
@@ -344,6 +349,8 @@ context.debug("Entered get")
           is_skip_domain_unjoin: item['is_skip_domain_unjoin'],
           is_username_translation_enabled: item['is_username_translation_enabled'],
           name: item['name'],
+          operational_status: item['operational_status'],
+          operational_status_l10n: item['operational_status_l10n'],
           preferred_node_id: item['preferred_node_id'],
           production_i_pv4_interface_id: item['production_IPv4_interface_id'],
           production_i_pv6_interface_id: item['production_IPv6_interface_id'],
@@ -351,6 +358,8 @@ context.debug("Entered get")
         }
 
 
+        self.deep_delete(hash, [:is_auto_user_mapping_enabled])
+        self.deep_delete(hash, [:is_username_translation_enabled])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

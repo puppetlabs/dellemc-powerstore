@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -114,13 +111,23 @@ context.debug("Entered get")
 
   def build_hash(resource)
     volume_group = {}
+    volume_group["creation_timestamp"] = resource[:creation_timestamp] unless resource[:creation_timestamp].nil?
     volume_group["delete_members"] = resource[:delete_members] unless resource[:delete_members].nil?
     volume_group["description"] = resource[:description] unless resource[:description].nil?
     volume_group["force"] = resource[:force] unless resource[:force].nil?
+    volume_group["id"] = resource[:id] unless resource[:id].nil?
+    volume_group["is_importing"] = resource[:is_importing] unless resource[:is_importing].nil?
+    volume_group["is_protectable"] = resource[:is_protectable] unless resource[:is_protectable].nil?
     volume_group["is_replication_destination"] = resource[:is_replication_destination] unless resource[:is_replication_destination].nil?
     volume_group["is_write_order_consistent"] = resource[:is_write_order_consistent] unless resource[:is_write_order_consistent].nil?
+    volume_group["location_history"] = resource[:location_history] unless resource[:location_history].nil?
+    volume_group["migration_session_id"] = resource[:migration_session_id] unless resource[:migration_session_id].nil?
     volume_group["name"] = resource[:name] unless resource[:name].nil?
+    volume_group["placement_rule"] = resource[:placement_rule] unless resource[:placement_rule].nil?
+    volume_group["protection_data"] = resource[:protection_data] unless resource[:protection_data].nil?
     volume_group["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
+    volume_group["type"] = resource[:type] unless resource[:type].nil?
+    volume_group["type_l10n"] = resource[:type_l10n] unless resource[:type_l10n].nil?
     volume_group["volume_ids"] = resource[:volume_ids] unless resource[:volume_ids].nil?
     return volume_group
   end
@@ -128,7 +135,7 @@ context.debug("Entered get")
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -310,18 +317,29 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+          creation_timestamp: item['creation_timestamp'],
           delete_members: item['delete_members'],
           description: item['description'],
           force: item['force'],
+          id: item['id'],
+          is_importing: item['is_importing'],
+          is_protectable: item['is_protectable'],
           is_replication_destination: item['is_replication_destination'],
           is_write_order_consistent: item['is_write_order_consistent'],
+          location_history: item['location_history'],
+          migration_session_id: item['migration_session_id'],
           name: item['name'],
+          placement_rule: item['placement_rule'],
+          protection_data: item['protection_data'],
           protection_policy_id: item['protection_policy_id'],
+          type: item['type'],
+          type_l10n: item['type_l10n'],
           volume_ids: item['volume_ids'],
           ensure: 'present',
         }
 
 
+        self.deep_delete(hash, [:is_write_order_consistent])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

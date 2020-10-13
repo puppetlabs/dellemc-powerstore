@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -113,6 +110,8 @@ context.debug("Entered get")
     file_interface_route["file_interface_id"] = resource[:file_interface_id] unless resource[:file_interface_id].nil?
     file_interface_route["gateway"] = resource[:gateway] unless resource[:gateway].nil?
     file_interface_route["id"] = resource[:id] unless resource[:id].nil?
+    file_interface_route["operational_status"] = resource[:operational_status] unless resource[:operational_status].nil?
+    file_interface_route["operational_status_l10n"] = resource[:operational_status_l10n] unless resource[:operational_status_l10n].nil?
     file_interface_route["prefix_length"] = resource[:prefix_length] unless resource[:prefix_length].nil?
     return file_interface_route
   end
@@ -120,7 +119,7 @@ context.debug("Entered get")
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -305,6 +304,8 @@ context.debug("Entered get")
           file_interface_id: item['file_interface_id'],
           gateway: item['gateway'],
           id: item['id'],
+          operational_status: item['operational_status'],
+          operational_status_l10n: item['operational_status_l10n'],
           prefix_length: item['prefix_length'],
           ensure: 'present',
         }

@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -112,13 +109,14 @@ context.debug("Entered get")
     physical_switch["id"] = resource[:id] unless resource[:id].nil?
     physical_switch["name"] = resource[:name] unless resource[:name].nil?
     physical_switch["purpose"] = resource[:purpose] unless resource[:purpose].nil?
+    physical_switch["purpose_l10n"] = resource[:purpose_l10n] unless resource[:purpose_l10n].nil?
     return physical_switch
   end
 
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -303,6 +301,7 @@ context.debug("Entered get")
           id: item['id'],
           name: item['name'],
           purpose: item['purpose'],
+          purpose_l10n: item['purpose_l10n'],
           ensure: 'present',
         }
 

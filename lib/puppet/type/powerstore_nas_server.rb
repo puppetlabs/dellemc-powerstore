@@ -26,9 +26,21 @@ Puppet::ResourceApi.register_type(
       type:      "Optional[String]",
       desc:      "Unique identifier of the node on which the NAS server is running.",
     },
+    current_preferred_i_pv4_interface_id:          {
+      type:      "Optional[String]",
+      desc:      "Unique identifier of the current active preferred IPv4 interface.",
+    },
+    current_preferred_i_pv6_interface_id:          {
+      type:      "Optional[String]",
+      desc:      "Unique identifier of the current active preferred IPv6 interface.",
+    },
     current_unix_directory_service:          {
       type:      "Optional[Enum['None','NIS','LDAP','Local_Files','Local_Then_NIS','Local_Then_LDAP']]",
       desc:      "Define the Unix directory service used for looking up identity information for Unix such as UIDs, GIDs, net groups, and so on.",
+    },
+    current_unix_directory_service_l10n:          {
+      type:      "Optional[String]",
+      desc:      "Localized message string corresponding to current_unix_directory_service",
     },
     default_unix_user:          {
       type:      "Optional[String[0,63]]",
@@ -51,7 +63,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Administrator login used to unjoin the associated SMB servers from the Active Directory (AD) domain before deleting the NAS server. This parameter is required when the skipDomainUnjoin parameter is false or not set, and the NAS server has SMB servers joined to an AD domain.",
     },
     id:          {
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the NAS server.",
     },
     is_auto_user_mapping_enabled:          {
@@ -67,9 +79,17 @@ Puppet::ResourceApi.register_type(
       desc:      "Enable the possibility to match a Windows account with an Unix account with different names.",
     },
     name:          {
-      type:      "String[1,255]",
+      type:      "Optional[String[1,255]]",
       desc:      "Name of the NAS server.",
       behaviour: :namevar,
+    },
+    operational_status:          {
+      type:      "Optional[Enum['Stopped','Starting','Started','Stopping','Failover','Degraded','Unknown']]",
+      desc:      "NAS server operational status:* Stopped - NAS server is stopped.* Starting - NAS server is starting.* Started - NAS server is started.* Stopping - NAS server is stopping.* Failover - NAS server has failed over.* Degraded - NAS server is degraded (running without backup).* Unknown - NAS server state is unknown.",
+    },
+    operational_status_l10n:          {
+      type:      "Optional[String]",
+      desc:      "Localized message string corresponding to operational_status",
     },
     preferred_node_id:          {
       type:      "Optional[String]",

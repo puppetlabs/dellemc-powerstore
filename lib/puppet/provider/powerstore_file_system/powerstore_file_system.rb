@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -136,25 +133,40 @@ context.debug("Entered get")
   def build_hash(resource)
     file_system = {}
     file_system["access_policy"] = resource[:access_policy] unless resource[:access_policy].nil?
+    file_system["access_policy_l10n"] = resource[:access_policy_l10n] unless resource[:access_policy_l10n].nil?
+    file_system["access_type"] = resource[:access_type] unless resource[:access_type].nil?
+    file_system["access_type_l10n"] = resource[:access_type_l10n] unless resource[:access_type_l10n].nil?
+    file_system["creation_timestamp"] = resource[:creation_timestamp] unless resource[:creation_timestamp].nil?
+    file_system["creator_type"] = resource[:creator_type] unless resource[:creator_type].nil?
+    file_system["creator_type_l10n"] = resource[:creator_type_l10n] unless resource[:creator_type_l10n].nil?
     file_system["default_hard_limit"] = resource[:default_hard_limit] unless resource[:default_hard_limit].nil?
     file_system["default_soft_limit"] = resource[:default_soft_limit] unless resource[:default_soft_limit].nil?
     file_system["description"] = resource[:description] unless resource[:description].nil?
     file_system["expiration_timestamp"] = resource[:expiration_timestamp] unless resource[:expiration_timestamp].nil?
+    file_system["filesystem_type"] = resource[:filesystem_type] unless resource[:filesystem_type].nil?
+    file_system["filesystem_type_l10n"] = resource[:filesystem_type_l10n] unless resource[:filesystem_type_l10n].nil?
     file_system["folder_rename_policy"] = resource[:folder_rename_policy] unless resource[:folder_rename_policy].nil?
+    file_system["folder_rename_policy_l10n"] = resource[:folder_rename_policy_l10n] unless resource[:folder_rename_policy_l10n].nil?
     file_system["grace_period"] = resource[:grace_period] unless resource[:grace_period].nil?
     file_system["id"] = resource[:id] unless resource[:id].nil?
     file_system["is_async_MTime_enabled"] = resource[:is_async_m_time_enabled] unless resource[:is_async_m_time_enabled].nil?
+    file_system["is_modified"] = resource[:is_modified] unless resource[:is_modified].nil?
     file_system["is_quota_enabled"] = resource[:is_quota_enabled] unless resource[:is_quota_enabled].nil?
     file_system["is_smb_no_notify_enabled"] = resource[:is_smb_no_notify_enabled] unless resource[:is_smb_no_notify_enabled].nil?
     file_system["is_smb_notify_on_access_enabled"] = resource[:is_smb_notify_on_access_enabled] unless resource[:is_smb_notify_on_access_enabled].nil?
     file_system["is_smb_notify_on_write_enabled"] = resource[:is_smb_notify_on_write_enabled] unless resource[:is_smb_notify_on_write_enabled].nil?
     file_system["is_smb_op_locks_enabled"] = resource[:is_smb_op_locks_enabled] unless resource[:is_smb_op_locks_enabled].nil?
     file_system["is_smb_sync_writes_enabled"] = resource[:is_smb_sync_writes_enabled] unless resource[:is_smb_sync_writes_enabled].nil?
+    file_system["last_refresh_timestamp"] = resource[:last_refresh_timestamp] unless resource[:last_refresh_timestamp].nil?
+    file_system["last_writable_timestamp"] = resource[:last_writable_timestamp] unless resource[:last_writable_timestamp].nil?
     file_system["locking_policy"] = resource[:locking_policy] unless resource[:locking_policy].nil?
+    file_system["locking_policy_l10n"] = resource[:locking_policy_l10n] unless resource[:locking_policy_l10n].nil?
     file_system["name"] = resource[:name] unless resource[:name].nil?
     file_system["nas_server_id"] = resource[:nas_server_id] unless resource[:nas_server_id].nil?
+    file_system["parent_id"] = resource[:parent_id] unless resource[:parent_id].nil?
     file_system["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
     file_system["size_total"] = resource[:size_total] unless resource[:size_total].nil?
+    file_system["size_used"] = resource[:size_used] unless resource[:size_used].nil?
     file_system["smb_notify_on_change_dir_depth"] = resource[:smb_notify_on_change_dir_depth] unless resource[:smb_notify_on_change_dir_depth].nil?
     return file_system
   end
@@ -162,7 +174,7 @@ context.debug("Entered get")
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -344,30 +356,57 @@ context.debug("Entered get")
         hash = {
 
           access_policy: item['access_policy'],
+          access_policy_l10n: item['access_policy_l10n'],
+          access_type: item['access_type'],
+          access_type_l10n: item['access_type_l10n'],
+          creation_timestamp: item['creation_timestamp'],
+          creator_type: item['creator_type'],
+          creator_type_l10n: item['creator_type_l10n'],
           default_hard_limit: item['default_hard_limit'],
           default_soft_limit: item['default_soft_limit'],
           description: item['description'],
           expiration_timestamp: item['expiration_timestamp'],
+          filesystem_type: item['filesystem_type'],
+          filesystem_type_l10n: item['filesystem_type_l10n'],
           folder_rename_policy: item['folder_rename_policy'],
+          folder_rename_policy_l10n: item['folder_rename_policy_l10n'],
           grace_period: item['grace_period'],
           id: item['id'],
           is_async_m_time_enabled: item['is_async_MTime_enabled'],
+          is_modified: item['is_modified'],
           is_quota_enabled: item['is_quota_enabled'],
           is_smb_no_notify_enabled: item['is_smb_no_notify_enabled'],
           is_smb_notify_on_access_enabled: item['is_smb_notify_on_access_enabled'],
           is_smb_notify_on_write_enabled: item['is_smb_notify_on_write_enabled'],
           is_smb_op_locks_enabled: item['is_smb_op_locks_enabled'],
           is_smb_sync_writes_enabled: item['is_smb_sync_writes_enabled'],
+          last_refresh_timestamp: item['last_refresh_timestamp'],
+          last_writable_timestamp: item['last_writable_timestamp'],
           locking_policy: item['locking_policy'],
+          locking_policy_l10n: item['locking_policy_l10n'],
           name: item['name'],
           nas_server_id: item['nas_server_id'],
+          parent_id: item['parent_id'],
           protection_policy_id: item['protection_policy_id'],
           size_total: item['size_total'],
+          size_used: item['size_used'],
           smb_notify_on_change_dir_depth: item['smb_notify_on_change_dir_depth'],
           ensure: 'present',
         }
 
 
+        self.deep_delete(hash, [:access_policy])
+        self.deep_delete(hash, [:access_type])
+        self.deep_delete(hash, [:filesystem_type])
+        self.deep_delete(hash, [:folder_rename_policy])
+        self.deep_delete(hash, [:grace_period])
+        self.deep_delete(hash, [:is_async_m_time_enabled])
+        self.deep_delete(hash, [:is_smb_no_notify_enabled])
+        self.deep_delete(hash, [:is_smb_notify_on_access_enabled])
+        self.deep_delete(hash, [:is_smb_notify_on_write_enabled])
+        self.deep_delete(hash, [:is_smb_op_locks_enabled])
+        self.deep_delete(hash, [:is_smb_sync_writes_enabled])
+        self.deep_delete(hash, [:locking_policy])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

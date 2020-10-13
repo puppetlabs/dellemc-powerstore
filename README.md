@@ -1,6 +1,6 @@
 Here is a list of the types and providers with links to more detailed descriptions for each.
  
-[dellemc.swagger.json](/var/tmp/specs/dellemc.swagger.json)
+[dellemc.swagger.json](tag_based/assets/dellemc.swagger.json)
  * [powerstore_email_notify_destination](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_email_notify_destination.md)
  * [powerstore_file_dns](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_file_dns.md)
  * [powerstore_file_ftp](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_file_ftp.md)
@@ -21,12 +21,10 @@ Here is a list of the types and providers with links to more detailed descriptio
  * [powerstore_migration_session](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_migration_session.md)
  * [powerstore_nas_server](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_nas_server.md)
  * [powerstore_nfs_export](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_nfs_export.md)
- * [powerstore_nfs_server](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_nfs_server.md)
  * [powerstore_physical_switch](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_physical_switch.md)
  * [powerstore_policy](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_policy.md)
  * [powerstore_remote_system](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_remote_system.md)
  * [powerstore_replication_rule](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_replication_rule.md)
- * [powerstore_smb_server](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_smb_server.md)
  * [powerstore_smb_share](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_smb_share.md)
  * [powerstore_snapshot_rule](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_snapshot_rule.md)
  * [powerstore_storage_container](https://github.com/puppetlabs/puppetlabs-azure_arm/blob/master/powerstore_storage_container.md)

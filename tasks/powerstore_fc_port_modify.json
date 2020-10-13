@@ -1,0 +1,23 @@
+{
+	"description": "Modify an FC front-end port's speed. Setting the port's requested speed might not cause the port speed to change immediately. In cases where the Small Form-Factor Pluggable (SFP) is not inserted or the port is down, the requested speed is set, but the current_speed attribute shows the old value until the SFP is able to change speed. By default, the partner port speed on the other node in the appliance is set to the same requested speed. If the requested speed is not supported by the partner port, it is left unchanged.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"body":{
+			   "description": "",
+			   "type": "Optional[String[1]]"
+			},
+			"id":{
+			   "description": "Unique identifier of the FC front-end port.",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

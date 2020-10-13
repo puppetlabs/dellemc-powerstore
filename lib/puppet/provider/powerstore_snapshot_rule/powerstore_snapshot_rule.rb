@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -114,10 +111,13 @@ context.debug("Entered get")
   def build_hash(resource)
     snapshot_rule = {}
     snapshot_rule["days_of_week"] = resource[:days_of_week] unless resource[:days_of_week].nil?
+    snapshot_rule["days_of_week_l10n"] = resource[:days_of_week_l10n] unless resource[:days_of_week_l10n].nil?
     snapshot_rule["delete_snaps"] = resource[:delete_snaps] unless resource[:delete_snaps].nil?
     snapshot_rule["desired_retention"] = resource[:desired_retention] unless resource[:desired_retention].nil?
     snapshot_rule["id"] = resource[:id] unless resource[:id].nil?
     snapshot_rule["interval"] = resource[:interval] unless resource[:interval].nil?
+    snapshot_rule["interval_l10n"] = resource[:interval_l10n] unless resource[:interval_l10n].nil?
+    snapshot_rule["is_replica"] = resource[:is_replica] unless resource[:is_replica].nil?
     snapshot_rule["name"] = resource[:name] unless resource[:name].nil?
     snapshot_rule["time_of_day"] = resource[:time_of_day] unless resource[:time_of_day].nil?
     return snapshot_rule
@@ -126,7 +126,7 @@ context.debug("Entered get")
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -309,16 +309,20 @@ context.debug("Entered get")
         hash = {
 
           days_of_week: item['days_of_week'],
+          days_of_week_l10n: item['days_of_week_l10n'],
           delete_snaps: item['delete_snaps'],
           desired_retention: item['desired_retention'],
           id: item['id'],
           interval: item['interval'],
+          interval_l10n: item['interval_l10n'],
+          is_replica: item['is_replica'],
           name: item['name'],
           time_of_day: item['time_of_day'],
           ensure: 'present',
         }
 
 
+        self.deep_delete(hash, [:is_replica])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

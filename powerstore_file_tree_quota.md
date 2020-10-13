@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_tree_quota
 
@@ -10,11 +10,11 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 ```puppet
 powerstore_file_tree_quota {
   description => "description (optional)",
-  file_system_id => "file_system_id",
+  file_system_id => "file_system_id (optional)",
   hard_limit => "hard_limit (optional)",
   id => "id",
   is_user_quotas_enforced => "is_user_quotas_enforced (optional)",
-  path => "path",
+  path => "path (optional)",
   soft_limit => "soft_limit (optional)",
 }
 ```
@@ -22,11 +22,11 @@ powerstore_file_tree_quota {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |description | String | false |
-|file_system_id | String | true |
+|file_system_id | String | false |
 |hard_limit | Integer[0,9223372036854775807] | false |
 |id | String | true |
 |is_user_quotas_enforced | Boolean | false |
-|path | String | true |
+|path | String | false |
 |soft_limit | Integer[0,9223372036854775807] | false |
 
 

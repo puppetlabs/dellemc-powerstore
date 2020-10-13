@@ -19,11 +19,11 @@ Puppet::ResourceApi.register_type(
       desc:      "Normally, deletion of a storage container that is mounted or still contains virtual volumes will be rejected. This option overrides that error and allows the delete to continue. Use with great caution.",
     },
     id:          {
-      type:      "String",
-      desc:      "Storage container ID.",
+      type:      "Optional[String]",
+      desc:      "The unique id of the storage container.",
     },
     name:          {
-      type:      "String[1,64]",
+      type:      "Optional[String[1,64]]",
       desc:      "Name for the storage container that is unique across all storage containers in the cluster. The name must be between 1 and 64 UTF-8 characters (inclusive), and not more than 127 bytes.",
       behaviour: :namevar,
     },

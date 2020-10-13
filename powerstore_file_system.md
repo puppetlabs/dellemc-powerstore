@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_system
 
@@ -25,10 +25,10 @@ powerstore_file_system {
   is_smb_op_locks_enabled => "is_smb_op_locks_enabled (optional)",
   is_smb_sync_writes_enabled => "is_smb_sync_writes_enabled (optional)",
   locking_policy => "locking_policy (optional)",
-  name => "name",
-  nas_server_id => "nas_server_id",
+  name => "name (optional)",
+  nas_server_id => "nas_server_id (optional)",
   protection_policy_id => "protection_policy_id (optional)",
-  size_total => "size_total",
+  size_total => "size_total (optional)",
   smb_notify_on_change_dir_depth => "smb_notify_on_change_dir_depth (optional)",
 }
 ```
@@ -51,10 +51,10 @@ powerstore_file_system {
 |is_smb_op_locks_enabled | Boolean | false |
 |is_smb_sync_writes_enabled | Boolean | false |
 |locking_policy | Enum['Advisory','Mandatory'] | false |
-|name | String[1,255] | true |
-|nas_server_id | String | true |
+|name | String[1,255] | false |
+|nas_server_id | String | false |
 |protection_policy_id | String | false |
-|size_total | Integer[3221225472,281474976710656] | true |
+|size_total | Integer[3221225472,281474976710656] | false |
 |smb_notify_on_change_dir_depth | Integer[1,512] | false |
 
 

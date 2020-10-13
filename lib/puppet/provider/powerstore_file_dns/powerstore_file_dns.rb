@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -118,13 +115,14 @@ context.debug("Entered get")
     file_dns["nas_server_id"] = resource[:nas_server_id] unless resource[:nas_server_id].nil?
     file_dns["remove_ip_addresses"] = resource[:remove_ip_addresses] unless resource[:remove_ip_addresses].nil?
     file_dns["transport"] = resource[:transport] unless resource[:transport].nil?
+    file_dns["transport_l10n"] = resource[:transport_l10n] unless resource[:transport_l10n].nil?
     return file_dns
   end
 
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -312,10 +310,12 @@ context.debug("Entered get")
           nas_server_id: item['nas_server_id'],
           remove_ip_addresses: item['remove_ip_addresses'],
           transport: item['transport'],
+          transport_l10n: item['transport_l10n'],
           ensure: 'present',
         }
 
 
+        self.deep_delete(hash, [:transport])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

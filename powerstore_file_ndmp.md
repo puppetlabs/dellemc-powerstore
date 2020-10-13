@@ -1,7 +1,7 @@
 Document: "dellemc.swagger"
 
 
-Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json")
+Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_ndmp
 
@@ -10,18 +10,18 @@ Path: "/varhttps://github.com/aws/aws-sdk-go-v2/tree/master/dellemc.swagger.json
 ```puppet
 powerstore_file_ndmp {
   id => "id",
-  nas_server_id => "nas_server_id",
-  password => "password",
-  user_name => "user_name",
+  nas_server_id => "nas_server_id (optional)",
+  password => "password (optional)",
+  user_name => "user_name (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |id | String | true |
-|nas_server_id | String | true |
-|password | String | true |
-|user_name | String | true |
+|nas_server_id | String | false |
+|password | String | false |
+|user_name | String | false |
 
 
 

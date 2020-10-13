@@ -16,12 +16,10 @@ context.debug("Entered get")
   end
 
   def set(context, changes, noop: false)
-    #binding.pry
     context.debug("Entered set")
 
 
     changes.each do |name, change|
-      #binding.pry
       context.debug("set change with #{name} and #{change}")
       #FIXME: key[:name] below hardwires the unique key of the resource to be :name
       is = change.key?(:is) ? change[:is] : get(context).find { |key| key[:name] == name }
@@ -50,7 +48,6 @@ context.debug("Entered get")
 
   def create(context, name, should)
     context.creating(name) do
-      #binding.pry
       new_hash = build_create_hash(should)
       new_hash.delete("id")
       response = self.class.invoke_create(context, should, new_hash)
@@ -118,14 +115,18 @@ context.debug("Entered get")
     file_tree_quota["id"] = resource[:id] unless resource[:id].nil?
     file_tree_quota["is_user_quotas_enforced"] = resource[:is_user_quotas_enforced] unless resource[:is_user_quotas_enforced].nil?
     file_tree_quota["path"] = resource[:path] unless resource[:path].nil?
+    file_tree_quota["remaining_grace_period"] = resource[:remaining_grace_period] unless resource[:remaining_grace_period].nil?
+    file_tree_quota["size_used"] = resource[:size_used] unless resource[:size_used].nil?
     file_tree_quota["soft_limit"] = resource[:soft_limit] unless resource[:soft_limit].nil?
+    file_tree_quota["state"] = resource[:state] unless resource[:state].nil?
+    file_tree_quota["state_l10n"] = resource[:state_l10n] unless resource[:state_l10n].nil?
     return file_tree_quota
   end
 
   def self.build_key_values
     key_values = {}
     
-    key_values["api-version"] = "specs"
+    key_values["api-version"] = "assets"
     key_values
   end
 
@@ -312,7 +313,11 @@ context.debug("Entered get")
           id: item['id'],
           is_user_quotas_enforced: item['is_user_quotas_enforced'],
           path: item['path'],
+          remaining_grace_period: item['remaining_grace_period'],
+          size_used: item['size_used'],
           soft_limit: item['soft_limit'],
+          state: item['state'],
+          state_l10n: item['state_l10n'],
           ensure: 'present',
         }
 
