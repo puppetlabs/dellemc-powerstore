@@ -1,0 +1,23 @@
+{
+	"description": "Operations that can be performed are modify name, remove host(s) from host group, add host(s) to host group. Modify request will only support either a add_host(s) or remove_host(s) at a time along with modifying host name",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"body":{
+			   "description": "",
+			   "type": "Optional[String[1]]"
+			},
+			"id":{
+			   "description": "Unique id of the host group.",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

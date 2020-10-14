@@ -1,0 +1,23 @@
+{
+	"description": "Restore a volume from a snapshot. A primary or clone volume can only be restored from one of its immediate snapshots.  By default, a backup snapshot of the target snapshot is created before the restore is attempted. To skip creating a snapshot before restoring, set create_backup_snap to false. If a snapshot is taken, the response includes the resulting snapshot id; otherwise it is empty. If a custom profile is not specified, the profile for the backup snapshot is automatically generated. The automatically generated profile only provides the name as an automatically generated, unique value. Other optional parameters are not specified. When a volume is restored, the source_time is the source_time of the snapshot from which it is restored.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"body":{
+			   "description": "",
+			   "type": "Optional[String[1]]"
+			},
+			"id":{
+			   "description": "Unique identifier of the volume to restore.",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

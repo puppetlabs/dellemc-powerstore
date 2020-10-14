@@ -1,0 +1,19 @@
+{
+	"description": "Pauses an ongoing import session. When this occurs, the background data copy stops, but IO to the source still occurs. Pause is only supported when the import job is in a in Copy_In_Progress state. You can resume or cancel the paused import.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+			   "description": "Unique identifier of the import session",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

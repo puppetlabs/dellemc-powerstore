@@ -1,0 +1,19 @@
+{
+	"description": "Create a new protection policy. Protection policies can be assigned to volumes or volume groups. When a protection policy is assigned to a volume or volume group:* If the policy is associated with one or more snapshot rules, scheduled snapshots are created based on the schedule specified in each snapshot rule.* If the policy is associated with a replication rule, a replication session is created and synchronized based on the schedule specified in the replication rule.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"body":{
+			   "description": "",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

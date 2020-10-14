@@ -1,0 +1,19 @@
+{
+	"description": "Delete a local user account instance using the unique identifier. You cannot delete the default 'admin' account or the account you are currently logged into. Any local user account with Administrator or Security Administrator role can delete any other local user account except the default 'admin' account.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+			   "description": "Unique identifier of the local user account to be deleted.",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

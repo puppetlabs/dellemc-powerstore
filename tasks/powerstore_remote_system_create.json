@@ -1,0 +1,19 @@
+{
+	"description": "Create a new remote system relationship. The type of remote system being connected requires different parameter sets. For PowerStore remote system relationships, include the following parameters:* Management address - Either an IPv4 or IPv6 address. FQDN is not supported.* Type of remote system * Data network latency typeFor PowerStore remote system relationships, the relationship is created in both directions. Remote protection policies can be configured using the PowerStore remote system instance on either of the systems. This enables remote replication for storage resources in either direction. The data connections take into account whether Challenge Handshake Authentication Protocol (CHAP) is enabled on local and remote PowerStore systems.For non-PowerStore remote system relationships, include the following parameters:* Management address - Either an IPv4 or IPv6 address. FQDN is not supported.* Type of remote system* Name* Description* Remote administrator credentials* iSCSI address - IPv4 address* CHAP mode for discovery or session * CHAP secrets detailsAfter the remote system relationship is created, the local system can communicate with the remote system, and open data connections for data transfer.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"body":{
+			   "description": "Parameters to create a remote system.",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

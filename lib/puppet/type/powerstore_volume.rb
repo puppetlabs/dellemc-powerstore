@@ -54,7 +54,7 @@ Puppet::ResourceApi.register_type(
       desc:      "New value for is_replication_destination property. The modification is only supported for primary and clone volume, only when the current value is true and there is no longer a replication session using this volume as a destination, and only to false.",
     },
     location_history:          {
-      type:      "Optional[Array[Struct[{Optional[from_appliance_id] => String, Optional[migrated_on] => String, Optional[reason] => Enum['Initial','Manual','Recommended'], Optional[reason_l10n] => String, Optional[to_appliance_id] => String, }]]]",
+      type:      "Optional[Array[Struct[{Optional[reason_l10n] => String, Optional[to_appliance_id] => String, Optional[from_appliance_id] => String, Optional[migrated_on] => String, Optional[reason] => Enum['Initial','Manual','Recommended'], }]]]",
       desc:      "Filtering on the fields of this embedded resource is not supported.",
     },
     logical_unit_number:          {
@@ -89,7 +89,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Unique identifier of the performance policy assigned to the volume.",
     },
     protection_data:          {
-      type:      "Optional[Struct[{Optional[created_by_rule_name] => String, Optional[creator_type] => Enum['User','System','Scheduler'], Optional[creator_type_l10n] => String, Optional[family_id] => String, Optional[parent_id] => String, Optional[source_id] => String, Optional[copy_signature] => String, Optional[expiration_timestamp] => String, Optional[is_app_consistent] => Boolean, Optional[source_timestamp] => String, Optional[created_by_rule_id] => String, }]]",
+      type:      "Optional[Struct[{Optional[created_by_rule_id] => String, Optional[creator_type] => Enum['User','System','Scheduler'], Optional[family_id] => String, Optional[source_id] => String, Optional[source_timestamp] => String, Optional[copy_signature] => String, Optional[created_by_rule_name] => String, Optional[creator_type_l10n] => String, Optional[expiration_timestamp] => String, Optional[is_app_consistent] => Boolean, Optional[parent_id] => String, }]]",
       desc:      "Protection data associated with a resource. Filtering on the fields of this embedded resource is not supported.",
     },
     protection_policy_id:          {

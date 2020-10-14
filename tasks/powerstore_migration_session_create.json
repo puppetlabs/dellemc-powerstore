@@ -1,0 +1,19 @@
+{
+	"description": "Create a new migration session. For virtual volumes (vVols), the background copy is completed during this phase and the ownership of the vVol is transferred to the new appliance. For volumes and application groups, a migration session is created in this phase and no background copy is performed until either the sync or cutover operation is invoked. There are no interruptions to any services during this phase.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"body":{
+			   "description": "Parameters to create a migration session.",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

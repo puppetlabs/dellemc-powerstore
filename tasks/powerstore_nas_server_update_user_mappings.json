@@ -1,0 +1,19 @@
+{
+	"description": "Fix the user mappings for all file systems associated with the NAS server. This process updates file ownership on the NAS server's file systems to reflect changes to users' SIDs. A new UID/GID will be obtained from a Unix Directory Service for the user name of the object owner. A user mapping report is also generated. This operation can take a significant amount of time, depending of the size of the file systems.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+			   "description": "Unique identifier of the NAS server.",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

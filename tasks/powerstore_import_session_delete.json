@@ -1,0 +1,19 @@
+{
+	"description": "Delete an import session that is in a Completed, Failed, or Cancelled state. Delete removes the historical record of the import. To stop active import sessions, use the Cancel operation. You can delete the import session after cancelling it.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+			   "description": "Unique identifier of the import session",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

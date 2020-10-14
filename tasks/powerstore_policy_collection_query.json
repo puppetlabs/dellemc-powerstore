@@ -1,0 +1,15 @@
+{
+	"description": "Query protection and performance policies.The following REST query is an example of how to retrieve protection policies along with their rules and associated resources:https://{{cluster_ip}}/api/rest/policy?select=name,id,type,replication_rules(id,name,rpo,remote_system(id,name,management_address)),snapshot_rules(id,name,interval,time_of_day,days_of_week),volume(id,name),volume_group(id,name)&type=eq.ProtectionThe following REST query is an example of how to retrieve performance policies along with their associated resources:   https://{{cluster_ip}}/api/rest/policy?select=name,id,type,volume(id,name),volume_group(id,name)&type=eq.Performance",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

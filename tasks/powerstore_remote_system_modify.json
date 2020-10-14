@@ -1,0 +1,23 @@
+{
+	"description": "Modify a remote system instance. The list of valid parameters depends on the type of remote system.For PowerStore remote system relationships:* Description* Management address - An IPv4 or IPv6 address. FQDN is not supported.For non-PowerStore remote system relationships:* Name* Description* Management address - An IPv4 address. FQDN is not supported.* Remote administrator credentials* iSCSI address - An IPv4 address.After modifying the remote session instance, the system reestablishes the data connections as needed.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"body":{
+			   "description": "Parameters to modify the remote system.",
+			   "type": "Optional[String[1]]"
+			},
+			"id":{
+			   "description": "Unique identifier of the remote system.",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

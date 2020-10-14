@@ -108,7 +108,6 @@ def sample_value(type)
     { sample_value(type.key_type) => sample_value(type.value_type) }
   when "Struct"
     type.elements.reduce({}) { |retval, el| 
-      # require 'pry';binding.pry
       retval[el.name] = sample_value(el.value_type); retval
     }
   when "Enum"

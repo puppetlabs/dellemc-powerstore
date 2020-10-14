@@ -1,0 +1,23 @@
+{
+	"description": "Restore a volume group from a snapshot set. A primary or a clone volume group can only be restored from one of its immediate snapshot sets.A backup snapshot set of the target volume group will be created before restore is attempted. This behavior can be overridden by setting the __create_backup_snap__ property to false. The profile for the backup snapshot set will be auto-generated unless a custom profile is specified. The auto-generated profile only initializes the name to an auto-generated, unique value. Other optional parameters are not specified.Restore operation is only supported if there are no membership changes between the target volume group and source snapshot set.You can restore a volume group even when the sizes of the volumes in the target volume group have changed. This represents a case where the target volumes have been modified over time, but you want to revert them back to their old state captured in the source snapshot set.When a volume group is restored, * __source_time__ is set to the __source_time__ of the snapshot set it is being restored from.A volume group that is acting as the destination in a replication session cannot be restored.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"body":{
+			   "description": "",
+			   "type": "Optional[String[1]]"
+			},
+			"id":{
+			   "description": "Unique identifier of the volume group.",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

@@ -1,0 +1,19 @@
+{
+	"description": "Add a new virus checker setting to a NAS Server. Only one instance can be created per NAS Server.Workflow to enable the virus checker settings on the NAS Server is as follows: \n1. Create a virus checker instance on NAS Server.2. Download template virus checker configuration file.3. Edit the configuration file with virus checker configuration details.4. Upload the configuration file.5. Enable the virus checker on the NAS Server.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"body":{
+			   "description": "",
+			   "type": "Optional[String[1]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}
