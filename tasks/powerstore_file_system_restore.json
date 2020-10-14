@@ -6,11 +6,11 @@
 	"parameters":{
 			"body":{
 			   "description": "",
-			   "type": "Optional[String[1]]"
+			   "type": "Hash"
 			},
 			"id":{
 			   "description": "File system snapshot id.",
-			   "type": "Optional[String[1]]"
+			   "type": "String"
 			}
 	},
 

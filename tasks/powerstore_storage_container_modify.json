@@ -6,11 +6,11 @@
 	"parameters":{
 			"body":{
 			   "description": "Fields to update.",
-			   "type": "Optional[String[1]]"
+			   "type": "Hash"
 			},
 			"id":{
 			   "description": "Storage container ID.",
-			   "type": "Optional[String[1]]"
+			   "type": "String"
 			}
 	},
 

@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 			   "description": "Unique identifier of the vCenter to delete.",
-			   "type": "Optional[String[1]]"
+			   "type": "String"
 			}
 	},
 

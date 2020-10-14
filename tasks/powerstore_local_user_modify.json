@@ -6,11 +6,11 @@
 	"parameters":{
 			"body":{
 			   "description": "",
-			   "type": "Optional[String[1]]"
+			   "type": "Hash"
 			},
 			"id":{
 			   "description": "Unique identifier of the local user account to be modified.",
-			   "type": "Optional[String[1]]"
+			   "type": "String"
 			}
 	},
 

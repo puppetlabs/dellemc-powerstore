@@ -166,4 +166,22 @@ type powerstore
 url file://#{Dir.getwd}/spec/fixtures/sut.json
 DEVICE
   end
+  File.open('spec/fixtures/inventory.yaml', 'w') do |file|
+    file.puts <<DEVICE
+version: 2
+targets:
+  - uri: localhost
+    name: prism
+    config:
+      transport: remote
+      remote:
+        remote-transport: powerstore
+        user: admin
+        password: admin
+        port: 4010
+        schema: http
+        base_path: ""
+DEVICE
+  end
+
 end

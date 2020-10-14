@@ -6,7 +6,7 @@
 	"parameters":{
 			"body":{
 			   "description": "Name of the LDAP service to create.",
-			   "type": "Optional[String[1]]"
+			   "type": "Hash"
 			}
 	},
 

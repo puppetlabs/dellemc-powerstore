@@ -53,7 +53,7 @@ Puppet::ResourceApi.register_type(
 ",
     },
     import_chap_info:          {
-      type:      "Optional[Struct[{Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, }]]",
+      type:      "Optional[Struct[{Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, }]]",
       desc:      "Information about the initiator, target session, or discovery CHAP secrets.",
       behaviour: :init_only,
     },

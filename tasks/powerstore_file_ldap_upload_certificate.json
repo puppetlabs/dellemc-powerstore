@@ -6,11 +6,11 @@
 	"parameters":{
 			"body":{
 			   "description": "",
-			   "type": "Optional[String[1]]"
+			   "type": "String"
 			},
 			"id":{
 			   "description": "Unique identifier of the LDAP settings object.",
-			   "type": "Optional[String[1]]"
+			   "type": "String"
 			}
 	},
 

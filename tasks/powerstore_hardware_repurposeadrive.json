@@ -6,11 +6,11 @@
 	"parameters":{
 			"body":{
 			   "description": "Fields required to repurpose the specified drive.",
-			   "type": "Optional[String[1]]"
+			   "type": "Hash"
 			},
 			"id":{
 			   "description": "Identifier of the drive to repurpose.",
-			   "type": "Optional[String[1]]"
+			   "type": "String"
 			}
 	},
 

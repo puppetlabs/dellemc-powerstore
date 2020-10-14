@@ -6,7 +6,7 @@
 	"parameters":{
 			"body":{
 			   "description": "Parameters to create a remote system.",
-			   "type": "Optional[String[1]]"
+			   "type": "Hash"
 			}
 	},
 

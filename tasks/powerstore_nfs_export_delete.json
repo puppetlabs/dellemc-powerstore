@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 			   "description": "NFS Export object id.",
-			   "type": "Optional[String[1]]"
+			   "type": "String"
 			}
 	},
 

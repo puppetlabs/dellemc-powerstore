@@ -6,11 +6,11 @@
 	"parameters":{
 			"body":{
 			   "description": "Parameters to verify a remote system.",
-			   "type": "Optional[String[1]]"
+			   "type": "Hash"
 			},
 			"id":{
 			   "description": "Unique identifier of the remote system.",
-			   "type": "Optional[String[1]]"
+			   "type": "String"
 			}
 	},
 
