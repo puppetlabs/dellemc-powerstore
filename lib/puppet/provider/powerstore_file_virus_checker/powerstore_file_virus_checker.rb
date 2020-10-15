@@ -136,7 +136,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_virus_checkerCollectionQuery")
+    Puppet.info("Calling operation file_virus_checker_collection_query")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -165,7 +165,7 @@ context.debug("Entered get")
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_virus_checkerCreate")
+    Puppet.info("Calling operation file_virus_checker_create")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -195,7 +195,7 @@ context.debug("Entered get")
 
   def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_virus_checkerModify")
+    Puppet.info("Calling operation file_virus_checker_modify")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -226,7 +226,7 @@ context.debug("Entered get")
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_virus_checkerDelete")
+    Puppet.info("Calling operation file_virus_checker_delete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -258,7 +258,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_virus_checkerInstanceQuery")
+    Puppet.info("Calling operation file_virus_checker_instance_query")
     path_params = {}
     query_params = {}
     header_params = {}

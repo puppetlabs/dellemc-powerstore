@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class File_nisModifyTask < TaskHelper
+class File_nis_modifyTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class File_nisModifyTask < TaskHelper
   end
 
   if __FILE__ == $0
-    File_nisModifyTask.run
+    File_nis_modifyTask.run
   end
 
 end

@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class ClusterModifyclusterpropertiesTask < TaskHelper
+class Cluster_modifyclusterpropertiesTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class ClusterModifyclusterpropertiesTask < TaskHelper
   end
 
   if __FILE__ == $0
-    ClusterModifyclusterpropertiesTask.run
+    Cluster_modifyclusterpropertiesTask.run
   end
 
 end

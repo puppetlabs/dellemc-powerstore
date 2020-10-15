@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class VolumeDetachTask < TaskHelper
+class Volume_detachTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class VolumeDetachTask < TaskHelper
   end
 
   if __FILE__ == $0
-    VolumeDetachTask.run
+    Volume_detachTask.run
   end
 
 end

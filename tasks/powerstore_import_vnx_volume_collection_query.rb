@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Import_vnx_volumeCollectionQueryTask < TaskHelper
+class Import_vnx_volume_collection_queryTask < TaskHelper
 
   def task(arg_hash)
 
@@ -102,7 +102,7 @@ class Import_vnx_volumeCollectionQueryTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Import_vnx_volumeCollectionQueryTask.run
+    Import_vnx_volume_collection_queryTask.run
   end
 
 end

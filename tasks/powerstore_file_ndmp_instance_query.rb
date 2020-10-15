@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class File_ndmpInstanceQueryTask < TaskHelper
+class File_ndmp_instance_queryTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class File_ndmpInstanceQueryTask < TaskHelper
   end
 
   if __FILE__ == $0
-    File_ndmpInstanceQueryTask.run
+    File_ndmp_instance_queryTask.run
   end
 
 end

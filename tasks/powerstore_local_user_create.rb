@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Local_userCreateTask < TaskHelper
+class Local_user_createTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class Local_userCreateTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Local_userCreateTask.run
+    Local_user_createTask.run
   end
 
 end

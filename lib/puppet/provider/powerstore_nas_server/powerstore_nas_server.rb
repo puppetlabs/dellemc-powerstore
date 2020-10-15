@@ -175,7 +175,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation nas_serverCollectionQuery")
+    Puppet.info("Calling operation nas_server_collection_query")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -204,7 +204,7 @@ context.debug("Entered get")
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation nas_serverCreate")
+    Puppet.info("Calling operation nas_server_create")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -234,7 +234,7 @@ context.debug("Entered get")
 
   def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation nas_serverModify")
+    Puppet.info("Calling operation nas_server_modify")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -265,7 +265,7 @@ context.debug("Entered get")
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation nas_serverDelete")
+    Puppet.info("Calling operation nas_server_delete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -298,7 +298,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation nas_serverInstanceQuery")
+    Puppet.info("Calling operation nas_server_instance_query")
     path_params = {}
     query_params = {}
     header_params = {}

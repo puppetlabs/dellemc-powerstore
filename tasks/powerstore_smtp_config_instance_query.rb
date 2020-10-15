@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Smtp_configInstanceQueryTask < TaskHelper
+class Smtp_config_instance_queryTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class Smtp_configInstanceQueryTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Smtp_configInstanceQueryTask.run
+    Smtp_config_instance_queryTask.run
   end
 
 end

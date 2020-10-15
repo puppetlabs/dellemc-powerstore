@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Remote_systemVerifyTask < TaskHelper
+class Remote_system_verifyTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class Remote_systemVerifyTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Remote_systemVerifyTask.run
+    Remote_system_verifyTask.run
   end
 
 end

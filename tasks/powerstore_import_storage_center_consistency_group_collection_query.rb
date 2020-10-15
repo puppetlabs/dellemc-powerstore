@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Import_storage_center_consistency_groupCollectionQueryTask < TaskHelper
+class Import_storage_center_consistency_group_collection_queryTask < TaskHelper
 
   def task(arg_hash)
 
@@ -102,7 +102,7 @@ class Import_storage_center_consistency_groupCollectionQueryTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Import_storage_center_consistency_groupCollectionQueryTask.run
+    Import_storage_center_consistency_group_collection_queryTask.run
   end
 
 end

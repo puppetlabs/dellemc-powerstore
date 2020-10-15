@@ -139,7 +139,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation storage_containerCollectionQuery")
+    Puppet.info("Calling operation storage_container_collection_query")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -168,7 +168,7 @@ context.debug("Entered get")
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation storage_containerCreate")
+    Puppet.info("Calling operation storage_container_create")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -198,7 +198,7 @@ context.debug("Entered get")
 
   def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation storage_containerModify")
+    Puppet.info("Calling operation storage_container_modify")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -229,7 +229,7 @@ context.debug("Entered get")
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation storage_containerDelete")
+    Puppet.info("Calling operation storage_container_delete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -262,7 +262,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation storage_containerInstanceQuery")
+    Puppet.info("Calling operation storage_container_instance_query")
     path_params = {}
     query_params = {}
     header_params = {}

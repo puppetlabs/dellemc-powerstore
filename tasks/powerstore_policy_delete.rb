@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class PolicyDeleteTask < TaskHelper
+class Policy_deleteTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class PolicyDeleteTask < TaskHelper
   end
 
   if __FILE__ == $0
-    PolicyDeleteTask.run
+    Policy_deleteTask.run
   end
 
 end

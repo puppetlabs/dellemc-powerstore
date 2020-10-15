@@ -139,7 +139,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_ndmpCollectionQuery")
+    Puppet.info("Calling operation file_ndmp_collection_query")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -168,7 +168,7 @@ context.debug("Entered get")
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_ndmpCreate")
+    Puppet.info("Calling operation file_ndmp_create")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -198,7 +198,7 @@ context.debug("Entered get")
 
   def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_ndmpModify")
+    Puppet.info("Calling operation file_ndmp_modify")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -229,7 +229,7 @@ context.debug("Entered get")
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_ndmpDelete")
+    Puppet.info("Calling operation file_ndmp_delete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -261,7 +261,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_ndmpInstanceQuery")
+    Puppet.info("Calling operation file_ndmp_instance_query")
     path_params = {}
     query_params = {}
     header_params = {}

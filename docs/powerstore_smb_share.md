@@ -1,0 +1,53 @@
+Document: "dellemc.swagger"
+
+
+Path: "tag_based/assets/dellemc.swagger.json")
+
+## Smb_share
+
+
+
+```puppet
+powerstore_smb_share {
+  description => "description (optional)",
+  file_system_id => "file_system_id (optional)",
+  id => "id",
+  is_abe_enabled => "is_ABE_enabled (optional)",
+  is_branch_cache_enabled => "is_branch_cache_enabled (optional)",
+  is_continuous_availability_enabled => "is_continuous_availability_enabled (optional)",
+  is_encryption_enabled => "is_encryption_enabled (optional)",
+  name => "name (optional)",
+  offline_availability => "offline_availability (optional)",
+  path => "path (optional)",
+  umask => "umask (optional)",
+}
+```
+
+| Name        | Type           | Required       |
+| ------------- | ------------- | ------------- |
+|description | String[0,511] | false |
+|file_system_id | String | false |
+|id | String | true |
+|is_abe_enabled | Boolean | false |
+|is_branch_cache_enabled | Boolean | false |
+|is_continuous_availability_enabled | Boolean | false |
+|is_encryption_enabled | Boolean | false |
+|name | String[1,80] | false |
+|offline_availability | Enum['Manual','Documents','Programs','None'] | false |
+|path | String | false |
+|umask | String | false |
+
+
+
+## CRUD operations
+
+Here is a list of endpoints that we use to create, read, update and delete the smb_share
+
+| Operation | Path | Verb | Description | OperationID |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+|Create|`/smb_share`|Post|Create an SMB share.|smb_share_create|
+|List - list all|`/smb_share`|Get|List SMB shares.|smb_share_collection_query|
+|List - get one|`/smb_share/%{id}`|Get|Get an SMB Share.|smb_share_instance_query|
+|List - get list using params|``||||
+|Update|`/smb_share/%{id}`|Patch|Modify SMB share properties.|smb_share_modify|
+|Delete|`/smb_share/%{id}`|Delete|Delete an SMB Share.|smb_share_delete|

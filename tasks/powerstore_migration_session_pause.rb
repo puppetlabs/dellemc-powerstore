@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Migration_sessionPauseTask < TaskHelper
+class Migration_session_pauseTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class Migration_sessionPauseTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Migration_sessionPauseTask.run
+    Migration_session_pauseTask.run
   end
 
 end

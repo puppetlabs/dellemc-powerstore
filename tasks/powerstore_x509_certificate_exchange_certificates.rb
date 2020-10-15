@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class X509_certificateExchangeCertificatesTask < TaskHelper
+class X509_certificate_exchange_certificatesTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class X509_certificateExchangeCertificatesTask < TaskHelper
   end
 
   if __FILE__ == $0
-    X509_certificateExchangeCertificatesTask.run
+    X509_certificate_exchange_certificatesTask.run
   end
 
 end

@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Nas_serverInstanceQueryTask < TaskHelper
+class Nas_server_instance_queryTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class Nas_serverInstanceQueryTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Nas_serverInstanceQueryTask.run
+    Nas_server_instance_queryTask.run
   end
 
 end

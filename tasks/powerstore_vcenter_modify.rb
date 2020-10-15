@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class VcenterModifyTask < TaskHelper
+class Vcenter_modifyTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class VcenterModifyTask < TaskHelper
   end
 
   if __FILE__ == $0
-    VcenterModifyTask.run
+    Vcenter_modifyTask.run
   end
 
 end

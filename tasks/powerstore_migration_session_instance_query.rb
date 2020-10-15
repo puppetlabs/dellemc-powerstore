@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Migration_sessionInstanceQueryTask < TaskHelper
+class Migration_session_instance_queryTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class Migration_sessionInstanceQueryTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Migration_sessionInstanceQueryTask.run
+    Migration_session_instance_queryTask.run
   end
 
 end

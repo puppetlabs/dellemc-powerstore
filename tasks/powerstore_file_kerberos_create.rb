@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class File_kerberosCreateTask < TaskHelper
+class File_kerberos_createTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class File_kerberosCreateTask < TaskHelper
   end
 
   if __FILE__ == $0
-    File_kerberosCreateTask.run
+    File_kerberos_createTask.run
   end
 
 end

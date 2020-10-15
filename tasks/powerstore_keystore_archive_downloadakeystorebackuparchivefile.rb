@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Keystore_archiveDownloadakeystorebackuparchivefileTask < TaskHelper
+class Keystore_archive_downloadakeystorebackuparchivefileTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class Keystore_archiveDownloadakeystorebackuparchivefileTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Keystore_archiveDownloadakeystorebackuparchivefileTask.run
+    Keystore_archive_downloadakeystorebackuparchivefileTask.run
   end
 
 end

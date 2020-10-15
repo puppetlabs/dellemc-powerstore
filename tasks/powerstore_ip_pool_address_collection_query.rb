@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Ip_pool_addressCollectionQueryTask < TaskHelper
+class Ip_pool_address_collection_queryTask < TaskHelper
 
   def task(arg_hash)
 
@@ -102,7 +102,7 @@ class Ip_pool_addressCollectionQueryTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Ip_pool_addressCollectionQueryTask.run
+    Ip_pool_address_collection_queryTask.run
   end
 
 end

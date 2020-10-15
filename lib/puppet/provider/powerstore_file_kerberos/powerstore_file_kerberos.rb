@@ -146,7 +146,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_kerberosCollectionQuery")
+    Puppet.info("Calling operation file_kerberos_collection_query")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -175,7 +175,7 @@ context.debug("Entered get")
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_kerberosCreate")
+    Puppet.info("Calling operation file_kerberos_create")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -205,7 +205,7 @@ context.debug("Entered get")
 
   def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_kerberosModify")
+    Puppet.info("Calling operation file_kerberos_modify")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -236,7 +236,7 @@ context.debug("Entered get")
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_kerberosDelete")
+    Puppet.info("Calling operation file_kerberos_delete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -268,7 +268,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_kerberosInstanceQuery")
+    Puppet.info("Calling operation file_kerberos_instance_query")
     path_params = {}
     query_params = {}
     header_params = {}

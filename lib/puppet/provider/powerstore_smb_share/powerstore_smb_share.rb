@@ -159,7 +159,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation smb_shareCollectionQuery")
+    Puppet.info("Calling operation smb_share_collection_query")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -188,7 +188,7 @@ context.debug("Entered get")
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation smb_shareCreate")
+    Puppet.info("Calling operation smb_share_create")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -218,7 +218,7 @@ context.debug("Entered get")
 
   def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation smb_shareModify")
+    Puppet.info("Calling operation smb_share_modify")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -249,7 +249,7 @@ context.debug("Entered get")
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation smb_shareDelete")
+    Puppet.info("Calling operation smb_share_delete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -281,7 +281,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation smb_shareInstanceQuery")
+    Puppet.info("Calling operation smb_share_instance_query")
     path_params = {}
     query_params = {}
     header_params = {}

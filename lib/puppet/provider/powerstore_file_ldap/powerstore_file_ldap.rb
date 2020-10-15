@@ -182,7 +182,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_ldapCollectionQuery")
+    Puppet.info("Calling operation file_ldap_collection_query")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -211,7 +211,7 @@ context.debug("Entered get")
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_ldapCreate")
+    Puppet.info("Calling operation file_ldap_create")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -241,7 +241,7 @@ context.debug("Entered get")
 
   def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_ldapModify")
+    Puppet.info("Calling operation file_ldap_modify")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -272,7 +272,7 @@ context.debug("Entered get")
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_ldapDelete")
+    Puppet.info("Calling operation file_ldap_delete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -304,7 +304,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_ldapInstanceQuery")
+    Puppet.info("Calling operation file_ldap_instance_query")
     path_params = {}
     query_params = {}
     header_params = {}

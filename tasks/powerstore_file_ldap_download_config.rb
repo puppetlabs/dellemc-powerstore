@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class File_ldapDownloadConfigTask < TaskHelper
+class File_ldap_download_configTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class File_ldapDownloadConfigTask < TaskHelper
   end
 
   if __FILE__ == $0
-    File_ldapDownloadConfigTask.run
+    File_ldap_download_configTask.run
   end
 
 end

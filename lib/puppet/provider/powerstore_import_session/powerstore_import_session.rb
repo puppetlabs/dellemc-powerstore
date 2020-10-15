@@ -160,7 +160,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation import_sessionCollectionQuery")
+    Puppet.info("Calling operation import_session_collection_query")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -189,7 +189,7 @@ context.debug("Entered get")
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation import_sessionCreate")
+    Puppet.info("Calling operation import_session_create")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -219,7 +219,7 @@ context.debug("Entered get")
 
   def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation import_sessionModify")
+    Puppet.info("Calling operation import_session_modify")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -250,7 +250,7 @@ context.debug("Entered get")
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation import_sessionDelete")
+    Puppet.info("Calling operation import_session_delete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -282,7 +282,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation import_sessionInstanceQuery")
+    Puppet.info("Calling operation import_session_instance_query")
     path_params = {}
     query_params = {}
     header_params = {}

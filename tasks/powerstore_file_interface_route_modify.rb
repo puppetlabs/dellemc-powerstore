@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class File_interface_routeModifyTask < TaskHelper
+class File_interface_route_modifyTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class File_interface_routeModifyTask < TaskHelper
   end
 
   if __FILE__ == $0
-    File_interface_routeModifyTask.run
+    File_interface_route_modifyTask.run
   end
 
 end

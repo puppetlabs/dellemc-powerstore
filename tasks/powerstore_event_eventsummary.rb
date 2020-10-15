@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class EventEventsummaryTask < TaskHelper
+class Event_eventsummaryTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class EventEventsummaryTask < TaskHelper
   end
 
   if __FILE__ == $0
-    EventEventsummaryTask.run
+    Event_eventsummaryTask.run
   end
 
 end

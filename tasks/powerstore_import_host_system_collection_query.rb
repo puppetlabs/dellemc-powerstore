@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Import_host_systemCollectionQueryTask < TaskHelper
+class Import_host_system_collection_queryTask < TaskHelper
 
   def task(arg_hash)
 
@@ -102,7 +102,7 @@ class Import_host_systemCollectionQueryTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Import_host_systemCollectionQueryTask.run
+    Import_host_system_collection_queryTask.run
   end
 
 end

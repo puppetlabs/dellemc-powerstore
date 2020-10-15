@@ -144,7 +144,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_interface_routeCollectionQuery")
+    Puppet.info("Calling operation file_interface_route_collection_query")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -173,7 +173,7 @@ context.debug("Entered get")
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_interface_routeCreate")
+    Puppet.info("Calling operation file_interface_route_create")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -203,7 +203,7 @@ context.debug("Entered get")
 
   def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_interface_routeModify")
+    Puppet.info("Calling operation file_interface_route_modify")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -234,7 +234,7 @@ context.debug("Entered get")
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_interface_routeDelete")
+    Puppet.info("Calling operation file_interface_route_delete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -266,7 +266,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_interface_routeInstanceQuery")
+    Puppet.info("Calling operation file_interface_route_instance_query")
     path_params = {}
     query_params = {}
     header_params = {}

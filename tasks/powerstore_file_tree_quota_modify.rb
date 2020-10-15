@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class File_tree_quotaModifyTask < TaskHelper
+class File_tree_quota_modifyTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class File_tree_quotaModifyTask < TaskHelper
   end
 
   if __FILE__ == $0
-    File_tree_quotaModifyTask.run
+    File_tree_quota_modifyTask.run
   end
 
 end

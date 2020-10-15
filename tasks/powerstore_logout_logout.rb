@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class LogoutLogoutTask < TaskHelper
+class Logout_logoutTask < TaskHelper
 
   def task(arg_hash)
 
@@ -102,7 +102,7 @@ class LogoutLogoutTask < TaskHelper
   end
 
   if __FILE__ == $0
-    LogoutLogoutTask.run
+    Logout_logoutTask.run
   end
 
 end

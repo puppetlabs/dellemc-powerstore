@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class File_ndmpDeleteTask < TaskHelper
+class File_ndmp_deleteTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class File_ndmpDeleteTask < TaskHelper
   end
 
   if __FILE__ == $0
-    File_ndmpDeleteTask.run
+    File_ndmp_deleteTask.run
   end
 
 end

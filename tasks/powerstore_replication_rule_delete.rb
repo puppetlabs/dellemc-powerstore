@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Replication_ruleDeleteTask < TaskHelper
+class Replication_rule_deleteTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class Replication_ruleDeleteTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Replication_ruleDeleteTask.run
+    Replication_rule_deleteTask.run
   end
 
 end

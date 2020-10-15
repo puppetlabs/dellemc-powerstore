@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class File_virus_checkerInstanceQueryTask < TaskHelper
+class File_virus_checker_instance_queryTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class File_virus_checkerInstanceQueryTask < TaskHelper
   end
 
   if __FILE__ == $0
-    File_virus_checkerInstanceQueryTask.run
+    File_virus_checker_instance_queryTask.run
   end
 
 end

@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Virtual_volumeDeleteTask < TaskHelper
+class Virtual_volume_deleteTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class Virtual_volumeDeleteTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Virtual_volumeDeleteTask.run
+    Virtual_volume_deleteTask.run
   end
 
 end

@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Snapshot_ruleDeleteTask < TaskHelper
+class Snapshot_rule_deleteTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class Snapshot_ruleDeleteTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Snapshot_ruleDeleteTask.run
+    Snapshot_rule_deleteTask.run
   end
 
 end

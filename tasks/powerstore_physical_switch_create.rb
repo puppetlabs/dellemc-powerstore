@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Physical_switchCreateTask < TaskHelper
+class Physical_switch_createTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class Physical_switchCreateTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Physical_switchCreateTask.run
+    Physical_switch_createTask.run
   end
 
 end

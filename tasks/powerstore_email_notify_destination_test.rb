@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Email_notify_destinationTestTask < TaskHelper
+class Email_notify_destination_testTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class Email_notify_destinationTestTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Email_notify_destinationTestTask.run
+    Email_notify_destination_testTask.run
   end
 
 end

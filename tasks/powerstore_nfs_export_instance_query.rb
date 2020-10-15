@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Nfs_exportInstanceQueryTask < TaskHelper
+class Nfs_export_instance_queryTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class Nfs_exportInstanceQueryTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Nfs_exportInstanceQueryTask.run
+    Nfs_export_instance_queryTask.run
   end
 
 end

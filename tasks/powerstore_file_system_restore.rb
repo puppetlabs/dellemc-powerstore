@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class File_systemRestoreTask < TaskHelper
+class File_system_restoreTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class File_systemRestoreTask < TaskHelper
   end
 
   if __FILE__ == $0
-    File_systemRestoreTask.run
+    File_system_restoreTask.run
   end
 
 end

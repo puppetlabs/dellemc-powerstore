@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Nas_serverUpdateUserMappingsTask < TaskHelper
+class Nas_server_update_user_mappingsTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class Nas_serverUpdateUserMappingsTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Nas_serverUpdateUserMappingsTask.run
+    Nas_server_update_user_mappingsTask.run
   end
 
 end

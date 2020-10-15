@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Import_sessionCutoverTask < TaskHelper
+class Import_session_cutoverTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class Import_sessionCutoverTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Import_sessionCutoverTask.run
+    Import_session_cutoverTask.run
   end
 
 end

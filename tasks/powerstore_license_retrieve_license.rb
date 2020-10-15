@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class LicenseRetrieveLicenseTask < TaskHelper
+class License_retrieve_licenseTask < TaskHelper
 
   def task(arg_hash)
 
@@ -102,7 +102,7 @@ class LicenseRetrieveLicenseTask < TaskHelper
   end
 
   if __FILE__ == $0
-    LicenseRetrieveLicenseTask.run
+    License_retrieve_licenseTask.run
   end
 
 end

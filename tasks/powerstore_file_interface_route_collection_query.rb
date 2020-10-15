@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class File_interface_routeCollectionQueryTask < TaskHelper
+class File_interface_route_collection_queryTask < TaskHelper
 
   def task(arg_hash)
 
@@ -102,7 +102,7 @@ class File_interface_routeCollectionQueryTask < TaskHelper
   end
 
   if __FILE__ == $0
-    File_interface_routeCollectionQueryTask.run
+    File_interface_route_collection_queryTask.run
   end
 
 end

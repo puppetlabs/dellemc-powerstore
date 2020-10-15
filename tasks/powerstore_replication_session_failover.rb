@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Replication_sessionFailoverTask < TaskHelper
+class Replication_session_failoverTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class Replication_sessionFailoverTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Replication_sessionFailoverTask.run
+    Replication_session_failoverTask.run
   end
 
 end

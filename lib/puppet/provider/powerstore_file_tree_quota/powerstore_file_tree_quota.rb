@@ -151,7 +151,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_tree_quotaCollectionQuery")
+    Puppet.info("Calling operation file_tree_quota_collection_query")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -180,7 +180,7 @@ context.debug("Entered get")
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_tree_quotaCreate")
+    Puppet.info("Calling operation file_tree_quota_create")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -210,7 +210,7 @@ context.debug("Entered get")
 
   def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_tree_quotaModify")
+    Puppet.info("Calling operation file_tree_quota_modify")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -241,7 +241,7 @@ context.debug("Entered get")
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_tree_quotaDelete")
+    Puppet.info("Calling operation file_tree_quota_delete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -273,7 +273,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_tree_quotaInstanceQuery")
+    Puppet.info("Calling operation file_tree_quota_instance_query")
     path_params = {}
     query_params = {}
     header_params = {}

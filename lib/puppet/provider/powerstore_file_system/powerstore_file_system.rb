@@ -199,7 +199,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_systemCollectionQuery")
+    Puppet.info("Calling operation file_system_collection_query")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -228,7 +228,7 @@ context.debug("Entered get")
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_systemCreate")
+    Puppet.info("Calling operation file_system_create")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -258,7 +258,7 @@ context.debug("Entered get")
 
   def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_systemModify")
+    Puppet.info("Calling operation file_system_modify")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -289,7 +289,7 @@ context.debug("Entered get")
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_systemDelete")
+    Puppet.info("Calling operation file_system_delete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -321,7 +321,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation file_systemInstanceQuery")
+    Puppet.info("Calling operation file_system_instance_query")
     path_params = {}
     query_params = {}
     header_params = {}

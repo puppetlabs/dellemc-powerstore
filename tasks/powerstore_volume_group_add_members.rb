@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Volume_groupAddMembersTask < TaskHelper
+class Volume_group_add_membersTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class Volume_groupAddMembersTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Volume_groupAddMembersTask.run
+    Volume_group_add_membersTask.run
   end
 
 end

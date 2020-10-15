@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Sas_portCollectionQueryTask < TaskHelper
+class Sas_port_collection_queryTask < TaskHelper
 
   def task(arg_hash)
 
@@ -102,7 +102,7 @@ class Sas_portCollectionQueryTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Sas_portCollectionQueryTask.run
+    Sas_port_collection_queryTask.run
   end
 
 end

@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class File_user_quotaRefreshTask < TaskHelper
+class File_user_quota_refreshTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class File_user_quotaRefreshTask < TaskHelper
   end
 
   if __FILE__ == $0
-    File_user_quotaRefreshTask.run
+    File_user_quota_refreshTask.run
   end
 
 end

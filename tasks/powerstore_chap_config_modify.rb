@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Chap_configModifyTask < TaskHelper
+class Chap_config_modifyTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class Chap_configModifyTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Chap_configModifyTask.run
+    Chap_config_modifyTask.run
   end
 
 end

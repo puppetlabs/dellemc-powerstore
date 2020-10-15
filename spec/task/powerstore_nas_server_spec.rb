@@ -14,68 +14,61 @@ include BoltSpec::Run
 definition_name = 'powerstore_nas_server'
 
 describe "#{definition_name}" do
-
   it 'should perform nas_server_collection_query' do
-      task_name = 'powerstore::powerstore_nas_server_collection_query'
-      result = run_task(task_name, 'prism', {}, config: config_data, inventory: inventory_data)
-      expect(result[0]['status']).to eq('success')  
+    task_name = 'powerstore::powerstore_nas_server_collection_query'
+    result = run_task(task_name, 'prism', {}, config: config_data, inventory: inventory_data)
+    expect(result[0]['status']).to eq('success')  
   end
-  
-
   it 'should perform nas_server_instance_query' do
-      task_name = 'powerstore::powerstore_nas_server_instance_query'
-      result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
-      expect(result[0]['status']).to eq('success')  
-  end  
-  it 'should perform nas_server_download_file' do
-      task_name = 'powerstore::powerstore_nas_server_download_file'
-      result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
-      expect(result[0]['status']).to eq('success')  
-  end  
-  it 'should perform nas_server_download_file' do
-      task_name = 'powerstore::powerstore_nas_server_download_file'
-      result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
-      expect(result[0]['status']).to eq('success')  
-  end  
-  it 'should perform nas_server_download_file' do
-      task_name = 'powerstore::powerstore_nas_server_download_file'
-      result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
-      expect(result[0]['status']).to eq('success')  
-  end  
-  it 'should perform nas_server_download_file' do
-      task_name = 'powerstore::powerstore_nas_server_download_file'
-      result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
-      expect(result[0]['status']).to eq('success')  
-  end  
-  it 'should perform nas_server_download_file' do
-      task_name = 'powerstore::powerstore_nas_server_download_file'
-      result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
-      expect(result[0]['status']).to eq('success')  
-  end  
-  it 'should perform nas_server_download_file' do
-      task_name = 'powerstore::powerstore_nas_server_download_file'
-      result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
-      expect(result[0]['status']).to eq('success')  
-  end  
-  it 'should perform nas_server_download_file' do
-      task_name = 'powerstore::powerstore_nas_server_download_file'
-      result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
-      expect(result[0]['status']).to eq('success')  
-  end  
+    task_name = 'powerstore::powerstore_nas_server_instance_query'
+    result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
+    expect(result[0]['status']).to eq('success')  
+  end
+  it 'should perform nas_server_download_group' do
+    task_name = 'powerstore::powerstore_nas_server_download_group'
+    result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
+    expect(result[0]['status']).to eq('success')  
+  end
+  it 'should perform nas_server_download_homedir' do
+    task_name = 'powerstore::powerstore_nas_server_download_homedir'
+    result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
+    expect(result[0]['status']).to eq('success')  
+  end
+  it 'should perform nas_server_download_hosts' do
+    task_name = 'powerstore::powerstore_nas_server_download_hosts'
+    result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
+    expect(result[0]['status']).to eq('success')  
+  end
+  it 'should perform nas_server_download_netgroup' do
+    task_name = 'powerstore::powerstore_nas_server_download_netgroup'
+    result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
+    expect(result[0]['status']).to eq('success')  
+  end
+  it 'should perform nas_server_download_nsswitch' do
+    task_name = 'powerstore::powerstore_nas_server_download_nsswitch'
+    result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
+    expect(result[0]['status']).to eq('success')  
+  end
+  it 'should perform nas_server_download_ntxmap' do
+    task_name = 'powerstore::powerstore_nas_server_download_ntxmap'
+    result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
+    expect(result[0]['status']).to eq('success')  
+  end
+  it 'should perform nas_server_download_passwd' do
+    task_name = 'powerstore::powerstore_nas_server_download_passwd'
+    result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
+    expect(result[0]['status']).to eq('success')  
+  end
   it 'should perform nas_server_download_user_mapping_report' do
-      task_name = 'powerstore::powerstore_nas_server_download_user_mapping_report'
-      result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
-      expect(result[0]['status']).to eq('success')  
-  end  
-  
-
+    task_name = 'powerstore::powerstore_nas_server_download_user_mapping_report'
+    result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
+    expect(result[0]['status']).to eq('success')  
+  end
   it 'should perform nas_server_delete' do
-      task_name = 'powerstore::powerstore_nas_server_delete'
-      result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
-      expect(result[0]['status']).to eq('success')  
-	end  
-  
-
+    task_name = 'powerstore::powerstore_nas_server_delete'
+    result = run_task(task_name, 'prism', {"id" => "string"}, config: config_data, inventory: inventory_data)
+    expect(result[0]['status']).to eq('success')  
+	end
   # it 'should create host' do  
   #   result = run_task('powerstore::powerstore_host_create', 'prism', {"body"=>{"name"=>"string"}}, config: config_data,  
   #                   inventory: inventory_data)

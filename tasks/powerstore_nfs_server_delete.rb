@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Nfs_serverDeleteTask < TaskHelper
+class Nfs_server_deleteTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class Nfs_serverDeleteTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Nfs_serverDeleteTask.run
+    Nfs_server_deleteTask.run
   end
 
 end

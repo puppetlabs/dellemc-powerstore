@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Storage_containerDeleteTask < TaskHelper
+class Storage_container_deleteTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class Storage_containerDeleteTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Storage_containerDeleteTask.run
+    Storage_container_deleteTask.run
   end
 
 end

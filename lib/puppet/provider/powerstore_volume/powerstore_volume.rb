@@ -178,7 +178,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation volumeCollectionQuery")
+    Puppet.info("Calling operation volume_collection_query")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -207,7 +207,7 @@ context.debug("Entered get")
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation volumeCreate")
+    Puppet.info("Calling operation volume_create")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -237,7 +237,7 @@ context.debug("Entered get")
 
   def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation volumeModify")
+    Puppet.info("Calling operation volume_modify")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -268,7 +268,7 @@ context.debug("Entered get")
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation volumeDelete")
+    Puppet.info("Calling operation volume_delete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -300,7 +300,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation volumeInstanceQuery")
+    Puppet.info("Calling operation volume_instance_query")
     path_params = {}
     query_params = {}
     header_params = {}

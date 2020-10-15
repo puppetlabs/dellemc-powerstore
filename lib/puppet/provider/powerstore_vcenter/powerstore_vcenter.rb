@@ -141,7 +141,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation vcenterCollectionQuery")
+    Puppet.info("Calling operation vcenter_collection_query")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -170,7 +170,7 @@ context.debug("Entered get")
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation vcenterCreate")
+    Puppet.info("Calling operation vcenter_create")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -200,7 +200,7 @@ context.debug("Entered get")
 
   def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation vcenterModify")
+    Puppet.info("Calling operation vcenter_modify")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -231,7 +231,7 @@ context.debug("Entered get")
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation vcenterDelete")
+    Puppet.info("Calling operation vcenter_delete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -263,7 +263,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation vcenterInstanceQuery")
+    Puppet.info("Calling operation vcenter_instance_query")
     path_params = {}
     query_params = {}
     header_params = {}

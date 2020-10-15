@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class File_ldapUploadCertificateTask < TaskHelper
+class File_ldap_upload_certificateTask < TaskHelper
 
   def task(arg_hash)
 
@@ -104,7 +104,7 @@ class File_ldapUploadCertificateTask < TaskHelper
   end
 
   if __FILE__ == $0
-    File_ldapUploadCertificateTask.run
+    File_ldap_upload_certificateTask.run
   end
 
 end

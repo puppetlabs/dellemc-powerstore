@@ -154,7 +154,7 @@ context.debug("Entered get")
 
   def self.invoke_list_all(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation policyCollectionQuery")
+    Puppet.info("Calling operation policy_collection_query")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -183,7 +183,7 @@ context.debug("Entered get")
 
   def self.invoke_create(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation policyCreate")
+    Puppet.info("Calling operation policy_create")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -213,7 +213,7 @@ context.debug("Entered get")
 
   def self.invoke_update(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation policyModify")
+    Puppet.info("Calling operation policy_modify")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -244,7 +244,7 @@ context.debug("Entered get")
 
   def self.invoke_delete(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation policyDelete")
+    Puppet.info("Calling operation policy_delete")
     path_params = {}
     query_params = {}
     header_params = {}
@@ -276,7 +276,7 @@ context.debug("Entered get")
 
   def self.invoke_get_one(context, resource = nil, body_params = nil)
     key_values = self.build_key_values
-    Puppet.info("Calling operation policyInstanceQuery")
+    Puppet.info("Calling operation policy_instance_query")
     path_params = {}
     query_params = {}
     header_params = {}

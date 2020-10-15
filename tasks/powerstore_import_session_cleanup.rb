@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Import_sessionCleanupTask < TaskHelper
+class Import_session_cleanupTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class Import_sessionCleanupTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Import_sessionCleanupTask.run
+    Import_session_cleanupTask.run
   end
 
 end

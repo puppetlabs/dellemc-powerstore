@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class Veth_portCollectionQueryTask < TaskHelper
+class Veth_port_collection_queryTask < TaskHelper
 
   def task(arg_hash)
 
@@ -102,7 +102,7 @@ class Veth_portCollectionQueryTask < TaskHelper
   end
 
   if __FILE__ == $0
-    Veth_portCollectionQueryTask.run
+    Veth_port_collection_queryTask.run
   end
 
 end

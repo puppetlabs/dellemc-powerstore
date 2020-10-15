@@ -6,7 +6,7 @@ require 'puppet'
 require 'openssl'
 # require 'pry-remote'; binding.remote_pry
     
-class VcenterDeleteTask < TaskHelper
+class Vcenter_deleteTask < TaskHelper
 
   def task(arg_hash)
 
@@ -103,7 +103,7 @@ class VcenterDeleteTask < TaskHelper
   end
 
   if __FILE__ == $0
-    VcenterDeleteTask.run
+    Vcenter_deleteTask.run
   end
 
 end
