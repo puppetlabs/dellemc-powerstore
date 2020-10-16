@@ -99,13 +99,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     smb_share = {}
-    smb_share["description"] = resource[:description] unless resource[:description].nil?
-    smb_share["is_ABE_enabled"] = resource[:is_abe_enabled] unless resource[:is_abe_enabled].nil?
-    smb_share["is_branch_cache_enabled"] = resource[:is_branch_cache_enabled] unless resource[:is_branch_cache_enabled].nil?
-    smb_share["is_continuous_availability_enabled"] = resource[:is_continuous_availability_enabled] unless resource[:is_continuous_availability_enabled].nil?
-    smb_share["is_encryption_enabled"] = resource[:is_encryption_enabled] unless resource[:is_encryption_enabled].nil?
-    smb_share["offline_availability"] = resource[:offline_availability] unless resource[:offline_availability].nil?
-    smb_share["umask"] = resource[:umask] unless resource[:umask].nil?
     return smb_share
   end
 
@@ -195,7 +188,16 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('file_system_id', 'body', 'file_system_id', 'file_system_id'),
+      self.op_param('is_ABE_enabled', 'body', 'is_abe_enabled', 'is_abe_enabled'),
+      self.op_param('is_branch_cache_enabled', 'body', 'is_branch_cache_enabled', 'is_branch_cache_enabled'),
+      self.op_param('is_continuous_availability_enabled', 'body', 'is_continuous_availability_enabled', 'is_continuous_availability_enabled'),
+      self.op_param('is_encryption_enabled', 'body', 'is_encryption_enabled', 'is_encryption_enabled'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('offline_availability', 'body', 'offline_availability', 'offline_availability'),
+      self.op_param('path', 'body', 'path', 'path'),
+      self.op_param('umask', 'body', 'umask', 'umask'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -225,8 +227,14 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('description', 'body', 'description', 'description'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('is_ABE_enabled', 'body', 'is_abe_enabled', 'is_abe_enabled'),
+      self.op_param('is_branch_cache_enabled', 'body', 'is_branch_cache_enabled', 'is_branch_cache_enabled'),
+      self.op_param('is_continuous_availability_enabled', 'body', 'is_continuous_availability_enabled', 'is_continuous_availability_enabled'),
+      self.op_param('is_encryption_enabled', 'body', 'is_encryption_enabled', 'is_encryption_enabled'),
+      self.op_param('offline_availability', 'body', 'offline_availability', 'offline_availability'),
+      self.op_param('umask', 'body', 'umask', 'umask'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

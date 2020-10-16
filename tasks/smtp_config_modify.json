@@ -1,0 +1,31 @@
+{
+	"description": "Configure the outgoing SMTP information.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"address":{
+			   "description": "IP address of the SMTP server.",
+			   "type": "Optional[String]"
+			},
+			"id":{
+			   "description": "Unique identifier of the SMTP configuration.",
+			   "type": "String"
+			},
+			"port":{
+			   "description": "Port used for sending SMTP messages.",
+			   "type": "Optional[Integer[0,65535]]"
+			},
+			"source_email":{
+			   "description": "Source email address used for sending SMTP messages.",
+			   "type": "Optional[String]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

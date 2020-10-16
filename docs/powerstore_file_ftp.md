@@ -29,7 +29,7 @@ powerstore_file_ftp {
   is_smb_authentication_enabled => "is_smb_authentication_enabled (optional)",
   is_unix_authentication_enabled => "is_unix_authentication_enabled (optional)",
   message_of_the_day => "message_of_the_day (optional)",
-  nas_server_id => "nas_server_id (optional)",
+  nas_server_id => "nas_server_id",
   remove_groups => "remove_groups (optional)",
   remove_hosts => "remove_hosts (optional)",
   remove_users => "remove_users (optional)",
@@ -40,32 +40,32 @@ powerstore_file_ftp {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|add_groups | Array[String] | false |
-|add_hosts | Array[String] | false |
-|add_users | Array[String] | false |
-|audit_dir | String | false |
-|audit_max_size | Integer[40960,9223372036854775807] | false |
-|default_homedir | String | false |
-|groups | Array[String] | false |
-|hosts | Array[String] | false |
+|add_groups | Optional[Array[String]] | false |
+|add_hosts | Optional[Array[String]] | false |
+|add_users | Optional[Array[String]] | false |
+|audit_dir | Optional[String] | false |
+|audit_max_size | Optional[Integer[40960,9223372036854775807]] | false |
+|default_homedir | Optional[String] | false |
+|groups | Optional[Array[String]] | false |
+|hosts | Optional[Array[String]] | false |
 |id | String | true |
-|is_allowed_groups | Boolean | false |
-|is_allowed_hosts | Boolean | false |
-|is_allowed_users | Boolean | false |
-|is_anonymous_authentication_enabled | Boolean | false |
-|is_audit_enabled | Boolean | false |
-|is_ftp_enabled | Boolean | false |
-|is_homedir_limit_enabled | Boolean | false |
-|is_sftp_enabled | Boolean | false |
-|is_smb_authentication_enabled | Boolean | false |
-|is_unix_authentication_enabled | Boolean | false |
-|message_of_the_day | String | false |
-|nas_server_id | String | false |
-|remove_groups | Array[String] | false |
-|remove_hosts | Array[String] | false |
-|remove_users | Array[String] | false |
-|users | Array[String] | false |
-|welcome_message | String | false |
+|is_allowed_groups | Optional[Boolean] | false |
+|is_allowed_hosts | Optional[Boolean] | false |
+|is_allowed_users | Optional[Boolean] | false |
+|is_anonymous_authentication_enabled | Optional[Boolean] | false |
+|is_audit_enabled | Optional[Boolean] | false |
+|is_ftp_enabled | Optional[Boolean] | false |
+|is_homedir_limit_enabled | Optional[Boolean] | false |
+|is_sftp_enabled | Optional[Boolean] | false |
+|is_smb_authentication_enabled | Optional[Boolean] | false |
+|is_unix_authentication_enabled | Optional[Boolean] | false |
+|message_of_the_day | Optional[String] | false |
+|nas_server_id | String | true |
+|remove_groups | Optional[Array[String]] | false |
+|remove_hosts | Optional[Array[String]] | false |
+|remove_users | Optional[Array[String]] | false |
+|users | Optional[Array[String]] | false |
+|welcome_message | Optional[String] | false |
 
 
 

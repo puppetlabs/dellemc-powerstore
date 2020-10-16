@@ -1,0 +1,35 @@
+{
+	"description": "Create a new migration session. For virtual volumes (vVols), the background copy is completed during this phase and the ownership of the vVol is transferred to the new appliance. For volumes and application groups, a migration session is created in this phase and no background copy is performed until either the sync or cutover operation is invoked. There are no interruptions to any services during this phase.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"automatic_cutover":{
+			   "description": "Indicates whether the migration session cutover is manual or automatic. Default for virtual_volume resource type migrations is automatic, otherwise the default is manual.",
+			   "type": "Optional[Boolean]"
+			},
+			"destination_appliance_id":{
+			   "description": "Unique identifier of the destination appliance instance.",
+			   "type": "String"
+			},
+			"family_id":{
+			   "description": "Family identifier designating the storage resource or resources to migrate. For volume or virtual_volume migrations, the family is moved together because they share data among the primary object, snapshots, and clones. For volume_group migration, the family of each volume in the group is moved because it is a grouping of volumes.",
+			   "type": "String"
+			},
+			"name":{
+			   "description": "User-specified friendly name of the migration session instance. The name can contain a maximum of 32 Unicode characters. It cannot contain unprintable characters, special HTTP characters, or whitespace.",
+			   "type": "Optional[String]"
+			},
+			"resource_type":{
+			   "description": "Storage resource types eligible for migration.",
+			   "type": "Enum['volume','virtual_volume','volume_group']"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

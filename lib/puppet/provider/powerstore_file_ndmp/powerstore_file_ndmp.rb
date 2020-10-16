@@ -92,8 +92,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_ndmp = {}
-    file_ndmp["password"] = resource[:password] unless resource[:password].nil?
-    file_ndmp["user_name"] = resource[:user_name] unless resource[:user_name].nil?
     return file_ndmp
   end
 
@@ -175,7 +173,9 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('nas_server_id', 'body', 'nas_server_id', 'nas_server_id'),
+      self.op_param('password', 'body', 'password', 'password'),
+      self.op_param('user_name', 'body', 'user_name', 'user_name'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -205,8 +205,9 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('password', 'body', 'password', 'password'),
+      self.op_param('user_name', 'body', 'user_name', 'user_name'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

@@ -90,7 +90,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_virus_checker = {}
-    file_virus_checker["is_enabled"] = resource[:is_enabled] unless resource[:is_enabled].nil?
     return file_virus_checker
   end
 
@@ -172,7 +171,7 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('nas_server_id', 'body', 'nas_server_id', 'nas_server_id'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -202,8 +201,8 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('is_enabled', 'body', 'is_enabled', 'is_enabled'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

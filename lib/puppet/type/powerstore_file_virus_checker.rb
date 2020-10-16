@@ -20,15 +20,15 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     is_config_file_uploaded:          {
-      type:      "Optional[Boolean]",
+      type:      "Optional[Optional[Boolean]]",
       desc:      "Indicates whether a virus checker configuration file has been uploaded.",
     },
     is_enabled:          {
-      type:      "Optional[Boolean]",
+      type:      "Boolean",
       desc:      "Indicates whether the anti-virus service is enabled on this NAS server. Value are:- true - Anti-virus service is enabled. Each file created or modified by an SMB client is scanned by the third-party anti-virus servers. If a virus is detected, the access to the file system is denied. If third-party anti-virus servers are not available, according the policy, the access to the file systems is denied to prevent potential viruses propagation.- false - Anti-virus service is disabled. File systems of the NAS servers are available for access without virus checking.",
     },
     nas_server_id:          {
-      type:      "Optional[String]",
+      type:      "String",
       desc:      "Unique identifier of an associated NAS Server instance that uses this virus checker configuration. Only one virus checker configuration per NAS Server is supported.",
       behaviour: :init_only,
     },

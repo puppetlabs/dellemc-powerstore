@@ -91,14 +91,11 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     storage_container = {}
-    storage_container["name"] = resource[:name] unless resource[:name].nil?
-    storage_container["quota"] = resource[:quota] unless resource[:quota].nil?
     return storage_container
   end
 
   def build_delete_hash(resource)
     storage_container = {}
-    storage_container["force"] = resource[:force] unless resource[:force].nil?
     return storage_container
   end
 
@@ -175,7 +172,8 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('quota', 'body', 'quota', 'quota'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -205,8 +203,9 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('quota', 'body', 'quota', 'quota'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -236,7 +235,7 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('force', 'body', 'force', 'force'),
       self.op_param('id', 'path', 'id', 'id'),
     ]
     op_params.each do |i|

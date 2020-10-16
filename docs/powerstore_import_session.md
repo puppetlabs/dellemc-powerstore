@@ -12,26 +12,26 @@ powerstore_import_session {
   automatic_cutover => "automatic_cutover (optional)",
   description => "description (optional)",
   id => "id",
-  name => "name (optional)",
+  name => "name",
   protection_policy_id => "protection_policy_id (optional)",
-  remote_system_id => "remote_system_id (optional)",
+  remote_system_id => "remote_system_id",
   scheduled_timestamp => "scheduled_timestamp (optional)",
-  source_resource_id => "source_resource_id (optional)",
+  source_resource_id => "source_resource_id",
   volume_group_id => "volume_group_id (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|automatic_cutover | Boolean | false |
-|description | String | false |
+|automatic_cutover | Optional[Boolean] | false |
+|description | Optional[String[1,128]] | false |
 |id | String | true |
-|name | String | false |
-|protection_policy_id | String | false |
-|remote_system_id | String | false |
-|scheduled_timestamp | String | false |
-|source_resource_id | String | false |
-|volume_group_id | String | false |
+|name | String[1,128] | true |
+|protection_policy_id | Optional[String] | false |
+|remote_system_id | String | true |
+|scheduled_timestamp | Optional[String] | false |
+|source_resource_id | String | true |
+|volume_group_id | Optional[String] | false |
 
 
 

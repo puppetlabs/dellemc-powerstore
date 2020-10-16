@@ -63,7 +63,14 @@ def sample_manifest(type_name)
 end
 
 def sample_attr_value(name, attr)
-  type = parse_type(name, attr[:type])
+  if !attr[:type].nil?
+    type_str = attr[:type]
+  elsif !attr['type'].nil?
+    type_str = attr['type']
+  else
+    raise "Cannot determine type of attr: #{attr}"
+  end
+  type = parse_type(name, type_str)
   if name =~ /timestamp/
     DateTime.now().iso8601
   else
@@ -73,10 +80,20 @@ end
 
 def sample_resource(type_name, options = {ensure: :present, namevars_value: nil})
   attrs = type_attrs(type_name)
-  result = attrs.map { |k,v| [k, sample_attr_value(k,v)] }.to_h
+  result = attrs.map { |k, v| [k, sample_attr_value(k, v)] }.to_h
   result[:ensure] = options[:ensure]
   namevars(attrs).each { |nv| result[nv] = options[:namevars_value] } if options[:namevars_value]
   result
+end
+
+def sample_task_parameters(task_name)
+  file = File.read("#{__dir__}/../tasks/#{task_name}.json")
+  metadata = JSON.parse(file)
+  sample_task_param_values(metadata['parameters'])
+end
+
+def sample_task_param_values(param_hash)
+  param_hash.map { |k, v| [k, sample_attr_value(k, v)] }.to_h
 end
 
 def parse_type(name, type)

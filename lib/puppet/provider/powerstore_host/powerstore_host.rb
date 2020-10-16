@@ -93,11 +93,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     host = {}
-    host["add_initiators"] = resource[:add_initiators] unless resource[:add_initiators].nil?
-    host["description"] = resource[:description] unless resource[:description].nil?
-    host["modify_initiators"] = resource[:modify_initiators] unless resource[:modify_initiators].nil?
-    host["name"] = resource[:name] unless resource[:name].nil?
-    host["remove_initiators"] = resource[:remove_initiators] unless resource[:remove_initiators].nil?
     return host
   end
 
@@ -186,7 +181,10 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('initiators', 'body', 'initiators', 'initiators'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('os_type', 'body', 'os_type', 'os_type'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -216,8 +214,12 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('add_initiators', 'body', 'add_initiators', 'add_initiators'),
+      self.op_param('description', 'body', 'description', 'description'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('modify_initiators', 'body', 'modify_initiators', 'modify_initiators'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('remove_initiators', 'body', 'remove_initiators', 'remove_initiators'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -247,7 +249,6 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
       self.op_param('id', 'path', 'id', 'id'),
     ]
     op_params.each do |i|

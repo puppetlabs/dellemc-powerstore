@@ -101,15 +101,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     volume = {}
-    volume["description"] = resource[:description] unless resource[:description].nil?
-    volume["expiration_timestamp"] = resource[:expiration_timestamp] unless resource[:expiration_timestamp].nil?
-    volume["force"] = resource[:force] unless resource[:force].nil?
-    volume["is_replication_destination"] = resource[:is_replication_destination] unless resource[:is_replication_destination].nil?
-    volume["name"] = resource[:name] unless resource[:name].nil?
-    volume["node_affinity"] = resource[:node_affinity] unless resource[:node_affinity].nil?
-    volume["performance_policy_id"] = resource[:performance_policy_id] unless resource[:performance_policy_id].nil?
-    volume["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
-    volume["size"] = resource[:size] unless resource[:size].nil?
     return volume
   end
 
@@ -214,7 +205,18 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('appliance_id', 'body', 'appliance_id', 'appliance_id'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('host_group_id', 'body', 'host_group_id', 'host_group_id'),
+      self.op_param('host_id', 'body', 'host_id', 'host_id'),
+      self.op_param('logical_unit_number', 'body', 'logical_unit_number', 'logical_unit_number'),
+      self.op_param('min_size', 'body', 'min_size', 'min_size'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('performance_policy_id', 'body', 'performance_policy_id', 'performance_policy_id'),
+      self.op_param('protection_policy_id', 'body', 'protection_policy_id', 'protection_policy_id'),
+      self.op_param('sector_size', 'body', 'sector_size', 'sector_size'),
+      self.op_param('size', 'body', 'size', 'size'),
+      self.op_param('volume_group_id', 'body', 'volume_group_id', 'volume_group_id'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -244,8 +246,16 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('expiration_timestamp', 'body', 'expiration_timestamp', 'expiration_timestamp'),
+      self.op_param('force', 'body', 'force', 'force'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('is_replication_destination', 'body', 'is_replication_destination', 'is_replication_destination'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('node_affinity', 'body', 'node_affinity', 'node_affinity'),
+      self.op_param('performance_policy_id', 'body', 'performance_policy_id', 'performance_policy_id'),
+      self.op_param('protection_policy_id', 'body', 'protection_policy_id', 'protection_policy_id'),
+      self.op_param('size', 'body', 'size', 'size'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

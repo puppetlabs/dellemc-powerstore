@@ -10,7 +10,7 @@ Path: "tag_based/assets/dellemc.swagger.json")
 ```puppet
 powerstore_file_interface_route {
   destination => "destination (optional)",
-  file_interface_id => "file_interface_id (optional)",
+  file_interface_id => "file_interface_id",
   gateway => "gateway (optional)",
   id => "id",
   prefix_length => "prefix_length (optional)",
@@ -19,11 +19,11 @@ powerstore_file_interface_route {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|destination | String | false |
-|file_interface_id | String | false |
-|gateway | String[1,45] | false |
+|destination | Optional[String] | false |
+|file_interface_id | String | true |
+|gateway | Optional[String[1,45]] | false |
 |id | String | true |
-|prefix_length | Integer[1,128] | false |
+|prefix_length | Optional[Integer[1,128]] | false |
 
 
 

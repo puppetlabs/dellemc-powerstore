@@ -93,14 +93,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     policy = {}
-    policy["add_replication_rule_ids"] = resource[:add_replication_rule_ids] unless resource[:add_replication_rule_ids].nil?
-    policy["add_snapshot_rule_ids"] = resource[:add_snapshot_rule_ids] unless resource[:add_snapshot_rule_ids].nil?
-    policy["description"] = resource[:description] unless resource[:description].nil?
-    policy["name"] = resource[:name] unless resource[:name].nil?
-    policy["remove_replication_rule_ids"] = resource[:remove_replication_rule_ids] unless resource[:remove_replication_rule_ids].nil?
-    policy["remove_snapshot_rule_ids"] = resource[:remove_snapshot_rule_ids] unless resource[:remove_snapshot_rule_ids].nil?
-    policy["replication_rule_ids"] = resource[:replication_rule_ids] unless resource[:replication_rule_ids].nil?
-    policy["snapshot_rule_ids"] = resource[:snapshot_rule_ids] unless resource[:snapshot_rule_ids].nil?
     return policy
   end
 
@@ -190,7 +182,10 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('replication_rule_ids', 'body', 'replication_rule_ids', 'replication_rule_ids'),
+      self.op_param('snapshot_rule_ids', 'body', 'snapshot_rule_ids', 'snapshot_rule_ids'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -220,8 +215,15 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('add_replication_rule_ids', 'body', 'add_replication_rule_ids', 'add_replication_rule_ids'),
+      self.op_param('add_snapshot_rule_ids', 'body', 'add_snapshot_rule_ids', 'add_snapshot_rule_ids'),
+      self.op_param('description', 'body', 'description', 'description'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('remove_replication_rule_ids', 'body', 'remove_replication_rule_ids', 'remove_replication_rule_ids'),
+      self.op_param('remove_snapshot_rule_ids', 'body', 'remove_snapshot_rule_ids', 'remove_snapshot_rule_ids'),
+      self.op_param('replication_rule_ids', 'body', 'replication_rule_ids', 'replication_rule_ids'),
+      self.op_param('snapshot_rule_ids', 'body', 'snapshot_rule_ids', 'snapshot_rule_ids'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

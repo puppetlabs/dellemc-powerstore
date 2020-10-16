@@ -1,0 +1,31 @@
+{
+	"description": "Create a new DNS Server configuration for a NAS Server. Only one object can be created per NAS Server.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"domain":{
+			   "description": "Name of the DNS domain, where the NAS Server does host names lookup when an FQDN is not specified in the request.",
+			   "type": "String[1,255]"
+			},
+			"ip_addresses":{
+			   "description": "The list of DNS server IP addresses. The addresses may be IPv4 or IPv6.",
+			   "type": "Array[String]"
+			},
+			"nas_server_id":{
+			   "description": "Unique identifier of the associated NAS Server instance that uses this DNS object. Only one DNS object per NAS Server is supported.",
+			   "type": "String"
+			},
+			"transport":{
+			   "description": "Transport used when connecting to the DNS Server:* UDP - DNS uses the UDP protocol (default)* TCP - DNS uses the TCP protocol",
+			   "type": "Optional[Enum['UDP','TCP']]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

@@ -15,8 +15,9 @@ Puppet::ResourceApi.register_type(
     },
 
     gateway:          {
-      type:      "Optional[String[1,45]]",
+      type:      "Optional[Optional[String[1,45]]]",
       desc:      "Gateway address for the network interface. IPv4 and IPv6 are supported.",
+      behaviour: :init_only,
     },
     id:          {
       type:      "String",
@@ -24,38 +25,42 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     ip_address:          {
-      type:      "Optional[String[1,45]]",
+      type:      "String[1,45]",
       desc:      "IP address of the network interface. IPv4 and IPv6 are supported.",
+      behaviour: :init_only,
     },
     is_disabled:          {
-      type:      "Optional[Boolean]",
+      type:      "Optional[Optional[Boolean]]",
       desc:      "Indicates whether the network interface is disabled.",
+      behaviour: :init_only,
     },
     name:          {
-      type:      "Optional[String]",
+      type:      "Optional[Optional[String]]",
       desc:      "Name of the network interface. This property supports case-insensitive filtering",
     },
     nas_server_id:          {
-      type:      "Optional[String]",
+      type:      "String",
       desc:      "Unique identifier of the NAS server to which the network interface belongs, as defined by the nas_server resource type.",
       behaviour: :init_only,
     },
     prefix_length:          {
-      type:      "Optional[Integer[1,128]]",
+      type:      "Integer[1,128]",
       desc:      "Prefix length for the interface. IPv4 and IPv6 are supported.",
+      behaviour: :init_only,
     },
     role:          {
-      type:      "Optional[Enum['Production','Backup']]",
+      type:      "Optional[Optional[Enum['Production','Backup']]]",
       desc:      "- Production - This type of network interface is used for all file protocols and services of a NAS server. This type of interface is inactive while a NAS server is in destination mode. - Backup  - This type of network interface is used only for NDMP/NFS backup or disaster recovery testing. This type of interface is always active in all NAS server modes.",
       behaviour: :init_only,
     },
     role_l10n:          {
-      type:      "Optional[String]",
+      type:      "Optional[Optional[String]]",
       desc:      "Localized message string corresponding to role",
     },
     vlan_id:          {
-      type:      "Optional[Integer[0,4094]]",
+      type:      "Optional[Optional[Integer[0,4094]]]",
       desc:      "Virtual Local Area Network (VLAN) identifier for the interface. The interface uses the identifier to accept packets that have matching VLAN tags.",
+      behaviour: :init_only,
     },
   },
   autorequires: {

@@ -94,11 +94,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     email_notify_destination = {}
-    email_notify_destination["email_address"] = resource[:email_address] unless resource[:email_address].nil?
-    email_notify_destination["notify_critical"] = resource[:notify_critical] unless resource[:notify_critical].nil?
-    email_notify_destination["notify_info"] = resource[:notify_info] unless resource[:notify_info].nil?
-    email_notify_destination["notify_major"] = resource[:notify_major] unless resource[:notify_major].nil?
-    email_notify_destination["notify_minor"] = resource[:notify_minor] unless resource[:notify_minor].nil?
     return email_notify_destination
   end
 
@@ -182,7 +177,11 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('email_address', 'body', 'email_address', 'email_address'),
+      self.op_param('notify_critical', 'body', 'notify_critical', 'notify_critical'),
+      self.op_param('notify_info', 'body', 'notify_info', 'notify_info'),
+      self.op_param('notify_major', 'body', 'notify_major', 'notify_major'),
+      self.op_param('notify_minor', 'body', 'notify_minor', 'notify_minor'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -212,8 +211,12 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('email_address', 'body', 'email_address', 'email_address'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('notify_critical', 'body', 'notify_critical', 'notify_critical'),
+      self.op_param('notify_info', 'body', 'notify_info', 'notify_info'),
+      self.op_param('notify_major', 'body', 'notify_major', 'notify_major'),
+      self.op_param('notify_minor', 'body', 'notify_minor', 'notify_minor'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

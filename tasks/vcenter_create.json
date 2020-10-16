@@ -1,0 +1,27 @@
+{
+	"description": "Add a vCenter. Not allowed in Unified+ deployments.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"address":{
+			   "description": "IP address of vCenter host, in IPv4, IPv6, or hostname format.",
+			   "type": "Optional[String]"
+			},
+			"password":{
+			   "description": "Password to login to vCenter.",
+			   "type": "Optional[String]"
+			},
+			"username":{
+			   "description": "User name to login to vCenter.",
+			   "type": "Optional[String]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

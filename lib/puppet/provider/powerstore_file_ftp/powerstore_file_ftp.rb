@@ -108,30 +108,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_ftp = {}
-    file_ftp["add_groups"] = resource[:add_groups] unless resource[:add_groups].nil?
-    file_ftp["add_hosts"] = resource[:add_hosts] unless resource[:add_hosts].nil?
-    file_ftp["add_users"] = resource[:add_users] unless resource[:add_users].nil?
-    file_ftp["audit_dir"] = resource[:audit_dir] unless resource[:audit_dir].nil?
-    file_ftp["audit_max_size"] = resource[:audit_max_size] unless resource[:audit_max_size].nil?
-    file_ftp["default_homedir"] = resource[:default_homedir] unless resource[:default_homedir].nil?
-    file_ftp["groups"] = resource[:groups] unless resource[:groups].nil?
-    file_ftp["hosts"] = resource[:hosts] unless resource[:hosts].nil?
-    file_ftp["is_allowed_groups"] = resource[:is_allowed_groups] unless resource[:is_allowed_groups].nil?
-    file_ftp["is_allowed_hosts"] = resource[:is_allowed_hosts] unless resource[:is_allowed_hosts].nil?
-    file_ftp["is_allowed_users"] = resource[:is_allowed_users] unless resource[:is_allowed_users].nil?
-    file_ftp["is_anonymous_authentication_enabled"] = resource[:is_anonymous_authentication_enabled] unless resource[:is_anonymous_authentication_enabled].nil?
-    file_ftp["is_audit_enabled"] = resource[:is_audit_enabled] unless resource[:is_audit_enabled].nil?
-    file_ftp["is_ftp_enabled"] = resource[:is_ftp_enabled] unless resource[:is_ftp_enabled].nil?
-    file_ftp["is_homedir_limit_enabled"] = resource[:is_homedir_limit_enabled] unless resource[:is_homedir_limit_enabled].nil?
-    file_ftp["is_sftp_enabled"] = resource[:is_sftp_enabled] unless resource[:is_sftp_enabled].nil?
-    file_ftp["is_smb_authentication_enabled"] = resource[:is_smb_authentication_enabled] unless resource[:is_smb_authentication_enabled].nil?
-    file_ftp["is_unix_authentication_enabled"] = resource[:is_unix_authentication_enabled] unless resource[:is_unix_authentication_enabled].nil?
-    file_ftp["message_of_the_day"] = resource[:message_of_the_day] unless resource[:message_of_the_day].nil?
-    file_ftp["remove_groups"] = resource[:remove_groups] unless resource[:remove_groups].nil?
-    file_ftp["remove_hosts"] = resource[:remove_hosts] unless resource[:remove_hosts].nil?
-    file_ftp["remove_users"] = resource[:remove_users] unless resource[:remove_users].nil?
-    file_ftp["users"] = resource[:users] unless resource[:users].nil?
-    file_ftp["welcome_message"] = resource[:welcome_message] unless resource[:welcome_message].nil?
     return file_ftp
   end
 
@@ -235,7 +211,25 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('audit_dir', 'body', 'audit_dir', 'audit_dir'),
+      self.op_param('audit_max_size', 'body', 'audit_max_size', 'audit_max_size'),
+      self.op_param('default_homedir', 'body', 'default_homedir', 'default_homedir'),
+      self.op_param('groups', 'body', 'groups', 'groups'),
+      self.op_param('hosts', 'body', 'hosts', 'hosts'),
+      self.op_param('is_allowed_groups', 'body', 'is_allowed_groups', 'is_allowed_groups'),
+      self.op_param('is_allowed_hosts', 'body', 'is_allowed_hosts', 'is_allowed_hosts'),
+      self.op_param('is_allowed_users', 'body', 'is_allowed_users', 'is_allowed_users'),
+      self.op_param('is_anonymous_authentication_enabled', 'body', 'is_anonymous_authentication_enabled', 'is_anonymous_authentication_enabled'),
+      self.op_param('is_audit_enabled', 'body', 'is_audit_enabled', 'is_audit_enabled'),
+      self.op_param('is_ftp_enabled', 'body', 'is_ftp_enabled', 'is_ftp_enabled'),
+      self.op_param('is_homedir_limit_enabled', 'body', 'is_homedir_limit_enabled', 'is_homedir_limit_enabled'),
+      self.op_param('is_sftp_enabled', 'body', 'is_sftp_enabled', 'is_sftp_enabled'),
+      self.op_param('is_smb_authentication_enabled', 'body', 'is_smb_authentication_enabled', 'is_smb_authentication_enabled'),
+      self.op_param('is_unix_authentication_enabled', 'body', 'is_unix_authentication_enabled', 'is_unix_authentication_enabled'),
+      self.op_param('message_of_the_day', 'body', 'message_of_the_day', 'message_of_the_day'),
+      self.op_param('nas_server_id', 'body', 'nas_server_id', 'nas_server_id'),
+      self.op_param('users', 'body', 'users', 'users'),
+      self.op_param('welcome_message', 'body', 'welcome_message', 'welcome_message'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -265,8 +259,31 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('add_groups', 'body', 'add_groups', 'add_groups'),
+      self.op_param('add_hosts', 'body', 'add_hosts', 'add_hosts'),
+      self.op_param('add_users', 'body', 'add_users', 'add_users'),
+      self.op_param('audit_dir', 'body', 'audit_dir', 'audit_dir'),
+      self.op_param('audit_max_size', 'body', 'audit_max_size', 'audit_max_size'),
+      self.op_param('default_homedir', 'body', 'default_homedir', 'default_homedir'),
+      self.op_param('groups', 'body', 'groups', 'groups'),
+      self.op_param('hosts', 'body', 'hosts', 'hosts'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('is_allowed_groups', 'body', 'is_allowed_groups', 'is_allowed_groups'),
+      self.op_param('is_allowed_hosts', 'body', 'is_allowed_hosts', 'is_allowed_hosts'),
+      self.op_param('is_allowed_users', 'body', 'is_allowed_users', 'is_allowed_users'),
+      self.op_param('is_anonymous_authentication_enabled', 'body', 'is_anonymous_authentication_enabled', 'is_anonymous_authentication_enabled'),
+      self.op_param('is_audit_enabled', 'body', 'is_audit_enabled', 'is_audit_enabled'),
+      self.op_param('is_ftp_enabled', 'body', 'is_ftp_enabled', 'is_ftp_enabled'),
+      self.op_param('is_homedir_limit_enabled', 'body', 'is_homedir_limit_enabled', 'is_homedir_limit_enabled'),
+      self.op_param('is_sftp_enabled', 'body', 'is_sftp_enabled', 'is_sftp_enabled'),
+      self.op_param('is_smb_authentication_enabled', 'body', 'is_smb_authentication_enabled', 'is_smb_authentication_enabled'),
+      self.op_param('is_unix_authentication_enabled', 'body', 'is_unix_authentication_enabled', 'is_unix_authentication_enabled'),
+      self.op_param('message_of_the_day', 'body', 'message_of_the_day', 'message_of_the_day'),
+      self.op_param('remove_groups', 'body', 'remove_groups', 'remove_groups'),
+      self.op_param('remove_hosts', 'body', 'remove_hosts', 'remove_hosts'),
+      self.op_param('remove_users', 'body', 'remove_users', 'remove_users'),
+      self.op_param('users', 'body', 'users', 'users'),
+      self.op_param('welcome_message', 'body', 'welcome_message', 'welcome_message'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

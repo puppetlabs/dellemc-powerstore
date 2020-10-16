@@ -103,27 +103,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     nfs_export = {}
-    nfs_export["add_no_access_hosts"] = resource[:add_no_access_hosts] unless resource[:add_no_access_hosts].nil?
-    nfs_export["add_read_only_hosts"] = resource[:add_read_only_hosts] unless resource[:add_read_only_hosts].nil?
-    nfs_export["add_read_only_root_hosts"] = resource[:add_read_only_root_hosts] unless resource[:add_read_only_root_hosts].nil?
-    nfs_export["add_read_write_hosts"] = resource[:add_read_write_hosts] unless resource[:add_read_write_hosts].nil?
-    nfs_export["add_read_write_root_hosts"] = resource[:add_read_write_root_hosts] unless resource[:add_read_write_root_hosts].nil?
-    nfs_export["anonymous_GID"] = resource[:anonymous_gid] unless resource[:anonymous_gid].nil?
-    nfs_export["anonymous_UID"] = resource[:anonymous_uid] unless resource[:anonymous_uid].nil?
-    nfs_export["default_access"] = resource[:default_access] unless resource[:default_access].nil?
-    nfs_export["description"] = resource[:description] unless resource[:description].nil?
-    nfs_export["is_no_SUID"] = resource[:is_no_suid] unless resource[:is_no_suid].nil?
-    nfs_export["min_security"] = resource[:min_security] unless resource[:min_security].nil?
-    nfs_export["no_access_hosts"] = resource[:no_access_hosts] unless resource[:no_access_hosts].nil?
-    nfs_export["read_only_hosts"] = resource[:read_only_hosts] unless resource[:read_only_hosts].nil?
-    nfs_export["read_only_root_hosts"] = resource[:read_only_root_hosts] unless resource[:read_only_root_hosts].nil?
-    nfs_export["read_write_hosts"] = resource[:read_write_hosts] unless resource[:read_write_hosts].nil?
-    nfs_export["read_write_root_hosts"] = resource[:read_write_root_hosts] unless resource[:read_write_root_hosts].nil?
-    nfs_export["remove_no_access_hosts"] = resource[:remove_no_access_hosts] unless resource[:remove_no_access_hosts].nil?
-    nfs_export["remove_read_only_hosts"] = resource[:remove_read_only_hosts] unless resource[:remove_read_only_hosts].nil?
-    nfs_export["remove_read_only_root_hosts"] = resource[:remove_read_only_root_hosts] unless resource[:remove_read_only_root_hosts].nil?
-    nfs_export["remove_read_write_hosts"] = resource[:remove_read_write_hosts] unless resource[:remove_read_write_hosts].nil?
-    nfs_export["remove_read_write_root_hosts"] = resource[:remove_read_write_root_hosts] unless resource[:remove_read_write_root_hosts].nil?
     return nfs_export
   end
 
@@ -229,7 +208,20 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('anonymous_GID', 'body', 'anonymous_gid', 'anonymous_gid'),
+      self.op_param('anonymous_UID', 'body', 'anonymous_uid', 'anonymous_uid'),
+      self.op_param('default_access', 'body', 'default_access', 'default_access'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('file_system_id', 'body', 'file_system_id', 'file_system_id'),
+      self.op_param('is_no_SUID', 'body', 'is_no_suid', 'is_no_suid'),
+      self.op_param('min_security', 'body', 'min_security', 'min_security'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('no_access_hosts', 'body', 'no_access_hosts', 'no_access_hosts'),
+      self.op_param('path', 'body', 'path', 'path'),
+      self.op_param('read_only_hosts', 'body', 'read_only_hosts', 'read_only_hosts'),
+      self.op_param('read_only_root_hosts', 'body', 'read_only_root_hosts', 'read_only_root_hosts'),
+      self.op_param('read_write_hosts', 'body', 'read_write_hosts', 'read_write_hosts'),
+      self.op_param('read_write_root_hosts', 'body', 'read_write_root_hosts', 'read_write_root_hosts'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -259,8 +251,28 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('add_no_access_hosts', 'body', 'add_no_access_hosts', 'add_no_access_hosts'),
+      self.op_param('add_read_only_hosts', 'body', 'add_read_only_hosts', 'add_read_only_hosts'),
+      self.op_param('add_read_only_root_hosts', 'body', 'add_read_only_root_hosts', 'add_read_only_root_hosts'),
+      self.op_param('add_read_write_hosts', 'body', 'add_read_write_hosts', 'add_read_write_hosts'),
+      self.op_param('add_read_write_root_hosts', 'body', 'add_read_write_root_hosts', 'add_read_write_root_hosts'),
+      self.op_param('anonymous_GID', 'body', 'anonymous_gid', 'anonymous_gid'),
+      self.op_param('anonymous_UID', 'body', 'anonymous_uid', 'anonymous_uid'),
+      self.op_param('default_access', 'body', 'default_access', 'default_access'),
+      self.op_param('description', 'body', 'description', 'description'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('is_no_SUID', 'body', 'is_no_suid', 'is_no_suid'),
+      self.op_param('min_security', 'body', 'min_security', 'min_security'),
+      self.op_param('no_access_hosts', 'body', 'no_access_hosts', 'no_access_hosts'),
+      self.op_param('read_only_hosts', 'body', 'read_only_hosts', 'read_only_hosts'),
+      self.op_param('read_only_root_hosts', 'body', 'read_only_root_hosts', 'read_only_root_hosts'),
+      self.op_param('read_write_hosts', 'body', 'read_write_hosts', 'read_write_hosts'),
+      self.op_param('read_write_root_hosts', 'body', 'read_write_root_hosts', 'read_write_root_hosts'),
+      self.op_param('remove_no_access_hosts', 'body', 'remove_no_access_hosts', 'remove_no_access_hosts'),
+      self.op_param('remove_read_only_hosts', 'body', 'remove_read_only_hosts', 'remove_read_only_hosts'),
+      self.op_param('remove_read_only_root_hosts', 'body', 'remove_read_only_root_hosts', 'remove_read_only_root_hosts'),
+      self.op_param('remove_read_write_hosts', 'body', 'remove_read_write_hosts', 'remove_read_write_hosts'),
+      self.op_param('remove_read_write_root_hosts', 'body', 'remove_read_write_root_hosts', 'remove_read_write_root_hosts'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

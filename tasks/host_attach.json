@@ -1,0 +1,27 @@
+{
+	"description": "Attach host to volume.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+			   "description": "Unique id of the host.",
+			   "type": "String"
+			},
+			"logical_unit_number":{
+			   "description": "Logical unit number for the volume, if desired.",
+			   "type": "Optional[Integer[0,16383]]"
+			},
+			"volume_id":{
+			   "description": "Volume to attach.",
+			   "type": "String"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

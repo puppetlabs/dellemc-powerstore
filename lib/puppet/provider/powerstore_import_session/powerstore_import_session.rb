@@ -97,7 +97,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     import_session = {}
-    import_session["scheduled_timestamp"] = resource[:scheduled_timestamp] unless resource[:scheduled_timestamp].nil?
     return import_session
   end
 
@@ -196,7 +195,14 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('automatic_cutover', 'body', 'automatic_cutover', 'automatic_cutover'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('protection_policy_id', 'body', 'protection_policy_id', 'protection_policy_id'),
+      self.op_param('remote_system_id', 'body', 'remote_system_id', 'remote_system_id'),
+      self.op_param('scheduled_timestamp', 'body', 'scheduled_timestamp', 'scheduled_timestamp'),
+      self.op_param('source_resource_id', 'body', 'source_resource_id', 'source_resource_id'),
+      self.op_param('volume_group_id', 'body', 'volume_group_id', 'volume_group_id'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -226,8 +232,8 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('scheduled_timestamp', 'body', 'scheduled_timestamp', 'scheduled_timestamp'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

@@ -1,0 +1,27 @@
+{
+	"description": "Add an NDMP service configuration to a NAS server. Only one NDMP service object can be configured per NAS server.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"nas_server_id":{
+			   "description": "Unique identifier of the NAS server to be configured with these NDMP settings.",
+			   "type": "String"
+			},
+			"password":{
+			   "description": "Password for the NDMP service user.",
+			   "type": "String"
+			},
+			"user_name":{
+			   "description": "User name for accessing the NDMP service.",
+			   "type": "String"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

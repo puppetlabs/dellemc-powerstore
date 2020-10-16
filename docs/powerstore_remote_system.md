@@ -15,7 +15,7 @@ powerstore_remote_system {
   id => "id",
   import_chap_info => "import_chap_info (optional)",
   iscsi_addresses => "iscsi_addresses (optional)",
-  management_address => "management_address (optional)",
+  management_address => "management_address",
   name => "name (optional)",
   remote_password => "remote_password (optional)",
   remote_username => "remote_username (optional)",
@@ -26,18 +26,18 @@ powerstore_remote_system {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|data_network_latency | Enum['Low','High'] | false |
-|description | String | false |
-|discovery_chap_mode | Enum['Disabled','Single','Mutual'] | false |
+|data_network_latency | Optional[Enum['Low','High']] | false |
+|description | Optional[String[1,256]] | false |
+|discovery_chap_mode | Optional[Enum['Disabled','Single','Mutual']] | false |
 |id | String | true |
-|import_chap_info | Struct[{Optional[target_session_username] => String, Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, }] | false |
-|iscsi_addresses | Array[String] | false |
-|management_address | String | false |
-|name | String | false |
-|remote_password | String | false |
-|remote_username | String | false |
-|session_chap_mode | Enum['Disabled','Single','Mutual'] | false |
-|type | Enum['PowerStore','Unity','VNX','PS_Equallogic','Storage_Center','XtremIO'] | false |
+|import_chap_info | Optional[Struct[{Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, }]] | false |
+|iscsi_addresses | Optional[Array[String]] | false |
+|management_address | String | true |
+|name | Optional[String[1,128]] | false |
+|remote_password | Optional[String] | false |
+|remote_username | Optional[String] | false |
+|session_chap_mode | Optional[Enum['Disabled','Single','Mutual']] | false |
+|type | Optional[Enum['PowerStore','Unity','VNX','PS_Equallogic','Storage_Center','XtremIO']] | false |
 
 
 

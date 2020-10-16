@@ -1,0 +1,35 @@
+{
+	"description": "Operations that can be performed are modify name, remove host(s) from host group, add host(s) to host group. Modify request will only support either a add_host(s) or remove_host(s) at a time along with modifying host name",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"add_host_ids":{
+			   "description": "List of hosts to be added to host group. The operation fails if the host(s) to be added are attached to volume.",
+			   "type": "Optional[Array[String]]"
+			},
+			"description":{
+			   "description": "An optional description for the host group. The description should not be more than 256 UTF-8  characters long and should not have any unprintable characters.",
+			   "type": "Optional[String[1,256]]"
+			},
+			"id":{
+			   "description": "Unique id of the host group.",
+			   "type": "String"
+			},
+			"name":{
+			   "description": "A new host group name. The name should not be more than 128 UTF-8 characters long and should not have any unprintable characters.",
+			   "type": "Optional[String[1,128]]"
+			},
+			"remove_host_ids":{
+			   "description": "List of hosts to be removed from the host group. The operation fails if host group is attached to volume.",
+			   "type": "Optional[Array[String]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

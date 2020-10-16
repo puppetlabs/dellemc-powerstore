@@ -1,0 +1,27 @@
+{
+	"description": "Create a host group.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"description":{
+			   "description": "An optional description for the host group. The description should not have any unprintable characters.",
+			   "type": "Optional[String[1,256]]"
+			},
+			"host_ids":{
+			   "description": "",
+			   "type": "Array[String]"
+			},
+			"name":{
+			   "description": "The host group name. The name should not be more than 128 UTF-8 characters long and should not have any unprintable characters.",
+			   "type": "String[1,128]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

@@ -25,37 +25,37 @@ powerstore_file_system {
   is_smb_op_locks_enabled => "is_smb_op_locks_enabled (optional)",
   is_smb_sync_writes_enabled => "is_smb_sync_writes_enabled (optional)",
   locking_policy => "locking_policy (optional)",
-  name => "name (optional)",
-  nas_server_id => "nas_server_id (optional)",
+  name => "name",
+  nas_server_id => "nas_server_id",
   protection_policy_id => "protection_policy_id (optional)",
-  size_total => "size_total (optional)",
+  size_total => "size_total",
   smb_notify_on_change_dir_depth => "smb_notify_on_change_dir_depth (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|access_policy | Enum['Native','UNIX','Windows'] | false |
-|default_hard_limit | Integer[0,9223372036854775807] | false |
-|default_soft_limit | Integer[0,9223372036854775807] | false |
-|description | String[0,255] | false |
-|expiration_timestamp | String | false |
-|folder_rename_policy | Enum['All_Allowed','SMB_Forbidden','All_Forbidden'] | false |
-|grace_period | Integer[-1,2147483647] | false |
+|access_policy | Optional[Enum['Native','UNIX','Windows']] | false |
+|default_hard_limit | Optional[Integer[0,9223372036854775807]] | false |
+|default_soft_limit | Optional[Integer[0,9223372036854775807]] | false |
+|description | Optional[String[0,255]] | false |
+|expiration_timestamp | Optional[String] | false |
+|folder_rename_policy | Optional[Enum['All_Allowed','SMB_Forbidden','All_Forbidden']] | false |
+|grace_period | Optional[Integer[-1,2147483647]] | false |
 |id | String | true |
-|is_async_m_time_enabled | Boolean | false |
-|is_quota_enabled | Boolean | false |
-|is_smb_no_notify_enabled | Boolean | false |
-|is_smb_notify_on_access_enabled | Boolean | false |
-|is_smb_notify_on_write_enabled | Boolean | false |
-|is_smb_op_locks_enabled | Boolean | false |
-|is_smb_sync_writes_enabled | Boolean | false |
-|locking_policy | Enum['Advisory','Mandatory'] | false |
-|name | String[1,255] | false |
-|nas_server_id | String | false |
-|protection_policy_id | String | false |
-|size_total | Integer[3221225472,281474976710656] | false |
-|smb_notify_on_change_dir_depth | Integer[1,512] | false |
+|is_async_m_time_enabled | Optional[Boolean] | false |
+|is_quota_enabled | Optional[Boolean] | false |
+|is_smb_no_notify_enabled | Optional[Boolean] | false |
+|is_smb_notify_on_access_enabled | Optional[Boolean] | false |
+|is_smb_notify_on_write_enabled | Optional[Boolean] | false |
+|is_smb_op_locks_enabled | Optional[Boolean] | false |
+|is_smb_sync_writes_enabled | Optional[Boolean] | false |
+|locking_policy | Optional[Enum['Advisory','Mandatory']] | false |
+|name | String[1,255] | true |
+|nas_server_id | String | true |
+|protection_policy_id | Optional[String] | false |
+|size_total | Integer[3221225472,281474976710656] | true |
+|smb_notify_on_change_dir_depth | Optional[Integer[1,512]] | false |
 
 
 

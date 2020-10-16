@@ -11,19 +11,19 @@ Path: "tag_based/assets/dellemc.swagger.json")
 powerstore_replication_rule {
   alert_threshold => "alert_threshold (optional)",
   id => "id",
-  name => "name (optional)",
-  remote_system_id => "remote_system_id (optional)",
-  rpo => "rpo (optional)",
+  name => "name",
+  remote_system_id => "remote_system_id",
+  rpo => "rpo",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|alert_threshold | Integer[0,1440] | false |
+|alert_threshold | Optional[Integer[0,1440]] | false |
 |id | String | true |
-|name | String | false |
-|remote_system_id | String | false |
-|rpo | Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Six_Hours','Twelve_Hours','One_Day'] | false |
+|name | String | true |
+|remote_system_id | String | true |
+|rpo | Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Six_Hours','Twelve_Hours','One_Day'] | true |
 
 
 

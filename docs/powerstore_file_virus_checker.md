@@ -10,16 +10,16 @@ Path: "tag_based/assets/dellemc.swagger.json")
 ```puppet
 powerstore_file_virus_checker {
   id => "id",
-  is_enabled => "is_enabled (optional)",
-  nas_server_id => "nas_server_id (optional)",
+  is_enabled => "is_enabled",
+  nas_server_id => "nas_server_id",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |id | String | true |
-|is_enabled | Boolean | false |
-|nas_server_id | String | false |
+|is_enabled | Boolean | true |
+|nas_server_id | String | true |
 
 
 

@@ -1,0 +1,23 @@
+{
+	"description": "Delete a snapshot rule",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"delete_snaps":{
+			   "description": "Specify whether all snapshots previously created by this rule should also be deleted when this rule is removed.",
+			   "type": "Optional[Boolean]"
+			},
+			"id":{
+			   "description": "Unique identifier of the snapshot rule.",
+			   "type": "String"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

@@ -10,16 +10,16 @@ Path: "tag_based/assets/dellemc.swagger.json")
 ```puppet
 powerstore_storage_container {
   force => "force (optional)",
-  name => "name (optional)",
+  name => "name",
   quota => "quota (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|force | Boolean | false |
-|name | String[1,64] | false |
-|quota | Integer[0,4611686018427387904] | false |
+|force | Optional[Boolean] | false |
+|name | String[1,64] | true |
+|quota | Optional[Integer[0,4611686018427387904]] | false |
 
 
 

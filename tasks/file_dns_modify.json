@@ -1,0 +1,39 @@
+{
+	"description": "Modify the DNS settings of a NAS Server.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"add_ip_addresses":{
+			   "description": "IP addresses to add to the current list. The addresses may be IPv4 or IPv6. Error occurs if an IP address already exists. Cannot be combined with ip_addresses.",
+			   "type": "Optional[Array[String]]"
+			},
+			"domain":{
+			   "description": "Name of the DNS domain, where the NAS Server does host names lookup when an FQDN is not specified in the request.",
+			   "type": "Optional[String[1,255]]"
+			},
+			"id":{
+			   "description": "Unique identifier of the DNS object.",
+			   "type": "String"
+			},
+			"ip_addresses":{
+			   "description": "A new list of DNS server IP addresses to replace the existing list. The addresses may be IPv4 or IPv6.",
+			   "type": "Optional[Array[String]]"
+			},
+			"remove_ip_addresses":{
+			   "description": "IP addresses to remove from the current list. The addresses may be IPv4 or IPv6. Error occurs if IP address is not present. Cannot be combined with ip_addresses.",
+			   "type": "Optional[Array[String]]"
+			},
+			"transport":{
+			   "description": "Transport used when connecting to the DNS Server:* UDP - DNS uses the UDP protocol (default)* TCP - DNS uses the TCP protocol",
+			   "type": "Optional[Enum['UDP','TCP']]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

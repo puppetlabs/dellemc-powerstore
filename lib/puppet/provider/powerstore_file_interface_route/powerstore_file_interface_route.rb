@@ -93,9 +93,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_interface_route = {}
-    file_interface_route["destination"] = resource[:destination] unless resource[:destination].nil?
-    file_interface_route["gateway"] = resource[:gateway] unless resource[:gateway].nil?
-    file_interface_route["prefix_length"] = resource[:prefix_length] unless resource[:prefix_length].nil?
     return file_interface_route
   end
 
@@ -180,7 +177,10 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('destination', 'body', 'destination', 'destination'),
+      self.op_param('file_interface_id', 'body', 'file_interface_id', 'file_interface_id'),
+      self.op_param('gateway', 'body', 'gateway', 'gateway'),
+      self.op_param('prefix_length', 'body', 'prefix_length', 'prefix_length'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -210,8 +210,10 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('destination', 'body', 'destination', 'destination'),
+      self.op_param('gateway', 'body', 'gateway', 'gateway'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('prefix_length', 'body', 'prefix_length', 'prefix_length'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

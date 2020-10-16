@@ -95,10 +95,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_tree_quota = {}
-    file_tree_quota["description"] = resource[:description] unless resource[:description].nil?
-    file_tree_quota["hard_limit"] = resource[:hard_limit] unless resource[:hard_limit].nil?
-    file_tree_quota["is_user_quotas_enforced"] = resource[:is_user_quotas_enforced] unless resource[:is_user_quotas_enforced].nil?
-    file_tree_quota["soft_limit"] = resource[:soft_limit] unless resource[:soft_limit].nil?
     return file_tree_quota
   end
 
@@ -187,7 +183,12 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('file_system_id', 'body', 'file_system_id', 'file_system_id'),
+      self.op_param('hard_limit', 'body', 'hard_limit', 'hard_limit'),
+      self.op_param('is_user_quotas_enforced', 'body', 'is_user_quotas_enforced', 'is_user_quotas_enforced'),
+      self.op_param('path', 'body', 'path', 'path'),
+      self.op_param('soft_limit', 'body', 'soft_limit', 'soft_limit'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -217,8 +218,11 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('hard_limit', 'body', 'hard_limit', 'hard_limit'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('is_user_quotas_enforced', 'body', 'is_user_quotas_enforced', 'is_user_quotas_enforced'),
+      self.op_param('soft_limit', 'body', 'soft_limit', 'soft_limit'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

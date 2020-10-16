@@ -103,21 +103,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_ldap = {}
-    file_ldap["add_addresses"] = resource[:add_addresses] unless resource[:add_addresses].nil?
-    file_ldap["addresses"] = resource[:addresses] unless resource[:addresses].nil?
-    file_ldap["authentication_type"] = resource[:authentication_type] unless resource[:authentication_type].nil?
-    file_ldap["base_DN"] = resource[:base_dn] unless resource[:base_dn].nil?
-    file_ldap["bind_DN"] = resource[:bind_dn] unless resource[:bind_dn].nil?
-    file_ldap["bind_password"] = resource[:bind_password] unless resource[:bind_password].nil?
-    file_ldap["is_smb_account_used"] = resource[:is_smb_account_used] unless resource[:is_smb_account_used].nil?
-    file_ldap["is_verify_server_certificate"] = resource[:is_verify_server_certificate] unless resource[:is_verify_server_certificate].nil?
-    file_ldap["password"] = resource[:password] unless resource[:password].nil?
-    file_ldap["port_number"] = resource[:port_number] unless resource[:port_number].nil?
-    file_ldap["principal"] = resource[:principal] unless resource[:principal].nil?
-    file_ldap["profile_DN"] = resource[:profile_dn] unless resource[:profile_dn].nil?
-    file_ldap["protocol"] = resource[:protocol] unless resource[:protocol].nil?
-    file_ldap["realm"] = resource[:realm] unless resource[:realm].nil?
-    file_ldap["remove_addresses"] = resource[:remove_addresses] unless resource[:remove_addresses].nil?
     return file_ldap
   end
 
@@ -218,7 +203,20 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('addresses', 'body', 'addresses', 'addresses'),
+      self.op_param('authentication_type', 'body', 'authentication_type', 'authentication_type'),
+      self.op_param('base_DN', 'body', 'base_dn', 'base_dn'),
+      self.op_param('bind_DN', 'body', 'bind_dn', 'bind_dn'),
+      self.op_param('bind_password', 'body', 'bind_password', 'bind_password'),
+      self.op_param('is_smb_account_used', 'body', 'is_smb_account_used', 'is_smb_account_used'),
+      self.op_param('is_verify_server_certificate', 'body', 'is_verify_server_certificate', 'is_verify_server_certificate'),
+      self.op_param('nas_server_id', 'body', 'nas_server_id', 'nas_server_id'),
+      self.op_param('password', 'body', 'password', 'password'),
+      self.op_param('port_number', 'body', 'port_number', 'port_number'),
+      self.op_param('principal', 'body', 'principal', 'principal'),
+      self.op_param('profile_DN', 'body', 'profile_dn', 'profile_dn'),
+      self.op_param('protocol', 'body', 'protocol', 'protocol'),
+      self.op_param('realm', 'body', 'realm', 'realm'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -248,8 +246,22 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('add_addresses', 'body', 'add_addresses', 'add_addresses'),
+      self.op_param('addresses', 'body', 'addresses', 'addresses'),
+      self.op_param('authentication_type', 'body', 'authentication_type', 'authentication_type'),
+      self.op_param('base_DN', 'body', 'base_dn', 'base_dn'),
+      self.op_param('bind_DN', 'body', 'bind_dn', 'bind_dn'),
+      self.op_param('bind_password', 'body', 'bind_password', 'bind_password'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('is_smb_account_used', 'body', 'is_smb_account_used', 'is_smb_account_used'),
+      self.op_param('is_verify_server_certificate', 'body', 'is_verify_server_certificate', 'is_verify_server_certificate'),
+      self.op_param('password', 'body', 'password', 'password'),
+      self.op_param('port_number', 'body', 'port_number', 'port_number'),
+      self.op_param('principal', 'body', 'principal', 'principal'),
+      self.op_param('profile_DN', 'body', 'profile_dn', 'profile_dn'),
+      self.op_param('protocol', 'body', 'protocol', 'protocol'),
+      self.op_param('realm', 'body', 'realm', 'realm'),
+      self.op_param('remove_addresses', 'body', 'remove_addresses', 'remove_addresses'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

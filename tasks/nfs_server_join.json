@@ -1,0 +1,27 @@
+{
+	"description": "Join the secure NFS server to the NAS server's AD domain, which is necessary for Secure NFS.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"domain_password":{
+			   "description": "Password of the domain-user specified to join the Active Directory domain.",
+			   "type": "String"
+			},
+			"domain_user_name":{
+			   "description": "Name of a domain-user with privileges to join the Active Directory domain.",
+			   "type": "String"
+			},
+			"id":{
+			   "description": "Unique identifier of the NFS server.",
+			   "type": "String"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

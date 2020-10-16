@@ -13,7 +13,7 @@ powerstore_policy {
   add_snapshot_rule_ids => "add_snapshot_rule_ids (optional)",
   description => "description (optional)",
   id => "id",
-  name => "name (optional)",
+  name => "name",
   remove_replication_rule_ids => "remove_replication_rule_ids (optional)",
   remove_snapshot_rule_ids => "remove_snapshot_rule_ids (optional)",
   replication_rule_ids => "replication_rule_ids (optional)",
@@ -23,15 +23,15 @@ powerstore_policy {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|add_replication_rule_ids | Array[String] | false |
-|add_snapshot_rule_ids | Array[String] | false |
-|description | String | false |
+|add_replication_rule_ids | Optional[Array[String]] | false |
+|add_snapshot_rule_ids | Optional[Array[String]] | false |
+|description | Optional[String] | false |
 |id | String | true |
-|name | String | false |
-|remove_replication_rule_ids | Array[String] | false |
-|remove_snapshot_rule_ids | Array[String] | false |
-|replication_rule_ids | Array[String] | false |
-|snapshot_rule_ids | Array[String] | false |
+|name | String | true |
+|remove_replication_rule_ids | Optional[Array[String]] | false |
+|remove_snapshot_rule_ids | Optional[Array[String]] | false |
+|replication_rule_ids | Optional[Array[String]] | false |
+|snapshot_rule_ids | Optional[Array[String]] | false |
 
 
 

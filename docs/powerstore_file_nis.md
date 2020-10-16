@@ -10,22 +10,22 @@ Path: "tag_based/assets/dellemc.swagger.json")
 ```puppet
 powerstore_file_nis {
   add_ip_addresses => "add_ip_addresses (optional)",
-  domain => "domain (optional)",
+  domain => "domain",
   id => "id",
-  ip_addresses => "ip_addresses (optional)",
-  nas_server_id => "nas_server_id (optional)",
+  ip_addresses => "ip_addresses",
+  nas_server_id => "nas_server_id",
   remove_ip_addresses => "remove_ip_addresses (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|add_ip_addresses | Array[String] | false |
-|domain | String[1,255] | false |
+|add_ip_addresses | Optional[Array[String]] | false |
+|domain | String[1,255] | true |
 |id | String | true |
-|ip_addresses | Array[String] | false |
-|nas_server_id | String | false |
-|remove_ip_addresses | Array[String] | false |
+|ip_addresses | Array[String] | true |
+|nas_server_id | String | true |
+|remove_ip_addresses | Optional[Array[String]] | false |
 
 
 

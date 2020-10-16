@@ -100,12 +100,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     remote_system = {}
-    remote_system["data_network_latency"] = resource[:data_network_latency] unless resource[:data_network_latency].nil?
-    remote_system["description"] = resource[:description] unless resource[:description].nil?
-    remote_system["management_address"] = resource[:management_address] unless resource[:management_address].nil?
-    remote_system["name"] = resource[:name] unless resource[:name].nil?
-    remote_system["remote_password"] = resource[:remote_password] unless resource[:remote_password].nil?
-    remote_system["remote_username"] = resource[:remote_username] unless resource[:remote_username].nil?
     return remote_system
   end
 
@@ -206,7 +200,17 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('data_network_latency', 'body', 'data_network_latency', 'data_network_latency'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('discovery_chap_mode', 'body', 'discovery_chap_mode', 'discovery_chap_mode'),
+      self.op_param('import_chap_info', 'body', 'import_chap_info', 'import_chap_info'),
+      self.op_param('iscsi_addresses', 'body', 'iscsi_addresses', 'iscsi_addresses'),
+      self.op_param('management_address', 'body', 'management_address', 'management_address'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('remote_password', 'body', 'remote_password', 'remote_password'),
+      self.op_param('remote_username', 'body', 'remote_username', 'remote_username'),
+      self.op_param('session_chap_mode', 'body', 'session_chap_mode', 'session_chap_mode'),
+      self.op_param('type', 'body', 'type', 'type'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -236,8 +240,13 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('data_network_latency', 'body', 'data_network_latency', 'data_network_latency'),
+      self.op_param('description', 'body', 'description', 'description'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('management_address', 'body', 'management_address', 'management_address'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('remote_password', 'body', 'remote_password', 'remote_password'),
+      self.op_param('remote_username', 'body', 'remote_username', 'remote_username'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -267,7 +276,6 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
       self.op_param('id', 'path', 'id', 'id'),
     ]
     op_params.each do |i|

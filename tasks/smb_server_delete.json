@@ -1,0 +1,23 @@
+{
+	"description": "Delete a SMB server. The SMB server must not be joined to a domain to be deleted.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"force":{
+			   "description": "If false, the delete will fail if the SMB server is still joined, else the SMB server is deleted but AD account is not removed.",
+			   "type": "Optional[Boolean]"
+			},
+			"id":{
+			   "description": "Unique identifier of the SMB server.",
+			   "type": "String"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

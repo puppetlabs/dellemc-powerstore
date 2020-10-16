@@ -1,0 +1,31 @@
+{
+	"description": "Add a host.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"description":{
+			   "description": "An optional description for the host. The description should not be more than 256 UTF-8 characters long and should not have any unprintable characters.",
+			   "type": "Optional[String[1,256]]"
+			},
+			"initiators":{
+			   "description": "",
+			   "type": "Array[Struct[{Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], port_name => String, port_type => Enum['iSCSI','FC'], }]]"
+			},
+			"name":{
+			   "description": "The host name. The name should not be more than 128 UTF-8 characters long and should not have any unprintable characters.",
+			   "type": "String[1,128]"
+			},
+			"os_type":{
+			   "description": "Operating system of the host.",
+			   "type": "Enum['Windows','Linux','ESXi','AIX','HP-UX','Solaris']"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

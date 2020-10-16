@@ -104,24 +104,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_system = {}
-    file_system["access_policy"] = resource[:access_policy] unless resource[:access_policy].nil?
-    file_system["default_hard_limit"] = resource[:default_hard_limit] unless resource[:default_hard_limit].nil?
-    file_system["default_soft_limit"] = resource[:default_soft_limit] unless resource[:default_soft_limit].nil?
-    file_system["description"] = resource[:description] unless resource[:description].nil?
-    file_system["expiration_timestamp"] = resource[:expiration_timestamp] unless resource[:expiration_timestamp].nil?
-    file_system["folder_rename_policy"] = resource[:folder_rename_policy] unless resource[:folder_rename_policy].nil?
-    file_system["grace_period"] = resource[:grace_period] unless resource[:grace_period].nil?
-    file_system["is_async_MTime_enabled"] = resource[:is_async_m_time_enabled] unless resource[:is_async_m_time_enabled].nil?
-    file_system["is_quota_enabled"] = resource[:is_quota_enabled] unless resource[:is_quota_enabled].nil?
-    file_system["is_smb_no_notify_enabled"] = resource[:is_smb_no_notify_enabled] unless resource[:is_smb_no_notify_enabled].nil?
-    file_system["is_smb_notify_on_access_enabled"] = resource[:is_smb_notify_on_access_enabled] unless resource[:is_smb_notify_on_access_enabled].nil?
-    file_system["is_smb_notify_on_write_enabled"] = resource[:is_smb_notify_on_write_enabled] unless resource[:is_smb_notify_on_write_enabled].nil?
-    file_system["is_smb_op_locks_enabled"] = resource[:is_smb_op_locks_enabled] unless resource[:is_smb_op_locks_enabled].nil?
-    file_system["is_smb_sync_writes_enabled"] = resource[:is_smb_sync_writes_enabled] unless resource[:is_smb_sync_writes_enabled].nil?
-    file_system["locking_policy"] = resource[:locking_policy] unless resource[:locking_policy].nil?
-    file_system["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
-    file_system["size_total"] = resource[:size_total] unless resource[:size_total].nil?
-    file_system["smb_notify_on_change_dir_depth"] = resource[:smb_notify_on_change_dir_depth] unless resource[:smb_notify_on_change_dir_depth].nil?
     return file_system
   end
 
@@ -235,7 +217,21 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('access_policy', 'body', 'access_policy', 'access_policy'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('folder_rename_policy', 'body', 'folder_rename_policy', 'folder_rename_policy'),
+      self.op_param('is_async_MTime_enabled', 'body', 'is_async_m_time_enabled', 'is_async_m_time_enabled'),
+      self.op_param('is_smb_no_notify_enabled', 'body', 'is_smb_no_notify_enabled', 'is_smb_no_notify_enabled'),
+      self.op_param('is_smb_notify_on_access_enabled', 'body', 'is_smb_notify_on_access_enabled', 'is_smb_notify_on_access_enabled'),
+      self.op_param('is_smb_notify_on_write_enabled', 'body', 'is_smb_notify_on_write_enabled', 'is_smb_notify_on_write_enabled'),
+      self.op_param('is_smb_op_locks_enabled', 'body', 'is_smb_op_locks_enabled', 'is_smb_op_locks_enabled'),
+      self.op_param('is_smb_sync_writes_enabled', 'body', 'is_smb_sync_writes_enabled', 'is_smb_sync_writes_enabled'),
+      self.op_param('locking_policy', 'body', 'locking_policy', 'locking_policy'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('nas_server_id', 'body', 'nas_server_id', 'nas_server_id'),
+      self.op_param('protection_policy_id', 'body', 'protection_policy_id', 'protection_policy_id'),
+      self.op_param('size_total', 'body', 'size_total', 'size_total'),
+      self.op_param('smb_notify_on_change_dir_depth', 'body', 'smb_notify_on_change_dir_depth', 'smb_notify_on_change_dir_depth'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -265,8 +261,25 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('access_policy', 'body', 'access_policy', 'access_policy'),
+      self.op_param('default_hard_limit', 'body', 'default_hard_limit', 'default_hard_limit'),
+      self.op_param('default_soft_limit', 'body', 'default_soft_limit', 'default_soft_limit'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('expiration_timestamp', 'body', 'expiration_timestamp', 'expiration_timestamp'),
+      self.op_param('folder_rename_policy', 'body', 'folder_rename_policy', 'folder_rename_policy'),
+      self.op_param('grace_period', 'body', 'grace_period', 'grace_period'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('is_async_MTime_enabled', 'body', 'is_async_m_time_enabled', 'is_async_m_time_enabled'),
+      self.op_param('is_quota_enabled', 'body', 'is_quota_enabled', 'is_quota_enabled'),
+      self.op_param('is_smb_no_notify_enabled', 'body', 'is_smb_no_notify_enabled', 'is_smb_no_notify_enabled'),
+      self.op_param('is_smb_notify_on_access_enabled', 'body', 'is_smb_notify_on_access_enabled', 'is_smb_notify_on_access_enabled'),
+      self.op_param('is_smb_notify_on_write_enabled', 'body', 'is_smb_notify_on_write_enabled', 'is_smb_notify_on_write_enabled'),
+      self.op_param('is_smb_op_locks_enabled', 'body', 'is_smb_op_locks_enabled', 'is_smb_op_locks_enabled'),
+      self.op_param('is_smb_sync_writes_enabled', 'body', 'is_smb_sync_writes_enabled', 'is_smb_sync_writes_enabled'),
+      self.op_param('locking_policy', 'body', 'locking_policy', 'locking_policy'),
+      self.op_param('protection_policy_id', 'body', 'protection_policy_id', 'protection_policy_id'),
+      self.op_param('size_total', 'body', 'size_total', 'size_total'),
+      self.op_param('smb_notify_on_change_dir_depth', 'body', 'smb_notify_on_change_dir_depth', 'smb_notify_on_change_dir_depth'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

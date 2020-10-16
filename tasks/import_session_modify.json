@@ -1,0 +1,23 @@
+{
+	"description": "Modify the scheduled date and time of the specified import session.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+			   "description": "Unique identifier of the import session.",
+			   "type": "String"
+			},
+			"scheduled_timestamp":{
+			   "description": "Indicates the new date and time at which the import session is scheduled to run. The date is specified in ISO 8601 format with time expressed in UTC format.",
+			   "type": "Optional[String]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

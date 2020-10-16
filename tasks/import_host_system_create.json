@@ -1,0 +1,51 @@
+{
+	"description": "Add an import host system so that it can be mapped to a volume. Before mapping an import host system, ensure that a host agent is installed. Host agents can be installed on Linux, Windows, and ESXi host systems only.  While adding import_host_system if Host is not present a new Host shall be created. If Host is already present, the same Host will be updated with the import_host_system details.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"agent_address":{
+			   "description": "Hostname or IPv4 address of the import host system.",
+			   "type": "String"
+			},
+			"agent_port":{
+			   "description": "TCP port of the import host system.",
+			   "type": "Integer[0,65535]"
+			},
+			"chap_mutual_password":{
+			   "description": "Password for mutual CHAP authentication. This password is required when the cluster is using mutual authentication CHAP mode.",
+			   "type": "Optional[String]"
+			},
+			"chap_mutual_username":{
+			   "description": "Username for mutual CHAP authentication. This username is required when the cluster is using mutual authentication CHAP mode.",
+			   "type": "Optional[String]"
+			},
+			"chap_single_password":{
+			   "description": "Password for single CHAP authentication. This password is required when the cluster is using single authentication CHAP mode.",
+			   "type": "Optional[String]"
+			},
+			"chap_single_username":{
+			   "description": "Username for single CHAP authentication. This username is required when the cluster is using single authentication CHAP mode.",
+			   "type": "Optional[String]"
+			},
+			"os_type":{
+			   "description": "Operating system of the import host system. Valid values are: * Windows - Windows.  * Linux - Linux.  * ESXi - ESXi.  * Unknown - Operating system of the host system is unknown to PowerStore.",
+			   "type": "Enum['Windows','Linux','ESXi','Unknown']"
+			},
+			"password":{
+			   "description": "Password for the specified username.",
+			   "type": "String"
+			},
+			"user_name":{
+			   "description": "Username for the import host system.",
+			   "type": "String"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

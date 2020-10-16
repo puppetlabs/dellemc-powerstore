@@ -11,14 +11,14 @@ Path: "tag_based/assets/dellemc.swagger.json")
 powerstore_file_ldap {
   add_addresses => "add_addresses (optional)",
   addresses => "addresses (optional)",
-  authentication_type => "authentication_type (optional)",
-  base_dn => "base_DN (optional)",
+  authentication_type => "authentication_type",
+  base_dn => "base_DN",
   bind_dn => "bind_DN (optional)",
   bind_password => "bind_password (optional)",
   id => "id",
   is_smb_account_used => "is_smb_account_used (optional)",
   is_verify_server_certificate => "is_verify_server_certificate (optional)",
-  nas_server_id => "nas_server_id (optional)",
+  nas_server_id => "nas_server_id",
   password => "password (optional)",
   port_number => "port_number (optional)",
   principal => "principal (optional)",
@@ -31,23 +31,23 @@ powerstore_file_ldap {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|add_addresses | Array[String] | false |
-|addresses | Array[String] | false |
-|authentication_type | Enum['Anonymous','Simple','Kerberos'] | false |
-|base_dn | String[3,255] | false |
-|bind_dn | String[0,1023] | false |
-|bind_password | String[0,1023] | false |
+|add_addresses | Optional[Array[String]] | false |
+|addresses | Optional[Array[String]] | false |
+|authentication_type | Enum['Anonymous','Simple','Kerberos'] | true |
+|base_dn | String[3,255] | true |
+|bind_dn | Optional[String[0,1023]] | false |
+|bind_password | Optional[String[0,1023]] | false |
 |id | String | true |
-|is_smb_account_used | Boolean | false |
-|is_verify_server_certificate | Boolean | false |
-|nas_server_id | String | false |
-|password | String[0,1023] | false |
-|port_number | Integer[0,65536] | false |
-|principal | String[0,1023] | false |
-|profile_dn | String[0,255] | false |
-|protocol | Enum['LDAP','LDAPS'] | false |
-|realm | String[0,255] | false |
-|remove_addresses | Array[String] | false |
+|is_smb_account_used | Optional[Boolean] | false |
+|is_verify_server_certificate | Optional[Boolean] | false |
+|nas_server_id | String | true |
+|password | Optional[String[0,1023]] | false |
+|port_number | Optional[Integer[0,65536]] | false |
+|principal | Optional[String[0,1023]] | false |
+|profile_dn | Optional[String[0,255]] | false |
+|protocol | Optional[Enum['LDAP','LDAPS']] | false |
+|realm | Optional[String[0,255]] | false |
+|remove_addresses | Optional[Array[String]] | false |
 
 
 

@@ -92,9 +92,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     vcenter = {}
-    vcenter["address"] = resource[:address] unless resource[:address].nil?
-    vcenter["password"] = resource[:password] unless resource[:password].nil?
-    vcenter["username"] = resource[:username] unless resource[:username].nil?
     return vcenter
   end
 
@@ -177,7 +174,9 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('address', 'body', 'address', 'address'),
+      self.op_param('password', 'body', 'password', 'password'),
+      self.op_param('username', 'body', 'username', 'username'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -207,8 +206,10 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('address', 'body', 'address', 'address'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('password', 'body', 'password', 'password'),
+      self.op_param('username', 'body', 'username', 'username'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

@@ -92,9 +92,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     physical_switch = {}
-    physical_switch["connections"] = resource[:connections] unless resource[:connections].nil?
-    physical_switch["name"] = resource[:name] unless resource[:name].nil?
-    physical_switch["purpose"] = resource[:purpose] unless resource[:purpose].nil?
     return physical_switch
   end
 
@@ -177,7 +174,9 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('connections', 'body', 'connections', 'connections'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('purpose', 'body', 'purpose', 'purpose'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -207,8 +206,10 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('connections', 'body', 'connections', 'connections'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('purpose', 'body', 'purpose', 'purpose'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

@@ -1,0 +1,39 @@
+{
+	"description": "Modify the Kerberos service settings of a NAS Server.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"add_kdc_addresses":{
+			   "description": "Fully Qualified domain names of the Kerberos Key Distribution Center (KDC) servers to add to the current list. Error occurs if name already exists. Cannot be combined with kdc_addresses. IPv4 and IPv6 addresses are not supported.",
+			   "type": "Optional[Array[String[1,255]]]"
+			},
+			"id":{
+			   "description": "Unique identifier of the Kerberos service object.",
+			   "type": "String"
+			},
+			"kdc_addresses":{
+			   "description": "Fully Qualified domain names of the Kerberos Key Distribution Center (KDC) servers. IPv4 and IPv6 addresses are not supported.",
+			   "type": "Optional[Array[String[1,255]]]"
+			},
+			"port_number":{
+			   "description": "KDC servers TCP port.",
+			   "type": "Optional[Integer[0,65535]]"
+			},
+			"realm":{
+			   "description": "Realm name of the Kerberos Service.",
+			   "type": "Optional[String[1,255]]"
+			},
+			"remove_kdc_addresses":{
+			   "description": "Fully Qualified domain names of the Kerberos Key Distribution Center (KDC) servers to remove from the current list. Error occurs if name is not in the existing list. Cannot be combined with kdc_addresses. IPv4 and IPv6 addresses are not supported.",
+			   "type": "Optional[Array[String[1,255]]]"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

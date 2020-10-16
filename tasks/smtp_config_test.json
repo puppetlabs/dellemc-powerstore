@@ -1,0 +1,23 @@
+{
+	"description": "Test the SMTP configuration.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"email_address":{
+			   "description": "Destination email address for the test.",
+			   "type": "Optional[String]"
+			},
+			"id":{
+			   "description": "Unique identifier of the SMTP configuration.",
+			   "type": "String"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

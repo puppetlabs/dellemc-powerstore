@@ -94,18 +94,11 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     volume_group = {}
-    volume_group["description"] = resource[:description] unless resource[:description].nil?
-    volume_group["force"] = resource[:force] unless resource[:force].nil?
-    volume_group["is_replication_destination"] = resource[:is_replication_destination] unless resource[:is_replication_destination].nil?
-    volume_group["is_write_order_consistent"] = resource[:is_write_order_consistent] unless resource[:is_write_order_consistent].nil?
-    volume_group["name"] = resource[:name] unless resource[:name].nil?
-    volume_group["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
     return volume_group
   end
 
   def build_delete_hash(resource)
     volume_group = {}
-    volume_group["delete_members"] = resource[:delete_members] unless resource[:delete_members].nil?
     return volume_group
   end
 
@@ -196,7 +189,11 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('is_write_order_consistent', 'body', 'is_write_order_consistent', 'is_write_order_consistent'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('protection_policy_id', 'body', 'protection_policy_id', 'protection_policy_id'),
+      self.op_param('volume_ids', 'body', 'volume_ids', 'volume_ids'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -226,8 +223,13 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('force', 'body', 'force', 'force'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('is_replication_destination', 'body', 'is_replication_destination', 'is_replication_destination'),
+      self.op_param('is_write_order_consistent', 'body', 'is_write_order_consistent', 'is_write_order_consistent'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('protection_policy_id', 'body', 'protection_policy_id', 'protection_policy_id'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -257,7 +259,7 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('delete_members', 'body', 'delete_members', 'delete_members'),
       self.op_param('id', 'path', 'id', 'id'),
     ]
     op_params.each do |i|

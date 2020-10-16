@@ -11,23 +11,23 @@ Path: "tag_based/assets/dellemc.swagger.json")
 powerstore_file_kerberos {
   add_kdc_addresses => "add_kdc_addresses (optional)",
   id => "id",
-  kdc_addresses => "kdc_addresses (optional)",
-  nas_server_id => "nas_server_id (optional)",
+  kdc_addresses => "kdc_addresses",
+  nas_server_id => "nas_server_id",
   port_number => "port_number (optional)",
-  realm => "realm (optional)",
+  realm => "realm",
   remove_kdc_addresses => "remove_kdc_addresses (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|add_kdc_addresses | Array[String[1,255]] | false |
+|add_kdc_addresses | Optional[Array[String[1,255]]] | false |
 |id | String | true |
-|kdc_addresses | Array[String[1,255]] | false |
-|nas_server_id | String | false |
-|port_number | Integer[0,65535] | false |
-|realm | String[1,255] | false |
-|remove_kdc_addresses | Array[String[1,255]] | false |
+|kdc_addresses | Array[String[1,255]] | true |
+|nas_server_id | String | true |
+|port_number | Optional[Integer[0,65535]] | false |
+|realm | String[1,255] | true |
+|remove_kdc_addresses | Optional[Array[String[1,255]]] | false |
 
 
 

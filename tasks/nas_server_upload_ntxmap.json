@@ -1,0 +1,23 @@
+{
+	"description": "",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"body":{
+			   "description": "Upload the NAS server ntxmap file.",
+			   "type": "Optional[String]"
+			},
+			"id":{
+			   "description": "Unique identifier of the NAS server.",
+			   "type": "String"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

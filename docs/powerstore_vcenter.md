@@ -18,10 +18,10 @@ powerstore_vcenter {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|address | String | false |
+|address | Optional[String] | false |
 |id | String | true |
-|password | String | false |
-|username | String | false |
+|password | Optional[String] | false |
+|username | Optional[String] | false |
 
 
 

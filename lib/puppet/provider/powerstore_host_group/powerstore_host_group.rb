@@ -92,10 +92,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     host_group = {}
-    host_group["add_host_ids"] = resource[:add_host_ids] unless resource[:add_host_ids].nil?
-    host_group["description"] = resource[:description] unless resource[:description].nil?
-    host_group["name"] = resource[:name] unless resource[:name].nil?
-    host_group["remove_host_ids"] = resource[:remove_host_ids] unless resource[:remove_host_ids].nil?
     return host_group
   end
 
@@ -179,7 +175,9 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('host_ids', 'body', 'host_ids', 'host_ids'),
+      self.op_param('name', 'body', 'name', 'name'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -209,8 +207,11 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('add_host_ids', 'body', 'add_host_ids', 'add_host_ids'),
+      self.op_param('description', 'body', 'description', 'description'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('remove_host_ids', 'body', 'remove_host_ids', 'remove_host_ids'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

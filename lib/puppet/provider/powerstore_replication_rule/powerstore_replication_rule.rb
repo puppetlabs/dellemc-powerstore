@@ -93,10 +93,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     replication_rule = {}
-    replication_rule["alert_threshold"] = resource[:alert_threshold] unless resource[:alert_threshold].nil?
-    replication_rule["name"] = resource[:name] unless resource[:name].nil?
-    replication_rule["remote_system_id"] = resource[:remote_system_id] unless resource[:remote_system_id].nil?
-    replication_rule["rpo"] = resource[:rpo] unless resource[:rpo].nil?
     return replication_rule
   end
 
@@ -181,7 +177,10 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('alert_threshold', 'body', 'alert_threshold', 'alert_threshold'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('remote_system_id', 'body', 'remote_system_id', 'remote_system_id'),
+      self.op_param('rpo', 'body', 'rpo', 'rpo'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -211,8 +210,11 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('alert_threshold', 'body', 'alert_threshold', 'alert_threshold'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('remote_system_id', 'body', 'remote_system_id', 'remote_system_id'),
+      self.op_param('rpo', 'body', 'rpo', 'rpo'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

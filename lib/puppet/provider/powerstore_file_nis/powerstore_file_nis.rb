@@ -92,10 +92,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_nis = {}
-    file_nis["add_ip_addresses"] = resource[:add_ip_addresses] unless resource[:add_ip_addresses].nil?
-    file_nis["domain"] = resource[:domain] unless resource[:domain].nil?
-    file_nis["ip_addresses"] = resource[:ip_addresses] unless resource[:ip_addresses].nil?
-    file_nis["remove_ip_addresses"] = resource[:remove_ip_addresses] unless resource[:remove_ip_addresses].nil?
     return file_nis
   end
 
@@ -179,7 +175,9 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('domain', 'body', 'domain', 'domain'),
+      self.op_param('ip_addresses', 'body', 'ip_addresses', 'ip_addresses'),
+      self.op_param('nas_server_id', 'body', 'nas_server_id', 'nas_server_id'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -209,8 +207,11 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('add_ip_addresses', 'body', 'add_ip_addresses', 'add_ip_addresses'),
+      self.op_param('domain', 'body', 'domain', 'domain'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('ip_addresses', 'body', 'ip_addresses', 'ip_addresses'),
+      self.op_param('remove_ip_addresses', 'body', 'remove_ip_addresses', 'remove_ip_addresses'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

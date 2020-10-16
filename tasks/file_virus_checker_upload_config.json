@@ -1,0 +1,23 @@
+{
+	"description": "Upload a virus checker configuration file containing the virus checker configuration settings.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"body":{
+			   "description": "Upload virus checker configuration file.",
+			   "type": "Optional[String]"
+			},
+			"id":{
+			   "description": "Unique identifier of the virus checker instance.",
+			   "type": "String"
+			}
+	},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

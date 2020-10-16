@@ -11,21 +11,21 @@ Path: "tag_based/assets/dellemc.swagger.json")
 powerstore_host_group {
   add_host_ids => "add_host_ids (optional)",
   description => "description (optional)",
-  host_ids => "host_ids (optional)",
+  host_ids => "host_ids",
   id => "id",
-  name => "name (optional)",
+  name => "name",
   remove_host_ids => "remove_host_ids (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|add_host_ids | Array[String] | false |
-|description | String | false |
-|host_ids | Array[String] | false |
+|add_host_ids | Optional[Array[String]] | false |
+|description | Optional[String[1,256]] | false |
+|host_ids | Array[String] | true |
 |id | String | true |
-|name | String | false |
-|remove_host_ids | Array[String] | false |
+|name | String[1,128] | true |
+|remove_host_ids | Optional[Array[String]] | false |
 
 
 

@@ -15,8 +15,9 @@ Puppet::ResourceApi.register_type(
     },
 
     address:          {
-      type:      "Optional[String]",
+      type:      "Optional[Optional[String]]",
       desc:      "IP address of vCenter host, in IPv4, IPv6, or hostname format.",
+      behaviour: :init_only,
     },
     id:          {
       type:      "String",
@@ -24,16 +25,18 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     instance_uuid:          {
-      type:      "Optional[String]",
+      type:      "Optional[Optional[String]]",
       desc:      "UUID instance of the vCenter.",
     },
     password:          {
-      type:      "Optional[String]",
+      type:      "Optional[Optional[String]]",
       desc:      "Password to login to vCenter.",
+      behaviour: :init_only,
     },
     username:          {
-      type:      "Optional[String]",
+      type:      "Optional[Optional[String]]",
       desc:      "User name to login to vCenter.",
+      behaviour: :init_only,
     },
   },
   autorequires: {

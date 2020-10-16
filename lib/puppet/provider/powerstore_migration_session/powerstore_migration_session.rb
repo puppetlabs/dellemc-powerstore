@@ -99,7 +99,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     migration_session = {}
-    migration_session["force"] = resource[:force] unless resource[:force].nil?
     return migration_session
   end
 
@@ -178,7 +177,11 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('automatic_cutover', 'body', 'automatic_cutover', 'automatic_cutover'),
+      self.op_param('destination_appliance_id', 'body', 'destination_appliance_id', 'destination_appliance_id'),
+      self.op_param('family_id', 'body', 'family_id', 'family_id'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('resource_type', 'body', 'resource_type', 'resource_type'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -210,7 +213,7 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('force', 'body', 'force', 'force'),
       self.op_param('id', 'path', 'id', 'id'),
     ]
     op_params.each do |i|

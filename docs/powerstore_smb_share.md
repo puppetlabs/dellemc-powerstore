@@ -10,32 +10,32 @@ Path: "tag_based/assets/dellemc.swagger.json")
 ```puppet
 powerstore_smb_share {
   description => "description (optional)",
-  file_system_id => "file_system_id (optional)",
+  file_system_id => "file_system_id",
   id => "id",
   is_abe_enabled => "is_ABE_enabled (optional)",
   is_branch_cache_enabled => "is_branch_cache_enabled (optional)",
   is_continuous_availability_enabled => "is_continuous_availability_enabled (optional)",
   is_encryption_enabled => "is_encryption_enabled (optional)",
-  name => "name (optional)",
+  name => "name",
   offline_availability => "offline_availability (optional)",
-  path => "path (optional)",
+  path => "path",
   umask => "umask (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|description | String[0,511] | false |
-|file_system_id | String | false |
+|description | Optional[String[0,511]] | false |
+|file_system_id | String | true |
 |id | String | true |
-|is_abe_enabled | Boolean | false |
-|is_branch_cache_enabled | Boolean | false |
-|is_continuous_availability_enabled | Boolean | false |
-|is_encryption_enabled | Boolean | false |
-|name | String[1,80] | false |
-|offline_availability | Enum['Manual','Documents','Programs','None'] | false |
-|path | String | false |
-|umask | String | false |
+|is_abe_enabled | Optional[Boolean] | false |
+|is_branch_cache_enabled | Optional[Boolean] | false |
+|is_continuous_availability_enabled | Optional[Boolean] | false |
+|is_encryption_enabled | Optional[Boolean] | false |
+|name | String[1,80] | true |
+|offline_availability | Optional[Enum['Manual','Documents','Programs','None']] | false |
+|path | String | true |
+|umask | Optional[String] | false |
 
 
 

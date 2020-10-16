@@ -96,27 +96,11 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     nas_server = {}
-    nas_server["backup_IPv4_interface_id"] = resource[:backup_i_pv4_interface_id] unless resource[:backup_i_pv4_interface_id].nil?
-    nas_server["backup_IPv6_interface_id"] = resource[:backup_i_pv6_interface_id] unless resource[:backup_i_pv6_interface_id].nil?
-    nas_server["current_node_id"] = resource[:current_node_id] unless resource[:current_node_id].nil?
-    nas_server["current_unix_directory_service"] = resource[:current_unix_directory_service] unless resource[:current_unix_directory_service].nil?
-    nas_server["default_unix_user"] = resource[:default_unix_user] unless resource[:default_unix_user].nil?
-    nas_server["default_windows_user"] = resource[:default_windows_user] unless resource[:default_windows_user].nil?
-    nas_server["description"] = resource[:description] unless resource[:description].nil?
-    nas_server["is_auto_user_mapping_enabled"] = resource[:is_auto_user_mapping_enabled] unless resource[:is_auto_user_mapping_enabled].nil?
-    nas_server["is_username_translation_enabled"] = resource[:is_username_translation_enabled] unless resource[:is_username_translation_enabled].nil?
-    nas_server["name"] = resource[:name] unless resource[:name].nil?
-    nas_server["preferred_node_id"] = resource[:preferred_node_id] unless resource[:preferred_node_id].nil?
-    nas_server["production_IPv4_interface_id"] = resource[:production_i_pv4_interface_id] unless resource[:production_i_pv4_interface_id].nil?
-    nas_server["production_IPv6_interface_id"] = resource[:production_i_pv6_interface_id] unless resource[:production_i_pv6_interface_id].nil?
     return nas_server
   end
 
   def build_delete_hash(resource)
     nas_server = {}
-    nas_server["domain_password"] = resource[:domain_password] unless resource[:domain_password].nil?
-    nas_server["domain_user_name"] = resource[:domain_user_name] unless resource[:domain_user_name].nil?
-    nas_server["is_skip_domain_unjoin"] = resource[:is_skip_domain_unjoin] unless resource[:is_skip_domain_unjoin].nil?
     return nas_server
   end
 
@@ -211,7 +195,13 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('current_unix_directory_service', 'body', 'current_unix_directory_service', 'current_unix_directory_service'),
+      self.op_param('default_unix_user', 'body', 'default_unix_user', 'default_unix_user'),
+      self.op_param('default_windows_user', 'body', 'default_windows_user', 'default_windows_user'),
+      self.op_param('description', 'body', 'description', 'description'),
+      self.op_param('is_auto_user_mapping_enabled', 'body', 'is_auto_user_mapping_enabled', 'is_auto_user_mapping_enabled'),
+      self.op_param('is_username_translation_enabled', 'body', 'is_username_translation_enabled', 'is_username_translation_enabled'),
+      self.op_param('name', 'body', 'name', 'name'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -241,8 +231,20 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('backup_IPv4_interface_id', 'body', 'backup_i_pv4_interface_id', 'backup_i_pv4_interface_id'),
+      self.op_param('backup_IPv6_interface_id', 'body', 'backup_i_pv6_interface_id', 'backup_i_pv6_interface_id'),
+      self.op_param('current_node_id', 'body', 'current_node_id', 'current_node_id'),
+      self.op_param('current_unix_directory_service', 'body', 'current_unix_directory_service', 'current_unix_directory_service'),
+      self.op_param('default_unix_user', 'body', 'default_unix_user', 'default_unix_user'),
+      self.op_param('default_windows_user', 'body', 'default_windows_user', 'default_windows_user'),
+      self.op_param('description', 'body', 'description', 'description'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('is_auto_user_mapping_enabled', 'body', 'is_auto_user_mapping_enabled', 'is_auto_user_mapping_enabled'),
+      self.op_param('is_username_translation_enabled', 'body', 'is_username_translation_enabled', 'is_username_translation_enabled'),
+      self.op_param('name', 'body', 'name', 'name'),
+      self.op_param('preferred_node_id', 'body', 'preferred_node_id', 'preferred_node_id'),
+      self.op_param('production_IPv4_interface_id', 'body', 'production_i_pv4_interface_id', 'production_i_pv4_interface_id'),
+      self.op_param('production_IPv6_interface_id', 'body', 'production_i_pv6_interface_id', 'production_i_pv6_interface_id'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -272,8 +274,10 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('domain_password', 'body', 'domain_password', 'domain_password'),
+      self.op_param('domain_user_name', 'body', 'domain_user_name', 'domain_user_name'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('is_skip_domain_unjoin', 'body', 'is_skip_domain_unjoin', 'is_skip_domain_unjoin'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

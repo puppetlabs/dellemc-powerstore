@@ -9,8 +9,8 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ```puppet
 powerstore_nas_server {
-  backup_i_pv4_interface_id => "backup_i_pv4_interface_id (optional)",
-  backup_i_pv6_interface_id => "backup_i_pv6_interface_id (optional)",
+  backup_i_pv4_interface_id => "backup_IPv4_interface_id (optional)",
+  backup_i_pv6_interface_id => "backup_IPv6_interface_id (optional)",
   current_node_id => "current_node_id (optional)",
   current_unix_directory_service => "current_unix_directory_service (optional)",
   default_unix_user => "default_unix_user (optional)",
@@ -21,31 +21,31 @@ powerstore_nas_server {
   is_auto_user_mapping_enabled => "is_auto_user_mapping_enabled (optional)",
   is_skip_domain_unjoin => "is_skip_domain_unjoin (optional)",
   is_username_translation_enabled => "is_username_translation_enabled (optional)",
-  name => "name (optional)",
+  name => "name",
   preferred_node_id => "preferred_node_id (optional)",
-  production_i_pv4_interface_id => "production_i_pv4_interface_id (optional)",
-  production_i_pv6_interface_id => "production_i_pv6_interface_id (optional)",
+  production_i_pv4_interface_id => "production_IPv4_interface_id (optional)",
+  production_i_pv6_interface_id => "production_IPv6_interface_id (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|backup_i_pv4_interface_id | String | false |
-|backup_i_pv6_interface_id | String | false |
-|current_node_id | String | false |
-|current_unix_directory_service | Enum['None','NIS','LDAP','Local_Files','Local_Then_NIS','Local_Then_LDAP'] | false |
-|default_unix_user | String[0,63] | false |
-|default_windows_user | String[0,1023] | false |
-|description | String[0,255] | false |
-|domain_password | String | false |
-|domain_user_name | String | false |
-|is_auto_user_mapping_enabled | Boolean | false |
-|is_skip_domain_unjoin | Boolean | false |
-|is_username_translation_enabled | Boolean | false |
-|name | String[1,255] | false |
-|preferred_node_id | String | false |
-|production_i_pv4_interface_id | String | false |
-|production_i_pv6_interface_id | String | false |
+|backup_i_pv4_interface_id | Optional[String] | false |
+|backup_i_pv6_interface_id | Optional[String] | false |
+|current_node_id | Optional[String] | false |
+|current_unix_directory_service | Optional[Enum['None','NIS','LDAP','Local_Files','Local_Then_NIS','Local_Then_LDAP']] | false |
+|default_unix_user | Optional[String[0,63]] | false |
+|default_windows_user | Optional[String[0,1023]] | false |
+|description | Optional[String[0,255]] | false |
+|domain_password | Optional[String] | false |
+|domain_user_name | Optional[String] | false |
+|is_auto_user_mapping_enabled | Optional[Boolean] | false |
+|is_skip_domain_unjoin | Optional[Boolean] | false |
+|is_username_translation_enabled | Optional[Boolean] | false |
+|name | String[1,255] | true |
+|preferred_node_id | Optional[String] | false |
+|production_i_pv4_interface_id | Optional[String] | false |
+|production_i_pv6_interface_id | Optional[String] | false |
 
 
 

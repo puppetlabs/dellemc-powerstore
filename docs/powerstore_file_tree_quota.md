@@ -10,24 +10,24 @@ Path: "tag_based/assets/dellemc.swagger.json")
 ```puppet
 powerstore_file_tree_quota {
   description => "description (optional)",
-  file_system_id => "file_system_id (optional)",
+  file_system_id => "file_system_id",
   hard_limit => "hard_limit (optional)",
   id => "id",
   is_user_quotas_enforced => "is_user_quotas_enforced (optional)",
-  path => "path (optional)",
+  path => "path",
   soft_limit => "soft_limit (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|description | String | false |
-|file_system_id | String | false |
-|hard_limit | Integer[0,9223372036854775807] | false |
+|description | Optional[String] | false |
+|file_system_id | String | true |
+|hard_limit | Optional[Integer[0,9223372036854775807]] | false |
 |id | String | true |
-|is_user_quotas_enforced | Boolean | false |
-|path | String | false |
-|soft_limit | Integer[0,9223372036854775807] | false |
+|is_user_quotas_enforced | Optional[Boolean] | false |
+|path | String | true |
+|soft_limit | Optional[Integer[0,9223372036854775807]] | false |
 
 
 

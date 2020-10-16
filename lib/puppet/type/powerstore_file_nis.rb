@@ -15,12 +15,13 @@ Puppet::ResourceApi.register_type(
     },
 
     add_ip_addresses:          {
-      type:      "Optional[Array[String]]",
+      type:      "Optional[Optional[Array[String]]]",
       desc:      "IP addresses to add to the current list. The addresses may be IPv4 or IPv6. Error occurs if the IP address already exists. Cannot be combined with ip_addresses.",
     },
     domain:          {
-      type:      "Optional[String[1,255]]",
+      type:      "String[1,255]",
       desc:      "Name of the NIS domain.",
+      behaviour: :init_only,
     },
     id:          {
       type:      "String",
@@ -28,16 +29,17 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     ip_addresses:          {
-      type:      "Optional[Array[String]]",
+      type:      "Array[String]",
       desc:      "The list of NIS server IP addresses.",
+      behaviour: :init_only,
     },
     nas_server_id:          {
-      type:      "Optional[String]",
+      type:      "String",
       desc:      "Unique identifier of the associated NAS Server instance that uses this NIS Service object.  Only one NIS Service per NAS Server is supported.",
       behaviour: :init_only,
     },
     remove_ip_addresses:          {
-      type:      "Optional[Array[String]]",
+      type:      "Optional[Optional[Array[String]]]",
       desc:      "IP addresses to remove from the current list. The addresses may be IPv4 or IPv6. Error occurs if the IP address is not present. Cannot be combined with ip_addresses.",
     },
   },

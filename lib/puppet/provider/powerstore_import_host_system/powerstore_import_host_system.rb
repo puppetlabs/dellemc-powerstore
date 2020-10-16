@@ -194,7 +194,15 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('request', 'body', 'request', 'request'),
+      self.op_param('agent_address', 'body', 'agent_address', 'agent_address'),
+      self.op_param('agent_port', 'body', 'agent_port', 'agent_port'),
+      self.op_param('chap_mutual_password', 'body', 'chap_mutual_password', 'chap_mutual_password'),
+      self.op_param('chap_mutual_username', 'body', 'chap_mutual_username', 'chap_mutual_username'),
+      self.op_param('chap_single_password', 'body', 'chap_single_password', 'chap_single_password'),
+      self.op_param('chap_single_username', 'body', 'chap_single_username', 'chap_single_username'),
+      self.op_param('os_type', 'body', 'os_type', 'os_type'),
+      self.op_param('password', 'body', 'password', 'password'),
+      self.op_param('user_name', 'body', 'user_name', 'user_name'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

@@ -1,0 +1,13 @@
+version: 2
+targets:
+  - uri: localhost
+    name: prism
+    config:
+      transport: remote
+      remote:
+        remote-transport: powerstore
+        user: admin
+        password: admin
+        port: 4010
+        schema: http
+        base_path: ""

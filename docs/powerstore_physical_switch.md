@@ -9,19 +9,19 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ```puppet
 powerstore_physical_switch {
-  connections => "connections (optional)",
+  connections => "connections",
   id => "id",
-  name => "name (optional)",
-  purpose => "purpose (optional)",
+  name => "name",
+  purpose => "purpose",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|connections | Array[Struct[{Optional[username] => String, address => String[1,255], connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String, Optional[ssh_password] => String, }]] | false |
+|connections | Array[Struct[{address => String[1,255], connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String[1,128], Optional[ssh_password] => String[1,128], Optional[username] => String[1,128], }]] | true |
 |id | String | true |
-|name | String[1,128] | false |
-|purpose | Enum['Data_and_Management','Management_Only'] | false |
+|name | String[1,128] | true |
+|purpose | Enum['Data_and_Management','Management_Only'] | true |
 
 
 

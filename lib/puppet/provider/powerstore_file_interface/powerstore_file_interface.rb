@@ -96,11 +96,6 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_interface = {}
-    file_interface["gateway"] = resource[:gateway] unless resource[:gateway].nil?
-    file_interface["ip_address"] = resource[:ip_address] unless resource[:ip_address].nil?
-    file_interface["is_disabled"] = resource[:is_disabled] unless resource[:is_disabled].nil?
-    file_interface["prefix_length"] = resource[:prefix_length] unless resource[:prefix_length].nil?
-    file_interface["vlan_id"] = resource[:vlan_id] unless resource[:vlan_id].nil?
     return file_interface
   end
 
@@ -188,7 +183,13 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('gateway', 'body', 'gateway', 'gateway'),
+      self.op_param('ip_address', 'body', 'ip_address', 'ip_address'),
+      self.op_param('is_disabled', 'body', 'is_disabled', 'is_disabled'),
+      self.op_param('nas_server_id', 'body', 'nas_server_id', 'nas_server_id'),
+      self.op_param('prefix_length', 'body', 'prefix_length', 'prefix_length'),
+      self.op_param('role', 'body', 'role', 'role'),
+      self.op_param('vlan_id', 'body', 'vlan_id', 'vlan_id'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]
@@ -218,8 +219,12 @@ context.debug("Entered get")
     header_params["User-Agent"] = ""
     
     op_params = [
-      self.op_param('body', 'body', 'body', 'body'),
+      self.op_param('gateway', 'body', 'gateway', 'gateway'),
       self.op_param('id', 'path', 'id', 'id'),
+      self.op_param('ip_address', 'body', 'ip_address', 'ip_address'),
+      self.op_param('is_disabled', 'body', 'is_disabled', 'is_disabled'),
+      self.op_param('prefix_length', 'body', 'prefix_length', 'prefix_length'),
+      self.op_param('vlan_id', 'body', 'vlan_id', 'vlan_id'),
     ]
     op_params.each do |i|
       inquery = i[:inquery]

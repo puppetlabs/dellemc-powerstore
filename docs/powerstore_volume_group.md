@@ -15,7 +15,7 @@ powerstore_volume_group {
   id => "id",
   is_replication_destination => "is_replication_destination (optional)",
   is_write_order_consistent => "is_write_order_consistent (optional)",
-  name => "name (optional)",
+  name => "name",
   protection_policy_id => "protection_policy_id (optional)",
   volume_ids => "volume_ids (optional)",
 }
@@ -23,15 +23,15 @@ powerstore_volume_group {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|delete_members | Boolean | false |
-|description | String | false |
-|force | Boolean | false |
+|delete_members | Optional[Boolean] | false |
+|description | Optional[String[1,256]] | false |
+|force | Optional[Boolean] | false |
 |id | String | true |
-|is_replication_destination | Boolean | false |
-|is_write_order_consistent | Boolean | false |
-|name | String | false |
-|protection_policy_id | String | false |
-|volume_ids | Array[String] | false |
+|is_replication_destination | Optional[Boolean] | false |
+|is_write_order_consistent | Optional[Boolean] | false |
+|name | String[1,128] | true |
+|protection_policy_id | Optional[String] | false |
+|volume_ids | Optional[Array[String]] | false |
 
 
 
