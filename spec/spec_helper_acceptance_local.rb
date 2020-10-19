@@ -183,22 +183,19 @@ type powerstore
 url file://#{Dir.getwd}/spec/fixtures/sut.json
 DEVICE
   end
+  inventory = { 'version' => 2, 'targets' => [
+    'uri' => sut['host'],
+    'name' => 'sut',
+    'config' => {
+      'transport' => 'remote',
+    }
+  ]}
+  inventory['targets'][0]['config']['remote'] = sut
+  inventory['targets'][0]['config']['remote']['remote-transport'] = 'powerstore'
+
   File.open('spec/fixtures/inventory.yaml', 'w') do |file|
-    file.puts <<DEVICE
-version: 2
-targets:
-  - uri: localhost
-    name: prism
-    config:
-      transport: remote
-      remote:
-        remote-transport: powerstore
-        user: admin
-        password: admin
-        port: 4010
-        schema: http
-        base_path: ""
-DEVICE
+    file.write inventory.to_yaml
   end
+
 
 end

@@ -30,7 +30,7 @@ powerstore_remote_system {
 |description | Optional[String[1,256]] | false |
 |discovery_chap_mode | Optional[Enum['Disabled','Single','Mutual']] | false |
 |id | String | true |
-|import_chap_info | Optional[Struct[{Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, Optional[initiator_discovery_password] => String, }]] | false |
+|import_chap_info | Optional[Struct[{Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, }]] | false |
 |iscsi_addresses | Optional[Array[String]] | false |
 |management_address | String | true |
 |name | Optional[String[1,128]] | false |

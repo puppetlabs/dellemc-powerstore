@@ -53,7 +53,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     location_history:          {
-      type:      "Optional[Optional[Array[Struct[{Optional[from_appliance_id] => String, Optional[migrated_on] => String, Optional[reason] => Enum['Initial','Manual','Recommended'], Optional[reason_l10n] => String, Optional[to_appliance_id] => String, }]]]]",
+      type:      "Optional[Optional[Array[Struct[{Optional[reason] => Enum['Initial','Manual','Recommended'], Optional[reason_l10n] => String, Optional[to_appliance_id] => String, Optional[from_appliance_id] => String, Optional[migrated_on] => String, }]]]]",
       desc:      "A list of locations. The list of locations includes the move to the current appliance. Filtering on the fields of this embedded resource is not supported.",
     },
     migration_session_id:          {
@@ -70,7 +70,7 @@ Puppet::ResourceApi.register_type(
       desc:      "This is set during creation, and determines resource balancer recommendations.* Same_Appliance - All the members of the group should be on the same appliance in the cluster.* No_Preference - The volumes can be placed on any of the appliances in the cluster. Filtering on the fields of this embedded resource is not supported.",
     },
     protection_data:          {
-      type:      "Optional[Optional[Struct[{Optional[created_by_rule_id] => String, Optional[family_id] => String, Optional[is_app_consistent] => Boolean, Optional[parent_id] => String, Optional[expiration_timestamp] => String, Optional[source_id] => String, Optional[source_timestamp] => String, Optional[copy_signature] => String, Optional[created_by_rule_name] => String, Optional[creator_type] => Enum['User','System','Scheduler'], Optional[creator_type_l10n] => String, }]]]",
+      type:      "Optional[Optional[Struct[{Optional[copy_signature] => String, Optional[created_by_rule_id] => String, Optional[created_by_rule_name] => String, Optional[creator_type] => Enum['User','System','Scheduler'], Optional[family_id] => String, Optional[source_id] => String, Optional[creator_type_l10n] => String, Optional[expiration_timestamp] => String, Optional[is_app_consistent] => Boolean, Optional[parent_id] => String, Optional[source_timestamp] => String, }]]]",
       desc:      "Protection data associated with a resource. Filtering on the fields of this embedded resource is not supported.",
     },
     protection_policy_id:          {

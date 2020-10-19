@@ -91,7 +91,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     protection_data:          {
-      type:      "Optional[Optional[Struct[{Optional[copy_signature] => String, Optional[created_by_rule_id] => String, Optional[creator_type] => Enum['User','System','Scheduler'], Optional[expiration_timestamp] => String, Optional[source_timestamp] => String, Optional[source_id] => String, Optional[created_by_rule_name] => String, Optional[creator_type_l10n] => String, Optional[family_id] => String, Optional[is_app_consistent] => Boolean, Optional[parent_id] => String, }]]]",
+      type:      "Optional[Optional[Struct[{Optional[expiration_timestamp] => String, Optional[source_timestamp] => String, Optional[is_app_consistent] => Boolean, Optional[parent_id] => String, Optional[copy_signature] => String, Optional[created_by_rule_id] => String, Optional[created_by_rule_name] => String, Optional[creator_type] => Enum['User','System','Scheduler'], Optional[creator_type_l10n] => String, Optional[family_id] => String, Optional[source_id] => String, }]]]",
       desc:      "Protection data associated with a resource. Filtering on the fields of this embedded resource is not supported.",
     },
     protection_policy_id:          {

@@ -23,7 +23,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Localized message string corresponding to data_connection_state",
     },
     data_connections:          {
-      type:      "Optional[Optional[Array[Struct[{Optional[status] => Enum['Login_Success','Authentication_Failure','Connection_Refused','Login_Timeout','Network_Error','General_Failure','Login_Success_No_Ports','Discovery_Success','Discovery_Authentication_Failure','Discovery_Connection_Refused','Discovery_Timeout'], Optional[status_l10n] => String, Optional[target_address] => String, Optional[initiator_address] => String, Optional[node_id] => String, }]]]]",
+      type:      "Optional[Optional[Array[Struct[{Optional[status_l10n] => String, Optional[target_address] => String, Optional[initiator_address] => String, Optional[node_id] => String, Optional[status] => Enum['Login_Success','Authentication_Failure','Connection_Refused','Login_Timeout','Network_Error','General_Failure','Login_Success_No_Ports','Discovery_Success','Discovery_Authentication_Failure','Discovery_Connection_Refused','Discovery_Timeout'], }]]]]",
       desc:      "List of data connections from each appliance in the local cluster to iSCSI target IP address. Filtering on the fields of this embedded resource is not supported.",
     },
     data_network_latency:          {
@@ -55,7 +55,7 @@ Puppet::ResourceApi.register_type(
 ",
     },
     import_chap_info:          {
-      type:      "Optional[Optional[Struct[{Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, Optional[initiator_discovery_password] => String, }]]]",
+      type:      "Optional[Optional[Struct[{Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, }]]]",
       desc:      "Information about the initiator, target session, or discovery CHAP secrets.",
       behaviour: :init_only,
     },

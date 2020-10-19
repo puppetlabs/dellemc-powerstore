@@ -6,7 +6,7 @@
 	"parameters":{
 			"add_initiators":{
 			   "description": "The list of initiators to be added. CHAP username and password are optional.",
-			   "type": "Optional[Array[Struct[{port_name => String, port_type => Enum['iSCSI','FC'], Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], }]]]"
+			   "type": "Optional[Array[Struct[{port_type => Enum['iSCSI','FC'], Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], port_name => String, }]]]"
 			},
 			"description":{
 			   "description": "An optional description for the host. The description should not be more than 256 UTF-8 characters long and should not have any unprintable characters.",
@@ -18,7 +18,7 @@
 			},
 			"modify_initiators":{
 			   "description": "Update list of existing initiators, identified by port_name, with new CHAP usernames and/or passwords.",
-			   "type": "Optional[Array[Struct[{Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], Optional[port_name] => String, }]]]"
+			   "type": "Optional[Array[Struct[{Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], Optional[port_name] => String, Optional[chap_mutual_password] => String[12,64], }]]]"
 			},
 			"name":{
 			   "description": "The host name. The name should not be more than 128 UTF-8 characters long and should not have any unprintable characters.",
