@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique ID of the migration recommendation.",
-			   "type": "String"
+				"description": "Unique ID of the migration recommendation.",
+				"type": "String"
 			}
 	},
 

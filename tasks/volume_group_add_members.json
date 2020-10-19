@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique identifier of the volume group.",
-			   "type": "String"
+				"description": "Unique identifier of the volume group.",
+				"type": "String"
 			},
 			"volume_ids":{
-			   "description": "A list of primary or clone volumes to be added to the volume group. Snapshots cannot be added to a volume group. All the volumes should be on the same appliance as the current members of the volume group.This list cannot be empty.",
-			   "type": "Array[String]"
+				"description": "A list of primary or clone volumes to be added to the volume group. Snapshots cannot be added to a volume group. All the volumes should be on the same appliance as the current members of the volume group.This list cannot be empty.",
+				"type": "Array[String]"
 			}
 	},
 

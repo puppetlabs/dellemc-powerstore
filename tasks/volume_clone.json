@@ -5,36 +5,36 @@
 	"remote": true,
 	"parameters":{
 			"description":{
-			   "description": "Description of the clone. This value must contain 128 or fewer printable Unicode characters.",
-			   "type": "Optional[String[1,128]]"
+				"description": "Description of the clone. This value must contain 128 or fewer printable Unicode characters.",
+				"type": "Optional[String[1,128]]"
 			},
 			"host_group_id":{
-			   "description": "Unique identifier of the host group to be attached to the clone. Only one of host_id or host_group_id can be supplied.",
-			   "type": "Optional[String]"
+				"description": "Unique identifier of the host group to be attached to the clone. Only one of host_id or host_group_id can be supplied.",
+				"type": "Optional[String]"
 			},
 			"host_id":{
-			   "description": "Unique identifier of the host to be attached to the clone. Only one of host_id or host_group_id can be supplied.",
-			   "type": "Optional[String]"
+				"description": "Unique identifier of the host to be attached to the clone. Only one of host_id or host_group_id can be supplied.",
+				"type": "Optional[String]"
 			},
 			"id":{
-			   "description": "Unique identifier of the volume or snapshot to create a clone of.",
-			   "type": "String"
+				"description": "Unique identifier of the volume or snapshot to create a clone of.",
+				"type": "String"
 			},
 			"logical_unit_number":{
-			   "description": "Optional logical unit number when creating a mapped volume.  If no host_id or host_group_id is specified, this property is ignored.",
-			   "type": "Optional[Integer[0,16383]]"
+				"description": "Optional logical unit number when creating a mapped volume.  If no host_id or host_group_id is specified, this property is ignored.",
+				"type": "Optional[Integer[0,16383]]"
 			},
 			"name":{
-			   "description": "Name of the clone. This value must contain 128 or fewer printable Unicode characters.",
-			   "type": "Optional[String[1,128]]"
+				"description": "Name of the clone. This value must contain 128 or fewer printable Unicode characters.",
+				"type": "Optional[String[1,128]]"
 			},
 			"performance_policy_id":{
-			   "description": "Unique identifier of the  performance policy.",
-			   "type": "Optional[String]"
+				"description": "Unique identifier of the  performance policy.",
+				"type": "Optional[String]"
 			},
 			"protection_policy_id":{
-			   "description": "Unique identifier of the protection policy.",
-			   "type": "Optional[String]"
+				"description": "Unique identifier of the protection policy.",
+				"type": "Optional[String]"
 			}
 	},
 

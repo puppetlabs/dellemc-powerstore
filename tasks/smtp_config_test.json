@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"email_address":{
-			   "description": "Destination email address for the test.",
-			   "type": "Optional[String]"
+				"description": "Destination email address for the test.",
+				"type": "Optional[String]"
 			},
 			"id":{
-			   "description": "Unique identifier of the SMTP configuration.",
-			   "type": "String"
+				"description": "Unique identifier of the SMTP configuration.",
+				"type": "String"
 			}
 	},
 

@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique identifier of the installed software to query.",
-			   "type": "String"
+				"description": "Unique identifier of the installed software to query.",
+				"type": "String"
 			}
 	},
 

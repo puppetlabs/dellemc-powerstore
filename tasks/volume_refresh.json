@@ -5,20 +5,21 @@
 	"remote": true,
 	"parameters":{
 			"backup_snap_profile":{
-			   "description": "",
-			   "type": "Optional[Hash]"
+				"description": "",
+				"type": "Optional[Hash]"
 			},
 			"create_backup_snap":{
-			   "description": "Indicates whether to create a backup snapshot of the volume before refreshing.",
-			   "type": "Optional[Boolean]"
+				"description": "Indicates whether to create a backup snapshot of the volume before refreshing.",
+				"type": "Optional[Boolean]",
+				"default": "false"
 			},
 			"from_object_id":{
-			   "description": "Unique identifier of the source object of the refresh operation. The refresh operation only refreshes the data.",
-			   "type": "String"
+				"description": "Unique identifier of the source object of the refresh operation. The refresh operation only refreshes the data.",
+				"type": "String"
 			},
 			"id":{
-			   "description": "Unique identifier of volume for which to refresh contents.",
-			   "type": "String"
+				"description": "Unique identifier of volume for which to refresh contents.",
+				"type": "String"
 			}
 	},
 

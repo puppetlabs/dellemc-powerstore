@@ -5,16 +5,16 @@
 	"remote": true,
 	"parameters":{
 			"description":{
-			   "description": "Optional description for the snapshot set.If description is not specified, the description for the snapshot set will not be set.",
-			   "type": "Optional[String]"
+				"description": "Optional description for the snapshot set.If description is not specified, the description for the snapshot set will not be set.",
+				"type": "Optional[String]"
 			},
 			"id":{
-			   "description": "Unique identifier of the volume group.",
-			   "type": "String"
+				"description": "Unique identifier of the volume group.",
+				"type": "String"
 			},
 			"name":{
-			   "description": "Unique name of the snapshot set to be created.",
-			   "type": "String"
+				"description": "Unique name of the snapshot set to be created.",
+				"type": "String"
 			}
 	},
 

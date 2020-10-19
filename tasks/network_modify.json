@@ -5,52 +5,53 @@
 	"remote": true,
 	"parameters":{
 			"add_addresses":{
-			   "description": "IP addresses to add in IPv4 or IPv6 format.",
-			   "type": "Optional[Array[String]]"
+				"description": "IP addresses to add in IPv4 or IPv6 format.",
+				"type": "Optional[Array[String]]"
 			},
 			"cluster_mgmt_address":{
-			   "description": "New cluster management IP address in IPv4 or IPv6 format, corresponding to the network's IP version.This can only be specified when reconfiguring the management network.Caution: Changing the cluster management IP address will lead to losing management sessions through this address.",
-			   "type": "Optional[String]"
+				"description": "New cluster management IP address in IPv4 or IPv6 format, corresponding to the network's IP version.This can only be specified when reconfiguring the management network.Caution: Changing the cluster management IP address will lead to losing management sessions through this address.",
+				"type": "Optional[String]"
 			},
 			"esxi_credentials":{
-			   "description": "Credentials required for re-registering the ESXi hosts in the vCenter.Should be passed only when ESXi host addresses or management network VLAN / prefix / gateway are changedduring the reconfiguration of the PowerStore X model appliances.",
-			   "type": "Optional[Array[Struct[{Optional[node_id] => String, Optional[password] => String, }]]]"
+				"description": "Credentials required for re-registering the ESXi hosts in the vCenter.Should be passed only when ESXi host addresses or management network VLAN / prefix / gateway are changedduring the reconfiguration of the PowerStore X model appliances.",
+				"type": "Optional[Array[Struct[{Optional[node_id] => String, Optional[password] => String, }]]]"
 			},
 			"force":{
-			   "description": "Indicates whether to suppress network validation errors.The option is intended to suppress false errors caused by network environment constraints.Normally the command will fail with an error when:- some of system network ports are in degraded state or have cabling issues,- system top-of-rack switches have configuration issues leading to network unreachability,- network IP addresses have duplicates in the network environment,- or network gateway is unreachable.When force is true, the command will proceed instead.Caution: Only use this option when you are certain your requested settings are correct and you understand why they are failing at this time, and you want to apply the settings anyway.Improper network settings can make the system unreachable for data and management.",
-			   "type": "Optional[Boolean]"
+				"description": "Indicates whether to suppress network validation errors.The option is intended to suppress false errors caused by network environment constraints.Normally the command will fail with an error when:- some of system network ports are in degraded state or have cabling issues,- system top-of-rack switches have configuration issues leading to network unreachability,- network IP addresses have duplicates in the network environment,- or network gateway is unreachable.When force is true, the command will proceed instead.Caution: Only use this option when you are certain your requested settings are correct and you understand why they are failing at this time, and you want to apply the settings anyway.Improper network settings can make the system unreachable for data and management.",
+				"type": "Optional[Boolean]",
+				"default": "false"
 			},
 			"gateway":{
-			   "description": "Network gateway in IPv4 or IPv6 format, corresponding to the network's IP version.Specify empty string to remove the gateway.",
-			   "type": "Optional[String]"
+				"description": "Network gateway in IPv4 or IPv6 format, corresponding to the network's IP version.Specify empty string to remove the gateway.",
+				"type": "Optional[String]"
 			},
 			"id":{
-			   "description": "Unique identifier of the IP network.",
-			   "type": "String"
+				"description": "Unique identifier of the IP network.",
+				"type": "String"
 			},
 			"mtu":{
-			   "description": "Maximum Transmission Unit (MTU) packet size set on network interfaces, in bytes.",
-			   "type": "Optional[Integer[1280,9000]]"
+				"description": "Maximum Transmission Unit (MTU) packet size set on network interfaces, in bytes.",
+				"type": "Optional[Integer[1280,9000]]"
 			},
 			"prefix_length":{
-			   "description": "Network prefix length. (Used for both IPv4 and IPv6).",
-			   "type": "Optional[Integer[1,127]]"
+				"description": "Network prefix length. (Used for both IPv4 and IPv6).",
+				"type": "Optional[Integer[1,127]]"
 			},
 			"remove_addresses":{
-			   "description": "IP addresses to remove in IPv4 or IPv6 format.",
-			   "type": "Optional[Array[String]]"
+				"description": "IP addresses to remove in IPv4 or IPv6 format.",
+				"type": "Optional[Array[String]]"
 			},
 			"storage_discovery_address":{
-			   "description": "New storage discovery IP address in IPv4 or IPv6 format, corresponding to the network's IP version.This can only be specified when reconfiguring the storage network.Specify empty string to remove the storage discovery IP address.",
-			   "type": "Optional[String]"
+				"description": "New storage discovery IP address in IPv4 or IPv6 format, corresponding to the network's IP version.This can only be specified when reconfiguring the storage network.Specify empty string to remove the storage discovery IP address.",
+				"type": "Optional[String]"
 			},
 			"vasa_provider_credentials":{
-			   "description": "Credentials required for re-registering the VASA vendor provider during the reconfiguration of the cluster management IP address.Should be passed only when reconfiguring cluster management IP address.",
-			   "type": "Optional[Struct[{Optional[password] => String, Optional[username] => String, }]]"
+				"description": "Credentials required for re-registering the VASA vendor provider during the reconfiguration of the cluster management IP address.Should be passed only when reconfiguring cluster management IP address.",
+				"type": "Optional[Struct[{Optional[password] => String, Optional[username] => String, }]]"
 			},
 			"vlan_id":{
-			   "description": "VLAN identifier.",
-			   "type": "Optional[Integer[0,4094]]"
+				"description": "VLAN identifier.",
+				"type": "Optional[Integer[0,4094]]"
 			}
 	},
 

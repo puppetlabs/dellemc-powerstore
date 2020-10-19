@@ -5,12 +5,13 @@
 	"remote": true,
 	"parameters":{
 			"force":{
-			   "description": "Indicates whether the cancel import session operation is a normal cancel (true) or a forced stop (false). For a forced stop, the import job terminates without rolling back in source or host down failover scenarios.",
-			   "type": "Optional[Boolean]"
+				"description": "Indicates whether the cancel import session operation is a normal cancel (true) or a forced stop (false). For a forced stop, the import job terminates without rolling back in source or host down failover scenarios.",
+				"type": "Optional[Boolean]",
+				"default": "false"
 			},
 			"id":{
-			   "description": "Unique identifier of the import session",
-			   "type": "String"
+				"description": "Unique identifier of the import session",
+				"type": "String"
 			}
 	},
 

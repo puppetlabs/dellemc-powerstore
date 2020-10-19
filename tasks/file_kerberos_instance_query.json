@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Kerberos service object.",
-			   "type": "String"
+				"description": "Kerberos service object.",
+				"type": "String"
 			}
 	},
 

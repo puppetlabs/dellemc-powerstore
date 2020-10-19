@@ -5,20 +5,21 @@
 	"remote": true,
 	"parameters":{
 			"kdc_addresses":{
-			   "description": "Fully Qualified domain names of the Kerberos Key Distribution Center (KDC) servers. IPv4 and IPv6 addresses are not supported.",
-			   "type": "Array[String[1,255]]"
+				"description": "Fully Qualified domain names of the Kerberos Key Distribution Center (KDC) servers. IPv4 and IPv6 addresses are not supported.",
+				"type": "Array[String[1,255]]"
 			},
 			"nas_server_id":{
-			   "description": "Unique identifier of the associated NAS Server instance that uses this Kerberos object. Only one Kerberos object per NAS Server is supported.",
-			   "type": "String"
+				"description": "Unique identifier of the associated NAS Server instance that uses this Kerberos object. Only one Kerberos object per NAS Server is supported.",
+				"type": "String"
 			},
 			"port_number":{
-			   "description": "KDC servers TCP port.",
-			   "type": "Optional[Integer[0,65535]]"
+				"description": "KDC servers TCP port.",
+				"type": "Optional[Integer[0,65535]]",
+				"default": "88"
 			},
 			"realm":{
-			   "description": "Realm name of the Kerberos Service.",
-			   "type": "String[1,255]"
+				"description": "Realm name of the Kerberos Service.",
+				"type": "String[1,255]"
 			}
 	},
 

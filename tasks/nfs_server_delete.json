@@ -5,12 +5,13 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique identifier of the NFS server.",
-			   "type": "String"
+				"description": "Unique identifier of the NFS server.",
+				"type": "String"
 			},
 			"is_skip_unjoin":{
-			   "description": "Allow to bypass NFS server unjoin. If false delete will fail if secure is enabled and current kdc_type is MS Windows. If secure is enabled either unjoin NFS server before doing delete or set value to true.",
-			   "type": "Optional[Boolean]"
+				"description": "Allow to bypass NFS server unjoin. If false delete will fail if secure is enabled and current kdc_type is MS Windows. If secure is enabled either unjoin NFS server before doing delete or set value to true.",
+				"type": "Optional[Boolean]",
+				"default": "false"
 			}
 	},
 

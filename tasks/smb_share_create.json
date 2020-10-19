@@ -5,44 +5,50 @@
 	"remote": true,
 	"parameters":{
 			"description":{
-			   "description": "SMB share description.",
-			   "type": "Optional[String[0,511]]"
+				"description": "SMB share description.",
+				"type": "Optional[String[0,511]]"
 			},
 			"file_system_id":{
-			   "description": "Unique identifier of the file system on which the SMB Share will be created.",
-			   "type": "String"
+				"description": "Unique identifier of the file system on which the SMB Share will be created.",
+				"type": "String"
 			},
 			"is_abe_enabled":{
-			   "description": "Indicates whether Access-based Enumeration (ABE) is enabled. ABE filters the list of available files and folders on a server to include only those to which the requesting user has access. Values are:- true - ABE is enabled.- false - ABE is disabled.",
-			   "type": "Optional[Boolean]"
+				"description": "Indicates whether Access-based Enumeration (ABE) is enabled. ABE filters the list of available files and folders on a server to include only those to which the requesting user has access. Values are:- true - ABE is enabled.- false - ABE is disabled.",
+				"type": "Optional[Boolean]",
+				"default": "false"
 			},
 			"is_branch_cache_enabled":{
-			   "description": "Indicates whether BranchCace optimization is enabled. BranchCache optimization technology copies content from your main office or hosted cloud content servers and caches the content at branch office locations, allowing client computers at branch offices to access the content locally rather than over the WAN. Values are:- true - BranchCache is enabled.- false - BranchCache is disabled.",
-			   "type": "Optional[Boolean]"
+				"description": "Indicates whether BranchCace optimization is enabled. BranchCache optimization technology copies content from your main office or hosted cloud content servers and caches the content at branch office locations, allowing client computers at branch offices to access the content locally rather than over the WAN. Values are:- true - BranchCache is enabled.- false - BranchCache is disabled.",
+				"type": "Optional[Boolean]",
+				"default": "false"
 			},
 			"is_continuous_availability_enabled":{
-			   "description": "Indicates whether continuous availability for Server Message Block (SMB) 3.0 is enabled for the SMB Share. Values are:- true - Continuous availability for SMB 3.0 is enabled for the SMB Share.- false - Continuous availability for SMB 3.0 is disabled for the SMB Share.",
-			   "type": "Optional[Boolean]"
+				"description": "Indicates whether continuous availability for Server Message Block (SMB) 3.0 is enabled for the SMB Share. Values are:- true - Continuous availability for SMB 3.0 is enabled for the SMB Share.- false - Continuous availability for SMB 3.0 is disabled for the SMB Share.",
+				"type": "Optional[Boolean]",
+				"default": "false"
 			},
 			"is_encryption_enabled":{
-			   "description": "Indicates whether encryption for Server Message Block (SMB) 3.0 is enabled at the shared folder level. Values are:- true - encryption for SMB 3.0 is enabled.- false - encryption for SMB 3.0 is disabled.",
-			   "type": "Optional[Boolean]"
+				"description": "Indicates whether encryption for Server Message Block (SMB) 3.0 is enabled at the shared folder level. Values are:- true - encryption for SMB 3.0 is enabled.- false - encryption for SMB 3.0 is disabled.",
+				"type": "Optional[Boolean]",
+				"default": "false"
 			},
 			"name":{
-			   "description": "SMB share name.",
-			   "type": "String[1,80]"
+				"description": "SMB share name.",
+				"type": "String[1,80]"
 			},
 			"offline_availability":{
-			   "description": "Defines valid states of Offline Availability,   * Manual - Only specified files will be available offline.   * Documents - All files that users open will be available offline.   * Programs - Program will preferably run from the offline cache even when connected to the network. All files that users open will be available offline.   * None - Prevents clients from storing documents and programs in offline cache (default).",
-			   "type": "Optional[Enum['Manual','Documents','Programs','None']]"
+				"description": "Defines valid states of Offline Availability,   * Manual - Only specified files will be available offline.   * Documents - All files that users open will be available offline.   * Programs - Program will preferably run from the offline cache even when connected to the network. All files that users open will be available offline.   * None - Prevents clients from storing documents and programs in offline cache (default).",
+				"type": "Optional[Enum['Manual','Documents','Programs','None']]",
+				"default": "None"
 			},
 			"path":{
-			   "description": "Local path to the file system or any existing sub-folder of the file system that is shared over the network.This path is relative to the NAS Server and must start with the filesystem's mountpoint path, which is the filesystem name.For example to share the top-level of a filesystem named svr1fs1, which is on the /svr1fs1 mountpoint of the NAS Server, use /svr1fs1 in the path parameter.SMB shares allow you to create multiple network shares for the same local path.",
-			   "type": "String"
+				"description": "Local path to the file system or any existing sub-folder of the file system that is shared over the network.This path is relative to the NAS Server and must start with the filesystem's mountpoint path, which is the filesystem name.For example to share the top-level of a filesystem named svr1fs1, which is on the /svr1fs1 mountpoint of the NAS Server, use /svr1fs1 in the path parameter.SMB shares allow you to create multiple network shares for the same local path.",
+				"type": "String"
 			},
 			"umask":{
-			   "description": "The default UNIX umask for new files created on the Share. If not specified the umask defaults to 022.",
-			   "type": "Optional[String]"
+				"description": "The default UNIX umask for new files created on the Share. If not specified the umask defaults to 022.",
+				"type": "Optional[String]",
+				"default": "022"
 			}
 	},
 

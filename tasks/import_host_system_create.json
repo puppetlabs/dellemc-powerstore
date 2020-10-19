@@ -5,40 +5,40 @@
 	"remote": true,
 	"parameters":{
 			"agent_address":{
-			   "description": "Hostname or IPv4 address of the import host system.",
-			   "type": "String"
+				"description": "Hostname or IPv4 address of the import host system.",
+				"type": "String"
 			},
 			"agent_port":{
-			   "description": "TCP port of the import host system.",
-			   "type": "Integer[0,65535]"
+				"description": "TCP port of the import host system.",
+				"type": "Integer[0,65535]"
 			},
 			"chap_mutual_password":{
-			   "description": "Password for mutual CHAP authentication. This password is required when the cluster is using mutual authentication CHAP mode.",
-			   "type": "Optional[String]"
+				"description": "Password for mutual CHAP authentication. This password is required when the cluster is using mutual authentication CHAP mode.",
+				"type": "Optional[String]"
 			},
 			"chap_mutual_username":{
-			   "description": "Username for mutual CHAP authentication. This username is required when the cluster is using mutual authentication CHAP mode.",
-			   "type": "Optional[String]"
+				"description": "Username for mutual CHAP authentication. This username is required when the cluster is using mutual authentication CHAP mode.",
+				"type": "Optional[String]"
 			},
 			"chap_single_password":{
-			   "description": "Password for single CHAP authentication. This password is required when the cluster is using single authentication CHAP mode.",
-			   "type": "Optional[String]"
+				"description": "Password for single CHAP authentication. This password is required when the cluster is using single authentication CHAP mode.",
+				"type": "Optional[String]"
 			},
 			"chap_single_username":{
-			   "description": "Username for single CHAP authentication. This username is required when the cluster is using single authentication CHAP mode.",
-			   "type": "Optional[String]"
+				"description": "Username for single CHAP authentication. This username is required when the cluster is using single authentication CHAP mode.",
+				"type": "Optional[String]"
 			},
 			"os_type":{
-			   "description": "Operating system of the import host system. Valid values are: * Windows - Windows.  * Linux - Linux.  * ESXi - ESXi.  * Unknown - Operating system of the host system is unknown to PowerStore.",
-			   "type": "Enum['Windows','Linux','ESXi','Unknown']"
+				"description": "Operating system of the import host system. Valid values are: * Windows - Windows.  * Linux - Linux.  * ESXi - ESXi.  * Unknown - Operating system of the host system is unknown to PowerStore.",
+				"type": "Enum['Windows','Linux','ESXi','Unknown']"
 			},
 			"password":{
-			   "description": "Password for the specified username.",
-			   "type": "String"
+				"description": "Password for the specified username.",
+				"type": "String"
 			},
 			"user_name":{
-			   "description": "Username for the import host system.",
-			   "type": "String"
+				"description": "Username for the import host system.",
+				"type": "String"
 			}
 	},
 

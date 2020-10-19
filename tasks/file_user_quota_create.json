@@ -5,36 +5,36 @@
 	"remote": true,
 	"parameters":{
 			"file_system_id":{
-			   "description": "Unique identifier of the filesystem in which the new user quota will be created.",
-			   "type": "String"
+				"description": "Unique identifier of the filesystem in which the new user quota will be created.",
+				"type": "String"
 			},
 			"hard_limit":{
-			   "description": "Hard limit of the user quota, in bytes. No hard limit when set to 0. This value can be used to compute amount of space that is consumed without limiting the space. Value is rounded up to match the physical block size of the filesystem.",
-			   "type": "Optional[Integer[0,9223372036854775807]]"
+				"description": "Hard limit of the user quota, in bytes. No hard limit when set to 0. This value can be used to compute amount of space that is consumed without limiting the space. Value is rounded up to match the physical block size of the filesystem.",
+				"type": "Optional[Integer[0,9223372036854775807]]"
 			},
 			"soft_limit":{
-			   "description": "Soft limit of the user quota, in bytes. No hard limit when set to 0. Value is rounded up to match the physical block size of the filesystem.",
-			   "type": "Optional[Integer[0,9223372036854775807]]"
+				"description": "Soft limit of the user quota, in bytes. No hard limit when set to 0. Value is rounded up to match the physical block size of the filesystem.",
+				"type": "Optional[Integer[0,9223372036854775807]]"
 			},
 			"tree_quota_id":{
-			   "description": "Unique identifier of the tree quota in which the new user quota will be created.",
-			   "type": "Optional[String]"
+				"description": "Unique identifier of the tree quota in which the new user quota will be created.",
+				"type": "Optional[String]"
 			},
 			"uid":{
-			   "description": "Unix user identifier (UID) of the user. Preferred identifier.",
-			   "type": "Optional[Integer[1,4294967294]]"
+				"description": "Unix user identifier (UID) of the user. Preferred identifier.",
+				"type": "Optional[Integer[1,4294967294]]"
 			},
 			"unix_name":{
-			   "description": "Unix username. Identifers are exclusive. Only one of the four identifiers among 'user uid' / 'unix username' / 'windows username' / 'windows SID' can be used at a time.",
-			   "type": "Optional[String]"
+				"description": "Unix username. Identifers are exclusive. Only one of the four identifiers among 'user uid' / 'unix username' / 'windows username' / 'windows SID' can be used at a time.",
+				"type": "Optional[String]"
 			},
 			"windows_name":{
-			   "description": "Windows username. The format is domain\\user for the domain user. Identifers are exclusive. Only one of the four identifiers among 'user uid' / 'unix username' / 'windows username' / 'windows SID' can be used at a time.",
-			   "type": "Optional[String]"
+				"description": "Windows username. The format is domain\\user for the domain user. Identifers are exclusive. Only one of the four identifiers among 'user uid' / 'unix username' / 'windows username' / 'windows SID' can be used at a time.",
+				"type": "Optional[String]"
 			},
 			"windows_sid":{
-			   "description": "Windows Security Identifier of the user. Identifers are exclusive. Only one of the four identifiers among 'user uid' / 'unix username' / 'windows username' / 'windows SID' can be used at a time.",
-			   "type": "Optional[String]"
+				"description": "Windows Security Identifier of the user. Identifers are exclusive. Only one of the four identifiers among 'user uid' / 'unix username' / 'windows username' / 'windows SID' can be used at a time.",
+				"type": "Optional[String]"
 			}
 	},
 

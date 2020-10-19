@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique identifier of the software package to delete.",
-			   "type": "String"
+				"description": "Unique identifier of the software package to delete.",
+				"type": "String"
 			}
 	},
 

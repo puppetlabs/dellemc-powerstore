@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Event Id",
-			   "type": "String"
+				"description": "Event Id",
+				"type": "String"
 			}
 	},
 

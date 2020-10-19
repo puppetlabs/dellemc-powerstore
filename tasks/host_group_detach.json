@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique id of the host group.",
-			   "type": "String"
+				"description": "Unique id of the host group.",
+				"type": "String"
 			},
 			"volume_id":{
-			   "description": "Volume to detach.",
-			   "type": "String"
+				"description": "Volume to detach.",
+				"type": "String"
 			}
 	},
 

@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique identifier of the appliance.",
-			   "type": "String"
+				"description": "Unique identifier of the appliance.",
+				"type": "String"
 			},
 			"name":{
-			   "description": "New name of the appliance.",
-			   "type": "String"
+				"description": "New name of the appliance.",
+				"type": "String"
 			}
 	},
 

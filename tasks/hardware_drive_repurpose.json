@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Identifier of the drive to repurpose.",
-			   "type": "String"
+				"description": "Identifier of the drive to repurpose.",
+				"type": "String"
 			},
 			"psid":{
-			   "description": "An alpha-numeric string that can be found on the physical label of the drive to repurpose. This is needed to validate that the user has physical control of the drive before performing the operation.",
-			   "type": "String"
+				"description": "An alpha-numeric string that can be found on the physical label of the drive to repurpose. This is needed to validate that the user has physical control of the drive before performing the operation.",
+				"type": "String"
 			}
 	},
 

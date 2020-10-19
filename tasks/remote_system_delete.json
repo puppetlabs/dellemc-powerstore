@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique identifier of the remote system.",
-			   "type": "String"
+				"description": "Unique identifier of the remote system.",
+				"type": "String"
 			}
 	},
 

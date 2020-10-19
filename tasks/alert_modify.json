@@ -5,16 +5,16 @@
 	"remote": true,
 	"parameters":{
 			"acknowledged_severity":{
-			   "description": "Possible severities.",
-			   "type": "Optional[Enum['None','Info','Minor','Major','Critical']]"
+				"description": "Possible severities.",
+				"type": "Optional[Enum['None','Info','Minor','Major','Critical']]"
 			},
 			"id":{
-			   "description": "Unique identifier of the specific alert.",
-			   "type": "String"
+				"description": "Unique identifier of the specific alert.",
+				"type": "String"
 			},
 			"is_acknowledged":{
-			   "description": "Indicates whether the alert has been acknowledged.",
-			   "type": "Boolean"
+				"description": "Indicates whether the alert has been acknowledged.",
+				"type": "Boolean"
 			}
 	},
 

@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"scope":{
-			   "description": "Scope of the certificate to be decommissioned, for example, remote system global id, serial number and such.",
-			   "type": "String"
+				"description": "Scope of the certificate to be decommissioned, for example, remote system global id, serial number and such.",
+				"type": "String"
 			},
 			"service":{
-			   "description": "Type of the service for which the certificate is used:* Management HTTP - Management Web server* Replication HTTP - Remote Replication service* VASA HTTP - VASA provider service* Import HTTP - External web service",
-			   "type": "Enum['Management_HTTP','Replication_HTTP','VASA_HTTP','Import_HTTP']"
+				"description": "Type of the service for which the certificate is used:* Management HTTP - Management Web server* Replication HTTP - Remote Replication service* VASA HTTP - VASA provider service* Import HTTP - External web service",
+				"type": "Enum['Management_HTTP','Replication_HTTP','VASA_HTTP','Import_HTTP']"
 			}
 	},
 

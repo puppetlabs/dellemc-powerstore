@@ -5,12 +5,13 @@
 	"remote": true,
 	"parameters":{
 			"delete_snaps":{
-			   "description": "Specify whether all snapshots previously created by this rule should also be deleted when this rule is removed.",
-			   "type": "Optional[Boolean]"
+				"description": "Specify whether all snapshots previously created by this rule should also be deleted when this rule is removed.",
+				"type": "Optional[Boolean]",
+				"default": "false"
 			},
 			"id":{
-			   "description": "Unique identifier of the snapshot rule.",
-			   "type": "String"
+				"description": "Unique identifier of the snapshot rule.",
+				"type": "String"
 			}
 	},
 

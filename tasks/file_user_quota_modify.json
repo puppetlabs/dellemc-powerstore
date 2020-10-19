@@ -5,16 +5,16 @@
 	"remote": true,
 	"parameters":{
 			"hard_limit":{
-			   "description": "Hard limit of the user quota, in bytes. No hard limit when set to 0. This value can be used to compute amount of space that is consumed without limiting the space. Value is rounded up to match the physical block size of the filesystem.",
-			   "type": "Optional[Integer[0,9223372036854775807]]"
+				"description": "Hard limit of the user quota, in bytes. No hard limit when set to 0. This value can be used to compute amount of space that is consumed without limiting the space. Value is rounded up to match the physical block size of the filesystem.",
+				"type": "Optional[Integer[0,9223372036854775807]]"
 			},
 			"id":{
-			   "description": "Unique identifier of the file user quota.",
-			   "type": "String"
+				"description": "Unique identifier of the file user quota.",
+				"type": "String"
 			},
 			"soft_limit":{
-			   "description": "Soft limit of the user quota, in bytes. No hard limit when set to 0. Value is rounded up to match the physical block size of the filesystem.",
-			   "type": "Optional[Integer[0,9223372036854775807]]"
+				"description": "Soft limit of the user quota, in bytes. No hard limit when set to 0. Value is rounded up to match the physical block size of the filesystem.",
+				"type": "Optional[Integer[0,9223372036854775807]]"
 			}
 	},
 

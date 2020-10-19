@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique identifier of the instance.",
-			   "type": "String"
+				"description": "Unique identifier of the instance.",
+				"type": "String"
 			},
 			"is_ssh_enabled":{
-			   "description": "Current SSH service access state.* true  - Enables SSH access* false - Disables SSH access",
-			   "type": "Boolean"
+				"description": "Current SSH service access state.* true  - Enables SSH access* false - Disables SSH access",
+				"type": "Boolean"
 			}
 	},
 

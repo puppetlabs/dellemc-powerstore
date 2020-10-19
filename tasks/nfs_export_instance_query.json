@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "NFS Export object id.",
-			   "type": "String"
+				"description": "NFS Export object id.",
+				"type": "String"
 			}
 	},
 

@@ -5,48 +5,48 @@
 	"remote": true,
 	"parameters":{
 			"data_network_latency":{
-			   "description": "Network latency choices for a remote system. Replication traffic can be tuned for higher efficiency depending on the expected network latency. This will only be used when the remote system type is PowerStore.* Low                      - Less than 5 milliseconds.* High                     - More than 5 milliseconds.",
-			   "type": "Optional[Enum['Low','High']]"
+				"description": "Network latency choices for a remote system. Replication traffic can be tuned for higher efficiency depending on the expected network latency. This will only be used when the remote system type is PowerStore.* Low                      - Less than 5 milliseconds.* High                     - More than 5 milliseconds.",
+				"type": "Optional[Enum['Low','High']]"
 			},
 			"description":{
-			   "description": "User-specified description of the remote system.",
-			   "type": "Optional[String[1,256]]"
+				"description": "User-specified description of the remote system.",
+				"type": "Optional[String[1,256]]"
 			},
 			"discovery_chap_mode":{
-			   "description": "Challenge Handshake Authentication Protocol (CHAP) status:* Disabled     * Single       - Enabled for initiator authentication.* Mutual       - Enabled for initiator and target authentication.",
-			   "type": "Optional[Enum['Disabled','Single','Mutual']]"
+				"description": "Challenge Handshake Authentication Protocol (CHAP) status:* Disabled     * Single       - Enabled for initiator authentication.* Mutual       - Enabled for initiator and target authentication.",
+				"type": "Optional[Enum['Disabled','Single','Mutual']]"
 			},
 			"import_chap_info":{
-			   "description": "Information about the initiator, target session, or discovery CHAP secrets.",
-			   "type": "Optional[Struct[{Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, }]]"
+				"description": "Information about the initiator, target session, or discovery CHAP secrets.",
+				"type": "Optional[Struct[{Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, }]]"
 			},
 			"iscsi_addresses":{
-			   "description": "iSCSI target IP addresses for the data connection to the remote system. Must be specified when creating a non-PowerStore remote system.",
-			   "type": "Optional[Array[String]]"
+				"description": "iSCSI target IP addresses for the data connection to the remote system. Must be specified when creating a non-PowerStore remote system.",
+				"type": "Optional[Array[String]]"
 			},
 			"management_address":{
-			   "description": "Management IP address of the remote system instance. Only IPv4 is supported for non-PowerStore remote systems.Both IPv4 and IPv6 are supported for PowerStore remote systems.",
-			   "type": "String"
+				"description": "Management IP address of the remote system instance. Only IPv4 is supported for non-PowerStore remote systems.Both IPv4 and IPv6 are supported for PowerStore remote systems.",
+				"type": "String"
 			},
 			"name":{
-			   "description": "User-specified name of the remote system. Used only for non-PowerStore systems. This value must contain 128 or fewer printable Unicode characters.",
-			   "type": "Optional[String[1,128]]"
+				"description": "User-specified name of the remote system. Used only for non-PowerStore systems. This value must contain 128 or fewer printable Unicode characters.",
+				"type": "Optional[String[1,128]]"
 			},
 			"remote_password":{
-			   "description": "Password used to access the remote system. Used only for non-PowerStore systems.",
-			   "type": "Optional[String]"
+				"description": "Password used to access the remote system. Used only for non-PowerStore systems.",
+				"type": "Optional[String]"
 			},
 			"remote_username":{
-			   "description": "Username used to access the remote system. Used only for non-PowerStore systems.",
-			   "type": "Optional[String]"
+				"description": "Username used to access the remote system. Used only for non-PowerStore systems.",
+				"type": "Optional[String]"
 			},
 			"session_chap_mode":{
-			   "description": "Challenge Handshake Authentication Protocol (CHAP) status:* Disabled     * Single       - Enabled for initiator authentication.* Mutual       - Enabled for initiator and target authentication.",
-			   "type": "Optional[Enum['Disabled','Single','Mutual']]"
+				"description": "Challenge Handshake Authentication Protocol (CHAP) status:* Disabled     * Single       - Enabled for initiator authentication.* Mutual       - Enabled for initiator and target authentication.",
+				"type": "Optional[Enum['Disabled','Single','Mutual']]"
 			},
 			"type":{
-			   "description": "Remote system connection type between the local system and the following remote systems:      * PowerStore               - PowerStore system* Unity                    - Unity import system* VNX                      - VNX import system* PS_Equallogic            - PS EqualLogic import system* Storage_Center           - Storage Center import system* XtremIO                  - XtremIO import system",
-			   "type": "Optional[Enum['PowerStore','Unity','VNX','PS_Equallogic','Storage_Center','XtremIO']]"
+				"description": "Remote system connection type between the local system and the following remote systems:      * PowerStore               - PowerStore system* Unity                    - Unity import system* VNX                      - VNX import system* PS_Equallogic            - PS EqualLogic import system* Storage_Center           - Storage Center import system* XtremIO                  - XtremIO import system",
+				"type": "Optional[Enum['PowerStore','Unity','VNX','PS_Equallogic','Storage_Center','XtremIO']]"
 			}
 	},
 

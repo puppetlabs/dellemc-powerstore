@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"addresses":{
-			   "description": "NTP server addresses. This list may contain IPv4 addresses, IPv6 addresses, and host names.",
-			   "type": "Array[String]"
+				"description": "NTP server addresses. This list may contain IPv4 addresses, IPv6 addresses, and host names.",
+				"type": "Array[String]"
 			},
 			"id":{
-			   "description": "Unique identifier of the NTP setting.",
-			   "type": "String"
+				"description": "Unique identifier of the NTP setting.",
+				"type": "String"
 			}
 	},
 

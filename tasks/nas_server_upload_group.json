@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"body":{
-			   "description": "Upload NAS server group file.",
-			   "type": "Optional[String]"
+				"description": "Upload NAS server group file.",
+				"type": "Optional[String]"
 			},
 			"id":{
-			   "description": "Unique identifier of the NAS server.",
-			   "type": "String"
+				"description": "Unique identifier of the NAS server.",
+				"type": "String"
 			}
 	},
 

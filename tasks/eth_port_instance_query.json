@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Ethernet front-end port instance identifier.",
-			   "type": "String"
+				"description": "Ethernet front-end port instance identifier.",
+				"type": "String"
 			}
 	},
 

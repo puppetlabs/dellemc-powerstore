@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique id of the cluster.",
-			   "type": "String"
+				"description": "Unique id of the cluster.",
+				"type": "String"
 			},
 			"metric_type":{
-			   "description": "Metric type to be forecast.",
-			   "type": "Enum['Physical_Space_Used_One_Day']"
+				"description": "Metric type to be forecast.",
+				"type": "Enum['Physical_Space_Used_One_Day']"
 			}
 	},
 

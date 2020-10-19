@@ -5,16 +5,16 @@
 	"remote": true,
 	"parameters":{
 			"description":{
-			   "description": "An optional description for the host group. The description should not have any unprintable characters.",
-			   "type": "Optional[String[1,256]]"
+				"description": "An optional description for the host group. The description should not have any unprintable characters.",
+				"type": "Optional[String[1,256]]"
 			},
 			"host_ids":{
-			   "description": "",
-			   "type": "Array[String]"
+				"description": "",
+				"type": "Array[String]"
 			},
 			"name":{
-			   "description": "The host group name. The name should not be more than 128 UTF-8 characters long and should not have any unprintable characters.",
-			   "type": "String[1,128]"
+				"description": "The host group name. The name should not be more than 128 UTF-8 characters long and should not have any unprintable characters.",
+				"type": "String[1,128]"
 			}
 	},
 

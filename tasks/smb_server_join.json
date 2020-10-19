@@ -5,24 +5,25 @@
 	"remote": true,
 	"parameters":{
 			"domain_password":{
-			   "description": "Password of the domain-user specified to join the Active Directory domain.",
-			   "type": "String"
+				"description": "Password of the domain-user specified to join the Active Directory domain.",
+				"type": "String"
 			},
 			"domain_user_name":{
-			   "description": "Name of a domain-user with sufficient privileges to join the Active Directory domain.",
-			   "type": "String"
+				"description": "Name of a domain-user with sufficient privileges to join the Active Directory domain.",
+				"type": "String"
 			},
 			"id":{
-			   "description": "Unique identifier of the SMB server.",
-			   "type": "String"
+				"description": "Unique identifier of the SMB server.",
+				"type": "String"
 			},
 			"organizational_unit":{
-			   "description": "Organizational unit of the SMB server in Active Directory, if applicable.",
-			   "type": "Optional[String]"
+				"description": "Organizational unit of the SMB server in Active Directory, if applicable.",
+				"type": "Optional[String]"
 			},
 			"reuse_computer_account":{
-			   "description": "If set to yes: try to reuse the existing SMB server account in the Active Directory when joining.",
-			   "type": "Optional[Boolean]"
+				"description": "If set to yes: try to reuse the existing SMB server account in the Active Directory when joining.",
+				"type": "Optional[Boolean]",
+				"default": "false"
 			}
 	},
 

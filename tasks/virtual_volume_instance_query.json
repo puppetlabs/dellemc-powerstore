@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Id of the virtual volume.",
-			   "type": "String"
+				"description": "Id of the virtual volume.",
+				"type": "String"
 			}
 	},
 

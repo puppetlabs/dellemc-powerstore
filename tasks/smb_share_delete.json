@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "SMB Share object id.",
-			   "type": "String"
+				"description": "SMB Share object id.",
+				"type": "String"
 			}
 	},
 

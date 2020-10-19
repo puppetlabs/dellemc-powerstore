@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Storage container ID.",
-			   "type": "String"
+				"description": "Storage container ID.",
+				"type": "String"
 			}
 	},
 

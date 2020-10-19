@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique identifier of the system security configuration.",
-			   "type": "String"
+				"description": "Unique identifier of the system security configuration.",
+				"type": "String"
 			}
 	},
 

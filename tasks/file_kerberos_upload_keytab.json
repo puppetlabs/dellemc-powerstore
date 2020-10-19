@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"body":{
-			   "description": "",
-			   "type": "Optional[String]"
+				"description": "",
+				"type": "Optional[String]"
 			},
 			"id":{
-			   "description": "Unique identifier of the Kerberos service object.",
-			   "type": "String"
+				"description": "Unique identifier of the Kerberos service object.",
+				"type": "String"
 			}
 	},
 

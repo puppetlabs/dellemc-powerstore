@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "File system snapshot id.",
-			   "type": "String"
+				"description": "File system snapshot id.",
+				"type": "String"
 			}
 	},
 

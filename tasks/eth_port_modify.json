@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique identifier of the port.",
-			   "type": "String"
+				"description": "Unique identifier of the port.",
+				"type": "String"
 			},
 			"requested_speed":{
-			   "description": "Supported Ethernet front-end port transmission speeds.For the current_speed attribute, these values show the current transmission speed on the port.For the requested_speed attribute, these values show the transmission speed set by the user. A requested speed of Auto means that the current speed value will be automatically detected.If this file is updated, also update FrontEndPortSpeedEnum.yaml* Auto - the speed value is automatically detected* 10_Mbps - 10 Megabits per second* 100_Mbps - 100 Megabits per second* 1_Gbps - 1 Gigabits per second* 10_Gbps - 10 Gigabits per second* 25_Gbps - 25 Gigabits per second* 40_Gbps - 40 Gigabits per second",
-			   "type": "Enum['Auto','10_Mbps','100_Mbps','1_Gbps','10_Gbps','25_Gbps','40_Gbps']"
+				"description": "Supported Ethernet front-end port transmission speeds.For the current_speed attribute, these values show the current transmission speed on the port.For the requested_speed attribute, these values show the transmission speed set by the user. A requested speed of Auto means that the current speed value will be automatically detected.If this file is updated, also update FrontEndPortSpeedEnum.yaml* Auto - the speed value is automatically detected* 10_Mbps - 10 Megabits per second* 100_Mbps - 100 Megabits per second* 1_Gbps - 1 Gigabits per second* 10_Gbps - 10 Gigabits per second* 25_Gbps - 25 Gigabits per second* 40_Gbps - 40 Gigabits per second",
+				"type": "Enum['Auto','10_Mbps','100_Mbps','1_Gbps','10_Gbps','25_Gbps','40_Gbps']"
 			}
 	},
 

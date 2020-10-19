@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique identifier of the FC front-end port.",
-			   "type": "String"
+				"description": "Unique identifier of the FC front-end port.",
+				"type": "String"
 			}
 	},
 

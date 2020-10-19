@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"license_file":{
-			   "description": "The file to upload containing the software license to install the license on the cluster.",
-			   "type": "Optional[String]"
+				"description": "The file to upload containing the software license to install the license on the cluster.",
+				"type": "Optional[String]"
 			}
 	},
 

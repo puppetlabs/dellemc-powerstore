@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique id of the host.",
-			   "type": "String"
+				"description": "Unique id of the host.",
+				"type": "String"
 			}
 	},
 

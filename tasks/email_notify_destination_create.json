@@ -5,24 +5,24 @@
 	"remote": true,
 	"parameters":{
 			"email_address":{
-			   "description": "Email address to receive notifications.",
-			   "type": "String"
+				"description": "Email address to receive notifications.",
+				"type": "String"
 			},
 			"notify_critical":{
-			   "description": "Whether to send notifications for critical alerts.",
-			   "type": "Optional[Boolean]"
+				"description": "Whether to send notifications for critical alerts.",
+				"type": "Optional[Boolean]"
 			},
 			"notify_info":{
-			   "description": "Whether send notifications for informational alerts.",
-			   "type": "Optional[Boolean]"
+				"description": "Whether send notifications for informational alerts.",
+				"type": "Optional[Boolean]"
 			},
 			"notify_major":{
-			   "description": "Whether to send notifications for major alerts.",
-			   "type": "Optional[Boolean]"
+				"description": "Whether to send notifications for major alerts.",
+				"type": "Optional[Boolean]"
 			},
 			"notify_minor":{
-			   "description": "Whether to send notifications for minor alerts.",
-			   "type": "Optional[Boolean]"
+				"description": "Whether to send notifications for minor alerts.",
+				"type": "Optional[Boolean]"
 			}
 	},
 

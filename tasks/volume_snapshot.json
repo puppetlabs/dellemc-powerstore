@@ -5,28 +5,28 @@
 	"remote": true,
 	"parameters":{
 			"creator_type":{
-			   "description": "Creator type of the storage resource. * User - A resource created by a user. * System - A resource created by the replication engine. * Scheduler - A resource created by the snapshot scheduler.",
-			   "type": "Optional[Enum['User','System','Scheduler']]"
+				"description": "Creator type of the storage resource. * User - A resource created by a user. * System - A resource created by the replication engine. * Scheduler - A resource created by the snapshot scheduler.",
+				"type": "Optional[Enum['User','System','Scheduler']]"
 			},
 			"description":{
-			   "description": "Description of the snapshot. This value must contain 128 or fewer printable Unicode characters.",
-			   "type": "Optional[String[1,128]]"
+				"description": "Description of the snapshot. This value must contain 128 or fewer printable Unicode characters.",
+				"type": "Optional[String[1,128]]"
 			},
 			"expiration_timestamp":{
-			   "description": "Expiration time of the snapshot. Expired snapshots are deleted by the snapshot aging service that runs periodically in the background. If not specified, the snapshot never expires.Use a maximum timestamp value to set an expiration to never expire.",
-			   "type": "Optional[String]"
+				"description": "Expiration time of the snapshot. Expired snapshots are deleted by the snapshot aging service that runs periodically in the background. If not specified, the snapshot never expires.Use a maximum timestamp value to set an expiration to never expire.",
+				"type": "Optional[String]"
 			},
 			"id":{
-			   "description": "Unique identifier of the volume or clone to create a snapshot of.",
-			   "type": "String"
+				"description": "Unique identifier of the volume or clone to create a snapshot of.",
+				"type": "String"
 			},
 			"name":{
-			   "description": "Name of the snapshot to be created. This value must contain 128 or fewer printable Unicode characters. The default name of the volume snapshot is the date and time when the snapshot is taken.",
-			   "type": "Optional[String[1,128]]"
+				"description": "Name of the snapshot to be created. This value must contain 128 or fewer printable Unicode characters. The default name of the volume snapshot is the date and time when the snapshot is taken.",
+				"type": "Optional[String[1,128]]"
 			},
 			"performance_policy_id":{
-			   "description": "",
-			   "type": "Optional[String]"
+				"description": "",
+				"type": "Optional[String]"
 			}
 	},
 

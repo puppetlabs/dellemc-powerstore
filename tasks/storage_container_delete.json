@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"force":{
-			   "description": "Normally, deletion of a storage container that is mounted or still contains virtual volumes will be rejected. This option overrides that error and allows the delete to continue. Use with great caution.",
-			   "type": "Optional[Boolean]"
+				"description": "Normally, deletion of a storage container that is mounted or still contains virtual volumes will be rejected. This option overrides that error and allows the delete to continue. Use with great caution.",
+				"type": "Optional[Boolean]"
 			},
 			"id":{
-			   "description": "Storage container ID.",
-			   "type": "String"
+				"description": "Storage container ID.",
+				"type": "String"
 			}
 	},
 

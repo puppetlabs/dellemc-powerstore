@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "The id of the CHAP configuration object (always '0').",
-			   "type": "String"
+				"description": "The id of the CHAP configuration object (always '0').",
+				"type": "String"
 			}
 	},
 

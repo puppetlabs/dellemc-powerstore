@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique id of hardware component to get.",
-			   "type": "String"
+				"description": "Unique id of hardware component to get.",
+				"type": "String"
 			}
 	},
 

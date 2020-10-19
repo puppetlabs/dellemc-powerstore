@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Performance Rule id.",
-			   "type": "String"
+				"description": "Performance Rule id.",
+				"type": "String"
 			}
 	},
 

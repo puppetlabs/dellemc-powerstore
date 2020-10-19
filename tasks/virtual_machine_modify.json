@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "Unique identifier of the virtual machine to modify.",
-			   "type": "String"
+				"description": "Unique identifier of the virtual machine to modify.",
+				"type": "String"
 			},
 			"protection_policy_id":{
-			   "description": "Unique identifier of the protection policy.",
-			   "type": "Optional[String]"
+				"description": "Unique identifier of the protection policy.",
+				"type": "Optional[String]"
 			}
 	},
 

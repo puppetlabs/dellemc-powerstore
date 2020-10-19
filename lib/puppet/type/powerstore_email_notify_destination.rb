@@ -13,31 +13,30 @@ Puppet::ResourceApi.register_type(
       desc: "Whether this resource should be present or absent on the target system.",
       default: "present",
     },
-
-    email_address:          { 
-      type:      "String",
-      desc:      "Email address to receive notifications.",
+  email_address:          { 
+    type:      "String",
+    desc:      "Email address to receive notifications.",
     },
-    id:          { 
-      type:      "String",
-      desc:      "Unique identifier of the email notification destination.",
-      behaviour: :namevar,
+  id:          { 
+    type:      "String",
+    desc:      "Unique identifier of the email notification destination.",
+    behaviour: :namevar,
     },
-    notify_critical:          { 
-      type:      "Optional[Boolean]",
-      desc:      "Whether to send notifications for critical alerts.",
+  notify_critical:          { 
+    type:      "Optional[Boolean]",
+    desc:      "Whether to send notifications for critical alerts.",
     },
-    notify_info:          { 
-      type:      "Optional[Boolean]",
-      desc:      "Whether send notifications for informational alerts.",
+  notify_info:          { 
+    type:      "Optional[Boolean]",
+    desc:      "Whether send notifications for informational alerts.",
     },
-    notify_major:          { 
-      type:      "Optional[Boolean]",
-      desc:      "Whether to send notifications for major alerts.",
+  notify_major:          { 
+    type:      "Optional[Boolean]",
+    desc:      "Whether to send notifications for major alerts.",
     },
-    notify_minor:          { 
-      type:      "Optional[Boolean]",
-      desc:      "Whether to send notifications for minor alerts.",
+  notify_minor:          { 
+    type:      "Optional[Boolean]",
+    desc:      "Whether to send notifications for minor alerts.",
     },
   },
   autorequires: {

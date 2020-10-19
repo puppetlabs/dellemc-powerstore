@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"body":{
-			   "description": "Upload virus checker configuration file.",
-			   "type": "Optional[String]"
+				"description": "Upload virus checker configuration file.",
+				"type": "Optional[String]"
 			},
 			"id":{
-			   "description": "Unique identifier of the virus checker instance.",
-			   "type": "String"
+				"description": "Unique identifier of the virus checker instance.",
+				"type": "String"
 			}
 	},
 

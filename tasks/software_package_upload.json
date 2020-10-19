@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"upload_file":{
-			   "description": "Name of the software package file to upload.",
-			   "type": "Optional[String]"
+				"description": "Name of the software package file to upload.",
+				"type": "Optional[String]"
 			}
 	},
 

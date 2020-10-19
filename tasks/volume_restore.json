@@ -5,20 +5,21 @@
 	"remote": true,
 	"parameters":{
 			"backup_snap_profile":{
-			   "description": "",
-			   "type": "Optional[Hash]"
+				"description": "",
+				"type": "Optional[Hash]"
 			},
 			"create_backup_snap":{
-			   "description": "Indicates whether to create a backup snapshot of the volume before restoring.",
-			   "type": "Optional[Boolean]"
+				"description": "Indicates whether to create a backup snapshot of the volume before restoring.",
+				"type": "Optional[Boolean]",
+				"default": "true"
 			},
 			"from_snap_id":{
-			   "description": "Unique identifier of the source snapshot for the restore operation.",
-			   "type": "String"
+				"description": "Unique identifier of the source snapshot for the restore operation.",
+				"type": "String"
 			},
 			"id":{
-			   "description": "Unique identifier of the volume to restore.",
-			   "type": "String"
+				"description": "Unique identifier of the volume to restore.",
+				"type": "String"
 			}
 	},
 

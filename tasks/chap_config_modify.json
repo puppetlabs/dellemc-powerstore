@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "The id of the CHAP configuration object (always '0').",
-			   "type": "String"
+				"description": "The id of the CHAP configuration object (always '0').",
+				"type": "String"
 			},
 			"mode":{
-			   "description": "Available CHAP modes that describe or set the iSCSI CHAP mode for the entire cluster. * Disabled - CHAP is not used in the cluster * Single - CHAP is being used to authenticate the initiator  * Mutual - CHAP is used to authenticate both the initiator and target ",
-			   "type": "Enum['Disabled','Single','Mutual']"
+				"description": "Available CHAP modes that describe or set the iSCSI CHAP mode for the entire cluster. * Disabled - CHAP is not used in the cluster * Single - CHAP is being used to authenticate the initiator  * Mutual - CHAP is used to authenticate both the initiator and target ",
+				"type": "Enum['Disabled','Single','Mutual']"
 			}
 	},
 

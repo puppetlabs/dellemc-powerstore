@@ -5,12 +5,12 @@
 	"remote": true,
 	"parameters":{
 			"addresses":{
-			   "description": "DNS server addresses in IPv4 or IPv6 format.",
-			   "type": "Array[String]"
+				"description": "DNS server addresses in IPv4 or IPv6 format.",
+				"type": "Array[String]"
 			},
 			"id":{
-			   "description": "Unique identifier of the DNS setting.",
-			   "type": "String"
+				"description": "Unique identifier of the DNS setting.",
+				"type": "String"
 			}
 	},
 

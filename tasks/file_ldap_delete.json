@@ -5,8 +5,8 @@
 	"remote": true,
 	"parameters":{
 			"id":{
-			   "description": "LDAP settings object Id.",
-			   "type": "String"
+				"description": "LDAP settings object Id.",
+				"type": "String"
 			}
 	},
 

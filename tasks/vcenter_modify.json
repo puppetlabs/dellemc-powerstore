@@ -5,20 +5,20 @@
 	"remote": true,
 	"parameters":{
 			"address":{
-			   "description": "IP address of vCenter host, in IPv4, IPv6, or hostname format. Must be a new address of the same vCenter.",
-			   "type": "Optional[String]"
+				"description": "IP address of vCenter host, in IPv4, IPv6, or hostname format. Must be a new address of the same vCenter.",
+				"type": "Optional[String]"
 			},
 			"id":{
-			   "description": "Unique identifier of the vCenter to modify.",
-			   "type": "String"
+				"description": "Unique identifier of the vCenter to modify.",
+				"type": "String"
 			},
 			"password":{
-			   "description": "Password to login to vCenter.",
-			   "type": "Optional[String]"
+				"description": "Password to login to vCenter.",
+				"type": "Optional[String]"
 			},
 			"username":{
-			   "description": "User name to login to vCenter. Password needs to be provided to modify the user name.",
-			   "type": "Optional[String]"
+				"description": "User name to login to vCenter. Password needs to be provided to modify the user name.",
+				"type": "Optional[String]"
 			}
 	},
 
