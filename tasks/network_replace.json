@@ -42,7 +42,7 @@
 			},
 			"physical_switches":{
 			   "description": "List of new physical switches settings. If this property is omitted, physical switches configuration will not be modified.",
-			   "type": "Optional[Array[Struct[{Optional[name] => String, Optional[purpose] => Enum['Data_and_Management','Management_Only'], Optional[connections] => Array[Struct[{Optional[snmp_community_string] => String, Optional[ssh_password] => String, Optional[username] => String, address => String, connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], }]], }]]]"
+			   "type": "Optional[Array[Struct[{Optional[connections] => Array[Struct[{address => String, connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String, Optional[ssh_password] => String, Optional[username] => String, }]], Optional[name] => String, Optional[purpose] => Enum['Data_and_Management','Management_Only'], }]]]"
 			},
 			"prefix_length":{
 			   "description": "Network prefix length. (Used for both IPv4 and IPv6).",

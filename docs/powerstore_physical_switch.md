@@ -18,7 +18,7 @@ powerstore_physical_switch {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|connections | Array[Struct[{address => String[1,255], connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String[1,128], Optional[ssh_password] => String[1,128], Optional[username] => String[1,128], }]] | true |
+|connections | Array[Struct[{Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String[1,128], Optional[ssh_password] => String[1,128], Optional[username] => String[1,128], address => String[1,255], connect_method => Enum['SSH','SNMPv2c'], }]] | true |
 |id | String | true |
 |name | String[1,128] | true |
 |purpose | Enum['Data_and_Management','Management_Only'] | true |

@@ -1,6 +1,5 @@
 require 'uri'
 require 'json'
-require 'rest-client'
 
 module Puppet::Transport
 
@@ -24,28 +23,6 @@ module Puppet::Transport
       # subsequent requests are authenticated using the persistent cookie returned from the first request
       # see https://www.dellemc.com/en-us/collaterals/unauth/technical-guides-support-information/products/storage/docu69331.pdf
       # page 44: Connecting and authenticating
-      RestClient.log = STDOUT if Puppet.debug
-
-      # headers =  {
-      #   'X-EMC-REST-CLIENT' => 'true',
-      #   'Content-Type'      => 'application/json',
-      #   'Accept'            => 'application/json'
-      #   }
-
-      # @api = RestClient::Resource.new("https://#{connection_info[:host]}:#{port}/api",
-      #                                 user:       connection_info[:user],
-      #                                 password:   connection_info[:password].unwrap,
-      #                                 headers:    headers,
-      #                                 verify_ssl: OpenSSL::SSL::VERIFY_NONE)
-      # # do an initial authenticated request to get cookies and the CSRF token
-      # response = @api['types/job/instances'].get
-      # now configure the client for subsequent requests without credentials
-      # but with cookies and the CSRF token (needed for POST and DELETE requests)
-      # headers['EMC-CSRF-TOKEN'] = response.headers[:emc_csrf_token]
-      # @api = RestClient::Resource.new("https://#{connection_info[:host]}:#{port}/api",
-      #     headers: headers,
-      #     # cookies: response.cookie_jar,
-      #     verify_ssl: OpenSSL::SSL::VERIFY_NONE)
     end
 
     # Shared methods
@@ -123,7 +100,7 @@ module Puppet::Transport
           req = Net::HTTP::Post.new(uri)
         end
         add_keys_to_request(req, header_params)
-        unless ! body_params # || body_params.empty?
+        if operation_verb != 'Get' and body_params # || body_params.empty?
           if body_params.key?('file_content')
             req.body = body_params['file_content']
           else
