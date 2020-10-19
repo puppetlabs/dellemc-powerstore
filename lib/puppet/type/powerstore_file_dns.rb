@@ -14,41 +14,41 @@ Puppet::ResourceApi.register_type(
       default: "present",
     },
 
-    add_ip_addresses:          {
-      type:      "Optional[Optional[Array[String]]]",
+    add_ip_addresses:          { 
+      type:      "Optional[Array[String]]",
       desc:      "IP addresses to add to the current list. The addresses may be IPv4 or IPv6. Error occurs if an IP address already exists. Cannot be combined with ip_addresses.",
     },
-    domain:          {
+    domain:          { 
       type:      "String[1,255]",
       desc:      "Name of the DNS domain, where the NAS Server does host names lookup when an FQDN is not specified in the request.",
       behaviour: :init_only,
     },
-    id:          {
+    id:          { 
       type:      "String",
       desc:      "Unique identifier of the DNS object.",
       behaviour: :namevar,
     },
-    ip_addresses:          {
+    ip_addresses:          { 
       type:      "Array[String]",
       desc:      "The list of DNS server IP addresses. The addresses may be IPv4 or IPv6.",
       behaviour: :init_only,
     },
-    nas_server_id:          {
+    nas_server_id:          { 
       type:      "String",
       desc:      "Unique identifier of the associated NAS Server instance that uses this DNS object. Only one DNS object per NAS Server is supported.",
       behaviour: :init_only,
     },
-    remove_ip_addresses:          {
-      type:      "Optional[Optional[Array[String]]]",
+    remove_ip_addresses:          { 
+      type:      "Optional[Array[String]]",
       desc:      "IP addresses to remove from the current list. The addresses may be IPv4 or IPv6. Error occurs if IP address is not present. Cannot be combined with ip_addresses.",
     },
-    transport:          {
-      type:      "Optional[Optional[Enum['UDP','TCP']]]",
+    transport:          { 
+      type:      "Optional[Enum['UDP','TCP']]",
       desc:      "Transport used when connecting to the DNS Server:* UDP - DNS uses the UDP protocol (default)* TCP - DNS uses the TCP protocol",
       behaviour: :init_only,
     },
-    transport_l10n:          {
-      type:      "Optional[Optional[String]]",
+    transport_l10n:          { 
+      type:      "Optional[String]",
       desc:      "Localized message string corresponding to transport",
     },
   },

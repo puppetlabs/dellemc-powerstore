@@ -14,56 +14,56 @@ Puppet::ResourceApi.register_type(
       default: "present",
     },
 
-    add_replication_rule_ids:          {
-      type:      "Optional[Optional[Array[String]]]",
+    add_replication_rule_ids:          { 
+      type:      "Optional[Array[String]]",
       desc:      "Replication rule identifiers to be added to this policy.",
     },
-    add_snapshot_rule_ids:          {
-      type:      "Optional[Optional[Array[String]]]",
+    add_snapshot_rule_ids:          { 
+      type:      "Optional[Array[String]]",
       desc:      "Snapshot rule identifiers to be added to this policy.",
     },
-    description:          {
-      type:      "Optional[Optional[String]]",
+    description:          { 
+      type:      "Optional[String]",
       desc:      "Policy description.",
       behaviour: :init_only,
     },
-    id:          {
+    id:          { 
       type:      "String",
       desc:      "Unique identifier of the protection policy to be deleted.",
     },
-    is_replica:          {
-      type:      "Optional[Optional[Boolean]]",
+    is_replica:          { 
+      type:      "Optional[Boolean]",
       desc:      "Indicates whether this is a replica policy, which is applied to replication destination storage resources. A policy of this type is restricted from many operations.",
     },
-    name:          {
+    name:          { 
       type:      "String",
       desc:      "Policy name.",
       behaviour: :namevar,
     },
-    remove_replication_rule_ids:          {
-      type:      "Optional[Optional[Array[String]]]",
+    remove_replication_rule_ids:          { 
+      type:      "Optional[Array[String]]",
       desc:      "Replication rule identifiers to be removed from this policy.",
     },
-    remove_snapshot_rule_ids:          {
-      type:      "Optional[Optional[Array[String]]]",
+    remove_snapshot_rule_ids:          { 
+      type:      "Optional[Array[String]]",
       desc:      "Snapshot rule identifiers to be removed from this policy.",
     },
-    replication_rule_ids:          {
-      type:      "Optional[Optional[Array[String]]]",
+    replication_rule_ids:          { 
+      type:      "Optional[Array[String]]",
       desc:      "Replication rule identifiers included in this policy. At least one snapshot rule or one replication rule must be specified to create a protection policy.",
       behaviour: :init_only,
     },
-    snapshot_rule_ids:          {
-      type:      "Optional[Optional[Array[String]]]",
+    snapshot_rule_ids:          { 
+      type:      "Optional[Array[String]]",
       desc:      "Snapshot rule identifiers included in this policy. At least one snapshot rule or one replication rule must be specified to create a protection policy.",
       behaviour: :init_only,
     },
-    type:          {
-      type:      "Optional[Optional[Enum['Protection','Performance']]]",
+    type:          { 
+      type:      "Optional[Enum['Protection','Performance']]",
       desc:      "Supported policy types. * Protection - A protection policy, consisting of snapshot and replication rules. * Performance - A performance policy, consisting of performance rules.",
     },
-    type_l10n:          {
-      type:      "Optional[Optional[String]]",
+    type_l10n:          { 
+      type:      "Optional[String]",
       desc:      "Localized message string corresponding to type",
     },
   },

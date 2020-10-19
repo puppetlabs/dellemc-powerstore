@@ -14,27 +14,27 @@ Puppet::ResourceApi.register_type(
       default: "present",
     },
 
-    connections:          {
+    connections:          { 
       type:      "Array[Struct[{address => String[1,255], connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String[1,128], Optional[ssh_password] => String[1,128], Optional[username] => String[1,128], }]]",
       desc:      "Supported connections for a physical switch.",
       behaviour: :init_only,
     },
-    id:          {
+    id:          { 
       type:      "String",
       desc:      "Unique identifier of the physical switch settings.",
     },
-    name:          {
+    name:          { 
       type:      "String[1,128]",
       desc:      "Name of a physical switch.",
       behaviour: :namevar,
     },
-    purpose:          {
+    purpose:          { 
       type:      "Enum['Data_and_Management','Management_Only']",
       desc:      "Physical switch purpose in network. Possible purposes are:  * Data_and_Management - Physical switch for all data and management networks.  * Management_Only - Physical switch for management network only.",
       behaviour: :init_only,
     },
-    purpose_l10n:          {
-      type:      "Optional[Optional[String]]",
+    purpose_l10n:          { 
+      type:      "Optional[String]",
       desc:      "Localized message string corresponding to purpose",
     },
   },

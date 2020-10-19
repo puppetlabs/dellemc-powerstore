@@ -50,7 +50,7 @@
 			},
 			"smtp_config":{
 			   "description": "",
-			   "type": "Optional[Struct[{source_email => String, address => String, port => Integer[0,65535], }]]"
+			   "type": "Optional[Struct[{address => String, port => Integer[0,65535], source_email => String, }]]"
 			},
 			"vasa_provider_credentials":{
 			   "description": "Credentials required for re-registering the VASA vendor provider during the replacement of the cluster management IP address.Should be passed only when reconfiguring PowerStoreX cluster.",

@@ -14,21 +14,21 @@ Puppet::ResourceApi.register_type(
       default: "present",
     },
 
-    force:          {
-      type:      "Optional[Optional[Boolean]]",
+    force:          { 
+      type:      "Optional[Boolean]",
       desc:      "Normally, deletion of a storage container that is mounted or still contains virtual volumes will be rejected. This option overrides that error and allows the delete to continue. Use with great caution.",
     },
-    id:          {
-      type:      "Optional[Optional[String]]",
+    id:          { 
+      type:      "Optional[String]",
       desc:      "The unique id of the storage container.",
     },
-    name:          {
+    name:          { 
       type:      "String[1,64]",
       desc:      "Name for the storage container that is unique across all storage containers in the cluster. The name must be between 1 and 64 UTF-8 characters (inclusive), and not more than 127 bytes.",
       behaviour: :namevar,
     },
-    quota:          {
-      type:      "Optional[Optional[Integer[0,4611686018427387904]]]",
+    quota:          { 
+      type:      "Optional[Integer[0,4611686018427387904]]",
       desc:      "The number of bytes that can be provisioned against this storage container. This must be a value greater than 10Gb and the default is 0 which means no limit.",
       behaviour: :init_only,
     },

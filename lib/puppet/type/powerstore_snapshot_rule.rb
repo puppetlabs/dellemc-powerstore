@@ -14,48 +14,48 @@ Puppet::ResourceApi.register_type(
       default: "present",
     },
 
-    days_of_week:          {
-      type:      "Optional[Optional[Array[Enum['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']]]]",
+    days_of_week:          { 
+      type:      "Optional[Array[Enum['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']]]",
       desc:      "Days of the week when the rule should be applied. Applies only for rules where the time_of_day parameter is set.",
       behaviour: :init_only,
     },
-    days_of_week_l10n:          {
-      type:      "Optional[Optional[Array[String]]]",
+    days_of_week_l10n:          { 
+      type:      "Optional[Array[String]]",
       desc:      "Localized message array corresponding to days_of_week",
     },
-    delete_snaps:          {
-      type:      "Optional[Optional[Boolean]]",
+    delete_snaps:          { 
+      type:      "Optional[Boolean]",
       desc:      "Specify whether all snapshots previously created by this rule should also be deleted when this rule is removed.",
     },
-    desired_retention:          {
+    desired_retention:          { 
       type:      "Integer[1,8760]",
       desc:      "Desired snapshot retention period in hours. The system will retain snapshots for this time period, if space is available.",
       behaviour: :init_only,
     },
-    id:          {
-      type:      "Optional[Optional[String]]",
+    id:          { 
+      type:      "Optional[String]",
       desc:      "Unique identifier of the snapshot rule.",
     },
-    interval:          {
-      type:      "Optional[Optional[Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Two_Hours','Three_Hours','Four_Hours','Six_Hours','Eight_Hours','Twelve_Hours','One_Day']]]",
+    interval:          { 
+      type:      "Optional[Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Two_Hours','Three_Hours','Four_Hours','Six_Hours','Eight_Hours','Twelve_Hours','One_Day']]",
       desc:      "Interval between snapshots. Either the interval parameter or the time_of_day parameter may be set. Setting one clears the other parameter.",
       behaviour: :init_only,
     },
-    interval_l10n:          {
-      type:      "Optional[Optional[String]]",
+    interval_l10n:          { 
+      type:      "Optional[String]",
       desc:      "Localized message string corresponding to interval",
     },
-    is_replica:          {
-      type:      "Optional[Optional[Boolean]]",
+    is_replica:          { 
+      type:      "Optional[Boolean]",
       desc:      "Indicates if this is a replica of a rule or policy on a remote system that is the source of a replication session replicating a resource to the local system.",
     },
-    name:          {
+    name:          { 
       type:      "String",
       desc:      "Snapshot rule name.",
       behaviour: :namevar,
     },
-    time_of_day:          {
-      type:      "Optional[Optional[String]]",
+    time_of_day:          { 
+      type:      "Optional[String]",
       desc:      "Time of the day to take a daily snapshot, with format 'hh:mm' in 24 hour time format. Either the interval parameter or the time_of_day parameter may be set, but not both.",
       behaviour: :init_only,
     },

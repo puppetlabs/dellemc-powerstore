@@ -14,22 +14,22 @@ Puppet::ResourceApi.register_type(
       default: "present",
     },
 
-    id:          {
+    id:          { 
       type:      "String",
       desc:      "Unique identifier of the NDMP service object.",
       behaviour: :namevar,
     },
-    nas_server_id:          {
+    nas_server_id:          { 
       type:      "String",
       desc:      "Unique identifier of the NAS server to be configured with these NDMP settings.",
       behaviour: :init_only,
     },
-    password:          {
+    password:          { 
       type:      "String",
       desc:      "Password for the NDMP service user.",
       behaviour: :init_only,
     },
-    user_name:          {
+    user_name:          { 
       type:      "String",
       desc:      "User name for accessing the NDMP service.",
       behaviour: :init_only,
