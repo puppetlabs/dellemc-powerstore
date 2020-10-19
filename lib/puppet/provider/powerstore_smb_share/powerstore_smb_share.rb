@@ -40,7 +40,7 @@ context.debug("Entered get")
         context.failed(name, message: 'Unexpected absent to absent change')
       elsif is[:ensure].to_s == 'present' && should[:ensure].to_s == 'present'
           # FIXME hardwired
-          # should[:id] = is[:id]
+          should[:id] = is[:id]
         update(context, name, should)
       end
     end
