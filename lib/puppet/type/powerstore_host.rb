@@ -21,7 +21,6 @@ Puppet::ResourceApi.register_type(
     description:          { 
       type:      "Optional[String[1,256]]",
       desc:      "An optional description for the host. The description should not be more than 256 UTF-8 characters long and should not have any unprintable characters.",
-      behaviour: :init_only,
     },
     host_group_id:          { 
       type:      "Optional[String]",

@@ -92,6 +92,10 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     local_user = {}
+    local_user["current_password"] = resource[:current_password] unless resource[:current_password].nil?
+    local_user["is_locked"] = resource[:is_locked] unless resource[:is_locked].nil?
+    local_user["password"] = resource[:password] unless resource[:password].nil?
+    local_user["role_id"] = resource[:role_id] unless resource[:role_id].nil?
     return local_user
   end
 

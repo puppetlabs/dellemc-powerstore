@@ -92,6 +92,10 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_nis = {}
+    file_nis["add_ip_addresses"] = resource[:add_ip_addresses] unless resource[:add_ip_addresses].nil?
+    file_nis["domain"] = resource[:domain] unless resource[:domain].nil?
+    file_nis["ip_addresses"] = resource[:ip_addresses] unless resource[:ip_addresses].nil?
+    file_nis["remove_ip_addresses"] = resource[:remove_ip_addresses] unless resource[:remove_ip_addresses].nil?
     return file_nis
   end
 

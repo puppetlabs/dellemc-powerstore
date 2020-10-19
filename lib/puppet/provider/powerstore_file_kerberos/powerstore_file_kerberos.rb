@@ -93,6 +93,11 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_kerberos = {}
+    file_kerberos["add_kdc_addresses"] = resource[:add_kdc_addresses] unless resource[:add_kdc_addresses].nil?
+    file_kerberos["kdc_addresses"] = resource[:kdc_addresses] unless resource[:kdc_addresses].nil?
+    file_kerberos["port_number"] = resource[:port_number] unless resource[:port_number].nil?
+    file_kerberos["realm"] = resource[:realm] unless resource[:realm].nil?
+    file_kerberos["remove_kdc_addresses"] = resource[:remove_kdc_addresses] unless resource[:remove_kdc_addresses].nil?
     return file_kerberos
   end
 

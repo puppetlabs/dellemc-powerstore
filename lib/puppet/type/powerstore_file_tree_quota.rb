@@ -17,7 +17,6 @@ Puppet::ResourceApi.register_type(
     description:          { 
       type:      "Optional[String]",
       desc:      "Description of the tree quota.",
-      behaviour: :init_only,
     },
     file_system_id:          { 
       type:      "String",
@@ -27,7 +26,6 @@ Puppet::ResourceApi.register_type(
     hard_limit:          { 
       type:      "Optional[Integer[0,9223372036854775807]]",
       desc:      "Hard limit of the tree quota, in bytes. No hard limit when set to 0. This value can be used to compute amount of space that is consumed without limiting the space. Value is always rounded up to match the physical block size of the filesystem.",
-      behaviour: :init_only,
     },
     id:          { 
       type:      "String",
@@ -37,7 +35,6 @@ Puppet::ResourceApi.register_type(
     is_user_quotas_enforced:          { 
       type:      "Optional[Boolean]",
       desc:      "Whether the quota must be enabled for all users, and whether user quota limits, if any, are enforced.Values are:- true - start tracking usage for all users on the quota tree, and enforce user quota limits.- false - stop tracking usage for all users on the quota tree, and do not enforce user quota limits.",
-      behaviour: :init_only,
     },
     path:          { 
       type:      "String",
@@ -55,7 +52,6 @@ Puppet::ResourceApi.register_type(
     soft_limit:          { 
       type:      "Optional[Integer[0,9223372036854775807]]",
       desc:      "Soft limit of the tree quota, in bytes. No hard limit when set to 0. Value is always rounded up to match the physical block size of the filesystem.",
-      behaviour: :init_only,
     },
     state:          { 
       type:      "Optional[Enum['Ok','Soft_Exceeded','Soft_Exceeded_And_Expired','Hard_Reached']]",

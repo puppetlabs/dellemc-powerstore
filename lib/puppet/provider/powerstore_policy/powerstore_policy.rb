@@ -93,6 +93,14 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     policy = {}
+    policy["add_replication_rule_ids"] = resource[:add_replication_rule_ids] unless resource[:add_replication_rule_ids].nil?
+    policy["add_snapshot_rule_ids"] = resource[:add_snapshot_rule_ids] unless resource[:add_snapshot_rule_ids].nil?
+    policy["description"] = resource[:description] unless resource[:description].nil?
+    policy["name"] = resource[:name] unless resource[:name].nil?
+    policy["remove_replication_rule_ids"] = resource[:remove_replication_rule_ids] unless resource[:remove_replication_rule_ids].nil?
+    policy["remove_snapshot_rule_ids"] = resource[:remove_snapshot_rule_ids] unless resource[:remove_snapshot_rule_ids].nil?
+    policy["replication_rule_ids"] = resource[:replication_rule_ids] unless resource[:replication_rule_ids].nil?
+    policy["snapshot_rule_ids"] = resource[:snapshot_rule_ids] unless resource[:snapshot_rule_ids].nil?
     return policy
   end
 

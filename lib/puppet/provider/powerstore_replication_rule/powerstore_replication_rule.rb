@@ -93,6 +93,10 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     replication_rule = {}
+    replication_rule["alert_threshold"] = resource[:alert_threshold] unless resource[:alert_threshold].nil?
+    replication_rule["name"] = resource[:name] unless resource[:name].nil?
+    replication_rule["remote_system_id"] = resource[:remote_system_id] unless resource[:remote_system_id].nil?
+    replication_rule["rpo"] = resource[:rpo] unless resource[:rpo].nil?
     return replication_rule
   end
 

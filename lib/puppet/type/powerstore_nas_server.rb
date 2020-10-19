@@ -37,7 +37,6 @@ Puppet::ResourceApi.register_type(
     current_unix_directory_service:          { 
       type:      "Optional[Enum['None','NIS','LDAP','Local_Files','Local_Then_NIS','Local_Then_LDAP']]",
       desc:      "Define the Unix directory service used for looking up identity information for Unix such as UIDs, GIDs, net groups, and so on.",
-      behaviour: :init_only,
     },
     current_unix_directory_service_l10n:          { 
       type:      "Optional[String]",
@@ -46,17 +45,14 @@ Puppet::ResourceApi.register_type(
     default_unix_user:          { 
       type:      "Optional[String[0,63]]",
       desc:      "Default Unix user name used for granting access in case of Windows to Unix user mapping failure. When empty, access in such case is denied.",
-      behaviour: :init_only,
     },
     default_windows_user:          { 
       type:      "Optional[String[0,1023]]",
       desc:      "Default Windows user name used for granting access in case of Unix to Windows user mapping failure. When empty, access in such case is denied.",
-      behaviour: :init_only,
     },
     description:          { 
       type:      "Optional[String[0,255]]",
       desc:      "Description of the NAS server.",
-      behaviour: :init_only,
     },
     domain_password:          { 
       type:      "Optional[String]",
@@ -73,7 +69,6 @@ Puppet::ResourceApi.register_type(
     is_auto_user_mapping_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "A Windows user must have a corresponding matching Unix user (uid) in order to connect.This attribute enables you to automatically generates this Unix user (uid), if that Windows user does not have any in the configured Unix directory service (UDS).In a pure SMB or non multi-protocol environment, this should be set to true.",
-      behaviour: :init_only,
     },
     is_skip_domain_unjoin:          { 
       type:      "Optional[Boolean]",
@@ -82,7 +77,6 @@ Puppet::ResourceApi.register_type(
     is_username_translation_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Enable the possibility to match a Windows account with an Unix account with different names.",
-      behaviour: :init_only,
     },
     name:          { 
       type:      "String[1,255]",

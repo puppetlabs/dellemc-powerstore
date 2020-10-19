@@ -26,7 +26,6 @@ Puppet::ResourceApi.register_type(
     kdc_addresses:          { 
       type:      "Array[String[1,255]]",
       desc:      "Fully Qualified domain names of the Kerberos Key Distribution Center (KDC) servers. IPv4 and IPv6 addresses are not supported.",
-      behaviour: :init_only,
     },
     nas_server_id:          { 
       type:      "String",
@@ -36,12 +35,10 @@ Puppet::ResourceApi.register_type(
     port_number:          { 
       type:      "Optional[Integer[0,65535]]",
       desc:      "KDC servers TCP port.",
-      behaviour: :init_only,
     },
     realm:          { 
       type:      "String[1,255]",
       desc:      "Realm name of the Kerberos Service.",
-      behaviour: :init_only,
     },
     remove_kdc_addresses:          { 
       type:      "Optional[Array[String[1,255]]]",

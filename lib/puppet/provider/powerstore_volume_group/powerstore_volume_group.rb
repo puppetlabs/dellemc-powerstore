@@ -94,11 +94,18 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     volume_group = {}
+    volume_group["description"] = resource[:description] unless resource[:description].nil?
+    volume_group["force"] = resource[:force] unless resource[:force].nil?
+    volume_group["is_replication_destination"] = resource[:is_replication_destination] unless resource[:is_replication_destination].nil?
+    volume_group["is_write_order_consistent"] = resource[:is_write_order_consistent] unless resource[:is_write_order_consistent].nil?
+    volume_group["name"] = resource[:name] unless resource[:name].nil?
+    volume_group["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
     return volume_group
   end
 
   def build_delete_hash(resource)
     volume_group = {}
+    volume_group["delete_members"] = resource[:delete_members] unless resource[:delete_members].nil?
     return volume_group
   end
 

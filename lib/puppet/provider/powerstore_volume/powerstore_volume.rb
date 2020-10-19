@@ -101,6 +101,15 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     volume = {}
+    volume["description"] = resource[:description] unless resource[:description].nil?
+    volume["expiration_timestamp"] = resource[:expiration_timestamp] unless resource[:expiration_timestamp].nil?
+    volume["force"] = resource[:force] unless resource[:force].nil?
+    volume["is_replication_destination"] = resource[:is_replication_destination] unless resource[:is_replication_destination].nil?
+    volume["name"] = resource[:name] unless resource[:name].nil?
+    volume["node_affinity"] = resource[:node_affinity] unless resource[:node_affinity].nil?
+    volume["performance_policy_id"] = resource[:performance_policy_id] unless resource[:performance_policy_id].nil?
+    volume["protection_policy_id"] = resource[:protection_policy_id] unless resource[:protection_policy_id].nil?
+    volume["size"] = resource[:size] unless resource[:size].nil?
     return volume
   end
 

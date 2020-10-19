@@ -21,7 +21,6 @@ Puppet::ResourceApi.register_type(
     domain:          { 
       type:      "String[1,255]",
       desc:      "Name of the NIS domain.",
-      behaviour: :init_only,
     },
     id:          { 
       type:      "String",
@@ -31,7 +30,6 @@ Puppet::ResourceApi.register_type(
     ip_addresses:          { 
       type:      "Array[String]",
       desc:      "The list of NIS server IP addresses.",
-      behaviour: :init_only,
     },
     nas_server_id:          { 
       type:      "String",

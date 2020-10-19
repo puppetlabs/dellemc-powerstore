@@ -92,6 +92,8 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_ndmp = {}
+    file_ndmp["password"] = resource[:password] unless resource[:password].nil?
+    file_ndmp["user_name"] = resource[:user_name] unless resource[:user_name].nil?
     return file_ndmp
   end
 

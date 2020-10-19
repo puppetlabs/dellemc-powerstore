@@ -91,11 +91,14 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     storage_container = {}
+    storage_container["name"] = resource[:name] unless resource[:name].nil?
+    storage_container["quota"] = resource[:quota] unless resource[:quota].nil?
     return storage_container
   end
 
   def build_delete_hash(resource)
     storage_container = {}
+    storage_container["force"] = resource[:force] unless resource[:force].nil?
     return storage_container
   end
 

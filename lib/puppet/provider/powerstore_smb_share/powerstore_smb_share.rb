@@ -99,6 +99,13 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     smb_share = {}
+    smb_share["description"] = resource[:description] unless resource[:description].nil?
+    smb_share["is_ABE_enabled"] = resource[:is_abe_enabled] unless resource[:is_abe_enabled].nil?
+    smb_share["is_branch_cache_enabled"] = resource[:is_branch_cache_enabled] unless resource[:is_branch_cache_enabled].nil?
+    smb_share["is_continuous_availability_enabled"] = resource[:is_continuous_availability_enabled] unless resource[:is_continuous_availability_enabled].nil?
+    smb_share["is_encryption_enabled"] = resource[:is_encryption_enabled] unless resource[:is_encryption_enabled].nil?
+    smb_share["offline_availability"] = resource[:offline_availability] unless resource[:offline_availability].nil?
+    smb_share["umask"] = resource[:umask] unless resource[:umask].nil?
     return smb_share
   end
 

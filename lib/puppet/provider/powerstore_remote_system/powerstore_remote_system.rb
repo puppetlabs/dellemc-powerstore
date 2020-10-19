@@ -100,6 +100,12 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     remote_system = {}
+    remote_system["data_network_latency"] = resource[:data_network_latency] unless resource[:data_network_latency].nil?
+    remote_system["description"] = resource[:description] unless resource[:description].nil?
+    remote_system["management_address"] = resource[:management_address] unless resource[:management_address].nil?
+    remote_system["name"] = resource[:name] unless resource[:name].nil?
+    remote_system["remote_password"] = resource[:remote_password] unless resource[:remote_password].nil?
+    remote_system["remote_username"] = resource[:remote_username] unless resource[:remote_username].nil?
     return remote_system
   end
 

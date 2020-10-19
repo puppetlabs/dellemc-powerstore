@@ -94,6 +94,11 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     email_notify_destination = {}
+    email_notify_destination["email_address"] = resource[:email_address] unless resource[:email_address].nil?
+    email_notify_destination["notify_critical"] = resource[:notify_critical] unless resource[:notify_critical].nil?
+    email_notify_destination["notify_info"] = resource[:notify_info] unless resource[:notify_info].nil?
+    email_notify_destination["notify_major"] = resource[:notify_major] unless resource[:notify_major].nil?
+    email_notify_destination["notify_minor"] = resource[:notify_minor] unless resource[:notify_minor].nil?
     return email_notify_destination
   end
 

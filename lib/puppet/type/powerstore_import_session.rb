@@ -86,7 +86,6 @@ Puppet::ResourceApi.register_type(
     scheduled_timestamp:          { 
       type:      "Optional[String]",
       desc:      "Date and time at which the import session is scheduled to start. The date time is specified in ISO 8601 format with the time expressed in UTC format.",
-      behaviour: :init_only,
     },
     source_resource_id:          { 
       type:      "String",

@@ -92,6 +92,9 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     vcenter = {}
+    vcenter["address"] = resource[:address] unless resource[:address].nil?
+    vcenter["password"] = resource[:password] unless resource[:password].nil?
+    vcenter["username"] = resource[:username] unless resource[:username].nil?
     return vcenter
   end
 

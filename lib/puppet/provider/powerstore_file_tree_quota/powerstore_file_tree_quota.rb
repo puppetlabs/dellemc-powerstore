@@ -95,6 +95,10 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_tree_quota = {}
+    file_tree_quota["description"] = resource[:description] unless resource[:description].nil?
+    file_tree_quota["hard_limit"] = resource[:hard_limit] unless resource[:hard_limit].nil?
+    file_tree_quota["is_user_quotas_enforced"] = resource[:is_user_quotas_enforced] unless resource[:is_user_quotas_enforced].nil?
+    file_tree_quota["soft_limit"] = resource[:soft_limit] unless resource[:soft_limit].nil?
     return file_tree_quota
   end
 

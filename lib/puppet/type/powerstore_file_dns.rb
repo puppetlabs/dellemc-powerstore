@@ -21,7 +21,6 @@ Puppet::ResourceApi.register_type(
     domain:          { 
       type:      "String[1,255]",
       desc:      "Name of the DNS domain, where the NAS Server does host names lookup when an FQDN is not specified in the request.",
-      behaviour: :init_only,
     },
     id:          { 
       type:      "String",
@@ -31,7 +30,6 @@ Puppet::ResourceApi.register_type(
     ip_addresses:          { 
       type:      "Array[String]",
       desc:      "The list of DNS server IP addresses. The addresses may be IPv4 or IPv6.",
-      behaviour: :init_only,
     },
     nas_server_id:          { 
       type:      "String",
@@ -45,7 +43,6 @@ Puppet::ResourceApi.register_type(
     transport:          { 
       type:      "Optional[Enum['UDP','TCP']]",
       desc:      "Transport used when connecting to the DNS Server:* UDP - DNS uses the UDP protocol (default)* TCP - DNS uses the TCP protocol",
-      behaviour: :init_only,
     },
     transport_l10n:          { 
       type:      "Optional[String]",

@@ -96,11 +96,27 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     nas_server = {}
+    nas_server["backup_IPv4_interface_id"] = resource[:backup_i_pv4_interface_id] unless resource[:backup_i_pv4_interface_id].nil?
+    nas_server["backup_IPv6_interface_id"] = resource[:backup_i_pv6_interface_id] unless resource[:backup_i_pv6_interface_id].nil?
+    nas_server["current_node_id"] = resource[:current_node_id] unless resource[:current_node_id].nil?
+    nas_server["current_unix_directory_service"] = resource[:current_unix_directory_service] unless resource[:current_unix_directory_service].nil?
+    nas_server["default_unix_user"] = resource[:default_unix_user] unless resource[:default_unix_user].nil?
+    nas_server["default_windows_user"] = resource[:default_windows_user] unless resource[:default_windows_user].nil?
+    nas_server["description"] = resource[:description] unless resource[:description].nil?
+    nas_server["is_auto_user_mapping_enabled"] = resource[:is_auto_user_mapping_enabled] unless resource[:is_auto_user_mapping_enabled].nil?
+    nas_server["is_username_translation_enabled"] = resource[:is_username_translation_enabled] unless resource[:is_username_translation_enabled].nil?
+    nas_server["name"] = resource[:name] unless resource[:name].nil?
+    nas_server["preferred_node_id"] = resource[:preferred_node_id] unless resource[:preferred_node_id].nil?
+    nas_server["production_IPv4_interface_id"] = resource[:production_i_pv4_interface_id] unless resource[:production_i_pv4_interface_id].nil?
+    nas_server["production_IPv6_interface_id"] = resource[:production_i_pv6_interface_id] unless resource[:production_i_pv6_interface_id].nil?
     return nas_server
   end
 
   def build_delete_hash(resource)
     nas_server = {}
+    nas_server["domain_password"] = resource[:domain_password] unless resource[:domain_password].nil?
+    nas_server["domain_user_name"] = resource[:domain_user_name] unless resource[:domain_user_name].nil?
+    nas_server["is_skip_domain_unjoin"] = resource[:is_skip_domain_unjoin] unless resource[:is_skip_domain_unjoin].nil?
     return nas_server
   end
 

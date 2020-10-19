@@ -93,6 +93,11 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     host = {}
+    host["add_initiators"] = resource[:add_initiators] unless resource[:add_initiators].nil?
+    host["description"] = resource[:description] unless resource[:description].nil?
+    host["modify_initiators"] = resource[:modify_initiators] unless resource[:modify_initiators].nil?
+    host["name"] = resource[:name] unless resource[:name].nil?
+    host["remove_initiators"] = resource[:remove_initiators] unless resource[:remove_initiators].nil?
     return host
   end
 

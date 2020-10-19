@@ -92,6 +92,9 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     physical_switch = {}
+    physical_switch["connections"] = resource[:connections] unless resource[:connections].nil?
+    physical_switch["name"] = resource[:name] unless resource[:name].nil?
+    physical_switch["purpose"] = resource[:purpose] unless resource[:purpose].nil?
     return physical_switch
   end
 

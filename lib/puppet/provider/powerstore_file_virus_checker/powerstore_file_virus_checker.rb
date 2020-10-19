@@ -90,6 +90,7 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_virus_checker = {}
+    file_virus_checker["is_enabled"] = resource[:is_enabled] unless resource[:is_enabled].nil?
     return file_virus_checker
   end
 

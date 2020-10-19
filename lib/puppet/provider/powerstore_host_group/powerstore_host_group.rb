@@ -92,6 +92,10 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     host_group = {}
+    host_group["add_host_ids"] = resource[:add_host_ids] unless resource[:add_host_ids].nil?
+    host_group["description"] = resource[:description] unless resource[:description].nil?
+    host_group["name"] = resource[:name] unless resource[:name].nil?
+    host_group["remove_host_ids"] = resource[:remove_host_ids] unless resource[:remove_host_ids].nil?
     return host_group
   end
 

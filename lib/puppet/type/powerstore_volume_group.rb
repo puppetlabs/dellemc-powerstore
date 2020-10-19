@@ -25,7 +25,6 @@ Puppet::ResourceApi.register_type(
     description:          { 
       type:      "Optional[String[1,256]]",
       desc:      "Description for the volume group. The description should not be more than 256characters long and should not have any unprintable characters.If description is not specified, the description for the volume group will not be set.",
-      behaviour: :init_only,
     },
     force:          { 
       type:      "Optional[Boolean]",
@@ -50,7 +49,6 @@ Puppet::ResourceApi.register_type(
     is_write_order_consistent:          { 
       type:      "Optional[Boolean]",
       desc:      "A boolean flag to indicate whether snapshot sets of the volume group will be write-order consistent.This parameter defaults to true, if not specified.",
-      behaviour: :init_only,
     },
     location_history:          { 
       type:      "Optional[Array[Struct[{Optional[from_appliance_id] => String, Optional[migrated_on] => String, Optional[reason] => Enum['Initial','Manual','Recommended'], Optional[reason_l10n] => String, Optional[to_appliance_id] => String, }]]]",
@@ -76,7 +74,6 @@ Puppet::ResourceApi.register_type(
     protection_policy_id:          { 
       type:      "Optional[String]",
       desc:      "Unique identifier of an optional protection policy to assign to the volume group.",
-      behaviour: :init_only,
     },
     type:          { 
       type:      "Optional[Enum['Primary','Clone','Snapshot']]",

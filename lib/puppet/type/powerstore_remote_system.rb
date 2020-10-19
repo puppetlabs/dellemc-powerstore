@@ -29,7 +29,6 @@ Puppet::ResourceApi.register_type(
     data_network_latency:          { 
       type:      "Optional[Enum['Low','High']]",
       desc:      "Network latency choices for a remote system. Replication traffic can be tuned for higher efficiency depending on the expected network latency. This will only be used when the remote system type is PowerStore.* Low                      - Less than 5 milliseconds.* High                     - More than 5 milliseconds.",
-      behaviour: :init_only,
     },
     data_network_latency_l10n:          { 
       type:      "Optional[String]",
@@ -38,7 +37,6 @@ Puppet::ResourceApi.register_type(
     description:          { 
       type:      "Optional[String[1,256]]",
       desc:      "User-specified description of the remote system.",
-      behaviour: :init_only,
     },
     discovery_chap_mode:          { 
       type:      "Optional[Enum['Disabled','Single','Mutual']]",
@@ -67,7 +65,6 @@ Puppet::ResourceApi.register_type(
     management_address:          { 
       type:      "String",
       desc:      "Management IP address of the remote system instance. Only IPv4 is supported for non-PowerStore remote systems.Both IPv4 and IPv6 are supported for PowerStore remote systems.",
-      behaviour: :init_only,
     },
     name:          { 
       type:      "Optional[String[1,128]]",
@@ -77,12 +74,10 @@ Puppet::ResourceApi.register_type(
     remote_password:          { 
       type:      "Optional[String]",
       desc:      "Password used to access the remote system. Used only for non-PowerStore systems.",
-      behaviour: :init_only,
     },
     remote_username:          { 
       type:      "Optional[String]",
       desc:      "Username used to access the remote system. Used only for non-PowerStore systems.",
-      behaviour: :init_only,
     },
     serial_number:          { 
       type:      "Optional[String]",

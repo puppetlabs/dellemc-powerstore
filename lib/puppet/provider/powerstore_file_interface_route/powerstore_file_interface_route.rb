@@ -93,6 +93,9 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_interface_route = {}
+    file_interface_route["destination"] = resource[:destination] unless resource[:destination].nil?
+    file_interface_route["gateway"] = resource[:gateway] unless resource[:gateway].nil?
+    file_interface_route["prefix_length"] = resource[:prefix_length] unless resource[:prefix_length].nil?
     return file_interface_route
   end
 

@@ -99,6 +99,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     migration_session = {}
+    migration_session["force"] = resource[:force] unless resource[:force].nil?
     return migration_session
   end
 

@@ -17,7 +17,6 @@ Puppet::ResourceApi.register_type(
     gateway:          { 
       type:      "Optional[String[1,45]]",
       desc:      "Gateway address for the network interface. IPv4 and IPv6 are supported.",
-      behaviour: :init_only,
     },
     id:          { 
       type:      "String",
@@ -27,12 +26,10 @@ Puppet::ResourceApi.register_type(
     ip_address:          { 
       type:      "String[1,45]",
       desc:      "IP address of the network interface. IPv4 and IPv6 are supported.",
-      behaviour: :init_only,
     },
     is_disabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether the network interface is disabled.",
-      behaviour: :init_only,
     },
     name:          { 
       type:      "Optional[String]",
@@ -46,7 +43,6 @@ Puppet::ResourceApi.register_type(
     prefix_length:          { 
       type:      "Integer[1,128]",
       desc:      "Prefix length for the interface. IPv4 and IPv6 are supported.",
-      behaviour: :init_only,
     },
     role:          { 
       type:      "Optional[Enum['Production','Backup']]",
@@ -60,7 +56,6 @@ Puppet::ResourceApi.register_type(
     vlan_id:          { 
       type:      "Optional[Integer[0,4094]]",
       desc:      "Virtual Local Area Network (VLAN) identifier for the interface. The interface uses the identifier to accept packets that have matching VLAN tags.",
-      behaviour: :init_only,
     },
   },
   autorequires: {

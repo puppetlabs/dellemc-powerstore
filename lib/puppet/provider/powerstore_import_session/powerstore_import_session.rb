@@ -97,6 +97,7 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     import_session = {}
+    import_session["scheduled_timestamp"] = resource[:scheduled_timestamp] unless resource[:scheduled_timestamp].nil?
     return import_session
   end
 

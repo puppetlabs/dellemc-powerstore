@@ -25,7 +25,6 @@ Puppet::ResourceApi.register_type(
     description:          { 
       type:      "Optional[String]",
       desc:      "Policy description.",
-      behaviour: :init_only,
     },
     id:          { 
       type:      "String",
@@ -51,12 +50,10 @@ Puppet::ResourceApi.register_type(
     replication_rule_ids:          { 
       type:      "Optional[Array[String]]",
       desc:      "Replication rule identifiers included in this policy. At least one snapshot rule or one replication rule must be specified to create a protection policy.",
-      behaviour: :init_only,
     },
     snapshot_rule_ids:          { 
       type:      "Optional[Array[String]]",
       desc:      "Snapshot rule identifiers included in this policy. At least one snapshot rule or one replication rule must be specified to create a protection policy.",
-      behaviour: :init_only,
     },
     type:          { 
       type:      "Optional[Enum['Protection','Performance']]",

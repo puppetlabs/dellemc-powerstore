@@ -96,6 +96,11 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_interface = {}
+    file_interface["gateway"] = resource[:gateway] unless resource[:gateway].nil?
+    file_interface["ip_address"] = resource[:ip_address] unless resource[:ip_address].nil?
+    file_interface["is_disabled"] = resource[:is_disabled] unless resource[:is_disabled].nil?
+    file_interface["prefix_length"] = resource[:prefix_length] unless resource[:prefix_length].nil?
+    file_interface["vlan_id"] = resource[:vlan_id] unless resource[:vlan_id].nil?
     return file_interface
   end
 

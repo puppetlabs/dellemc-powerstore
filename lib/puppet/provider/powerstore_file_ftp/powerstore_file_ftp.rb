@@ -108,6 +108,30 @@ context.debug("Entered get")
 
   def build_update_hash(resource)
     file_ftp = {}
+    file_ftp["add_groups"] = resource[:add_groups] unless resource[:add_groups].nil?
+    file_ftp["add_hosts"] = resource[:add_hosts] unless resource[:add_hosts].nil?
+    file_ftp["add_users"] = resource[:add_users] unless resource[:add_users].nil?
+    file_ftp["audit_dir"] = resource[:audit_dir] unless resource[:audit_dir].nil?
+    file_ftp["audit_max_size"] = resource[:audit_max_size] unless resource[:audit_max_size].nil?
+    file_ftp["default_homedir"] = resource[:default_homedir] unless resource[:default_homedir].nil?
+    file_ftp["groups"] = resource[:groups] unless resource[:groups].nil?
+    file_ftp["hosts"] = resource[:hosts] unless resource[:hosts].nil?
+    file_ftp["is_allowed_groups"] = resource[:is_allowed_groups] unless resource[:is_allowed_groups].nil?
+    file_ftp["is_allowed_hosts"] = resource[:is_allowed_hosts] unless resource[:is_allowed_hosts].nil?
+    file_ftp["is_allowed_users"] = resource[:is_allowed_users] unless resource[:is_allowed_users].nil?
+    file_ftp["is_anonymous_authentication_enabled"] = resource[:is_anonymous_authentication_enabled] unless resource[:is_anonymous_authentication_enabled].nil?
+    file_ftp["is_audit_enabled"] = resource[:is_audit_enabled] unless resource[:is_audit_enabled].nil?
+    file_ftp["is_ftp_enabled"] = resource[:is_ftp_enabled] unless resource[:is_ftp_enabled].nil?
+    file_ftp["is_homedir_limit_enabled"] = resource[:is_homedir_limit_enabled] unless resource[:is_homedir_limit_enabled].nil?
+    file_ftp["is_sftp_enabled"] = resource[:is_sftp_enabled] unless resource[:is_sftp_enabled].nil?
+    file_ftp["is_smb_authentication_enabled"] = resource[:is_smb_authentication_enabled] unless resource[:is_smb_authentication_enabled].nil?
+    file_ftp["is_unix_authentication_enabled"] = resource[:is_unix_authentication_enabled] unless resource[:is_unix_authentication_enabled].nil?
+    file_ftp["message_of_the_day"] = resource[:message_of_the_day] unless resource[:message_of_the_day].nil?
+    file_ftp["remove_groups"] = resource[:remove_groups] unless resource[:remove_groups].nil?
+    file_ftp["remove_hosts"] = resource[:remove_hosts] unless resource[:remove_hosts].nil?
+    file_ftp["remove_users"] = resource[:remove_users] unless resource[:remove_users].nil?
+    file_ftp["users"] = resource[:users] unless resource[:users].nil?
+    file_ftp["welcome_message"] = resource[:welcome_message] unless resource[:welcome_message].nil?
     return file_ftp
   end
 

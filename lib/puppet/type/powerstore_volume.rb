@@ -26,7 +26,6 @@ Puppet::ResourceApi.register_type(
     description:          { 
       type:      "Optional[String[1,128]]",
       desc:      "Description of the volume. This value must contain 128 or fewer printable Unicode characters.",
-      behaviour: :init_only,
     },
     expiration_timestamp:          { 
       type:      "Optional[String]",
@@ -88,7 +87,6 @@ Puppet::ResourceApi.register_type(
     performance_policy_id:          { 
       type:      "Optional[String]",
       desc:      "Unique identifier of the performance policy assigned to the volume.",
-      behaviour: :init_only,
     },
     protection_data:          { 
       type:      "Optional[Struct[{Optional[copy_signature] => String, Optional[created_by_rule_id] => String, Optional[created_by_rule_name] => String, Optional[creator_type] => Enum['User','System','Scheduler'], Optional[creator_type_l10n] => String, Optional[expiration_timestamp] => String, Optional[family_id] => String, Optional[is_app_consistent] => Boolean, Optional[parent_id] => String, Optional[source_id] => String, Optional[source_timestamp] => String, }]]",
@@ -97,7 +95,6 @@ Puppet::ResourceApi.register_type(
     protection_policy_id:          { 
       type:      "Optional[String]",
       desc:      "Unique identifier of the protection policy assigned to the volume.",
-      behaviour: :init_only,
     },
     sector_size:          { 
       type:      "Optional[Integer[512,4096]]",
@@ -107,7 +104,6 @@ Puppet::ResourceApi.register_type(
     size:          { 
       type:      "Integer[1048576,281474976710656]",
       desc:      "Size of the volume to be created, in bytes. Minimum volume size is 1MB. Maximum volume size is 256TB. Size must be a multiple of 8192.",
-      behaviour: :init_only,
     },
     state:          { 
       type:      "Optional[Enum['Ready','Initializing','Offline','Destroying']]",

@@ -17,7 +17,6 @@ Puppet::ResourceApi.register_type(
     days_of_week:          { 
       type:      "Optional[Array[Enum['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']]]",
       desc:      "Days of the week when the rule should be applied. Applies only for rules where the time_of_day parameter is set.",
-      behaviour: :init_only,
     },
     days_of_week_l10n:          { 
       type:      "Optional[Array[String]]",
@@ -30,7 +29,6 @@ Puppet::ResourceApi.register_type(
     desired_retention:          { 
       type:      "Integer[1,8760]",
       desc:      "Desired snapshot retention period in hours. The system will retain snapshots for this time period, if space is available.",
-      behaviour: :init_only,
     },
     id:          { 
       type:      "Optional[String]",
@@ -39,7 +37,6 @@ Puppet::ResourceApi.register_type(
     interval:          { 
       type:      "Optional[Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Two_Hours','Three_Hours','Four_Hours','Six_Hours','Eight_Hours','Twelve_Hours','One_Day']]",
       desc:      "Interval between snapshots. Either the interval parameter or the time_of_day parameter may be set. Setting one clears the other parameter.",
-      behaviour: :init_only,
     },
     interval_l10n:          { 
       type:      "Optional[String]",
@@ -57,7 +54,6 @@ Puppet::ResourceApi.register_type(
     time_of_day:          { 
       type:      "Optional[String]",
       desc:      "Time of the day to take a daily snapshot, with format 'hh:mm' in 24 hour time format. Either the interval parameter or the time_of_day parameter may be set, but not both.",
-      behaviour: :init_only,
     },
   },
   autorequires: {
