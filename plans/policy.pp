@@ -1,11 +1,11 @@
 plan powerstore::policy(
-  TargetSpec $targets,
-  String $volume_name,
-  Enum['present', 'absent'] $ensure = 'present'
+  TargetSpec                $targets,
+  String                    $volume_name,
+  Enum['present', 'absent'] $ensure       = 'present'
 ) {
 
   # Using an apply() block allows for the re-use of types/providers developed
-  # for Puppet from within a Bolt Plan. This re-use makies the development of
+  # for Puppet from within a Bolt Plan. This re-use makes the development of
   # idempotent plans simpler.
   #
   if $ensure == 'present' {
@@ -22,19 +22,16 @@ plan powerstore::policy(
       ]
 
       powerstore_snapshot_rule { 'high_frequency': 
-        ensure            => present,
         interval          => 'Five_Minutes',
         desired_retention => 24,
         days_of_week      => $a_week,
       }
       powerstore_snapshot_rule { 'daily_roll_up': 
-        ensure            => present,
         interval          => 'One_Day',
         desired_retention => 168,
         days_of_week      => $a_week,
       }
       powerstore_snapshot_rule { 'weekly_roll_up': 
-        ensure            => present,
         time_of_day       => '03:00',
         desired_retention => 2160,
         days_of_week      => [ 'Saturday' ],
@@ -42,69 +39,73 @@ plan powerstore::policy(
     }
   }
 
-
-  # An array of resource references that corresponds to our previously created
-  # snapshot rules from the above apply() block...
+  # A simple array of the names of snapshot rules we created previoulsy within
+  # this plan
   #
-  $plan_rules = [
-    'high_frequency',
-    'daily_roll_up',
-    'weekly_roll_up'
-  ].map |$pr| { "Powerstore_snapshot_rule[${pr}]" }
+  $snapshot_rules = [ 'high_frequency', 'daily_roll_up', 'weekly_roll_up' ]
 
-  # Using the list of resource references use the general purpose
-  # get_resources() funtion which has knowledge of device state state and built
-  # in filtering to fetch only the resources we previously created so that we
-  # extract their IDs which are required to associate with a newly created
-  # policy
+  # Task that interrogates the Powerstore devices to retrieve the post apply()
+  # state of the snapshot rule resources we preveiously defined by filtering
+  # them from the list of all snapshot rules then extracts each rule's ID so
+  # it can be assigned to the device target using the set_var() function. We
+  # will use this device inventory variable in the next apply block
   #
-  $plan_rule_ids = get_resources($targets, $plan_rules).reduce({}) |$memo, $i| {
-    $memo + { $i.target.name => Hash($i['resources'].map |$r| {
-      [$r.keys, $r.values]
-    }.flatten ).map |$k, $v| { $v['id'] } }
+  # This first line is just running our task using an API collection query and
+  # returning a set of results that we'll interate over.
+  #   
+  run_task('powerstore::snapshot_rule_collection_query', $targets).each |$target_result| {
+    # This get_target() line fetches our device's inventory object and calls on
+    # it the set_var() function to set the snapshot_rule_ids inventory variable
+    #
+    get_target($target_result.target).set_var('snapshot_rule_ids',
+      # Filter's the resources we got back from the collection query to only
+      # include the ones we care about and return their IDs so they are assigned
+      # to the correct device
+      #
+      $target_result.value.filter |$rule| { $rule[0] in $snapshot_rules }.map |$match| { $match[1]['id'] }
+    )
   }
 
-  get_targets($targets).each |$e| { $e.set_var('rules', $plan_rule_ids[$e.name]) }
-
+  # An apply() block that creates and associates a policy with our snapshot rule IDs
+  #
   if $ensure == 'present' {
     apply($targets, '_catch_errors' => true) {
       powerstore_policy { 'default_org_snapshot_set':
-        ensure            => present,
         description       => 'This policy includes the default Snapshot Rules that are applied to volumes for our organization',
-        snapshot_rule_ids => $rules,
+        snapshot_rule_ids => $snapshot_rule_ids,
       }
     }
   }
  
-  # Same strategy as previous use of get_resources() but simpler because we only
-  # need a single ID from a single known resource name that we'll later pass to
-  # the volume that needs to be updated.
-  #
-  $plan_pp_id = get_resources($targets, 'Powerstore_policy[default_org_snapshot_set]')[0]['resources'][0]['default_org_snapshot_set']['id']
-
-  # Same recurring issue with IDs being required for some operations; is
-  # is considered a bug that will go away.
-  #
-  $plan_vol_id = get_resources($targets, "Powerstore_volume[${volume_name}]")[0]['resources'][0][$volume_name]['id']
+  # Same strategy as with snapshot rules but a tad simpler because we only need
+  # to obtain the ID of our policy resource.
+  #   
+  run_task('powerstore::policy_collection_query', $targets).each |$target_result| {
+    get_target($target_result.target).set_var('policy_id',
+      $target_result.value.filter |$policy| { $policy[0] == 'default_org_snapshot_set' }.map |$match| { $match[1]['id'] }[0]
+    )
+  }
 
   # Update an existing volume with the policy that includes are snapshot rules,
   # set it to empty string if the plan is ran with 'ensure=absent'
   #
   apply($targets,  '_catch_errors' => true) {
     powerstore_volume { $volume_name: 
-      protection_policy_id => $ensure ? { 'present' => $plan_pp_id, 'absent' => '' }
+      protection_policy_id => $ensure ? { 'present' => $policy_id, 'absent' => '' }
     }
   }
 
-
-  # Just fetching the volume post apply() block to deliver a visual
-  # confirmation that it worked
+  # Fetching the volume post apply() block to deliver a visual confirmation that
+  # it worked
   #
-  $plan_vol = Hash(
-    get_resources($targets, "Powerstore_volume[${volume_name}]")[0]['resources'].map |$r| {
-      [$r.keys, $r.values]
-    }.flatten
-  )
+  # Same strategy as with snapshot rules but a tad simpler because we only need
+  # to obtain the ID of our policy resource.
+  #   
+  $volumes = Hash(run_task('powerstore::volume_collection_query', $targets).map |$target_result| {
+      $target_result.value.filter |$volume| { $volume[0] == $volume_name }.map |$match| {
+        [ "${target_result.target.name}_protection_policy_id", $match[1]['protection_policy_id'] ]
+      }[0]
+    })
 
-  return $plan_vol
+  return $volumes
 }

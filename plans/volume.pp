@@ -1,23 +1,25 @@
 plan powerstore::volume(
-  TargetSpec $targets,
-  String $volume_name,
-  Integer $size = 26843545600,
-  String $description = 'Created via rudimentary task', 
-  Enum['present', 'absent'] $ensure = 'present'
+  TargetSpec                $targets,
+  String                    $volume_name,
+  Integer                   $size         = 26843545600,
+  String                    $description  = 'Created via rudimentary task', 
+  Enum['present', 'absent'] $ensure       = 'present'
 ) {
 
-  $volumes = Hash(get_resources($targets, 'Powerstore_volume')[0]['resources'].map |$r| { [$r.keys, $r.values] }.flatten)
+  
+  if $ensure == 'absent' {
+    $volumes = Hash(run_task('powerstore::volume_collection_query', $targets).map |$target_result| {
+        $target_result.value.filter |$volume| { $volume[0] == $volume_name }.map |$match| { [ "${target_result.target.name}_id", $match[1]['id'] ] }[0]
+    })
+  
+    $results = get_targets($targets).each |$target| { run_task('powerstore::volume_delete', $target, { 'id' => $volumes["${target.name}_id"] } ) } 
+  } else {
+    $results = run_task('powerstore::volume_create', $targets, {
+      'name'        => $volume_name,
+      'size'        => $size,
+      'description' => $description
+    } )
+  } 
 
-  apply($targets,  '_catch_errors' => true) {
-    powerstore_volume { $volume_name: 
-      id => $volumes[$volume_name].empty ? { true => 'bug!', default => $volumes[$volume_name]['id'] },
-      size => $size,
-      description => $description,
-      ensure => $ensure,
-    }
-  }
-
-  $plan_vol = Hash(get_resources($targets, "Powerstore_volume[${volume_name}]")[0]['resources'].map |$r| { [$r.keys, $r.values] }.flatten)
-
-  return $plan_vol
+  return $results
 }
