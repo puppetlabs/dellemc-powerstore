@@ -6,7 +6,7 @@
 	"parameters":{
 			"backup_snap_profile":{
 				"description": "Snapshot volume group request.",
-				"type":        "Optional[Struct[{Optional[description] => String, name => String, }]]"
+				"type":        "Optional[Struct[{Optional[description] => Optional[String], name => Optional[String], }]]"
 			},
 			"create_backup_snap":{
 				"description": "This parameter specifies whether a backup snapshot set of the target volume group needs to be created before refreshing it.This parameter defaults to true, if not specified.",

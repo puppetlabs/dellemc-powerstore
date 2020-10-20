@@ -25,6 +25,7 @@ class PowerstoreHostGroupAttachTask < TaskHelper
 
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
+    namevar = 'name'
     operation_verb = 'Post'
     operation_path = '/host_group/%{id}/attach'
     parent_consumes = 'application/json'
@@ -40,7 +41,8 @@ class PowerstoreHostGroupAttachTask < TaskHelper
       end
       body = JSON.parse(result.body)
       if body.class == Array
-        return { "list" => body }
+        # return { "list" => body }
+        return body.map { | i | [ i[namevar], i.reject { | k | k == namevar } ] }.to_h
       else
         return body
       end

@@ -14,8 +14,8 @@ include BoltSpec::Run
 describe "powerstore_host" do
   it 'should perform host_collection_query' do
     result = run_task("powerstore::host_collection_query", 'sut', {}, config: config_data, inventory: inventory_data)
-    expect(result[0]['status']).to eq('success')  
-    expect(result[0]['value']['list']).not_to be_nil  
+    expect(result[0]['status']).to eq('success')
+    expect(result[0]['value']).not_to be_nil
   end
   it 'should perform host_instance_query' do
     result = run_task("powerstore::host_instance_query", 'sut', {"id" => "string"}, config: config_data, inventory: inventory_data)
@@ -25,17 +25,17 @@ describe "powerstore_host" do
   it 'should perform host_delete' do
     result = run_task("powerstore::host_delete", 'sut', {"id" => "string"}, config: config_data, inventory: inventory_data)
     expect(result[0]['status']).to eq('success')  
-	end
+  end
   it 'should perform host_create' do
     result = run_task("powerstore::host_create", 'sut', sample_task_parameters('host_create'), config: config_data, inventory: inventory_data)
     expect(result[0]['status']).to eq('success')  
-	end
+  end
   it 'should perform host_attach' do
     result = run_task("powerstore::host_attach", 'sut', sample_task_parameters('host_attach'), config: config_data, inventory: inventory_data)
     expect(result[0]['status']).to eq('success')  
-	end
+  end
   it 'should perform host_detach' do
     result = run_task("powerstore::host_detach", 'sut', sample_task_parameters('host_detach'), config: config_data, inventory: inventory_data)
     expect(result[0]['status']).to eq('success')  
-	end
+  end
   end

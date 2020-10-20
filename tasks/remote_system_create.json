@@ -18,7 +18,7 @@
 			},
 			"import_chap_info":{
 				"description": "Information about the initiator, target session, or discovery CHAP secrets.",
-				"type":        "Optional[Struct[{Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, }]]"
+				"type":        "Optional[Struct[{Optional[initiator_discovery_password] => Optional[String], Optional[initiator_discovery_username] => Optional[String], Optional[initiator_session_password] => Optional[String], Optional[initiator_session_username] => Optional[String], Optional[target_discovery_password] => Optional[String], Optional[target_discovery_username] => Optional[String], Optional[target_session_password] => Optional[String], Optional[target_session_username] => Optional[String], }]]"
 			},
 			"iscsi_addresses":{
 				"description": "iSCSI target IP addresses for the data connection to the remote system. Must be specified when creating a non-PowerStore remote system.",

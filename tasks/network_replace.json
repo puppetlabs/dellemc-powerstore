@@ -14,7 +14,7 @@
 			},
 			"esxi_credentials":{
 				"description": "Credentials required for re-registering the ESXi hosts in the vCenter.Should be passed only when ESXi host addresses or management network VLAN / prefix / gateway are changedduring the reconfiguration of the PowerStore X model appliances.",
-				"type":        "Optional[Array[Struct[{Optional[node_id] => String, Optional[password] => String, }]]]"
+				"type":        "Optional[Array[Struct[{Optional[node_id] => Optional[String], Optional[password] => Optional[String], }]]]"
 			},
 			"force":{
 				"description": "Indicates whether to suppress network validation errors.The option is intended to suppress false errors caused by network environment constraints.Normally the command will fail with an error when:- some of system network ports are in degraded state or have cabling issues,- system top-of-rack switches have configuration issues leading to network unreachability,- network IP addresses have duplicates in the network environment,- or network gateway is unreachable.When force is true, the command will proceed instead.Caution: Only use this option when you are certain your requested settings are correct and you understand why they are failing at this time, and you want to apply the settings anyway.Improper network settings can make the system unreachable for data and management.",
@@ -43,7 +43,7 @@
 			},
 			"physical_switches":{
 				"description": "List of new physical switches settings. If this property is omitted, physical switches configuration will not be modified.",
-				"type":        "Optional[Array[Struct[{Optional[connections] => Array[Struct[{address => String, connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String, Optional[ssh_password] => String, Optional[username] => String, }]], Optional[name] => String, Optional[purpose] => Enum['Data_and_Management','Management_Only'], }]]]"
+				"type":        "Optional[Array[Struct[{Optional[connections] => Optional[Array[Struct[{address => Optional[String], connect_method => Optional[Enum['SSH','SNMPv2c']], Optional[port] => Optional[Integer[0,65535]], Optional[snmp_community_string] => Optional[String], Optional[ssh_password] => Optional[String], Optional[username] => Optional[String], }]]], Optional[name] => Optional[String], Optional[purpose] => Optional[Enum['Data_and_Management','Management_Only']], }]]]"
 			},
 			"prefix_length":{
 				"description": "Network prefix length. (Used for both IPv4 and IPv6).",
@@ -51,11 +51,11 @@
 			},
 			"smtp_config":{
 				"description": "",
-				"type":        "Optional[Struct[{address => String, port => Integer[0,65535], source_email => String, }]]"
+				"type":        "Optional[Struct[{address => Optional[String], port => Optional[Integer[0,65535]], source_email => Optional[String], }]]"
 			},
 			"vasa_provider_credentials":{
 				"description": "Credentials required for re-registering the VASA vendor provider during the replacement of the cluster management IP address.Should be passed only when reconfiguring PowerStoreX cluster.",
-				"type":        "Optional[Struct[{Optional[password] => String, Optional[username] => String, }]]"
+				"type":        "Optional[Struct[{Optional[password] => Optional[String], Optional[username] => Optional[String], }]]"
 			},
 			"vcenter_address":{
 				"description": "New vCenter FQDNs or IP address in IPv4 or IPv6 format. Required only when reconfiguring PowerStoreX cluster.",

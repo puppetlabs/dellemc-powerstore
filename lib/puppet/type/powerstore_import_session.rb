@@ -45,7 +45,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Localized message string corresponding to destination_resource_type",
     },
     error:          { 
-      type:      "Optional[Struct[{Optional[arguments] => Array[String], Optional[code] => String, Optional[message_l10n] => String, }]]",
+      type:      "Optional[Struct[{Optional[arguments] => Optional[Array[String]], Optional[code] => Optional[String], Optional[message_l10n] => Optional[String], }]]",
       desc:      "Filtering on the fields of this embedded resource is not supported.",
     },
     estimated_completion_timestamp:          { 

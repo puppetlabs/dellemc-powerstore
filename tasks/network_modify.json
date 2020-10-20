@@ -14,7 +14,7 @@
 			},
 			"esxi_credentials":{
 				"description": "Credentials required for re-registering the ESXi hosts in the vCenter.Should be passed only when ESXi host addresses or management network VLAN / prefix / gateway are changedduring the reconfiguration of the PowerStore X model appliances.",
-				"type":        "Optional[Array[Struct[{Optional[node_id] => String, Optional[password] => String, }]]]"
+				"type":        "Optional[Array[Struct[{Optional[node_id] => Optional[String], Optional[password] => Optional[String], }]]]"
 			},
 			"force":{
 				"description": "Indicates whether to suppress network validation errors.The option is intended to suppress false errors caused by network environment constraints.Normally the command will fail with an error when:- some of system network ports are in degraded state or have cabling issues,- system top-of-rack switches have configuration issues leading to network unreachability,- network IP addresses have duplicates in the network environment,- or network gateway is unreachable.When force is true, the command will proceed instead.Caution: Only use this option when you are certain your requested settings are correct and you understand why they are failing at this time, and you want to apply the settings anyway.Improper network settings can make the system unreachable for data and management.",
@@ -47,7 +47,7 @@
 			},
 			"vasa_provider_credentials":{
 				"description": "Credentials required for re-registering the VASA vendor provider during the reconfiguration of the cluster management IP address.Should be passed only when reconfiguring cluster management IP address.",
-				"type":        "Optional[Struct[{Optional[password] => String, Optional[username] => String, }]]"
+				"type":        "Optional[Struct[{Optional[password] => Optional[String], Optional[username] => Optional[String], }]]"
 			},
 			"vlan_id":{
 				"description": "VLAN identifier.",

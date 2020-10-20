@@ -6,7 +6,7 @@
 	"parameters":{
 			"connections":{
 				"description": "Supported connections for a physical switch.",
-				"type":        "Optional[Array[Struct[{address => String[1,255], connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String[1,128], Optional[ssh_password] => String[1,128], Optional[username] => String[1,128], }]]]"
+				"type":        "Optional[Array[Struct[{address => Optional[String[1,255]], connect_method => Optional[Enum['SSH','SNMPv2c']], Optional[port] => Optional[Integer[0,65535]], Optional[snmp_community_string] => Optional[String[1,128]], Optional[ssh_password] => Optional[String[1,128]], Optional[username] => Optional[String[1,128]], }]]]"
 			},
 			"id":{
 				"description": "Unique identifier of the physical switch settings.",

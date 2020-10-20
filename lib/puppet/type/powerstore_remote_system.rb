@@ -28,7 +28,7 @@ Before creating a remote system relationship with PowerStore remote systems, fir
       desc:      "Localized message string corresponding to data_connection_state",
     },
     data_connections:          { 
-      type:      "Optional[Array[Struct[{Optional[initiator_address] => String, Optional[node_id] => String, Optional[status] => Enum['Login_Success','Authentication_Failure','Connection_Refused','Login_Timeout','Network_Error','General_Failure','Login_Success_No_Ports','Discovery_Success','Discovery_Authentication_Failure','Discovery_Connection_Refused','Discovery_Timeout'], Optional[status_l10n] => String, Optional[target_address] => String, }]]]",
+      type:      "Optional[Array[Struct[{Optional[initiator_address] => Optional[String], Optional[node_id] => Optional[String], Optional[status] => Optional[Enum['Login_Success','Authentication_Failure','Connection_Refused','Login_Timeout','Network_Error','General_Failure','Login_Success_No_Ports','Discovery_Success','Discovery_Authentication_Failure','Discovery_Connection_Refused','Discovery_Timeout']], Optional[status_l10n] => Optional[String], Optional[target_address] => Optional[String], }]]]",
       desc:      "List of data connections from each appliance in the local cluster to iSCSI target IP address. Filtering on the fields of this embedded resource is not supported.",
     },
     data_network_latency:          { 
@@ -59,7 +59,7 @@ Before creating a remote system relationship with PowerStore remote systems, fir
       behaviour: :read_only,
     },
     import_chap_info:          { 
-      type:      "Optional[Struct[{Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, }]]",
+      type:      "Optional[Struct[{Optional[initiator_discovery_password] => Optional[String], Optional[initiator_discovery_username] => Optional[String], Optional[initiator_session_password] => Optional[String], Optional[initiator_session_username] => Optional[String], Optional[target_discovery_password] => Optional[String], Optional[target_discovery_username] => Optional[String], Optional[target_session_password] => Optional[String], Optional[target_session_username] => Optional[String], }]]",
       desc:      "Information about the initiator, target session, or discovery CHAP secrets.",
       behaviour: :init_only,
     },

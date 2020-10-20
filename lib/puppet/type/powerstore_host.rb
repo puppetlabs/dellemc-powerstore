@@ -14,7 +14,7 @@ Puppet::ResourceApi.register_type(
       default:   "present",
     },
     add_initiators:          { 
-      type:      "Optional[Array[Struct[{Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], port_name => String, port_type => Enum['iSCSI','FC'], }]]]",
+      type:      "Optional[Array[Struct[{Optional[chap_mutual_password] => Optional[String[12,64]], Optional[chap_mutual_username] => Optional[String[1,64]], Optional[chap_single_password] => Optional[String[12,64]], Optional[chap_single_username] => Optional[String[1,64]], port_name => Optional[String], port_type => Optional[Enum['iSCSI','FC']], }]]]",
       desc:      "The list of initiators to be added. CHAP username and password are optional.",
     },
     description:          { 
@@ -26,7 +26,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Associated host group, if host is part of host group.",
     },
     host_initiators:          { 
-      type:      "Optional[Array[Struct[{Optional[active_sessions] => Array[Struct[{Optional[appliance_id] => String, Optional[bond_id] => String, Optional[eth_port_id] => String, Optional[fc_port_id] => String, Optional[node_id] => String, Optional[port_name] => String, Optional[veth_id] => String, }]], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_username] => String[1,64], Optional[port_name] => String, Optional[port_type] => Enum['iSCSI','FC'], Optional[port_type_l10n] => String, }]]]",
+      type:      "Optional[Array[Struct[{Optional[active_sessions] => Optional[Array[Struct[{Optional[appliance_id] => Optional[String], Optional[bond_id] => Optional[String], Optional[eth_port_id] => Optional[String], Optional[fc_port_id] => Optional[String], Optional[node_id] => Optional[String], Optional[port_name] => Optional[String], Optional[veth_id] => Optional[String], }]]], Optional[chap_mutual_username] => Optional[String[1,64]], Optional[chap_single_username] => Optional[String[1,64]], Optional[port_name] => Optional[String], Optional[port_type] => Optional[Enum['iSCSI','FC']], Optional[port_type_l10n] => Optional[String], }]]]",
       desc:      "Filtering on the fields of this embedded resource is not supported.",
     },
     id:          { 
@@ -35,12 +35,12 @@ Puppet::ResourceApi.register_type(
       behaviour: :read_only,
     },
     initiators:          { 
-      type:      "Optional[Array[Struct[{Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], port_name => String, port_type => Enum['iSCSI','FC'], }]]]",
+      type:      "Optional[Array[Struct[{Optional[chap_mutual_password] => Optional[String[12,64]], Optional[chap_mutual_username] => Optional[String[1,64]], Optional[chap_single_password] => Optional[String[12,64]], Optional[chap_single_username] => Optional[String[1,64]], port_name => Optional[String], port_type => Optional[Enum['iSCSI','FC']], }]]]",
       desc:      "",
       behaviour: :init_only,
     },
     modify_initiators:          { 
-      type:      "Optional[Array[Struct[{Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], Optional[port_name] => String, }]]]",
+      type:      "Optional[Array[Struct[{Optional[chap_mutual_password] => Optional[String[12,64]], Optional[chap_mutual_username] => Optional[String[1,64]], Optional[chap_single_password] => Optional[String[12,64]], Optional[chap_single_username] => Optional[String[1,64]], Optional[port_name] => Optional[String], }]]]",
       desc:      "Update list of existing initiators, identified by port_name, with new CHAP usernames and/or passwords.",
     },
     name:          { 
