@@ -18,7 +18,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Description of the tree quota.",
     },
     file_system_id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the associated file system.",
       behaviour: :init_only,
     },
@@ -36,7 +36,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Whether the quota must be enabled for all users, and whether user quota limits, if any, are enforced.Values are:- true - start tracking usage for all users on the quota tree, and enforce user quota limits.- false - stop tracking usage for all users on the quota tree, and do not enforce user quota limits.",
     },
     path:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Path relative to the root of the associated filesystem.",
       behaviour: :init_only,
     },

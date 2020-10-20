@@ -35,7 +35,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :read_only,
     },
     initiators:          { 
-      type:      "Array[Struct[{Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], port_name => String, port_type => Enum['iSCSI','FC'], }]]",
+      type:      "Optional[Array[Struct[{Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], port_name => String, port_type => Enum['iSCSI','FC'], }]]]",
       desc:      "",
       behaviour: :init_only,
     },
@@ -49,7 +49,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     os_type:          { 
-      type:      "Enum['Windows','Linux','ESXi','AIX','HP-UX','Solaris']",
+      type:      "Optional[Enum['Windows','Linux','ESXi','AIX','HP-UX','Solaris']]",
       desc:      "Operating system of the host.",
       behaviour: :init_only,
     },

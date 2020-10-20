@@ -13,9 +13,9 @@ powerstore_import_session {
   description => "description (optional)",
   name => "name",
   protection_policy_id => "protection_policy_id (optional)",
-  remote_system_id => "remote_system_id",
+  remote_system_id => "remote_system_id (optional)",
   scheduled_timestamp => "scheduled_timestamp (optional)",
-  source_resource_id => "source_resource_id",
+  source_resource_id => "source_resource_id (optional)",
   volume_group_id => "volume_group_id (optional)",
 }
 ```
@@ -26,9 +26,9 @@ powerstore_import_session {
 |description | Optional[String[1,128]] | false |
 |name | String[1,128] | true |
 |protection_policy_id | Optional[String] | false |
-|remote_system_id | String | true |
+|remote_system_id | Optional[String] | false |
 |scheduled_timestamp | Optional[String] | false |
-|source_resource_id | String | true |
+|source_resource_id | Optional[String] | false |
 |volume_group_id | Optional[String] | false |
 
 

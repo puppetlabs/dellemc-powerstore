@@ -28,7 +28,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :parameter,
     },
     desired_retention:          { 
-      type:      "Integer[1,8760]",
+      type:      "Optional[Integer[1,8760]]",
       desc:      "Desired snapshot retention period in hours. The system will retain snapshots for this time period, if space is available.",
     },
     id:          { 

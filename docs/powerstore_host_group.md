@@ -12,7 +12,7 @@ Manage host groups.
 powerstore_host_group {
   add_host_ids => "add_host_ids (optional)",
   description => "description (optional)",
-  host_ids => "host_ids",
+  host_ids => "host_ids (optional)",
   name => "name",
   remove_host_ids => "remove_host_ids (optional)",
 }
@@ -22,7 +22,7 @@ powerstore_host_group {
 | ------------- | ------------- | ------------- |
 |add_host_ids | Optional[Array[String]] | false |
 |description | Optional[String[1,256]] | false |
-|host_ids | Array[String] | true |
+|host_ids | Optional[Array[String]] | false |
 |name | String[1,128] | true |
 |remove_host_ids | Optional[Array[String]] | false |
 

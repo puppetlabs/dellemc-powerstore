@@ -25,9 +25,9 @@ powerstore_file_system {
   is_smb_sync_writes_enabled => "is_smb_sync_writes_enabled (optional)",
   locking_policy => "locking_policy (optional)",
   name => "name",
-  nas_server_id => "nas_server_id",
+  nas_server_id => "nas_server_id (optional)",
   protection_policy_id => "protection_policy_id (optional)",
-  size_total => "size_total",
+  size_total => "size_total (optional)",
   smb_notify_on_change_dir_depth => "smb_notify_on_change_dir_depth (optional)",
 }
 ```
@@ -50,9 +50,9 @@ powerstore_file_system {
 |is_smb_sync_writes_enabled | Optional[Boolean] | false |
 |locking_policy | Optional[Enum['Advisory','Mandatory']] | false |
 |name | String[1,255] | true |
-|nas_server_id | String | true |
+|nas_server_id | Optional[String] | false |
 |protection_policy_id | Optional[String] | false |
-|size_total | Integer[3221225472,281474976710656] | true |
+|size_total | Optional[Integer[3221225472,281474976710656]] | false |
 |smb_notify_on_change_dir_depth | Optional[Integer[1,512]] | false |
 
 

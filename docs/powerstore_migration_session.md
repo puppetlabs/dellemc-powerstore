@@ -10,22 +10,22 @@ Manage migration sessions.
 ```puppet
 powerstore_migration_session {
   automatic_cutover => "automatic_cutover (optional)",
-  destination_appliance_id => "destination_appliance_id",
-  family_id => "family_id",
+  destination_appliance_id => "destination_appliance_id (optional)",
+  family_id => "family_id (optional)",
   force => "force (optional)",
-  name => "name (optional)",
-  resource_type => "resource_type",
+  name => "name",
+  resource_type => "resource_type (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |automatic_cutover | Optional[Boolean] | false |
-|destination_appliance_id | String | true |
-|family_id | String | true |
+|destination_appliance_id | Optional[String] | false |
+|family_id | Optional[String] | false |
 |force | Optional[Boolean] | false |
-|name | Optional[String] | false |
-|resource_type | Enum['volume','virtual_volume','volume_group'] | true |
+|name | Optional[String] | true |
+|resource_type | Optional[Enum['volume','virtual_volume','volume_group']] | false |
 
 
 

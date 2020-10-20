@@ -11,8 +11,8 @@ Use this resource type to manage the replication rules that are used in protecti
 powerstore_replication_rule {
   alert_threshold => "alert_threshold (optional)",
   name => "name",
-  remote_system_id => "remote_system_id",
-  rpo => "rpo",
+  remote_system_id => "remote_system_id (optional)",
+  rpo => "rpo (optional)",
 }
 ```
 
@@ -20,8 +20,8 @@ powerstore_replication_rule {
 | ------------- | ------------- | ------------- |
 |alert_threshold | Optional[Integer[0,1440]] | false |
 |name | String | true |
-|remote_system_id | String | true |
-|rpo | Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Six_Hours','Twelve_Hours','One_Day'] | true |
+|remote_system_id | Optional[String] | false |
+|rpo | Optional[Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Six_Hours','Twelve_Hours','One_Day']] | false |
 
 
 

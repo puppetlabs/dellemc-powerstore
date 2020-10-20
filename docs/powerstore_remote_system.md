@@ -20,8 +20,8 @@ powerstore_remote_system {
   discovery_chap_mode => "discovery_chap_mode (optional)",
   import_chap_info => "import_chap_info (optional)",
   iscsi_addresses => "iscsi_addresses (optional)",
-  management_address => "management_address",
-  name => "name (optional)",
+  management_address => "management_address (optional)",
+  name => "name",
   remote_password => "remote_password (optional)",
   remote_username => "remote_username (optional)",
   session_chap_mode => "session_chap_mode (optional)",
@@ -36,8 +36,8 @@ powerstore_remote_system {
 |discovery_chap_mode | Optional[Enum['Disabled','Single','Mutual']] | false |
 |import_chap_info | Optional[Struct[{Optional[initiator_discovery_password] => String, Optional[initiator_discovery_username] => String, Optional[initiator_session_password] => String, Optional[initiator_session_username] => String, Optional[target_discovery_password] => String, Optional[target_discovery_username] => String, Optional[target_session_password] => String, Optional[target_session_username] => String, }]] | false |
 |iscsi_addresses | Optional[Array[String]] | false |
-|management_address | String | true |
-|name | Optional[String[1,128]] | false |
+|management_address | Optional[String] | false |
+|name | Optional[String[1,128]] | true |
 |remote_password | Optional[String] | false |
 |remote_username | Optional[String] | false |
 |session_chap_mode | Optional[Enum['Disabled','Single','Mutual']] | false |

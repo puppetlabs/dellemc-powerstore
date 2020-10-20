@@ -14,7 +14,7 @@ Puppet::ResourceApi.register_type(
       default:   "present",
     },
     email_address:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Email address to receive notifications.",
     },
     id:          { 

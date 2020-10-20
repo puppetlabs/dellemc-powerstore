@@ -14,11 +14,11 @@ Puppet::ResourceApi.register_type(
       default:   "present",
     },
     connections:          { 
-      type:      "Array[Struct[{address => String[1,255], connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String[1,128], Optional[ssh_password] => String[1,128], Optional[username] => String[1,128], }]]",
+      type:      "Optional[Array[Struct[{address => String[1,255], connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String[1,128], Optional[ssh_password] => String[1,128], Optional[username] => String[1,128], }]]]",
       desc:      "Supported connections for a physical switch.",
     },
     id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the physical switch settings.",
       behaviour: :read_only,
     },
@@ -28,7 +28,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     purpose:          { 
-      type:      "Enum['Data_and_Management','Management_Only']",
+      type:      "Optional[Enum['Data_and_Management','Management_Only']]",
       desc:      "Physical switch purpose in network. Possible purposes are:  * Data_and_Management - Physical switch for all data and management networks.  * Management_Only - Physical switch for management network only.",
     },
     purpose_l10n:          { 

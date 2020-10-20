@@ -11,15 +11,15 @@ The cluster supports third-party anti-virus servers that perform virus scans and
 
 ```puppet
 powerstore_file_virus_checker {
-  is_enabled => "is_enabled",
-  nas_server_id => "nas_server_id",
+  is_enabled => "is_enabled (optional)",
+  nas_server_id => "nas_server_id (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|is_enabled | Boolean | true |
-|nas_server_id | String | true |
+|is_enabled | Optional[Boolean] | false |
+|nas_server_id | Optional[String] | false |
 
 
 

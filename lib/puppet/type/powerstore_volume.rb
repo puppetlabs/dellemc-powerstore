@@ -46,7 +46,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the volume to delete.",
       behaviour: :read_only,
     },
@@ -103,7 +103,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     size:          { 
-      type:      "Integer[1048576,281474976710656]",
+      type:      "Optional[Integer[1048576,281474976710656]]",
       desc:      "Size of the volume to be created, in bytes. Minimum volume size is 1MB. Maximum volume size is 256TB. Size must be a multiple of 8192.",
     },
     state:          { 

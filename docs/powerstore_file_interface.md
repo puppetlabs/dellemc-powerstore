@@ -10,10 +10,10 @@ Information about File network interfaces in the storage system. These interface
 ```puppet
 powerstore_file_interface {
   gateway => "gateway (optional)",
-  ip_address => "ip_address",
+  ip_address => "ip_address (optional)",
   is_disabled => "is_disabled (optional)",
-  nas_server_id => "nas_server_id",
-  prefix_length => "prefix_length",
+  nas_server_id => "nas_server_id (optional)",
+  prefix_length => "prefix_length (optional)",
   role => "role (optional)",
   vlan_id => "vlan_id (optional)",
 }
@@ -22,10 +22,10 @@ powerstore_file_interface {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |gateway | Optional[String[1,45]] | false |
-|ip_address | String[1,45] | true |
+|ip_address | Optional[String[1,45]] | false |
 |is_disabled | Optional[Boolean] | false |
-|nas_server_id | String | true |
-|prefix_length | Integer[1,128] | true |
+|nas_server_id | Optional[String] | false |
+|prefix_length | Optional[Integer[1,128]] | false |
 |role | Optional[Enum['Production','Backup']] | false |
 |vlan_id | Optional[Integer[0,4094]] | false |
 

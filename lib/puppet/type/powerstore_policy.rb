@@ -28,7 +28,7 @@ Note: Performance policies are predefined for high, low, and medium performance.
       desc:      "Policy description.",
     },
     id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the protection policy to be deleted.",
       behaviour: :read_only,
     },

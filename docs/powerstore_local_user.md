@@ -12,8 +12,8 @@ powerstore_local_user {
   current_password => "current_password (optional)",
   is_locked => "is_locked (optional)",
   name => "name",
-  password => "password",
-  role_id => "role_id",
+  password => "password (optional)",
+  role_id => "role_id (optional)",
 }
 ```
 
@@ -22,8 +22,8 @@ powerstore_local_user {
 |current_password | Optional[String] | false |
 |is_locked | Optional[Boolean] | false |
 |name | String | true |
-|password | String | true |
-|role_id | String | true |
+|password | Optional[String] | false |
+|role_id | Optional[String] | false |
 
 
 

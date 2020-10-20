@@ -33,7 +33,7 @@ Puppet::ResourceApi.register_type(
       default:   false,
     },
     id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the volume group.",
       behaviour: :read_only,
     },

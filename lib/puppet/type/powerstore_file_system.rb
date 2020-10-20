@@ -83,7 +83,7 @@ Puppet::ResourceApi.register_type(
       default:   -1,
     },
     id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "File system id.",
       behaviour: :read_only,
     },
@@ -148,7 +148,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     nas_server_id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Id of the NAS Server on which the file system is mounted.",
       behaviour: :init_only,
     },
@@ -161,7 +161,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Id of the protection policy applied to the file system.",
     },
     size_total:          { 
-      type:      "Integer[3221225472,281474976710656]",
+      type:      "Optional[Integer[3221225472,281474976710656]]",
       desc:      "Size that the file system presents to the host or end user. (Bytes)",
     },
     size_used:          { 

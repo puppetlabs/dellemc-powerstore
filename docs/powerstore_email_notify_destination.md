@@ -9,7 +9,7 @@ Use these resource types to configure outgoing SMTP and email notifications.
 
 ```puppet
 powerstore_email_notify_destination {
-  email_address => "email_address",
+  email_address => "email_address (optional)",
   notify_critical => "notify_critical (optional)",
   notify_info => "notify_info (optional)",
   notify_major => "notify_major (optional)",
@@ -19,7 +19,7 @@ powerstore_email_notify_destination {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|email_address | String | true |
+|email_address | Optional[String] | false |
 |notify_critical | Optional[Boolean] | false |
 |notify_info | Optional[Boolean] | false |
 |notify_major | Optional[Boolean] | false |

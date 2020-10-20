@@ -9,17 +9,17 @@ The Network Data Management Protocol (NDMP) provides a standard for backing up f
 
 ```puppet
 powerstore_file_ndmp {
-  nas_server_id => "nas_server_id",
-  password => "password",
-  user_name => "user_name",
+  nas_server_id => "nas_server_id (optional)",
+  password => "password (optional)",
+  user_name => "user_name (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|nas_server_id | String | true |
-|password | String | true |
-|user_name | String | true |
+|nas_server_id | Optional[String] | false |
+|password | Optional[String] | false |
+|user_name | Optional[String] | false |
 
 
 

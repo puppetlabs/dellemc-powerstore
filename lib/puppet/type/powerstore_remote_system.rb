@@ -53,7 +53,7 @@ Before creating a remote system relationship with PowerStore remote systems, fir
       desc:      "Localized message string corresponding to discovery_chap_mode",
     },
     id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the remote system.
 ",
       behaviour: :read_only,
@@ -69,7 +69,7 @@ Before creating a remote system relationship with PowerStore remote systems, fir
       behaviour: :init_only,
     },
     management_address:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Management IP address of the remote system instance. Only IPv4 is supported for non-PowerStore remote systems.Both IPv4 and IPv6 are supported for PowerStore remote systems.",
     },
     name:          { 

@@ -57,12 +57,12 @@ Puppet::ResourceApi.register_type(
       desc:      "User defined NFS Export description.",
     },
     file_system_id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the file system on which the NFS Export will be created.",
       behaviour: :init_only,
     },
     id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "NFS Export object id.",
       behaviour: :read_only,
     },
@@ -93,7 +93,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Hosts with no access to the NFS export or its snapshots. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @.",
     },
     path:          { 
-      type:      "String[1,1023]",
+      type:      "Optional[String[1,1023]]",
       desc:      "Local path to export relative to the file system root directory. With NFS, each export of a file_system or file_snap must have a unique local path.Before you can create additional Exports within an NFS shared folder, you must create directories within it from a Linux/Unix host that is connected to the file system. After a directory has been created from a mounted host, you can create a corresponding Export and set access permissions accordingly.",
       behaviour: :init_only,
     },

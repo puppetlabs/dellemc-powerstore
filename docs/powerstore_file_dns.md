@@ -10,9 +10,9 @@ Use these resources to configure the Domain Name System (DNS) settings for a NAS
 ```puppet
 powerstore_file_dns {
   add_ip_addresses => "add_ip_addresses (optional)",
-  domain => "domain",
-  ip_addresses => "ip_addresses",
-  nas_server_id => "nas_server_id",
+  domain => "domain (optional)",
+  ip_addresses => "ip_addresses (optional)",
+  nas_server_id => "nas_server_id (optional)",
   remove_ip_addresses => "remove_ip_addresses (optional)",
   transport => "transport (optional)",
 }
@@ -21,9 +21,9 @@ powerstore_file_dns {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |add_ip_addresses | Optional[Array[String]] | false |
-|domain | String[1,255] | true |
-|ip_addresses | Array[String] | true |
-|nas_server_id | String | true |
+|domain | Optional[String[1,255]] | false |
+|ip_addresses | Optional[Array[String]] | false |
+|nas_server_id | Optional[String] | false |
 |remove_ip_addresses | Optional[Array[String]] | false |
 |transport | Optional[Enum['UDP','TCP']] | false |
 

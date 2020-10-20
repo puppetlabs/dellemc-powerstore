@@ -23,7 +23,7 @@ A route determines where to send a packet next so it can reach its final destina
       desc:      "IPv4 or IPv6 address of the target network node based on the specific route type. Values are:* For a default route, there is no value because the system will use the specified gateway IP address.* For a host route, the value is the host IP address.* For a subnet route, the value is a subnet IP address.",
     },
     file_interface_id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the associated file interface.",
       behaviour: :init_only,
     },

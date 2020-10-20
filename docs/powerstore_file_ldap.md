@@ -11,13 +11,13 @@ Use these resources to manage the Lightweight Directory Access Protocol (LDAP) s
 powerstore_file_ldap {
   add_addresses => "add_addresses (optional)",
   addresses => "addresses (optional)",
-  authentication_type => "authentication_type",
-  base_dn => "base_DN",
+  authentication_type => "authentication_type (optional)",
+  base_dn => "base_DN (optional)",
   bind_dn => "bind_DN (optional)",
   bind_password => "bind_password (optional)",
   is_smb_account_used => "is_smb_account_used (optional)",
   is_verify_server_certificate => "is_verify_server_certificate (optional)",
-  nas_server_id => "nas_server_id",
+  nas_server_id => "nas_server_id (optional)",
   password => "password (optional)",
   port_number => "port_number (optional)",
   principal => "principal (optional)",
@@ -32,13 +32,13 @@ powerstore_file_ldap {
 | ------------- | ------------- | ------------- |
 |add_addresses | Optional[Array[String]] | false |
 |addresses | Optional[Array[String]] | false |
-|authentication_type | Enum['Anonymous','Simple','Kerberos'] | true |
-|base_dn | String[3,255] | true |
+|authentication_type | Optional[Enum['Anonymous','Simple','Kerberos']] | false |
+|base_dn | Optional[String[3,255]] | false |
 |bind_dn | Optional[String[0,1023]] | false |
 |bind_password | Optional[String[0,1023]] | false |
 |is_smb_account_used | Optional[Boolean] | false |
 |is_verify_server_certificate | Optional[Boolean] | false |
-|nas_server_id | String | true |
+|nas_server_id | Optional[String] | false |
 |password | Optional[String[0,1023]] | false |
 |port_number | Optional[Integer[0,65536]] | false |
 |principal | Optional[String[0,1023]] | false |

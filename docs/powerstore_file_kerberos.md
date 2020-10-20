@@ -10,10 +10,10 @@ Use these resources to manage the Kerberos service for a NAS server. One Kerbero
 ```puppet
 powerstore_file_kerberos {
   add_kdc_addresses => "add_kdc_addresses (optional)",
-  kdc_addresses => "kdc_addresses",
-  nas_server_id => "nas_server_id",
+  kdc_addresses => "kdc_addresses (optional)",
+  nas_server_id => "nas_server_id (optional)",
   port_number => "port_number (optional)",
-  realm => "realm",
+  realm => "realm (optional)",
   remove_kdc_addresses => "remove_kdc_addresses (optional)",
 }
 ```
@@ -21,10 +21,10 @@ powerstore_file_kerberos {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |add_kdc_addresses | Optional[Array[String[1,255]]] | false |
-|kdc_addresses | Array[String[1,255]] | true |
-|nas_server_id | String | true |
+|kdc_addresses | Optional[Array[String[1,255]]] | false |
+|nas_server_id | Optional[String] | false |
 |port_number | Optional[Integer[0,65535]] | false |
-|realm | String[1,255] | true |
+|realm | Optional[String[1,255]] | false |
 |remove_kdc_addresses | Optional[Array[String[1,255]]] | false |
 
 

@@ -18,7 +18,7 @@ Puppet::ResourceApi.register_type(
       desc:      "IP addresses to add to the current list. The addresses may be IPv4 or IPv6. Error occurs if an IP address already exists. Cannot be combined with ip_addresses.",
     },
     domain:          { 
-      type:      "String[1,255]",
+      type:      "Optional[String[1,255]]",
       desc:      "Name of the DNS domain, where the NAS Server does host names lookup when an FQDN is not specified in the request.",
     },
     id:          { 
@@ -27,11 +27,11 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     ip_addresses:          { 
-      type:      "Array[String]",
+      type:      "Optional[Array[String]]",
       desc:      "The list of DNS server IP addresses. The addresses may be IPv4 or IPv6.",
     },
     nas_server_id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the associated NAS Server instance that uses this DNS object. Only one DNS object per NAS Server is supported.",
       behaviour: :init_only,
     },

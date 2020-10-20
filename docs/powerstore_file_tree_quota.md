@@ -10,10 +10,10 @@ Tree quota settings in the storage system. A tree quota instance represents a qu
 ```puppet
 powerstore_file_tree_quota {
   description => "description (optional)",
-  file_system_id => "file_system_id",
+  file_system_id => "file_system_id (optional)",
   hard_limit => "hard_limit (optional)",
   is_user_quotas_enforced => "is_user_quotas_enforced (optional)",
-  path => "path",
+  path => "path (optional)",
   soft_limit => "soft_limit (optional)",
 }
 ```
@@ -21,10 +21,10 @@ powerstore_file_tree_quota {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |description | Optional[String] | false |
-|file_system_id | String | true |
+|file_system_id | Optional[String] | false |
 |hard_limit | Optional[Integer[0,9223372036854775807]] | false |
 |is_user_quotas_enforced | Optional[Boolean] | false |
-|path | String | true |
+|path | Optional[String] | false |
 |soft_limit | Optional[Integer[0,9223372036854775807]] | false |
 
 

@@ -109,7 +109,7 @@ You can activate an FTP server and SFTP server independently on each NAS server.
       desc:      "Message of the day displayed on the console of FTP clients after their authentication. The length of this message is limited to 511 bytes of UTF-8 characters, and the length of each line is limited to 80 bytes.",
     },
     nas_server_id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the NAS server that is configured with the FTP server.",
       behaviour: :init_only,
     },

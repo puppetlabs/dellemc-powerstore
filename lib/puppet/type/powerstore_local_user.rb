@@ -18,7 +18,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Current password of the local user. Any local user can change his own password by providing current_password along with the new password.",
     },
     id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the local user account to be deleted.",
       behaviour: :read_only,
     },
@@ -40,11 +40,11 @@ Puppet::ResourceApi.register_type(
       behaviour: :namevar,
     },
     password:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Password for the new local user account to be created. The password value can be 8 to 40 UTF-8 characters long, and include as a minimum one uppercase character, one lowercase character, one numeric character, and one special character from this list  [!,@#$%^*>_~].",
     },
     role_id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "The unique identifier of the role to which the new local user will be mapped. Where role_id '1' is for Administrator, '2' is for Storage Administrator, '3' is for Operator, '4' is for VM Administrator and '5' is for Security Administrator roles.",
     },
   },

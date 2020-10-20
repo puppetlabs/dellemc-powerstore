@@ -23,7 +23,7 @@ powerstore_volume {
   performance_policy_id => "performance_policy_id (optional)",
   protection_policy_id => "protection_policy_id (optional)",
   sector_size => "sector_size (optional)",
-  size => "size",
+  size => "size (optional)",
   volume_group_id => "volume_group_id (optional)",
 }
 ```
@@ -44,7 +44,7 @@ powerstore_volume {
 |performance_policy_id | Optional[String] | false |
 |protection_policy_id | Optional[String] | false |
 |sector_size | Optional[Integer[512,4096]] | false |
-|size | Integer[1048576,281474976710656] | true |
+|size | Optional[Integer[1048576,281474976710656]] | false |
 |volume_group_id | Optional[String] | false |
 
 

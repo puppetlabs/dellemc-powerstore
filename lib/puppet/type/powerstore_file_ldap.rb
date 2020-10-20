@@ -23,7 +23,7 @@ Puppet::ResourceApi.register_type(
       default:   [],
     },
     authentication_type:          { 
-      type:      "Enum['Anonymous','Simple','Kerberos']",
+      type:      "Optional[Enum['Anonymous','Simple','Kerberos']]",
       desc:      "Authentication type for the LDAP server.* Anonymous - Anonymous authentication means no authentication occurs and the NAS Server uses an anonymous login to access the LDAP-based directory server.* Simple - Simple authentication means the NAS Server must provide a bind distinguished name and password to access the LDAP-based directory server.* Kerberos - Kerberos authentication means the NAS Server uses a KDC to confirm the identity when accessing the Active Directory.",
     },
     authentication_type_l10n:          { 
@@ -31,7 +31,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Localized message string corresponding to authentication_type",
     },
     base_dn:          { 
-      type:      "String[3,255]",
+      type:      "Optional[String[3,255]]",
       desc:      "Name of the LDAP base DN. Base Distinguished Name (BDN) of the root of the LDAP directory tree. The appliance uses the DN to bind to the LDAP service and locate in the LDAP directory tree to begin a search for information.  The base DN can be expressed as a fully-qualified domain name or in X.509 format by using the attribute dc=. For example, if the fully-qualified domain name is mycompany.com, the base DN is expressed as dc=mycompany,dc=com.",
     },
     bind_dn:          { 
@@ -66,7 +66,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Indicates whether Certification Authority certificate is used to verify the LDAP server certificate for secure SSL connections. Values are: * true - verifies LDAP server's certificate. * false - doesn't verify LDAP server's certificate.",
     },
     nas_server_id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the associated NAS Server instance that will use this LDAP object. Only one LDAP object per NAS Server is supported.",
       behaviour: :init_only,
     },

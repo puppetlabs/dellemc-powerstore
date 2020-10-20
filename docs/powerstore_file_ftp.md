@@ -30,7 +30,7 @@ powerstore_file_ftp {
   is_smb_authentication_enabled => "is_smb_authentication_enabled (optional)",
   is_unix_authentication_enabled => "is_unix_authentication_enabled (optional)",
   message_of_the_day => "message_of_the_day (optional)",
-  nas_server_id => "nas_server_id",
+  nas_server_id => "nas_server_id (optional)",
   remove_groups => "remove_groups (optional)",
   remove_hosts => "remove_hosts (optional)",
   remove_users => "remove_users (optional)",
@@ -60,7 +60,7 @@ powerstore_file_ftp {
 |is_smb_authentication_enabled | Optional[Boolean] | false |
 |is_unix_authentication_enabled | Optional[Boolean] | false |
 |message_of_the_day | Optional[String] | false |
-|nas_server_id | String | true |
+|nas_server_id | Optional[String] | false |
 |remove_groups | Optional[Array[String]] | false |
 |remove_hosts | Optional[Array[String]] | false |
 |remove_users | Optional[Array[String]] | false |

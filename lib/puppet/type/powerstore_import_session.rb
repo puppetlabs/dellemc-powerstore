@@ -53,7 +53,7 @@ Puppet::ResourceApi.register_type(
       desc:      "When the import is in the Copy_In_Progress state, this value indicates the estimated time at which the data copy will complete. Before the import is in the Copy_In_Progress state, the value is null.",
     },
     id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the import session",
       behaviour: :read_only,
     },
@@ -80,7 +80,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     remote_system_id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the storage system that contains the source volume or consistency group to be imported. You can query the source volume or consistency group object to get the identifier of the source system that the volume or consistency group are part of. Alternatively, you can use the remote_system object to get this information.",
       behaviour: :init_only,
     },
@@ -89,7 +89,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Date and time at which the import session is scheduled to start. The date time is specified in ISO 8601 format with the time expressed in UTC format.",
     },
     source_resource_id:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Unique identifier of the volume or consistency group to be imported. Refer to the following objects for more information: * Storage Center : import_storage_center_volume, import_storage_center_consistency_group * VNX : import_vnx_volume, import_vnx_consistency_group * PS Series : import_psgroup_volume * Unity : import_unity_volume, import_unity_consistency_group",
       behaviour: :init_only,
     },

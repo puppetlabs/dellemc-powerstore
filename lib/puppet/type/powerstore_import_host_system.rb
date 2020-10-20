@@ -14,7 +14,7 @@ Puppet::ResourceApi.register_type(
       default:   "present",
     },
     agent_address:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Hostname or IPv4 address of the import host system.",
       behaviour: :init_only,
     },
@@ -23,7 +23,7 @@ Puppet::ResourceApi.register_type(
       desc:      "API version of the import host system.",
     },
     agent_port:          { 
-      type:      "Integer[0,65535]",
+      type:      "Optional[Integer[0,65535]]",
       desc:      "TCP port of the import host system.",
       behaviour: :init_only,
     },
@@ -77,7 +77,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Time when the import host system was last updated.",
     },
     os_type:          { 
-      type:      "Enum['Windows','Linux','ESXi','Unknown']",
+      type:      "Optional[Enum['Windows','Linux','ESXi','Unknown']]",
       desc:      "Operating system of the import host system. Valid values are: * Windows - Windows.  * Linux - Linux.  * ESXi - ESXi.  * Unknown - Operating system of the host system is unknown to PowerStore.",
       behaviour: :init_only,
     },
@@ -90,12 +90,12 @@ Puppet::ResourceApi.register_type(
       desc:      "Operating system version of the import host system.",
     },
     password:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Password for the specified username.",
       behaviour: :init_only,
     },
     user_name:          { 
-      type:      "String",
+      type:      "Optional[String]",
       desc:      "Username for the import host system.",
       behaviour: :init_only,
     },

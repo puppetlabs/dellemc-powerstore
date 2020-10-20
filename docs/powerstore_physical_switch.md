@@ -9,17 +9,17 @@ Manage physical switches settings for the cluster.
 
 ```puppet
 powerstore_physical_switch {
-  connections => "connections",
+  connections => "connections (optional)",
   name => "name",
-  purpose => "purpose",
+  purpose => "purpose (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|connections | Array[Struct[{address => String[1,255], connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String[1,128], Optional[ssh_password] => String[1,128], Optional[username] => String[1,128], }]] | true |
+|connections | Optional[Array[Struct[{address => String[1,255], connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String[1,128], Optional[ssh_password] => String[1,128], Optional[username] => String[1,128], }]]] | false |
 |name | String[1,128] | true |
-|purpose | Enum['Data_and_Management','Management_Only'] | true |
+|purpose | Optional[Enum['Data_and_Management','Management_Only']] | false |
 
 
 

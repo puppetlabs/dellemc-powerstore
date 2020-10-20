@@ -9,29 +9,29 @@ Use these resource types to manage import host systems. Import host enables comm
 
 ```puppet
 powerstore_import_host_system {
-  agent_address => "agent_address",
-  agent_port => "agent_port",
+  agent_address => "agent_address (optional)",
+  agent_port => "agent_port (optional)",
   chap_mutual_password => "chap_mutual_password (optional)",
   chap_mutual_username => "chap_mutual_username (optional)",
   chap_single_password => "chap_single_password (optional)",
   chap_single_username => "chap_single_username (optional)",
-  os_type => "os_type",
-  password => "password",
-  user_name => "user_name",
+  os_type => "os_type (optional)",
+  password => "password (optional)",
+  user_name => "user_name (optional)",
 }
 ```
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|agent_address | String | true |
-|agent_port | Integer[0,65535] | true |
+|agent_address | Optional[String] | false |
+|agent_port | Optional[Integer[0,65535]] | false |
 |chap_mutual_password | Optional[String] | false |
 |chap_mutual_username | Optional[String] | false |
 |chap_single_password | Optional[String] | false |
 |chap_single_username | Optional[String] | false |
-|os_type | Enum['Windows','Linux','ESXi','Unknown'] | true |
-|password | String | true |
-|user_name | String | true |
+|os_type | Optional[Enum['Windows','Linux','ESXi','Unknown']] | false |
+|password | Optional[String] | false |
+|user_name | Optional[String] | false |
 
 
 

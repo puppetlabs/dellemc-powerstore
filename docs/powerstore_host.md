@@ -11,10 +11,10 @@ Manage hosts that access the cluster.
 powerstore_host {
   add_initiators => "add_initiators (optional)",
   description => "description (optional)",
-  initiators => "initiators",
+  initiators => "initiators (optional)",
   modify_initiators => "modify_initiators (optional)",
   name => "name",
-  os_type => "os_type",
+  os_type => "os_type (optional)",
   remove_initiators => "remove_initiators (optional)",
 }
 ```
@@ -23,10 +23,10 @@ powerstore_host {
 | ------------- | ------------- | ------------- |
 |add_initiators | Optional[Array[Struct[{Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], port_name => String, port_type => Enum['iSCSI','FC'], }]]] | false |
 |description | Optional[String[1,256]] | false |
-|initiators | Array[Struct[{Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], port_name => String, port_type => Enum['iSCSI','FC'], }]] | true |
+|initiators | Optional[Array[Struct[{Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], port_name => String, port_type => Enum['iSCSI','FC'], }]]] | false |
 |modify_initiators | Optional[Array[Struct[{Optional[chap_mutual_password] => String[12,64], Optional[chap_mutual_username] => String[1,64], Optional[chap_single_password] => String[12,64], Optional[chap_single_username] => String[1,64], Optional[port_name] => String, }]]] | false |
 |name | String[1,128] | true |
-|os_type | Enum['Windows','Linux','ESXi','AIX','HP-UX','Solaris'] | true |
+|os_type | Optional[Enum['Windows','Linux','ESXi','AIX','HP-UX','Solaris']] | false |
 |remove_initiators | Optional[Array[String]] | false |
 
 
