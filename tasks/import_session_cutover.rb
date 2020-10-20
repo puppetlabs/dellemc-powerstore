@@ -41,8 +41,8 @@ class PowerstoreImportSessionCutoverTask < TaskHelper
       end
       body = JSON.parse(result.body)
       if body.class == Array
-        # return { "list" => body }
-        return body.map { | i | [ i[namevar], i.reject { | k | k == namevar } ] }.to_h
+        return { "list" => body }
+        # return body.map { | i | [ i[namevar], i.reject { | k | k == namevar } ] }.to_h
       else
         return body
       end
