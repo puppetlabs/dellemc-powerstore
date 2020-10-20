@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the virus checker instance.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

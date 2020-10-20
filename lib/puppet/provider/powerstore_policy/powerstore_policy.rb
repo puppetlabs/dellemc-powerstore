@@ -106,6 +106,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     policy = {}
+    policy["id"] = resource[:id] unless resource[:id].nil?
     return policy
   end
 
@@ -320,6 +321,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           add_replication_rule_ids: item['add_replication_rule_ids'],
           add_snapshot_rule_ids: item['add_snapshot_rule_ids'],
           description: item['description'],
@@ -335,8 +337,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:is_replica])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

@@ -5,14 +5,13 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_tree_quota
 
-
+Tree quota settings in the storage system. A tree quota instance represents a quota limit applied to a specific directory tree in a file system.
 
 ```puppet
 powerstore_file_tree_quota {
   description => "description (optional)",
   file_system_id => "file_system_id",
   hard_limit => "hard_limit (optional)",
-  id => "id",
   is_user_quotas_enforced => "is_user_quotas_enforced (optional)",
   path => "path",
   soft_limit => "soft_limit (optional)",
@@ -24,7 +23,6 @@ powerstore_file_tree_quota {
 |description | Optional[String] | false |
 |file_system_id | String | true |
 |hard_limit | Optional[Integer[0,9223372036854775807]] | false |
-|id | String | true |
 |is_user_quotas_enforced | Optional[Boolean] | false |
 |path | String | true |
 |soft_limit | Optional[Integer[0,9223372036854775807]] | false |

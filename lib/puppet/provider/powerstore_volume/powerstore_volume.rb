@@ -115,6 +115,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     volume = {}
+    volume["id"] = resource[:id] unless resource[:id].nil?
     return volume
   end
 
@@ -353,6 +354,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           appliance_id: item['appliance_id'],
           creation_timestamp: item['creation_timestamp'],
           description: item['description'],
@@ -382,7 +384,6 @@ context.debug("Entered get")
           wwn: item['wwn'],
           ensure: 'present',
         }
-
 
         Puppet.debug("Adding to collection: #{item}")
 

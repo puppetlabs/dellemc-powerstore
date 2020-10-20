@@ -298,6 +298,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           force: item['force'],
           id: item['id'],
           name: item['name'],
@@ -305,8 +306,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:quota])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

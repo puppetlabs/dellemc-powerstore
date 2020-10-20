@@ -6,20 +6,20 @@
 	"parameters":{
 			"add_port_ids":{
 				"description": "Unique identifiers of available IP ports to be used in the network.",
-				"type": "Optional[Array[String]]"
+				"type":        "Optional[Array[String]]"
 			},
 			"force":{
 				"description": "Indicates whether to suppress network validation errors.The option is intended to suppress false errors caused by network environment constraints.Normally the command will fail with an error when:* system network ports on top of which IP ports are configured are in degraded state or have cabling issues,* or network IP addresses applied as a result of network scaling have duplicates in the network environment.When force is true, the command will proceed instead.Caution: Only use this option when you are certain your requested settings are correct and you understand why they are failing at this time, and you want to apply the settings anyway.Improper network settings can make the system unreachable for data.",
-				"type": "Optional[Boolean]",
-				"default": "false"
+				"type":        "Optional[Boolean]",
+				"default":     false
 			},
 			"id":{
 				"description": "Unique identifier of the IP network.",
-				"type": "String"
+				"type":        "String"
 			},
 			"remove_port_ids":{
 				"description": "Unique identifiers of IP ports to remove from use in the network.",
-				"type": "Optional[Array[String]]"
+				"type":        "Optional[Array[String]]"
 			}
 	},
 

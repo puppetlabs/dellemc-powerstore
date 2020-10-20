@@ -104,6 +104,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     email_notify_destination = {}
+    email_notify_destination["id"] = resource[:id] unless resource[:id].nil?
     return email_notify_destination
   end
 
@@ -310,6 +311,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           email_address: item['email_address'],
           id: item['id'],
           notify_critical: item['notify_critical'],
@@ -318,7 +320,6 @@ context.debug("Entered get")
           notify_minor: item['notify_minor'],
           ensure: 'present',
         }
-
 
         Puppet.debug("Adding to collection: #{item}")
 

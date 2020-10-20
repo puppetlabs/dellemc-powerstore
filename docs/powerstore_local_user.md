@@ -5,12 +5,11 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Local_user
 
-
+Use this resource type to manage local user accounts.
 
 ```puppet
 powerstore_local_user {
   current_password => "current_password (optional)",
-  id => "id",
   is_locked => "is_locked (optional)",
   name => "name",
   password => "password",
@@ -21,7 +20,6 @@ powerstore_local_user {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |current_password | Optional[String] | false |
-|id | String | true |
 |is_locked | Optional[Boolean] | false |
 |name | String | true |
 |password | String | true |

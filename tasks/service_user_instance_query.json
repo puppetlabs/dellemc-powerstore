@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the service user.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

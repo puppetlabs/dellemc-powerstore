@@ -6,36 +6,36 @@
 	"parameters":{
 			"description":{
 				"description": "NFS Share description.",
-				"type": "Optional[String[0,511]]"
+				"type":        "Optional[String[0,511]]"
 			},
 			"id":{
 				"description": "SMB share object id.",
-				"type": "String"
+				"type":        "String"
 			},
 			"is_abe_enabled":{
 				"description": "Indicates whether Access-based Enumeration (ABE) is enabled. ABE filters the list of available files and folders on a server to include only those, that the requesting user has access to. Values are:- true - ABE is enabled.- false - ABE is disabled.",
-				"type": "Optional[Boolean]"
+				"type":        "Optional[Boolean]"
 			},
 			"is_branch_cache_enabled":{
 				"description": "Indicates whether BranchCace optimization is enabled. BranchCache optimization technology copies content from your main office or hosted cloud content servers and caches the content at branch office locations, allowing client computers at branch offices to access the content locally rather than over the WAN. Values are:- true - BranchCache is enabled.- false - BranchCache is disabled.",
-				"type": "Optional[Boolean]"
+				"type":        "Optional[Boolean]"
 			},
 			"is_continuous_availability_enabled":{
 				"description": "Indicates whether continuous availability for Server Message Block (SMB) 3.0 is enabled for the SMB Share. Values are:- true - Continuous availability for SMB 3.0 is enabled for the SMB Share.- false - Continuous availability for SMB 3.0 is disabled for the SMB Share.",
-				"type": "Optional[Boolean]"
+				"type":        "Optional[Boolean]"
 			},
 			"is_encryption_enabled":{
 				"description": "Indicates whether encryption for Server Message Block (SMB) 3.0 is enabled at the shared folder level. Values are:- true - encryption for SMB 3.0 is enabled.- false - encryption for SMB 3.0 is disabled.",
-				"type": "Optional[Boolean]"
+				"type":        "Optional[Boolean]"
 			},
 			"offline_availability":{
 				"description": "Defines valid states of Offline Availability,   * Manual - Only specified files will be available offline.   * Documents - All files that users open will be available offline.   * Programs - Program will preferably run from the offline cache even when connected to the network. All files that users open will be available offline.   * None - Prevents clients from storing documents and programs in offline cache (default).",
-				"type": "Optional[Enum['Manual','Documents','Programs','None']]",
-				"default": "None"
+				"type":        "Optional[Enum['Manual','Documents','Programs','None']]",
+				"default":     "None"
 			},
 			"umask":{
 				"description": "The default UNIX umask for new files created on the Share.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			}
 	},
 

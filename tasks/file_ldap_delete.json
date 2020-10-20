@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "LDAP settings object Id.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

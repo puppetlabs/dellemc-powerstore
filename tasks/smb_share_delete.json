@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "SMB Share object id.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

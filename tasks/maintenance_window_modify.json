@@ -6,15 +6,15 @@
 	"parameters":{
 			"end_offset":{
 				"description": "Number of seconds from the current timestamp the maintenance window will expire. This value is required if is_enabled is passed as true, and may not be more than 172800 (48 hours).",
-				"type": "Optional[Integer[0,172800]]"
+				"type":        "Optional[Integer[0,172800]]"
 			},
 			"id":{
 				"description": "Unique identifier of the maintenance window configuration.",
-				"type": "String"
+				"type":        "String"
 			},
 			"is_enabled":{
 				"description": "Activate or deactivate the window for one appliance.",
-				"type": "Optional[Boolean]"
+				"type":        "Optional[Boolean]"
 			}
 	},
 

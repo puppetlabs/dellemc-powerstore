@@ -5,7 +5,7 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Migration_session
 
-
+Manage migration sessions.
 
 ```puppet
 powerstore_migration_session {

@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Storage container ID.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

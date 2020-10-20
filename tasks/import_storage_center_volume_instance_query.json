@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the SC volume.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

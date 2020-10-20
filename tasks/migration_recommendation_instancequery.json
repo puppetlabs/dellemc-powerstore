@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique ID of the migration recommendation.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

@@ -5,7 +5,7 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_system
 
-
+Manage NAS file systems.
 
 ```puppet
 powerstore_file_system {
@@ -16,7 +16,6 @@ powerstore_file_system {
   expiration_timestamp => "expiration_timestamp (optional)",
   folder_rename_policy => "folder_rename_policy (optional)",
   grace_period => "grace_period (optional)",
-  id => "id",
   is_async_m_time_enabled => "is_async_MTime_enabled (optional)",
   is_quota_enabled => "is_quota_enabled (optional)",
   is_smb_no_notify_enabled => "is_smb_no_notify_enabled (optional)",
@@ -42,7 +41,6 @@ powerstore_file_system {
 |expiration_timestamp | Optional[String] | false |
 |folder_rename_policy | Optional[Enum['All_Allowed','SMB_Forbidden','All_Forbidden']] | false |
 |grace_period | Optional[Integer[-1,2147483647]] | false |
-|id | String | true |
 |is_async_m_time_enabled | Optional[Boolean] | false |
 |is_quota_enabled | Optional[Boolean] | false |
 |is_smb_no_notify_enabled | Optional[Boolean] | false |

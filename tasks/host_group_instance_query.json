@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique id of the host group.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

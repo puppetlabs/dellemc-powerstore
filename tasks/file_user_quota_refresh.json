@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the file user quota.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

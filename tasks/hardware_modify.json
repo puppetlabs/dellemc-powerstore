@@ -6,11 +6,11 @@
 	"parameters":{
 			"id":{
 				"description": "The hardware component to modify.",
-				"type": "String"
+				"type":        "String"
 			},
 			"is_marked":{
 				"description": "New state for the hardware component location marker LED. Setting it to true will put the LED in a blinking state until set to false. Note that the state returned in the hardware component may not actually change for up to 60 seconds. This operation is currently supported for Base_Enclosure, Expansion_Enclosure, Node and Drive. Note that operations at the Base_Enclosure and Expansion_Enclosure apply to their children (Nodes and Drives for Base_Enclosure and Drives for Expansion_Enclosure). For components with a single physical LED (Base_Enclosure and Node), setting is_marked=true overrides the status_led_state property from on (or off) to Null, and setting is_marked=false reverts status_led_state to showing the state of the physical LED.",
-				"type": "Boolean"
+				"type":        "Boolean"
 			}
 	},
 

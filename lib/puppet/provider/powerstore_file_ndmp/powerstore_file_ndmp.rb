@@ -99,6 +99,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_ndmp = {}
+    file_ndmp["id"] = resource[:id] unless resource[:id].nil?
     return file_ndmp
   end
 
@@ -298,13 +299,13 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           id: item['id'],
           nas_server_id: item['nas_server_id'],
           password: item['password'],
           user_name: item['user_name'],
           ensure: 'present',
         }
-
 
         Puppet.debug("Adding to collection: #{item}")
 

@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the X509 Certificate.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

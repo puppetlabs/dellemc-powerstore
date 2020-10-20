@@ -6,11 +6,11 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the virtual machine to modify.",
-				"type": "String"
+				"type":        "String"
 			},
 			"protection_policy_id":{
 				"description": "Unique identifier of the protection policy.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			}
 	},
 

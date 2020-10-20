@@ -103,6 +103,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_kerberos = {}
+    file_kerberos["id"] = resource[:id] unless resource[:id].nil?
     return file_kerberos
   end
 
@@ -309,6 +310,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           add_kdc_addresses: item['add_kdc_addresses'],
           id: item['id'],
           kdc_addresses: item['kdc_addresses'],
@@ -319,8 +321,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:port_number])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

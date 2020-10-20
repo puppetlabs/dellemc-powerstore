@@ -6,11 +6,11 @@
 	"parameters":{
 			"datastore_name":{
 				"description": "This will be the vVol datastore name in vCenter when it is mounted.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"id":{
 				"description": "Storage container ID.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

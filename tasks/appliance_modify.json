@@ -6,11 +6,11 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the appliance.",
-				"type": "String"
+				"type":        "String"
 			},
 			"name":{
 				"description": "New name of the appliance.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

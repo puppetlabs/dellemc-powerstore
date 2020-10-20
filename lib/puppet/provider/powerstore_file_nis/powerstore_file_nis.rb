@@ -101,6 +101,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_nis = {}
+    file_nis["id"] = resource[:id] unless resource[:id].nil?
     return file_nis
   end
 
@@ -304,6 +305,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           add_ip_addresses: item['add_ip_addresses'],
           domain: item['domain'],
           id: item['id'],
@@ -312,7 +314,6 @@ context.debug("Entered get")
           remove_ip_addresses: item['remove_ip_addresses'],
           ensure: 'present',
         }
-
 
         Puppet.debug("Adding to collection: #{item}")
 

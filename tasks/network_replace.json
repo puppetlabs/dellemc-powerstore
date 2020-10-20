@@ -6,64 +6,64 @@
 	"parameters":{
 			"cluster_mgmt_address":{
 				"description": "New cluster management IP address in IPv4 or IPv6 format, corresponding to the network's IP version.",
-				"type": "String[1]"
+				"type":        "String[1]"
 			},
 			"dns_addresses":{
 				"description": "List of new DNS server IP addresses in IPv4 or IPv6 format.",
-				"type": "Array[String[1]]"
+				"type":        "Array[String[1]]"
 			},
 			"esxi_credentials":{
 				"description": "Credentials required for re-registering the ESXi hosts in the vCenter.Should be passed only when ESXi host addresses or management network VLAN / prefix / gateway are changedduring the reconfiguration of the PowerStore X model appliances.",
-				"type": "Optional[Array[Struct[{Optional[node_id] => String, Optional[password] => String, }]]]"
+				"type":        "Optional[Array[Struct[{Optional[node_id] => String, Optional[password] => String, }]]]"
 			},
 			"force":{
 				"description": "Indicates whether to suppress network validation errors.The option is intended to suppress false errors caused by network environment constraints.Normally the command will fail with an error when:- some of system network ports are in degraded state or have cabling issues,- system top-of-rack switches have configuration issues leading to network unreachability,- network IP addresses have duplicates in the network environment,- or network gateway is unreachable.When force is true, the command will proceed instead.Caution: Only use this option when you are certain your requested settings are correct and you understand why they are failing at this time, and you want to apply the settings anyway.Improper network settings can make the system unreachable for data and management.",
-				"type": "Optional[Boolean]",
-				"default": "false"
+				"type":        "Optional[Boolean]",
+				"default":     false
 			},
 			"gateway":{
 				"description": "Network gateway in IPv4 or IPv6 format, corresponding to the network's IP version.Specify empty string to remove the gateway.",
-				"type": "String"
+				"type":        "String"
 			},
 			"id":{
 				"description": "Unique identifier of the IP network.",
-				"type": "String"
+				"type":        "String"
 			},
 			"ip_pool_addresses":{
 				"description": "List of new IP addresses in IPv4 or IPv6 format.",
-				"type": "Array[String[1]]"
+				"type":        "Array[String[1]]"
 			},
 			"mtu":{
 				"description": "Maximum Transmission Unit (MTU) packet size set on network interfaces, in bytes.",
-				"type": "Integer[1280,9000]"
+				"type":        "Integer[1280,9000]"
 			},
 			"ntp_addresses":{
 				"description": "List of new NTP server FQDNs or IP addresses in IPv4 or IPv6 format.",
-				"type": "Array[String[1]]"
+				"type":        "Array[String[1]]"
 			},
 			"physical_switches":{
 				"description": "List of new physical switches settings. If this property is omitted, physical switches configuration will not be modified.",
-				"type": "Optional[Array[Struct[{Optional[connections] => Array[Struct[{address => String, connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String, Optional[ssh_password] => String, Optional[username] => String, }]], Optional[name] => String, Optional[purpose] => Enum['Data_and_Management','Management_Only'], }]]]"
+				"type":        "Optional[Array[Struct[{Optional[connections] => Array[Struct[{address => String, connect_method => Enum['SSH','SNMPv2c'], Optional[port] => Integer[0,65535], Optional[snmp_community_string] => String, Optional[ssh_password] => String, Optional[username] => String, }]], Optional[name] => String, Optional[purpose] => Enum['Data_and_Management','Management_Only'], }]]]"
 			},
 			"prefix_length":{
 				"description": "Network prefix length. (Used for both IPv4 and IPv6).",
-				"type": "Integer[1,127]"
+				"type":        "Integer[1,127]"
 			},
 			"smtp_config":{
 				"description": "",
-				"type": "Optional[Struct[{address => String, port => Integer[0,65535], source_email => String, }]]"
+				"type":        "Optional[Struct[{address => String, port => Integer[0,65535], source_email => String, }]]"
 			},
 			"vasa_provider_credentials":{
 				"description": "Credentials required for re-registering the VASA vendor provider during the replacement of the cluster management IP address.Should be passed only when reconfiguring PowerStoreX cluster.",
-				"type": "Optional[Struct[{Optional[password] => String, Optional[username] => String, }]]"
+				"type":        "Optional[Struct[{Optional[password] => String, Optional[username] => String, }]]"
 			},
 			"vcenter_address":{
 				"description": "New vCenter FQDNs or IP address in IPv4 or IPv6 format. Required only when reconfiguring PowerStoreX cluster.",
-				"type": "Optional[String[1]]"
+				"type":        "Optional[String[1]]"
 			},
 			"vlan_id":{
 				"description": "VLAN identifier.",
-				"type": "Integer[0,4094]"
+				"type":        "Integer[0,4094]"
 			}
 	},
 

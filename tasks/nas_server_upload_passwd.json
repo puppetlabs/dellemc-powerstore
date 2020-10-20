@@ -6,11 +6,11 @@
 	"parameters":{
 			"body":{
 				"description": "Upload NAS server passwd file.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"id":{
 				"description": "Unique identifier of the NAS server.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

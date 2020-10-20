@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the volume to query.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

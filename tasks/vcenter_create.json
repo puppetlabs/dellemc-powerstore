@@ -6,15 +6,15 @@
 	"parameters":{
 			"address":{
 				"description": "IP address of vCenter host, in IPv4, IPv6, or hostname format.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"password":{
 				"description": "Password to login to vCenter.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"username":{
 				"description": "User name to login to vCenter.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			}
 	},
 

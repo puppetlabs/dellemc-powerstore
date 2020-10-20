@@ -6,31 +6,31 @@
 	"parameters":{
 			"data_network_latency":{
 				"description": "Network latency choices for a remote system. Replication traffic can be tuned for higher efficiency depending on the expected network latency. This will only be used when the remote system type is PowerStore.* Low                      - Less than 5 milliseconds.* High                     - More than 5 milliseconds.",
-				"type": "Optional[Enum['Low','High']]"
+				"type":        "Optional[Enum['Low','High']]"
 			},
 			"description":{
 				"description": "User-specified description of the remote system.",
-				"type": "Optional[String[1,256]]"
+				"type":        "Optional[String[1,256]]"
 			},
 			"id":{
 				"description": "Unique identifier of the remote system.",
-				"type": "String"
+				"type":        "String"
 			},
 			"management_address":{
 				"description": "Management IP address of the remote system.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"name":{
 				"description": "User-specified name of the remote system. Used only for non-PowerStore type remote systems. This value must contain 128 or fewer printable Unicode characters.",
-				"type": "Optional[String[1,128]]"
+				"type":        "Optional[String[1,128]]"
 			},
 			"remote_password":{
 				"description": "Password used to access the remote system. Used only for non-PowerStore systems.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"remote_username":{
 				"description": "Username used to access the remote system. Used only for non-PowerStore systems.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			}
 	},
 

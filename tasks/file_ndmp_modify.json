@@ -6,15 +6,15 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the NDMP service object.",
-				"type": "String"
+				"type":        "String"
 			},
 			"password":{
 				"description": "Password for the NDMP service user.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"user_name":{
 				"description": "User name for accessing the NDMP service.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			}
 	},
 

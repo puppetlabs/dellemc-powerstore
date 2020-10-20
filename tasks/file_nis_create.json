@@ -6,15 +6,15 @@
 	"parameters":{
 			"domain":{
 				"description": "Name of the NIS domain.",
-				"type": "String[1,255]"
+				"type":        "String[1,255]"
 			},
 			"ip_addresses":{
 				"description": "The list of NIS server IP addresses.",
-				"type": "Array[String]"
+				"type":        "Array[String]"
 			},
 			"nas_server_id":{
 				"description": "Unique identifier of the associated NAS Server instance that uses this NIS Service object.  Only one NIS Service per NAS Server is supported.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

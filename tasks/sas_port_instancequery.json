@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the SAS port.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

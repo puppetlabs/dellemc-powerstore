@@ -96,6 +96,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_virus_checker = {}
+    file_virus_checker["id"] = resource[:id] unless resource[:id].nil?
     return file_virus_checker
   end
 
@@ -292,6 +293,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           id: item['id'],
           is_config_file_uploaded: item['is_config_file_uploaded'],
           is_enabled: item['is_enabled'],
@@ -299,8 +301,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:is_config_file_uploaded])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

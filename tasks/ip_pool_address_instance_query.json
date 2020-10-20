@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of a configured IP address.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

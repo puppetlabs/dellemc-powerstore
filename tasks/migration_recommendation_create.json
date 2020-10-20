@@ -6,7 +6,7 @@
 	"parameters":{
 			"evacuate_appliance":{
 				"description": "Evacuate appliance by specifying optional space_to_free",
-				"type": "Struct[{appliance_id => String, Optional[space_to_free] => Integer, Optional[target_appliance_ids] => Array[String], }]"
+				"type":        "Struct[{appliance_id => String, Optional[space_to_free] => Integer, Optional[target_appliance_ids] => Array[String], }]"
 			}
 	},
 

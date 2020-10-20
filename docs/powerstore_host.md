@@ -5,7 +5,7 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Host
 
-
+Manage hosts that access the cluster.
 
 ```puppet
 powerstore_host {

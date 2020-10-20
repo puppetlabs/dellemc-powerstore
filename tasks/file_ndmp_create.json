@@ -6,15 +6,15 @@
 	"parameters":{
 			"nas_server_id":{
 				"description": "Unique identifier of the NAS server to be configured with these NDMP settings.",
-				"type": "String"
+				"type":        "String"
 			},
 			"password":{
 				"description": "Password for the NDMP service user.",
-				"type": "String"
+				"type":        "String"
 			},
 			"user_name":{
 				"description": "User name for accessing the NDMP service.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

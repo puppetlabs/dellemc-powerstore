@@ -6,11 +6,11 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the import session.",
-				"type": "String"
+				"type":        "String"
 			},
 			"scheduled_timestamp":{
 				"description": "Indicates the new date and time at which the import session is scheduled to run. The date is specified in ISO 8601 format with time expressed in UTC format.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			}
 	},
 

@@ -127,6 +127,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_system = {}
+    file_system["id"] = resource[:id] unless resource[:id].nil?
     return file_system
   end
 
@@ -386,6 +387,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           access_policy: item['access_policy'],
           access_policy_l10n: item['access_policy_l10n'],
           access_type: item['access_type'],
@@ -425,19 +427,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:access_policy])
-        self.deep_delete(hash, [:access_type])
-        self.deep_delete(hash, [:filesystem_type])
-        self.deep_delete(hash, [:folder_rename_policy])
-        self.deep_delete(hash, [:grace_period])
-        self.deep_delete(hash, [:is_async_m_time_enabled])
-        self.deep_delete(hash, [:is_smb_no_notify_enabled])
-        self.deep_delete(hash, [:is_smb_notify_on_access_enabled])
-        self.deep_delete(hash, [:is_smb_notify_on_write_enabled])
-        self.deep_delete(hash, [:is_smb_op_locks_enabled])
-        self.deep_delete(hash, [:is_smb_sync_writes_enabled])
-        self.deep_delete(hash, [:locking_policy])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

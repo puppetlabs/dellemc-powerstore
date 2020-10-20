@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the Unity storage system.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

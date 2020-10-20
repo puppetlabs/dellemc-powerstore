@@ -5,12 +5,11 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Vcenter
 
-
+Use this resource type to manage vCenter instances. Registered vCenter enables discovering of virtual machines, managing virtual machine snapshots, automatic mounting of storage container and other functionality that requires communication with vCenter. In Unified+ deployments, the one vCenter instance residing in the PowerStore cluster will be prepopulated here and cannot be deleted, nor may any other vCenters be added. For Unified deployments, one external vCenter may be configured if desired.
 
 ```puppet
 powerstore_vcenter {
   address => "address (optional)",
-  id => "id",
   password => "password (optional)",
   username => "username (optional)",
 }
@@ -19,7 +18,6 @@ powerstore_vcenter {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |address | Optional[String] | false |
-|id | String | true |
 |password | Optional[String] | false |
 |username | Optional[String] | false |
 

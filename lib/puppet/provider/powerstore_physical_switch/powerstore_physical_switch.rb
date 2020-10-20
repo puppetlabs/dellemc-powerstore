@@ -100,6 +100,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     physical_switch = {}
+    physical_switch["id"] = resource[:id] unless resource[:id].nil?
     return physical_switch
   end
 
@@ -301,6 +302,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           connections: item['connections'],
           id: item['id'],
           name: item['name'],
@@ -308,7 +310,6 @@ context.debug("Entered get")
           purpose_l10n: item['purpose_l10n'],
           ensure: 'present',
         }
-
 
         Puppet.debug("Adding to collection: #{item}")
 

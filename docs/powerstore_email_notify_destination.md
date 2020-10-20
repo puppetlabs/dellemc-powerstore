@@ -5,12 +5,11 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Email_notify_destination
 
-
+Use these resource types to configure outgoing SMTP and email notifications.
 
 ```puppet
 powerstore_email_notify_destination {
   email_address => "email_address",
-  id => "id",
   notify_critical => "notify_critical (optional)",
   notify_info => "notify_info (optional)",
   notify_major => "notify_major (optional)",
@@ -21,7 +20,6 @@ powerstore_email_notify_destination {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |email_address | String | true |
-|id | String | true |
 |notify_critical | Optional[Boolean] | false |
 |notify_info | Optional[Boolean] | false |
 |notify_major | Optional[Boolean] | false |

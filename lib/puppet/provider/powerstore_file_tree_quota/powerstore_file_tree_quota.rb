@@ -104,6 +104,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_tree_quota = {}
+    file_tree_quota["id"] = resource[:id] unless resource[:id].nil?
     return file_tree_quota
   end
 
@@ -315,6 +316,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           description: item['description'],
           file_system_id: item['file_system_id'],
           hard_limit: item['hard_limit'],
@@ -328,7 +330,6 @@ context.debug("Entered get")
           state_l10n: item['state_l10n'],
           ensure: 'present',
         }
-
 
         Puppet.debug("Adding to collection: #{item}")
 

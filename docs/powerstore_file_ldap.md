@@ -5,7 +5,7 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_ldap
 
-
+Use these resources to manage the Lightweight Directory Access Protocol (LDAP) settings for the NAS Server. You can configure one LDAP settings object per NAS Server. LDAP is an application protocol for querying and modifying directory services running on TCP/IP networks. LDAP provides central management for network authentication and authorization operations by helping to centralize user and group management across the network. A NAS Server can use LDAP as a Unix Directory Service to map users, retrieve netgroups, and build a Unix credential. When an initial LDAP configuration is applied, the system checks for the type of LDAP server. It can be an Active Directory schema or an RFC 2307 schema.
 
 ```puppet
 powerstore_file_ldap {
@@ -15,7 +15,6 @@ powerstore_file_ldap {
   base_dn => "base_DN",
   bind_dn => "bind_DN (optional)",
   bind_password => "bind_password (optional)",
-  id => "id",
   is_smb_account_used => "is_smb_account_used (optional)",
   is_verify_server_certificate => "is_verify_server_certificate (optional)",
   nas_server_id => "nas_server_id",
@@ -37,7 +36,6 @@ powerstore_file_ldap {
 |base_dn | String[3,255] | true |
 |bind_dn | Optional[String[0,1023]] | false |
 |bind_password | Optional[String[0,1023]] | false |
-|id | String | true |
 |is_smb_account_used | Optional[Boolean] | false |
 |is_verify_server_certificate | Optional[Boolean] | false |
 |nas_server_id | String | true |

@@ -6,24 +6,24 @@
 	"parameters":{
 			"automatic_cutover":{
 				"description": "Indicates whether the migration session cutover is manual or automatic. Default for virtual_volume resource type migrations is automatic, otherwise the default is manual.",
-				"type": "Optional[Boolean]",
-				"default": "false"
+				"type":        "Optional[Boolean]",
+				"default":     false
 			},
 			"destination_appliance_id":{
 				"description": "Unique identifier of the destination appliance instance.",
-				"type": "String"
+				"type":        "String"
 			},
 			"family_id":{
 				"description": "Family identifier designating the storage resource or resources to migrate. For volume or virtual_volume migrations, the family is moved together because they share data among the primary object, snapshots, and clones. For volume_group migration, the family of each volume in the group is moved because it is a grouping of volumes.",
-				"type": "String"
+				"type":        "String"
 			},
 			"name":{
 				"description": "User-specified friendly name of the migration session instance. The name can contain a maximum of 32 Unicode characters. It cannot contain unprintable characters, special HTTP characters, or whitespace.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"resource_type":{
 				"description": "Storage resource types eligible for migration.",
-				"type": "Enum['volume','virtual_volume','volume_group']"
+				"type":        "Enum['volume','virtual_volume','volume_group']"
 			}
 	},
 

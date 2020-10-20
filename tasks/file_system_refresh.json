@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "File system snapshot id.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

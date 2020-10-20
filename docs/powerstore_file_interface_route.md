@@ -5,6 +5,11 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_interface_route
 
+Use these resources to manage static IP routes, including creating, modifying, and deleting these routes.
+
+A route determines where to send a packet next so it can reach its final destination. A static route is set explicitly and does not automatically adapt to the changing network infrastructure. A route is defined by an interface, destination IP address range and an IP address of a corresponding gateway.
+
+**Note**: IP routes connect an interface (IP address) to the larger network through gateways. Without routes and gateway specified, the interface is no longer accessible outside of its immediate subnet. As a result, network shares and exports associated with the interface are no longer available to clients outside their immediate subnet.
 
 
 ```puppet
@@ -12,7 +17,6 @@ powerstore_file_interface_route {
   destination => "destination (optional)",
   file_interface_id => "file_interface_id",
   gateway => "gateway (optional)",
-  id => "id",
   prefix_length => "prefix_length (optional)",
 }
 ```
@@ -22,7 +26,6 @@ powerstore_file_interface_route {
 |destination | Optional[String] | false |
 |file_interface_id | String | true |
 |gateway | Optional[String[1,45]] | false |
-|id | String | true |
 |prefix_length | Optional[Integer[1,128]] | false |
 
 

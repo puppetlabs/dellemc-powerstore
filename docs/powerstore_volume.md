@@ -5,7 +5,7 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Volume
 
-
+Manage volumes, including snapshots and clones of volumes.
 
 ```puppet
 powerstore_volume {
@@ -15,7 +15,6 @@ powerstore_volume {
   force => "force (optional)",
   host_group_id => "host_group_id (optional)",
   host_id => "host_id (optional)",
-  id => "id",
   is_replication_destination => "is_replication_destination (optional)",
   logical_unit_number => "logical_unit_number (optional)",
   min_size => "min_size (optional)",
@@ -37,7 +36,6 @@ powerstore_volume {
 |force | Optional[Boolean] | false |
 |host_group_id | Optional[String] | false |
 |host_id | Optional[String] | false |
-|id | String | true |
 |is_replication_destination | Optional[Boolean] | false |
 |logical_unit_number | Optional[Integer[0,16383]] | false |
 |min_size | Optional[Integer[0,9223372036854775807]] | false |

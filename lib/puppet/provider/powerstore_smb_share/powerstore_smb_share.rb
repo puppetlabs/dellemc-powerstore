@@ -111,6 +111,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     smb_share = {}
+    smb_share["id"] = resource[:id] unless resource[:id].nil?
     return smb_share
   end
 
@@ -330,6 +331,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           description: item['description'],
           file_system_id: item['file_system_id'],
           id: item['id'],
@@ -345,13 +347,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:is_abe_enabled])
-        self.deep_delete(hash, [:is_branch_cache_enabled])
-        self.deep_delete(hash, [:is_continuous_availability_enabled])
-        self.deep_delete(hash, [:is_encryption_enabled])
-        self.deep_delete(hash, [:offline_availability])
-        self.deep_delete(hash, [:umask])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

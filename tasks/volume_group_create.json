@@ -6,24 +6,24 @@
 	"parameters":{
 			"description":{
 				"description": "Description for the volume group. The description should not be more than 256characters long and should not have any unprintable characters.If description is not specified, the description for the volume group will not be set.",
-				"type": "Optional[String[1,256]]"
+				"type":        "Optional[String[1,256]]"
 			},
 			"is_write_order_consistent":{
 				"description": "A boolean flag to indicate whether snapshot sets of the volume group will be write-order consistent.This parameter defaults to true, if not specified.",
-				"type": "Optional[Boolean]",
-				"default": "true"
+				"type":        "Optional[Boolean]",
+				"default":     true
 			},
 			"name":{
 				"description": "Unique name for the volume group. The name should contain no special HTTP characters and no unprintable characters. Although the case of the name provided is reserved, uniqueness check is case-insensitive, so the same name in two different cases is not considered unique.",
-				"type": "String[1,128]"
+				"type":        "String[1,128]"
 			},
 			"protection_policy_id":{
 				"description": "Unique identifier of an optional protection policy to assign to the volume group.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"volume_ids":{
 				"description": "A list of identifiers of existing volumes that should be added to the volume group. All the volumes must be on the same Cyclone appliance and should not be part of another volume group.If a list of volumes is not specified or if the specified list is empty, anempty volume group of type Volume will be created.",
-				"type": "Optional[Array[String]]"
+				"type":        "Optional[Array[String]]"
 			}
 	},
 

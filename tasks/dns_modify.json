@@ -6,11 +6,11 @@
 	"parameters":{
 			"addresses":{
 				"description": "DNS server addresses in IPv4 or IPv6 format.",
-				"type": "Array[String]"
+				"type":        "Array[String]"
 			},
 			"id":{
 				"description": "Unique identifier of the DNS setting.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

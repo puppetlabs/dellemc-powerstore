@@ -102,6 +102,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     replication_rule = {}
+    replication_rule["id"] = resource[:id] unless resource[:id].nil?
     return replication_rule
   end
 
@@ -307,6 +308,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           alert_threshold: item['alert_threshold'],
           id: item['id'],
           is_replica: item['is_replica'],
@@ -317,8 +319,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:is_replica])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

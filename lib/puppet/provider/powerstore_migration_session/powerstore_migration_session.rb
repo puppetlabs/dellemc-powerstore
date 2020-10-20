@@ -274,15 +274,16 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           automatic_cutover: item['automatic_cutover'],
           destination_appliance_id: item['destination_appliance_id'],
           family_id: item['family_id'],
           force: item['force'],
+          id: item['id'],
           name: item['name'],
           resource_type: item['resource_type'],
           ensure: 'present',
         }
-
 
         Puppet.debug("Adding to collection: #{item}")
 

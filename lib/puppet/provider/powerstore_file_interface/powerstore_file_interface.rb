@@ -106,6 +106,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_interface = {}
+    file_interface["id"] = resource[:id] unless resource[:id].nil?
     return file_interface
   end
 
@@ -318,6 +319,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           gateway: item['gateway'],
           id: item['id'],
           ip_address: item['ip_address'],
@@ -331,9 +333,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:is_disabled])
-        self.deep_delete(hash, [:vlan_id])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

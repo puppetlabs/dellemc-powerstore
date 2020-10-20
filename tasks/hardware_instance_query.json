@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique id of hardware component to get.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

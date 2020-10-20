@@ -6,12 +6,12 @@
 	"parameters":{
 			"force":{
 				"description": "Indicates whether all migration activities will be canceled before deleting the session.",
-				"type": "Optional[Boolean]",
-				"default": "false"
+				"type":        "Optional[Boolean]",
+				"default":     false
 			},
 			"id":{
 				"description": "Unique identifier of the migration session.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

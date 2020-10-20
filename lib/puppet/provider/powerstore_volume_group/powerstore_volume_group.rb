@@ -106,6 +106,7 @@ context.debug("Entered get")
   def build_delete_hash(resource)
     volume_group = {}
     volume_group["delete_members"] = resource[:delete_members] unless resource[:delete_members].nil?
+    volume_group["id"] = resource[:id] unless resource[:id].nil?
     return volume_group
   end
 
@@ -326,6 +327,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           creation_timestamp: item['creation_timestamp'],
           delete_members: item['delete_members'],
           description: item['description'],
@@ -347,8 +349,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:is_write_order_consistent])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

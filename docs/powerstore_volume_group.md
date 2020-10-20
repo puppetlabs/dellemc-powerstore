@@ -5,14 +5,13 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Volume_group
 
-
+Manage volume_groups. A volume_group is a group of related volumes treated as a single unit. It can optionally be write-order consistent.
 
 ```puppet
 powerstore_volume_group {
   delete_members => "delete_members (optional)",
   description => "description (optional)",
   force => "force (optional)",
-  id => "id",
   is_replication_destination => "is_replication_destination (optional)",
   is_write_order_consistent => "is_write_order_consistent (optional)",
   name => "name",
@@ -26,7 +25,6 @@ powerstore_volume_group {
 |delete_members | Optional[Boolean] | false |
 |description | Optional[String[1,256]] | false |
 |force | Optional[Boolean] | false |
-|id | String | true |
 |is_replication_destination | Optional[Boolean] | false |
 |is_write_order_consistent | Optional[Boolean] | false |
 |name | String[1,128] | true |

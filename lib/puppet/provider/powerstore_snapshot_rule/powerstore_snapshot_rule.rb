@@ -316,6 +316,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           days_of_week: item['days_of_week'],
           days_of_week_l10n: item['days_of_week_l10n'],
           delete_snaps: item['delete_snaps'],
@@ -329,8 +330,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:is_replica])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

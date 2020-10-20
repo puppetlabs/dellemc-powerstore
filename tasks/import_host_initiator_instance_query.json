@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the import host initiator to query.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

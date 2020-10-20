@@ -5,13 +5,12 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_nis
 
-
+Use these resources to manage the Network Information Service (NIS) settings object for a NAS Server. One NIS settings object may be configured per NAS server. NIS consists of a directory service protocol for maintaining and distributing system configuration information, such as user and group information, hostnames, and such. The port for NIS Service is 111.
 
 ```puppet
 powerstore_file_nis {
   add_ip_addresses => "add_ip_addresses (optional)",
   domain => "domain",
-  id => "id",
   ip_addresses => "ip_addresses",
   nas_server_id => "nas_server_id",
   remove_ip_addresses => "remove_ip_addresses (optional)",
@@ -22,7 +21,6 @@ powerstore_file_nis {
 | ------------- | ------------- | ------------- |
 |add_ip_addresses | Optional[Array[String]] | false |
 |domain | String[1,255] | true |
-|id | String | true |
 |ip_addresses | Array[String] | true |
 |nas_server_id | String | true |
 |remove_ip_addresses | Optional[Array[String]] | false |

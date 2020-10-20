@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the tree quota.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

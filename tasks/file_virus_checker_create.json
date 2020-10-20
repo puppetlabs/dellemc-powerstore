@@ -6,7 +6,7 @@
 	"parameters":{
 			"nas_server_id":{
 				"description": "Unique identifier of an associated NAS Server instance that uses this virus checker configuration. Only one virus checker configuration per NAS Server is supported.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

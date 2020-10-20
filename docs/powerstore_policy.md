@@ -5,14 +5,15 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Policy
 
+Use this resource type to manage protection policies and to view information about performance policies.
 
+Note: Performance policies are predefined for high, low, and medium performance. They cannot be added to or changed.
 
 ```puppet
 powerstore_policy {
   add_replication_rule_ids => "add_replication_rule_ids (optional)",
   add_snapshot_rule_ids => "add_snapshot_rule_ids (optional)",
   description => "description (optional)",
-  id => "id",
   name => "name",
   remove_replication_rule_ids => "remove_replication_rule_ids (optional)",
   remove_snapshot_rule_ids => "remove_snapshot_rule_ids (optional)",
@@ -26,7 +27,6 @@ powerstore_policy {
 |add_replication_rule_ids | Optional[Array[String]] | false |
 |add_snapshot_rule_ids | Optional[Array[String]] | false |
 |description | Optional[String] | false |
-|id | String | true |
 |name | String | true |
 |remove_replication_rule_ids | Optional[Array[String]] | false |
 |remove_snapshot_rule_ids | Optional[Array[String]] | false |

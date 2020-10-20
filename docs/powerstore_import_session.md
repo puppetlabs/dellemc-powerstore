@@ -5,13 +5,12 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Import_session
 
-
+Use the import_session resource type to initiate and manage the migration of volumes and consistency groups from a heritage Dell EMC storage system to a PowerStore storage system. The import is non-disruptive to hosts that access the volume during the import. The import process runs as a background job. Clients should poll the job status until the import completes.   Note: In these descriptions, LUNs are referred to as volumes and storage arrays are referred to as storage systems.
 
 ```puppet
 powerstore_import_session {
   automatic_cutover => "automatic_cutover (optional)",
   description => "description (optional)",
-  id => "id",
   name => "name",
   protection_policy_id => "protection_policy_id (optional)",
   remote_system_id => "remote_system_id",
@@ -25,7 +24,6 @@ powerstore_import_session {
 | ------------- | ------------- | ------------- |
 |automatic_cutover | Optional[Boolean] | false |
 |description | Optional[String[1,128]] | false |
-|id | String | true |
 |name | String[1,128] | true |
 |protection_policy_id | Optional[String] | false |
 |remote_system_id | String | true |

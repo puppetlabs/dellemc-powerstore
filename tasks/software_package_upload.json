@@ -6,7 +6,7 @@
 	"parameters":{
 			"upload_file":{
 				"description": "Name of the software package file to upload.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			}
 	},
 

@@ -6,15 +6,15 @@
 	"parameters":{
 			"description":{
 				"description": "Description of the snapshot. This value must contain 2000 or fewer printable Unicode characters.",
-				"type": "Optional[String[1,2000]]"
+				"type":        "Optional[String[1,2000]]"
 			},
 			"id":{
 				"description": "Unique identifier of the virtual machine to create a snapshot of.",
-				"type": "String"
+				"type":        "String"
 			},
 			"name":{
 				"description": "Name of the snapshot. This value must contain 80 or fewer printable Unicode characters.",
-				"type": "Optional[String[1,80]]"
+				"type":        "Optional[String[1,80]]"
 			}
 	},
 

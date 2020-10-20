@@ -6,15 +6,15 @@
 	"parameters":{
 			"id":{
 				"description": "Unique id of the host group.",
-				"type": "String"
+				"type":        "String"
 			},
 			"logical_unit_number":{
 				"description": "Logical unit number for the volume, if desired.",
-				"type": "Optional[Integer[0,16383]]"
+				"type":        "Optional[Integer[0,16383]]"
 			},
 			"volume_id":{
 				"description": "Volume to attach.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

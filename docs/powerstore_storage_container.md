@@ -5,7 +5,7 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Storage_container
 
-
+Manage storage containers. A storage container is a logical grouping of related storage objects in a cluster. A storage container corresponds to a vVol datastore in vCenter and is used to group related vVols and track the amount of space that is used/free.
 
 ```puppet
 powerstore_storage_container {

@@ -5,12 +5,11 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_interface
 
-
+Information about File network interfaces in the storage system. These interfaces control access to Windows (CIFS) and UNIX/Linux (NFS) file storage.
 
 ```puppet
 powerstore_file_interface {
   gateway => "gateway (optional)",
-  id => "id",
   ip_address => "ip_address",
   is_disabled => "is_disabled (optional)",
   nas_server_id => "nas_server_id",
@@ -23,7 +22,6 @@ powerstore_file_interface {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |gateway | Optional[String[1,45]] | false |
-|id | String | true |
 |ip_address | String[1,45] | true |
 |is_disabled | Optional[Boolean] | false |
 |nas_server_id | String | true |

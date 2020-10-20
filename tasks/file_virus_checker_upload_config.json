@@ -6,11 +6,11 @@
 	"parameters":{
 			"body":{
 				"description": "Upload virus checker configuration file.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"id":{
 				"description": "Unique identifier of the virus checker instance.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

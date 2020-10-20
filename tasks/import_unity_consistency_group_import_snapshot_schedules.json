@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the Unity consistency group.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

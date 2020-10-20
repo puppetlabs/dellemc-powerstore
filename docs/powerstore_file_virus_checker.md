@@ -5,11 +5,12 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_virus_checker
 
+Use these resource types to manage the virus checker service of a NAS server. A virus checker instance is created each time the anti-virus service is enabled on a NAS server. A configuration file (named viruschecker.conf) needs to be uploaded before enabling the anti-virus service.
+The cluster supports third-party anti-virus servers that perform virus scans and reports back to the storage system. For example, when an SMB client creates, moves, or modifies a file, the NAS server invokes the anti-virus server to scan the file for known viruses. During the scan any access to this file is blocked. If the file does not contain a virus, it is written to the file system. If the file is infected, corrective action (fixed, removed or placed in quarantine) is taken as defined by the anti-virus server. You can optionally set up the service to scan the file on read access based on last access of the file compared to last update of the third-party anti-virus date.
 
 
 ```puppet
 powerstore_file_virus_checker {
-  id => "id",
   is_enabled => "is_enabled",
   nas_server_id => "nas_server_id",
 }
@@ -17,7 +18,6 @@ powerstore_file_virus_checker {
 
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
-|id | String | true |
 |is_enabled | Boolean | true |
 |nas_server_id | String | true |
 

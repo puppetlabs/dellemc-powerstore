@@ -6,11 +6,11 @@
 	"parameters":{
 			"add_current_usages":{
 				"description": "Usages to add to the current usages of an IP port. The current usages of an IP port can be extended with external replication if this usage is in the port's list of available usages. The same settings will be applied to the partner IP port.WARNING: Only one IP port on each node can be assigned to the External_Replication usage. Assigning another IP port to this usage will automatically unassign the currently used IP port on the same node.To unassign an IP port from being used for external replication, choose another IP port and add External_Replication to its list of current usages.",
-				"type": "Optional[Array[Enum['Management','ISCSI','ISCSI_Default','External_Replication']]]"
+				"type":        "Optional[Array[Enum['Management','ISCSI','ISCSI_Default','External_Replication']]]"
 			},
 			"id":{
 				"description": "Unique identifier of the IP port.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

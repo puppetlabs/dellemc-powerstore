@@ -123,6 +123,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_ldap = {}
+    file_ldap["id"] = resource[:id] unless resource[:id].nil?
     return file_ldap
   end
 
@@ -365,10 +366,12 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           add_addresses: item['add_addresses'],
           addresses: item['addresses'],
           authentication_type: item['authentication_type'],
           authentication_type_l10n: item['authentication_type_l10n'],
+          base_dn: item['base_DN'],
           base_dn: item['base_DN'],
           bind_dn: item['bind_DN'],
           bind_password: item['bind_password'],
@@ -391,10 +394,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:addresses])
-        self.deep_delete(hash, [:is_certificate_uploaded])
-        self.deep_delete(hash, [:is_config_file_uploaded])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

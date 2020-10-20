@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the import host system for which to refresh details.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

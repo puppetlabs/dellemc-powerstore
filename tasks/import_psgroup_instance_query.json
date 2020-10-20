@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the PS Group.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

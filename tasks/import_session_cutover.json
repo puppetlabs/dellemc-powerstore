@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of an import session",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

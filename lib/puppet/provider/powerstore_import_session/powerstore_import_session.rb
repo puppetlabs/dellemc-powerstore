@@ -103,6 +103,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     import_session = {}
+    import_session["id"] = resource[:id] unless resource[:id].nil?
     return import_session
   end
 
@@ -323,6 +324,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           automatic_cutover: item['automatic_cutover'],
           average_transfer_rate: item['average_transfer_rate'],
           current_transfer_rate: item['current_transfer_rate'],
@@ -347,8 +349,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:automatic_cutover])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

@@ -6,19 +6,19 @@
 	"parameters":{
 			"description":{
 				"description": "Policy description.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"name":{
 				"description": "Policy name.",
-				"type": "String"
+				"type":        "String"
 			},
 			"replication_rule_ids":{
 				"description": "Replication rule identifiers included in this policy. At least one snapshot rule or one replication rule must be specified to create a protection policy.",
-				"type": "Optional[Array[String]]"
+				"type":        "Optional[Array[String]]"
 			},
 			"snapshot_rule_ids":{
 				"description": "Snapshot rule identifiers included in this policy. At least one snapshot rule or one replication rule must be specified to create a protection policy.",
-				"type": "Optional[Array[String]]"
+				"type":        "Optional[Array[String]]"
 			}
 	},
 

@@ -5,7 +5,7 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Snapshot_rule
 
-
+Use this resource type to manage snapshot rules that are used in protection policies.
 
 ```puppet
 powerstore_snapshot_rule {

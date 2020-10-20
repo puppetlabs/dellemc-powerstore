@@ -5,13 +5,12 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Smb_share
 
-
+SMB Shares use the SMB protocol to provide an access point for configured Windows hosts to access file system storage. The system uses Active Directory to authenticate user and user group access to the Share.
 
 ```puppet
 powerstore_smb_share {
   description => "description (optional)",
   file_system_id => "file_system_id",
-  id => "id",
   is_abe_enabled => "is_ABE_enabled (optional)",
   is_branch_cache_enabled => "is_branch_cache_enabled (optional)",
   is_continuous_availability_enabled => "is_continuous_availability_enabled (optional)",
@@ -27,7 +26,6 @@ powerstore_smb_share {
 | ------------- | ------------- | ------------- |
 |description | Optional[String[0,511]] | false |
 |file_system_id | String | true |
-|id | String | true |
 |is_abe_enabled | Optional[Boolean] | false |
 |is_branch_cache_enabled | Optional[Boolean] | false |
 |is_continuous_availability_enabled | Optional[Boolean] | false |

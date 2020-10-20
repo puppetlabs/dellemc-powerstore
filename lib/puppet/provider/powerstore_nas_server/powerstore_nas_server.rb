@@ -352,6 +352,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           backup_i_pv4_interface_id: item['backup_IPv4_interface_id'],
           backup_i_pv6_interface_id: item['backup_IPv6_interface_id'],
           current_node_id: item['current_node_id'],
@@ -377,9 +378,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:is_auto_user_mapping_enabled])
-        self.deep_delete(hash, [:is_username_translation_enabled])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

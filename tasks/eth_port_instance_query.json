@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Ethernet front-end port instance identifier.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

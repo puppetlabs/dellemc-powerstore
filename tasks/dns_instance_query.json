@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the DNS setting.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

@@ -129,6 +129,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     nfs_export = {}
+    nfs_export["id"] = resource[:id] unless resource[:id].nil?
     return nfs_export
   end
 
@@ -382,6 +383,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           add_no_access_hosts: item['add_no_access_hosts'],
           add_read_only_hosts: item['add_read_only_hosts'],
           add_read_only_root_hosts: item['add_read_only_root_hosts'],
@@ -413,10 +415,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:anonymous_gid])
-        self.deep_delete(hash, [:anonymous_uid])
-        self.deep_delete(hash, [:is_no_suid])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

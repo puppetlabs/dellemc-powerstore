@@ -6,11 +6,11 @@
 	"parameters":{
 			"force":{
 				"description": "If false, the delete will fail if the SMB server is still joined, else the SMB server is deleted but AD account is not removed.",
-				"type": "Optional[Boolean]"
+				"type":        "Optional[Boolean]"
 			},
 			"id":{
 				"description": "Unique identifier of the SMB server.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

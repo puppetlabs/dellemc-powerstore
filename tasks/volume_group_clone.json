@@ -6,24 +6,24 @@
 	"parameters":{
 			"description":{
 				"description": "Description for the clone volume group.If description is not specified, the description for the snapshot set will not be set.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"id":{
 				"description": "Unique identifier of the volume group.",
-				"type": "String"
+				"type":        "String"
 			},
 			"is_replication_destination":{
 				"description": "A boolean flag to indicate whether the clone volume group is a destination of a replication session.This parameter defaults to false, if not specified.",
-				"type": "Optional[Boolean]",
-				"default": "false"
+				"type":        "Optional[Boolean]",
+				"default":     false
 			},
 			"name":{
 				"description": "Unique name for the clone volume group.",
-				"type": "String"
+				"type":        "String"
 			},
 			"protection_policy_id":{
 				"description": "Unique identifier of the protection policy you want to assign to the clone volume group.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			}
 	},
 

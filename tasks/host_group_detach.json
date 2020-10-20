@@ -6,11 +6,11 @@
 	"parameters":{
 			"id":{
 				"description": "Unique id of the host group.",
-				"type": "String"
+				"type":        "String"
 			},
 			"volume_id":{
 				"description": "Volume to detach.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

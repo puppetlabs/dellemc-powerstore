@@ -6,11 +6,11 @@
 	"parameters":{
 			"force":{
 				"description": "Normally, attempting to delete a bound virtual volume is not permitted. This option overrides that error and allows the delete to continue.",
-				"type": "Optional[Boolean]"
+				"type":        "Optional[Boolean]"
 			},
 			"id":{
 				"description": "Unique identifier of the virtual volume to delete.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

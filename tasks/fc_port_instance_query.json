@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the FC front-end port.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

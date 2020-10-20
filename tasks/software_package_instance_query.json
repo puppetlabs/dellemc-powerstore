@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the software package to query.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

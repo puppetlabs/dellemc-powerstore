@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of a VNX storage system.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

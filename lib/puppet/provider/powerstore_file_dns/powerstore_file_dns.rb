@@ -103,6 +103,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_dns = {}
+    file_dns["id"] = resource[:id] unless resource[:id].nil?
     return file_dns
   end
 
@@ -310,6 +311,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           add_ip_addresses: item['add_ip_addresses'],
           domain: item['domain'],
           id: item['id'],
@@ -321,8 +323,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:transport])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

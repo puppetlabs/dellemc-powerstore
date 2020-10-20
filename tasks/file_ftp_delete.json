@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the FTP/SFTP Server object.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

@@ -6,19 +6,19 @@
 	"parameters":{
 			"destination":{
 				"description": "IPv4 or IPv6 address of the target network node based on the specific route type. Values are:* For a default route, there is no value because the system will use the specified gateway IP address.* For a host route, the value is the host IP address.* For a subnet route, the value is a subnet IP address.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"file_interface_id":{
 				"description": "Unique identifier of the associated file interface.",
-				"type": "String"
+				"type":        "String"
 			},
 			"gateway":{
 				"description": "IP address of the gateway associated with the route.",
-				"type": "Optional[String[1,45]]"
+				"type":        "Optional[String[1,45]]"
 			},
 			"prefix_length":{
 				"description": "IPv4 or IPv6 prefix length for the route.",
-				"type": "Optional[Integer[1,128]]"
+				"type":        "Optional[Integer[1,128]]"
 			}
 	},
 

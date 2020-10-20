@@ -5,6 +5,8 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_ftp
 
+Use these resources to configure one File Transfer Protocol (FTP) server per NAS server. One FTP server can be configured per NAS server to have both secure and unsecure services running. By default when an FTP server is created, the unsecure service will be running. FTP is a standard network protocol used to transfer files from one host to another host over a TCP-based network, such as the Internet. For secure transmission that encrypts the username, password, and content, FTP is secured with SSH (SFTP). SFTP listens on port 22.
+You can activate an FTP server and SFTP server independently on each NAS server. The FTP and SFTP clients are authenticated using credentials defined on a Unix name server (such as an NIS server or an LDAP server) or a Windows domain. Windows user names need to be entered using the 'username@domain' or 'domain\\username' formats. Each secure and unsecure service must have a home directory defined in the name server that must be accessible on the NAS server. FTP also allows clients to connect as anonymous users.  
 
 
 ```puppet
@@ -17,7 +19,6 @@ powerstore_file_ftp {
   default_homedir => "default_homedir (optional)",
   groups => "groups (optional)",
   hosts => "hosts (optional)",
-  id => "id",
   is_allowed_groups => "is_allowed_groups (optional)",
   is_allowed_hosts => "is_allowed_hosts (optional)",
   is_allowed_users => "is_allowed_users (optional)",
@@ -48,7 +49,6 @@ powerstore_file_ftp {
 |default_homedir | Optional[String] | false |
 |groups | Optional[Array[String]] | false |
 |hosts | Optional[Array[String]] | false |
-|id | String | true |
 |is_allowed_groups | Optional[Boolean] | false |
 |is_allowed_hosts | Optional[Boolean] | false |
 |is_allowed_users | Optional[Boolean] | false |

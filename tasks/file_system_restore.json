@@ -6,11 +6,11 @@
 	"parameters":{
 			"copy_name":{
 				"description": "Name of the backup snap to be created before the Restore operation occurs.  If no name is specified no backup copy will be made.",
-				"type": "Optional[String[1,255]]"
+				"type":        "Optional[String[1,255]]"
 			},
 			"id":{
 				"description": "File system snapshot id.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

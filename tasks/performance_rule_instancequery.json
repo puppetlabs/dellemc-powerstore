@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Performance Rule id.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

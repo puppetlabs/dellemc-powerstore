@@ -6,39 +6,39 @@
 	"parameters":{
 			"add_replication_rule_ids":{
 				"description": "Replication rule identifiers to be added to this policy.",
-				"type": "Optional[Array[String]]"
+				"type":        "Optional[Array[String]]"
 			},
 			"add_snapshot_rule_ids":{
 				"description": "Snapshot rule identifiers to be added to this policy.",
-				"type": "Optional[Array[String]]"
+				"type":        "Optional[Array[String]]"
 			},
 			"description":{
 				"description": "Policy description.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"id":{
 				"description": "Unique identifier of the policy to be modified.",
-				"type": "String"
+				"type":        "String"
 			},
 			"name":{
 				"description": "Policy name.",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"remove_replication_rule_ids":{
 				"description": "Replication rule identifiers to be removed from this policy.",
-				"type": "Optional[Array[String]]"
+				"type":        "Optional[Array[String]]"
 			},
 			"remove_snapshot_rule_ids":{
 				"description": "Snapshot rule identifiers to be removed from this policy.",
-				"type": "Optional[Array[String]]"
+				"type":        "Optional[Array[String]]"
 			},
 			"replication_rule_ids":{
 				"description": "Replication rule identifiers that should replace the current list of replication rule identifiers in this policy.",
-				"type": "Optional[Array[String]]"
+				"type":        "Optional[Array[String]]"
 			},
 			"snapshot_rule_ids":{
 				"description": "Snapshot rule identifiers that should replace the current list of snapshot rule identifiers in this policy.",
-				"type": "Optional[Array[String]]"
+				"type":        "Optional[Array[String]]"
 			}
 	},
 

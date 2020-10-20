@@ -6,11 +6,11 @@
 	"parameters":{
 			"id":{
 				"description": "Unique id of the cluster",
-				"type": "String"
+				"type":        "String"
 			},
 			"metric_type":{
 				"description": "Metric type to be forecast.",
-				"type": "Enum['Physical_Space_Used_One_Day']"
+				"type":        "Enum['Physical_Space_Used_One_Day']"
 			}
 	},
 

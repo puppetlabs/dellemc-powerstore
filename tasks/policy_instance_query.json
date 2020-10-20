@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the policy.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

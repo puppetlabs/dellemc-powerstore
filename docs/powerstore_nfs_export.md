@@ -5,6 +5,7 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Nfs_export
 
+NFS Exports use the NFS protocol to provide an access point for configured Linux/Unix hosts or IP subnets to access file_systems or file_snapshots.
 
 
 ```puppet
@@ -19,7 +20,6 @@ powerstore_nfs_export {
   default_access => "default_access (optional)",
   description => "description (optional)",
   file_system_id => "file_system_id",
-  id => "id",
   is_no_suid => "is_no_SUID (optional)",
   min_security => "min_security (optional)",
   name => "name",
@@ -49,7 +49,6 @@ powerstore_nfs_export {
 |default_access | Optional[Enum['No_Access','Read_Only','Read_Write','Root','Read_Only_Root']] | false |
 |description | Optional[String[0,511]] | false |
 |file_system_id | String | true |
-|id | String | true |
 |is_no_suid | Optional[Boolean] | false |
 |min_security | Optional[Enum['Sys','Kerberos','Kerberos_With_Integrity','Kerberos_With_Encryption']] | false |
 |name | String[1,80] | true |

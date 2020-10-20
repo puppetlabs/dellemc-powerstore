@@ -5,12 +5,11 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Replication_rule
 
-
+Use this resource type to manage the replication rules that are used in protection policies.
 
 ```puppet
 powerstore_replication_rule {
   alert_threshold => "alert_threshold (optional)",
-  id => "id",
   name => "name",
   remote_system_id => "remote_system_id",
   rpo => "rpo",
@@ -20,7 +19,6 @@ powerstore_replication_rule {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |alert_threshold | Optional[Integer[0,1440]] | false |
-|id | String | true |
 |name | String | true |
 |remote_system_id | String | true |
 |rpo | Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Six_Hours','Twelve_Hours','One_Day'] | true |

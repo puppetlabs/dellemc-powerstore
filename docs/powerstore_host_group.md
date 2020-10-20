@@ -5,14 +5,14 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Host_group
 
-
+Manage host groups.
+ A host group is a mechanism to provision hosts and volumes to be consistent across the Cyclone cluster. Operations that can be performed include, creating or deleting a host group, modifying host group(i.e. adding or removing hosts from a host group).
 
 ```puppet
 powerstore_host_group {
   add_host_ids => "add_host_ids (optional)",
   description => "description (optional)",
   host_ids => "host_ids",
-  id => "id",
   name => "name",
   remove_host_ids => "remove_host_ids (optional)",
 }
@@ -23,7 +23,6 @@ powerstore_host_group {
 |add_host_ids | Optional[Array[String]] | false |
 |description | Optional[String[1,256]] | false |
 |host_ids | Array[String] | true |
-|id | String | true |
 |name | String[1,128] | true |
 |remove_host_ids | Optional[Array[String]] | false |
 

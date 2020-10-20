@@ -5,12 +5,11 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## File_kerberos
 
-
+Use these resources to manage the Kerberos service for a NAS server. One Kerberos service object may be configured per NAS Server. Kerberos is a distributed authentication service designed to provide strong authentication with secret-key cryptography. It works on the basis of "tickets" that allow nodes communicating over a non-secure network to prove their identity in a secure manner. When configured to act as a secure NFS server, the NAS Server uses the RPCSEC_GSS security framework and Kerberos authentication protocol to verify users and services. You can configure a secure NFS environment for a multiprotocol NAS Server or one that supports Unix-only shares. In this environment, user access to NFS file systems is granted based on Kerberos principal names.
 
 ```puppet
 powerstore_file_kerberos {
   add_kdc_addresses => "add_kdc_addresses (optional)",
-  id => "id",
   kdc_addresses => "kdc_addresses",
   nas_server_id => "nas_server_id",
   port_number => "port_number (optional)",
@@ -22,7 +21,6 @@ powerstore_file_kerberos {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |add_kdc_addresses | Optional[Array[String[1,255]]] | false |
-|id | String | true |
 |kdc_addresses | Array[String[1,255]] | true |
 |nas_server_id | String | true |
 |port_number | Optional[Integer[0,65535]] | false |

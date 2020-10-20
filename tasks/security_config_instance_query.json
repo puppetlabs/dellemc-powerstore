@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Unique identifier of the system security configuration.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

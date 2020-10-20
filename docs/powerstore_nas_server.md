@@ -5,7 +5,7 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Nas_server
 
-
+Use these resource types to manage NAS servers. NAS servers are software components used to transfer data and provide the connection ports for hosts to access file-based storage resources. NAS servers are independent from each other.
 
 ```puppet
 powerstore_nas_server {

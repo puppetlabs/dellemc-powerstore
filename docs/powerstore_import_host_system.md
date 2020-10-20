@@ -5,7 +5,7 @@ Path: "tag_based/assets/dellemc.swagger.json")
 
 ## Import_host_system
 
-
+Use these resource types to manage import host systems. Import host enables communication with multipathing software on the host system to perform import operations. While configuring the import_host_system if the host is not present a new Host will be created. If Host is already present, the same Host will be updated with the import_host_system details. Also, import_host_system supports FC and ISCSI connections between Host and source arrays. So for a single import_host_system which supports both FC and ISCSI; there would be two Hosts entries for representing the FC and iSCSI connections.
 
 ```puppet
 powerstore_import_host_system {
@@ -15,7 +15,6 @@ powerstore_import_host_system {
   chap_mutual_username => "chap_mutual_username (optional)",
   chap_single_password => "chap_single_password (optional)",
   chap_single_username => "chap_single_username (optional)",
-  id => "id",
   os_type => "os_type",
   password => "password",
   user_name => "user_name",
@@ -30,7 +29,6 @@ powerstore_import_host_system {
 |chap_mutual_username | Optional[String] | false |
 |chap_single_password | Optional[String] | false |
 |chap_single_username | Optional[String] | false |
-|id | String | true |
 |os_type | Enum['Windows','Linux','ESXi','Unknown'] | true |
 |password | String | true |
 |user_name | String | true |

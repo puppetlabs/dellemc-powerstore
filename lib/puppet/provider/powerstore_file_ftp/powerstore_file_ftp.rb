@@ -137,6 +137,7 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_ftp = {}
+    file_ftp["id"] = resource[:id] unless resource[:id].nil?
     return file_ftp
   end
 
@@ -396,6 +397,7 @@ context.debug("Entered get")
       items.collect do |item|
         hash = {
 
+
           add_groups: item['add_groups'],
           add_hosts: item['add_hosts'],
           add_users: item['add_users'],
@@ -425,20 +427,6 @@ context.debug("Entered get")
           ensure: 'present',
         }
 
-
-        self.deep_delete(hash, [:groups])
-        self.deep_delete(hash, [:hosts])
-        self.deep_delete(hash, [:is_allowed_groups])
-        self.deep_delete(hash, [:is_allowed_hosts])
-        self.deep_delete(hash, [:is_allowed_users])
-        self.deep_delete(hash, [:is_anonymous_authentication_enabled])
-        self.deep_delete(hash, [:is_audit_enabled])
-        self.deep_delete(hash, [:is_ftp_enabled])
-        self.deep_delete(hash, [:is_homedir_limit_enabled])
-        self.deep_delete(hash, [:is_sftp_enabled])
-        self.deep_delete(hash, [:is_smb_authentication_enabled])
-        self.deep_delete(hash, [:is_unix_authentication_enabled])
-        self.deep_delete(hash, [:users])
         Puppet.debug("Adding to collection: #{item}")
 
         hash

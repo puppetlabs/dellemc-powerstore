@@ -6,11 +6,11 @@
 	"parameters":{
 			"body":{
 				"description": "",
-				"type": "Optional[String]"
+				"type":        "Optional[String]"
 			},
 			"id":{
 				"description": "Unique identifier of the Kerberos service object.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 

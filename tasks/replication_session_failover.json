@@ -6,22 +6,22 @@
 	"parameters":{
 			"force":{
 				"description": "Indicates whether an unplanned failover needs to be done for a session that is already in failed over state",
-				"type": "Optional[Boolean]",
-				"default": "false"
+				"type":        "Optional[Boolean]",
+				"default":     false
 			},
 			"id":{
 				"description": "Unique identifier of the replication session.",
-				"type": "String"
+				"type":        "String"
 			},
 			"is_planned":{
 				"description": "Indicates whether the replication session failover is planned or unplanned. For planned failovers, the value is true. For unplanned failovers, the value is false.",
-				"type": "Optional[Boolean]",
-				"default": "true"
+				"type":        "Optional[Boolean]",
+				"default":     true
 			},
 			"reverse":{
 				"description": "Indicates whether the system is auto-reprotected. Auto-reprotect is combination of failover and reprotect. ",
-				"type": "Optional[Boolean]",
-				"default": "false"
+				"type":        "Optional[Boolean]",
+				"default":     false
 			}
 	},
 

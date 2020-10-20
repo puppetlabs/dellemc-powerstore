@@ -6,7 +6,7 @@
 	"parameters":{
 			"id":{
 				"description": "Id of the virtual volume.",
-				"type": "String"
+				"type":        "String"
 			}
 	},
 
