@@ -1,3 +1,5 @@
+description: Find empty volume groups - yaml plan example
+
 parameters:
   targets:
     type: TargetSpec
