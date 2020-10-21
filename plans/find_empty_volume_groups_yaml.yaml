@@ -1,0 +1,20 @@
+parameters:
+  targets:
+    type: TargetSpec
+
+steps:
+  - name: volume_groups_task
+    task: powerstore::volume_group_collection_query
+    description: Get all volume groups
+    targets: $targets
+    parameters:
+      query_string: select=name,volumes
+
+  - name: volume_groups
+    description: get the volume groups from task output
+    eval: $volume_groups_task[0].value
+  
+  - name: empty_volume_groups
+    eval: $volume_groups.filter |$k, $v| { $v['volumes'].empty }.map |$k, $v| { $k }
+
+return: $empty_volume_groups
