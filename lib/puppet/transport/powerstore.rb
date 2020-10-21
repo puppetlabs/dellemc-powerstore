@@ -71,10 +71,13 @@ module Puppet::Transport
   
     def call_op(path_params, query_params, header_params, body_params, operation_path, operation_verb, parent_consumes)
       uri_string = "#{connection_info[:schema]}://#{connection_info[:host]}:#{connection_info[:port]}#{connection_info[:base_path]}#{operation_path}" % path_params
-      if query_params.size > 0
+      if !query_params['query_string'].nil?
+        uri_string = uri_string + '?' + query_params['query_string']
+      else
+        if operation_verb == 'Get'
+          query_params['select'] = '*'
+        end
         uri_string = uri_string + '?' + to_query(query_params)
-      elsif operation_verb == 'Get'
-        uri_string += '?select=*'
       end
       header_params['Content-Type'] = parent_consumes
       verify_mode= OpenSSL::SSL::VERIFY_NONE

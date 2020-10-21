@@ -9,7 +9,7 @@
   "dependencies": [
     {
       "name": "puppet/format",
-      "version_requirement": ">=0.1.1-rc0 < 2.0.0"
+      "version_requirement": ">=0.1.1 < 2.0.0"
     }
   ],
   "operatingsystem_support": [
