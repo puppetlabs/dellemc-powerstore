@@ -10,5 +10,15 @@ plan powerstore::get_fs_used_size_greaterthan_threshold(
       $v['size_used']*100.0 / $v['size_total'] > $threshold
     }
   }
-  return $filtered_file_systems.map |$k,$v| { $k }
+  # return $filtered_file_systems.map |$k,$v| { $k }
+
+  $rows = $filtered_file_systems.map |$k,$v| {
+    [$k, String($v['size_used']*100.0 / $v['size_total'], '%f')]
+  }
+  $usage_table = format::table({
+    title => "List of file systems using more than ${threshold}%",
+    head => ['file system', 'use %'].map |$field| { format::colorize($field, yellow) },
+    rows => $rows
+    })
+  out::message($usage_table)
 }
