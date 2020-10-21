@@ -15,8 +15,7 @@
 			"id":{
 				"description": "Unique identifier of volume to detach.",
 				"type":        "String"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

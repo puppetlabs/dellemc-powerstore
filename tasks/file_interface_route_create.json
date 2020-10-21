@@ -19,8 +19,7 @@
 			"prefix_length":{
 				"description": "IPv4 or IPv6 prefix length for the route.",
 				"type":        "Optional[Integer[1,128]]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

@@ -32,8 +32,7 @@
 			"protection_policy_id":{
 				"description": "Unique identifier of the protection policy to assign to a primary or clone volume group. If an empty string is specified, protection policy will be removed from the volume group.",
 				"type":        "Optional[String]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

@@ -17,8 +17,7 @@
 				"description": "Indicates whether a rescan will be performed during the sync operation. Default value is false. If the session creation completed with a message that rescan is required from one or more hosts, you must set this value to true during the subsequent sync operation. Otherwise, the sync operation will fail.",
 				"type":        "Optional[Boolean]",
 				"default":     false
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

@@ -15,8 +15,7 @@
 			"is_enabled":{
 				"description": "Activate or deactivate the window for one appliance.",
 				"type":        "Optional[Boolean]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

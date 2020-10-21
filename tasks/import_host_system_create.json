@@ -39,8 +39,7 @@
 			"user_name":{
 				"description": "Username for the import host system.",
 				"type":        "String"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

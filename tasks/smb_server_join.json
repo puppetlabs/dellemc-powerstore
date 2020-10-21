@@ -24,8 +24,7 @@
 				"description": "If set to yes: try to reuse the existing SMB server account in the Active Directory when joining.",
 				"type":        "Optional[Boolean]",
 				"default":     false
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

@@ -83,6 +83,7 @@ class PowerstoreImportUnityCollectionQueryTask < TaskHelper
     end
 
     op_params = [
+      op_param('query_string', 'query', 'query_string', 'query_string'),
       ]
     op_params.each do |i|
       location = i[:location]

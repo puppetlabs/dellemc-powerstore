@@ -20,8 +20,7 @@
 				"description": "If set to yes: Will not remove the account from the Active Directory. This is to be used in case that no DC is available.",
 				"type":        "Optional[Boolean]",
 				"default":     false
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

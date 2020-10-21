@@ -22,8 +22,7 @@
 				"description": "Indicates whether the system is auto-reprotected. Auto-reprotect is combination of failover and reprotect. ",
 				"type":        "Optional[Boolean]",
 				"default":     false
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

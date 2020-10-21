@@ -33,8 +33,7 @@
 			"name":{
 				"description": "Name of the NAS server.",
 				"type":        "String[1,255]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

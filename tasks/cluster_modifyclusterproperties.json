@@ -15,8 +15,7 @@
 			"physical_mtu":{
 				"description": "The physical ethernet port (eth_port resource) MTU setting, global for all ports in the cluster. This is the default MTU setting for IP traffic, and the upper limit on network-specific MTU settings (network resource), where this can be overridden for some specific kinds of traffic (management, data, and vmotion). This value must be in the range 1500-9000.",
 				"type":        "Optional[Integer[1500,9000]]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

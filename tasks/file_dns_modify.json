@@ -28,8 +28,7 @@
 				"description": "Transport used when connecting to the DNS Server:* UDP - DNS uses the UDP protocol (default)* TCP - DNS uses the TCP protocol",
 				"type":        "Optional[Enum['UDP','TCP']]",
 				"default":     "UDP"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

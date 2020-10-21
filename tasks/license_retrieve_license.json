@@ -3,8 +3,7 @@
 	"input_method": "stdin",
 	"supports_noop": false,
 	"remote": true,
-	"parameters":{
-	},
+	"parameters":{},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

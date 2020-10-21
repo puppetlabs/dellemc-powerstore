@@ -11,8 +11,7 @@
 			"metric_type":{
 				"description": "Metric type to be forecast.",
 				"type":        "Enum['Physical_Space_Used_One_Day']"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

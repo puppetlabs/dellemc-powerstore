@@ -93,8 +93,7 @@
 			"remove_read_write_root_hosts":{
 				"description": "Hosts to remove from the current read_write_root_hosts list. Hosts can be entered by Hostname, IP addresses (IPv4, IPv6, IPv4/PrefixLength, IPv6/PrefixLenght, or IPv4/subnetmask), or Netgroups prefixed with @. Error if the host is not present. Cannot combine with read_write_root_hosts.",
 				"type":        "Optional[Array[String]]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

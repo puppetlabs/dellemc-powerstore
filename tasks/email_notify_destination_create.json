@@ -23,8 +23,7 @@
 			"notify_minor":{
 				"description": "Whether to send notifications for minor alerts.",
 				"type":        "Optional[Boolean]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

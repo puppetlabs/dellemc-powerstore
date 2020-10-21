@@ -47,8 +47,7 @@
 			"type":{
 				"description": "Remote system connection type between the local system and the following remote systems:      * PowerStore               - PowerStore system* Unity                    - Unity import system* VNX                      - VNX import system* PS_Equallogic            - PS EqualLogic import system* Storage_Center           - Storage Center import system* XtremIO                  - XtremIO import system",
 				"type":        "Optional[Enum['PowerStore','Unity','VNX','PS_Equallogic','Storage_Center','XtremIO']]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

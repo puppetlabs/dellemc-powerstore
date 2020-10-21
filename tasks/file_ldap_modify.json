@@ -67,8 +67,7 @@
 			"remove_addresses":{
 				"description": "IP addresses to remove from the current server IP addresses list. The addresses may be IPv4 or IPv6. Error occurs if an IP address does not exist in the addresses_list. Cannot be combined with addresses.",
 				"type":        "Optional[Array[String]]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

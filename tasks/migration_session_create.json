@@ -24,8 +24,7 @@
 			"resource_type":{
 				"description": "Storage resource types eligible for migration.",
 				"type":        "Enum['volume','virtual_volume','volume_group']"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

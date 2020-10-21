@@ -12,8 +12,7 @@
 			"id":{
 				"description": "Unique identifier of the snapshot rule.",
 				"type":        "String"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

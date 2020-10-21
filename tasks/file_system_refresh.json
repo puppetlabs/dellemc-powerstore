@@ -7,8 +7,7 @@
 			"id":{
 				"description": "File system snapshot id.",
 				"type":        "String"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

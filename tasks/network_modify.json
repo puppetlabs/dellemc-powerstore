@@ -52,8 +52,7 @@
 			"vlan_id":{
 				"description": "VLAN identifier.",
 				"type":        "Optional[Integer[0,4094]]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

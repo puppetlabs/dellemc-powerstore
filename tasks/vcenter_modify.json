@@ -19,8 +19,7 @@
 			"username":{
 				"description": "User name to login to vCenter. Password needs to be provided to modify the user name.",
 				"type":        "Optional[String]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

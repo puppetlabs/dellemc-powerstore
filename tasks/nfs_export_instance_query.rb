@@ -84,6 +84,7 @@ class PowerstoreNfsExportInstanceQueryTask < TaskHelper
 
     op_params = [
       op_param('id', 'path', 'id', 'id'),
+      op_param('query_string', 'query', 'query_string', 'query_string'),
       ]
     op_params.each do |i|
       location = i[:location]

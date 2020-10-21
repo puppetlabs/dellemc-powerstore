@@ -35,8 +35,7 @@
 			"windows_sid":{
 				"description": "Windows Security Identifier of the user. Identifers are exclusive. Only one of the four identifiers among 'user uid' / 'unix username' / 'windows username' / 'windows SID' can be used at a time.",
 				"type":        "Optional[String]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

@@ -83,8 +83,7 @@
 			"smb_notify_on_change_dir_depth":{
 				"description": "Lowest directory level to which the enabled notifications apply, if any.",
 				"type":        "Optional[Integer[1,512]]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

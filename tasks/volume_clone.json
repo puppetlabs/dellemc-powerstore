@@ -35,8 +35,7 @@
 			"protection_policy_id":{
 				"description": "Unique identifier of the protection policy.",
 				"type":        "Optional[String]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

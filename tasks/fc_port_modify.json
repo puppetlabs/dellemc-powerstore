@@ -11,8 +11,7 @@
 			"requested_speed":{
 				"description": "Possible Fibre Channel port speeds. For the current_speed attribute, these values show the current transmission speed on the port. For the requested_speed attribute, these values show the transmission speed set by the user. A requested speed of Auto means that the current speed value will be automatically detected.If this file is updated, also update FrontEndPortSpeedEnum.yaml* Auto - the speed value is automatically detected* 4_Gbps - 4 Gigabits per second* 8_Gbps - 8 Gigabits per second* 16_Gbps - 16 Gigabits per second* 32_Gbps - 32 Gigabits per second",
 				"type":        "Enum['Auto','4_Gbps','8_Gbps','16_Gbps','32_Gbps']"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

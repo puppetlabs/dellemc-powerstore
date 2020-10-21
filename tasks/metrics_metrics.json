@@ -15,8 +15,7 @@
 			"interval":{
 				"description": "Intervals of which metrics can be provided.",
 				"type":        "Optional[Enum['Twenty_Sec','Five_Mins','One_Hour','One_Day']]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

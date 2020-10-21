@@ -36,8 +36,7 @@
 			"volume_group_id":{
 				"description": "Unique identifier of the volume group to which the imported volume will belong, if any.",
 				"type":        "Optional[String]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

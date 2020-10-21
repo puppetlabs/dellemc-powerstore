@@ -7,8 +7,7 @@
 			"license_file":{
 				"description": "The file to upload containing the software license to install the license on the cluster.",
 				"type":        "Optional[String]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

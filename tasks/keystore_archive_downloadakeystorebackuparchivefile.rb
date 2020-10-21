@@ -84,6 +84,7 @@ class PowerstoreKeystoreArchiveDownloadakeystorebackuparchivefileTask < TaskHelp
 
     op_params = [
       op_param('filename', 'path', 'filename', 'filename'),
+      op_param('query_string', 'query', 'query_string', 'query_string'),
       ]
     op_params.each do |i|
       location = i[:location]

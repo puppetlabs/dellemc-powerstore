@@ -114,8 +114,7 @@
 			"welcome_message":{
 				"description": "Welcome message displayed on the console of FTP and SFTP clients before their authentication. The length of this message is limited to 511 bytes of UTF-8 characters, and the length of each line is limited to 80 bytes.",
 				"type":        "Optional[String]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

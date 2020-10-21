@@ -61,8 +61,7 @@
 			"production_i_pv6_interface_id":{
 				"description": "Unique identifier of the preferred IPv6 production interface.",
 				"type":        "Optional[String]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

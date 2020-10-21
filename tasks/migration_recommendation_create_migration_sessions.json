@@ -7,8 +7,7 @@
 			"id":{
 				"description": "Unique ID of the migration recommendation.",
 				"type":        "String"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

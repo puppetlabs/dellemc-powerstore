@@ -15,8 +15,7 @@
 			"name":{
 				"description": "The host group name. The name should not be more than 128 UTF-8 characters long and should not have any unprintable characters.",
 				"type":        "String[1,128]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

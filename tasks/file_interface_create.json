@@ -33,8 +33,7 @@
 				"description": "Virtual Local Area Network (VLAN) identifier for the interface. The interface uses the identifier to accept packets that have matching VLAN tags.",
 				"type":        "Optional[Integer[0,4094]]",
 				"default":     0
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

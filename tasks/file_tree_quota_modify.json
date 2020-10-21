@@ -23,8 +23,7 @@
 			"soft_limit":{
 				"description": "Soft limit of the tree quota, in bytes. No hard limit when set to 0. Value is always rounded up to match the physical block size of the filesystem.",
 				"type":        "Optional[Integer[0,9223372036854775807]]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

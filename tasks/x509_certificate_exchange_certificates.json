@@ -23,8 +23,7 @@
 			"username":{
 				"description": "Username used in basic authentication to remote PowerStore cluster.",
 				"type":        "String"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

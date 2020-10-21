@@ -15,8 +15,7 @@
 			"is_acknowledged":{
 				"description": "Indicates whether the alert has been acknowledged.",
 				"type":        "Boolean"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

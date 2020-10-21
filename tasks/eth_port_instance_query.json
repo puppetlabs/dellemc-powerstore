@@ -7,8 +7,12 @@
 			"id":{
 				"description": "Ethernet front-end port instance identifier.",
 				"type":        "String"
+			},
+			"query_string": {
+				"description": "API query string (optional)",
+				"type":        "Optional[String]"
 			}
-	},
+		},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

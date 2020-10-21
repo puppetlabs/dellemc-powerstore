@@ -39,8 +39,7 @@
 			"snapshot_rule_ids":{
 				"description": "Snapshot rule identifiers that should replace the current list of snapshot rule identifiers in this policy.",
 				"type":        "Optional[Array[String]]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

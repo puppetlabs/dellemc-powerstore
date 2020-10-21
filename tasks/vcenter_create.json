@@ -15,8 +15,7 @@
 			"username":{
 				"description": "User name to login to vCenter.",
 				"type":        "Optional[String]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

@@ -11,8 +11,7 @@
 			"id":{
 				"description": "Unique identifier of the SMTP configuration.",
 				"type":        "String"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

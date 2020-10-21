@@ -41,8 +41,7 @@
 				"description": "Indicates whether SMB authentication is used to authenticate to the KDC. Values are:- true: Indicates that the the configured SMB Server settings are used for Kerberos authentication.- false: Indicates that Kerberos uses its own settings.",
 				"type":        "Optional[Boolean]",
 				"default":     false
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

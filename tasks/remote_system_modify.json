@@ -31,8 +31,7 @@
 			"remote_username":{
 				"description": "Username used to access the remote system. Used only for non-PowerStore systems.",
 				"type":        "Optional[String]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

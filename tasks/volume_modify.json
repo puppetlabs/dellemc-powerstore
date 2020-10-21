@@ -44,8 +44,7 @@
 			"size":{
 				"description": "New size of the volume in bytes,  must be a multiple of 8192, must be bigger than the current volume size. Maximum volume size is 256TB.",
 				"type":        "Optional[Integer[8192,281474976710656]]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

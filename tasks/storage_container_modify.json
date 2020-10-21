@@ -15,8 +15,7 @@
 			"quota":{
 				"description": "The number of bytes that can be provisioned against this storage container. It cannot be set lower than the current used space or 10Gb.  A value of 0 means unlimited.",
 				"type":        "Optional[Integer[0,4611686018427387904]]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

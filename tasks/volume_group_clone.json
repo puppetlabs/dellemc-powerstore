@@ -24,8 +24,7 @@
 			"protection_policy_id":{
 				"description": "Unique identifier of the protection policy you want to assign to the clone volume group.",
 				"type":        "Optional[String]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

@@ -7,8 +7,7 @@
 			"id":{
 				"description": "Unique identifier of the Unity consistency group.",
 				"type":        "String"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

@@ -49,8 +49,7 @@
 				"description": "The default UNIX umask for new files created on the Share. If not specified the umask defaults to 022.",
 				"type":        "Optional[String]",
 				"default":     "022"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

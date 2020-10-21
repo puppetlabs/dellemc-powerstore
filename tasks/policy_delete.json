@@ -7,8 +7,7 @@
 			"id":{
 				"description": "Unique identifier of the protection policy to be deleted.",
 				"type":        "String"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

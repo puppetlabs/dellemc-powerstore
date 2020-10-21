@@ -11,8 +11,7 @@
 			"psid":{
 				"description": "An alpha-numeric string that can be found on the physical label of the drive to repurpose. This is needed to validate that the user has physical control of the drive before performing the operation.",
 				"type":        "String"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

@@ -7,8 +7,7 @@
 			"id":{
 				"description": "Unique identifier of the software package to delete.",
 				"type":        "String"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

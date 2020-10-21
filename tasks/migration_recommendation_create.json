@@ -7,8 +7,7 @@
 			"evacuate_appliance":{
 				"description": "Evacuate appliance by specifying optional space_to_free",
 				"type":        "Struct[{appliance_id => Optional[String], Optional[space_to_free] => Optional[Integer], Optional[target_appliance_ids] => Optional[Array[String]], }]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

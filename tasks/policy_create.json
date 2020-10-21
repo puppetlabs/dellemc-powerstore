@@ -19,8 +19,7 @@
 			"snapshot_rule_ids":{
 				"description": "Snapshot rule identifiers included in this policy. At least one snapshot rule or one replication rule must be specified to create a protection policy.",
 				"type":        "Optional[Array[String]]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

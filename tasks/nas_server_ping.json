@@ -16,8 +16,7 @@
 				"description": "When true, and the destination is a hostname, it will be resolved to IPv6. Otherwise the hostname is resolved preferably to an IPv4 address.",
 				"type":        "Optional[Boolean]",
 				"default":     false
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

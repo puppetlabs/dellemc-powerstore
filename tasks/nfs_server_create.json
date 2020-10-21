@@ -41,8 +41,7 @@
 			"nas_server_id":{
 				"description": "Unique identifier of the NAS server.",
 				"type":        "String"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

@@ -11,8 +11,7 @@
 			"volume_ids":{
 				"description": "A list of volumes that need to be removed from the volume group.This list cannot be empty.",
 				"type":        "Array[String]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

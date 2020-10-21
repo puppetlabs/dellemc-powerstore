@@ -11,8 +11,7 @@
 			"id":{
 				"description": "Unique identifier of the virtual volume to delete.",
 				"type":        "String"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

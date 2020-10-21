@@ -19,8 +19,7 @@
 			"os_type":{
 				"description": "Operating system of the host.",
 				"type":        "Enum['Windows','Linux','ESXi','AIX','HP-UX','Solaris']"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

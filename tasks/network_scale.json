@@ -20,8 +20,7 @@
 			"remove_port_ids":{
 				"description": "Unique identifiers of IP ports to remove from use in the network.",
 				"type":        "Optional[Array[String]]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

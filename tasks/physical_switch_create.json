@@ -15,8 +15,7 @@
 			"purpose":{
 				"description": "Physical switch purpose in network. Possible purposes are:  * Data_and_Management - Physical switch for all data and management networks.  * Management_Only - Physical switch for management network only.",
 				"type":        "Enum['Data_and_Management','Management_Only']"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

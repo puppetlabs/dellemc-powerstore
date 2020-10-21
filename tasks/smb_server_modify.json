@@ -35,8 +35,7 @@
 			"workgroup":{
 				"description": "Applies to standalone SMB servers only.Windows network workgroup for the SMB server.Workgroup names are limited to 15 alphanumeric ASCII characters.",
 				"type":        "Optional[String[1,15]]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

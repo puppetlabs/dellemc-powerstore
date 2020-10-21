@@ -23,8 +23,7 @@
 			"role_id":{
 				"description": "The unique identifier of the new role to which the local user has to be mapped. Where role_id '1' is for Administrator, '2' is for Storage Administrator, '3' is for Operator, '4' is for VM Administrator and '5' is for Security Administrator. A local user with either an administration or a security administration role can change the role of any other local user. You cannot change the role of the account you are currently logged-in to.",
 				"type":        "Optional[String]"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

@@ -20,8 +20,7 @@
 			"id":{
 				"description": "Unique identifier of the volume to restore.",
 				"type":        "String"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",

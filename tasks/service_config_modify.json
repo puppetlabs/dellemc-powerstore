@@ -11,8 +11,7 @@
 			"is_ssh_enabled":{
 				"description": "Current SSH service access state.* true  - Enables SSH access* false - Disables SSH access",
 				"type":        "Boolean"
-			}
-	},
+			}},
 
 	"files": [
 		"powerstore/lib/puppet/util/task_helper.rb",
