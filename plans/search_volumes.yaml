@@ -12,6 +12,6 @@ steps:
     task: powerstore::volume_collection_query
     targets: $targets
     parameters:
-      query_string: select=name&name=${pattern}*
+      query_string: "select=name&name=ilike.${pattern}*"
 
   - message: $found_volumes[0].value.map |$k,$v| { $k }
