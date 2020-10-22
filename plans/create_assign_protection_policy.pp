@@ -1,4 +1,4 @@
-plan powerstore::policy(
+plan powerstore::create_assign_protection_policy(
   TargetSpec                $targets,
   String                    $volume_name,
   Enum['present', 'absent'] $ensure       = 'present'
