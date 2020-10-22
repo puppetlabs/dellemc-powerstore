@@ -103,7 +103,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_dns = {}
-    file_dns["id"] = resource[:id] unless resource[:id].nil?
     return file_dns
   end
 

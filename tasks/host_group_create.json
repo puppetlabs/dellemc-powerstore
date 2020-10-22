@@ -6,7 +6,7 @@
 	"parameters":{
 			"description":{
 				"description": "An optional description for the host group. The description should not have any unprintable characters.",
-				"type":        "Optional[String[1,256]]"
+				"type":        "Optional[String[0,256]]"
 			},
 			"host_ids":{
 				"description": "",
@@ -14,7 +14,7 @@
 			},
 			"name":{
 				"description": "The host group name. The name should not be more than 128 UTF-8 characters long and should not have any unprintable characters.",
-				"type":        "String[1,128]"
+				"type":        "String[0,128]"
 			}},
 
 	"files": [

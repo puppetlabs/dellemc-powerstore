@@ -137,7 +137,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_ftp = {}
-    file_ftp["id"] = resource[:id] unless resource[:id].nil?
     return file_ftp
   end
 

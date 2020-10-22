@@ -111,7 +111,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     remote_system = {}
-    remote_system["id"] = resource[:id] unless resource[:id].nil?
     return remote_system
   end
 

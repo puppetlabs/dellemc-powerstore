@@ -96,7 +96,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_virus_checker = {}
-    file_virus_checker["id"] = resource[:id] unless resource[:id].nil?
     return file_virus_checker
   end
 

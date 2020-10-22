@@ -21,9 +21,9 @@ powerstore_host_group {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |add_host_ids | Optional[Array[String]] | false |
-|description | Optional[String[1,256]] | false |
+|description | Optional[String[0,256]] | false |
 |host_ids | Optional[Array[String]] | false |
-|name | String[1,128] | true |
+|name | String[0,128] | true |
 |remove_host_ids | Optional[Array[String]] | false |
 
 

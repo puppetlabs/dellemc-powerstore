@@ -6,7 +6,7 @@
 	"parameters":{
 			"description":{
 				"description": "New description for the volume group. The description should not have any unprintable characters.If an empty string is specified, the description will be cleared.",
-				"type":        "Optional[String[1,256]]"
+				"type":        "Optional[String[0,256]]"
 			},
 			"force":{
 				"description": "Normally a replication destination volume group cannot be modified since it is controlled by replication. However, there can be cases where replication has failed or is no longer active and the replication destination volume group needs to be cleaned up.With the force option, the user will be allowed to remove the protection policy from the replication destination volume group provided that the replication session has never been synchronized.This parameter defaults to false, if not specified.",
@@ -27,7 +27,7 @@
 			},
 			"name":{
 				"description": "New name for the volume group. The name should contain no special HTTP characters and no unprintable characters. Although the case of the name provided is reserved, uniqueness check is case-insensitive, so the same name in two different cases is not considered unique.",
-				"type":        "Optional[String[1,128]]"
+				"type":        "Optional[String[0,128]]"
 			},
 			"protection_policy_id":{
 				"description": "Unique identifier of the protection policy to assign to a primary or clone volume group. If an empty string is specified, protection policy will be removed from the volume group.",

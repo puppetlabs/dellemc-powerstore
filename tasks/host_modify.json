@@ -10,7 +10,7 @@
 			},
 			"description":{
 				"description": "An optional description for the host. The description should not be more than 256 UTF-8 characters long and should not have any unprintable characters.",
-				"type":        "Optional[String[1,256]]"
+				"type":        "Optional[String[0,256]]"
 			},
 			"id":{
 				"description": "Unique id of the host.",
@@ -22,7 +22,7 @@
 			},
 			"name":{
 				"description": "The host name. The name should not be more than 128 UTF-8 characters long and should not have any unprintable characters.",
-				"type":        "Optional[String[1,128]]"
+				"type":        "Optional[String[0,128]]"
 			},
 			"remove_initiators":{
 				"description": "The list of initiator port_names to be removed.",

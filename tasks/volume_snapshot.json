@@ -10,7 +10,7 @@
 			},
 			"description":{
 				"description": "Description of the snapshot. This value must contain 128 or fewer printable Unicode characters.",
-				"type":        "Optional[String[1,128]]"
+				"type":        "Optional[String[0,128]]"
 			},
 			"expiration_timestamp":{
 				"description": "Expiration time of the snapshot. Expired snapshots are deleted by the snapshot aging service that runs periodically in the background. If not specified, the snapshot never expires.Use a maximum timestamp value to set an expiration to never expire.",
@@ -22,7 +22,7 @@
 			},
 			"name":{
 				"description": "Name of the snapshot to be created. This value must contain 128 or fewer printable Unicode characters. The default name of the volume snapshot is the date and time when the snapshot is taken.",
-				"type":        "Optional[String[1,128]]"
+				"type":        "Optional[String[0,128]]"
 			},
 			"performance_policy_id":{
 				"description": "",

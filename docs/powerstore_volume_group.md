@@ -23,11 +23,11 @@ powerstore_volume_group {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |delete_members | Optional[Boolean] | false |
-|description | Optional[String[1,256]] | false |
+|description | Optional[String[0,256]] | false |
 |force | Optional[Boolean] | false |
 |is_replication_destination | Optional[Boolean] | false |
 |is_write_order_consistent | Optional[Boolean] | false |
-|name | String[1,128] | true |
+|name | String[0,128] | true |
 |protection_policy_id | Optional[String] | false |
 |volume_ids | Optional[Array[String]] | false |
 

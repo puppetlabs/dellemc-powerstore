@@ -111,7 +111,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     smb_share = {}
-    smb_share["id"] = resource[:id] unless resource[:id].nil?
     return smb_share
   end
 

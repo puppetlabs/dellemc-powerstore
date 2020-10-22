@@ -32,12 +32,12 @@ powerstore_remote_system {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |data_network_latency | Optional[Enum['Low','High']] | false |
-|description | Optional[String[1,256]] | false |
+|description | Optional[String[0,256]] | false |
 |discovery_chap_mode | Optional[Enum['Disabled','Single','Mutual']] | false |
 |import_chap_info | Optional[Struct[{Optional[initiator_discovery_password] => Optional[String], Optional[initiator_discovery_username] => Optional[String], Optional[initiator_session_password] => Optional[String], Optional[initiator_session_username] => Optional[String], Optional[target_discovery_password] => Optional[String], Optional[target_discovery_username] => Optional[String], Optional[target_session_password] => Optional[String], Optional[target_session_username] => Optional[String], }]] | false |
 |iscsi_addresses | Optional[Array[String]] | false |
 |management_address | Optional[String] | false |
-|name | Optional[String[1,128]] | true |
+|name | Optional[String[0,128]] | true |
 |remote_password | Optional[String] | false |
 |remote_username | Optional[String] | false |
 |session_chap_mode | Optional[Enum['Disabled','Single','Mutual']] | false |

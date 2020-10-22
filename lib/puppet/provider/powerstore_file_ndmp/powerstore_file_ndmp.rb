@@ -99,7 +99,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_ndmp = {}
-    file_ndmp["id"] = resource[:id] unless resource[:id].nil?
     return file_ndmp
   end
 

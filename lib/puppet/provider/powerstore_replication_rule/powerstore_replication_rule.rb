@@ -102,7 +102,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     replication_rule = {}
-    replication_rule["id"] = resource[:id] unless resource[:id].nil?
     return replication_rule
   end
 

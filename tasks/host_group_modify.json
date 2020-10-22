@@ -10,7 +10,7 @@
 			},
 			"description":{
 				"description": "An optional description for the host group. The description should not be more than 256 UTF-8  characters long and should not have any unprintable characters.",
-				"type":        "Optional[String[1,256]]"
+				"type":        "Optional[String[0,256]]"
 			},
 			"id":{
 				"description": "Unique id of the host group.",
@@ -18,7 +18,7 @@
 			},
 			"name":{
 				"description": "A new host group name. The name should not be more than 128 UTF-8 characters long and should not have any unprintable characters.",
-				"type":        "Optional[String[1,128]]"
+				"type":        "Optional[String[0,128]]"
 			},
 			"remove_host_ids":{
 				"description": "List of hosts to be removed from the host group. The operation fails if host group is attached to volume.",

@@ -18,7 +18,7 @@ Puppet::ResourceApi.register_type(
       desc:      "The list of initiators to be added. CHAP username and password are optional.",
     },
     description:          { 
-      type:      "Optional[String[1,256]]",
+      type:      "Optional[String[0,256]]",
       desc:      "An optional description for the host. The description should not be more than 256 UTF-8 characters long and should not have any unprintable characters.",
     },
     host_group_id:          { 
@@ -44,7 +44,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Update list of existing initiators, identified by port_name, with new CHAP usernames and/or passwords.",
     },
     name:          { 
-      type:      "String[1,128]",
+      type:      "String[0,128]",
       desc:      "The host name. The name should not be more than 128 UTF-8 characters long and should not have any unprintable characters.",
       behaviour: :namevar,
     },

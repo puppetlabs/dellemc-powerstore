@@ -11,11 +11,11 @@
 			},
 			"description":{
 				"description": "Description of the import session. The name can contain a maximum of 128 unicode characters. It cannot contain unprintable characters.",
-				"type":        "Optional[String[1,128]]"
+				"type":        "Optional[String[0,128]]"
 			},
 			"name":{
 				"description": "Name of the import session. The name must be unique in the PowerStore cluster and can contain a maximum of 128 unicode characters. It cannot contain special HTTP characters, unprintable characters, or white space.",
-				"type":        "String[1,128]"
+				"type":        "String[0,128]"
 			},
 			"protection_policy_id":{
 				"description": "Unique identifier of the protection policy that will be applied to an imported volume or consistency group after the import completes. Only snapshot policies are supported in an import. Once the import completes, you can add a replication policy. If you try to import a replication policy, the import job will fail.",

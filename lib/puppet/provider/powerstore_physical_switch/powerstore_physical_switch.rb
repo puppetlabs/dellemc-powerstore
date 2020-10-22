@@ -100,7 +100,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     physical_switch = {}
-    physical_switch["id"] = resource[:id] unless resource[:id].nil?
     return physical_switch
   end
 

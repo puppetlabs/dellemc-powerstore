@@ -100,7 +100,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     vcenter = {}
-    vcenter["id"] = resource[:id] unless resource[:id].nil?
     return vcenter
   end
 

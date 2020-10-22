@@ -104,7 +104,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     email_notify_destination = {}
-    email_notify_destination["id"] = resource[:id] unless resource[:id].nil?
     return email_notify_destination
   end
 

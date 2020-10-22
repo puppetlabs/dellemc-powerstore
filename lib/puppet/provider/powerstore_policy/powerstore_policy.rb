@@ -106,7 +106,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     policy = {}
-    policy["id"] = resource[:id] unless resource[:id].nil?
     return policy
   end
 

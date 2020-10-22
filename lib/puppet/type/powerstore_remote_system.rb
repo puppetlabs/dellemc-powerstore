@@ -40,7 +40,7 @@ Before creating a remote system relationship with PowerStore remote systems, fir
       desc:      "Localized message string corresponding to data_network_latency",
     },
     description:          { 
-      type:      "Optional[String[1,256]]",
+      type:      "Optional[String[0,256]]",
       desc:      "User-specified description of the remote system.",
     },
     discovery_chap_mode:          { 
@@ -73,7 +73,7 @@ Before creating a remote system relationship with PowerStore remote systems, fir
       desc:      "Management IP address of the remote system instance. Only IPv4 is supported for non-PowerStore remote systems.Both IPv4 and IPv6 are supported for PowerStore remote systems.",
     },
     name:          { 
-      type:      "Optional[String[1,128]]",
+      type:      "Optional[String[0,128]]",
       desc:      "User-specified name of the remote system. Used only for non-PowerStore systems. This value must contain 128 or fewer printable Unicode characters.",
       behaviour: :namevar,
     },

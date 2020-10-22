@@ -115,7 +115,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     volume = {}
-    volume["id"] = resource[:id] unless resource[:id].nil?
     return volume
   end
 

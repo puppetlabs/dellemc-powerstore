@@ -101,7 +101,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     host_group = {}
-    host_group["id"] = resource[:id] unless resource[:id].nil?
     return host_group
   end
 

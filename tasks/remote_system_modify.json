@@ -10,7 +10,7 @@
 			},
 			"description":{
 				"description": "User-specified description of the remote system.",
-				"type":        "Optional[String[1,256]]"
+				"type":        "Optional[String[0,256]]"
 			},
 			"id":{
 				"description": "Unique identifier of the remote system.",
@@ -22,7 +22,7 @@
 			},
 			"name":{
 				"description": "User-specified name of the remote system. Used only for non-PowerStore type remote systems. This value must contain 128 or fewer printable Unicode characters.",
-				"type":        "Optional[String[1,128]]"
+				"type":        "Optional[String[0,128]]"
 			},
 			"remote_password":{
 				"description": "Password used to access the remote system. Used only for non-PowerStore systems.",

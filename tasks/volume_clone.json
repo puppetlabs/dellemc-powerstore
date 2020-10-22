@@ -6,7 +6,7 @@
 	"parameters":{
 			"description":{
 				"description": "Description of the clone. This value must contain 128 or fewer printable Unicode characters.",
-				"type":        "Optional[String[1,128]]"
+				"type":        "Optional[String[0,128]]"
 			},
 			"host_group_id":{
 				"description": "Unique identifier of the host group to be attached to the clone. Only one of host_id or host_group_id can be supplied.",
@@ -26,7 +26,7 @@
 			},
 			"name":{
 				"description": "Name of the clone. This value must contain 128 or fewer printable Unicode characters.",
-				"type":        "Optional[String[1,128]]"
+				"type":        "Optional[String[0,128]]"
 			},
 			"performance_policy_id":{
 				"description": "Unique identifier of the  performance policy.",

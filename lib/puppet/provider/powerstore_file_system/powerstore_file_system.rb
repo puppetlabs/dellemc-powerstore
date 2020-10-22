@@ -127,7 +127,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_system = {}
-    file_system["id"] = resource[:id] unless resource[:id].nil?
     return file_system
   end
 

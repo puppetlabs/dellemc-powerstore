@@ -129,7 +129,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     nfs_export = {}
-    nfs_export["id"] = resource[:id] unless resource[:id].nil?
     return nfs_export
   end
 

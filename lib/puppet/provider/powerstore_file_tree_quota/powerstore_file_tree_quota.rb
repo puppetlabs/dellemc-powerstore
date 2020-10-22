@@ -104,7 +104,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_tree_quota = {}
-    file_tree_quota["id"] = resource[:id] unless resource[:id].nil?
     return file_tree_quota
   end
 

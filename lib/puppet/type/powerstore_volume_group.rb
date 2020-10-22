@@ -24,7 +24,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :parameter,
     },
     description:          { 
-      type:      "Optional[String[1,256]]",
+      type:      "Optional[String[0,256]]",
       desc:      "Description for the volume group. The description should not be more than 256characters long and should not have any unprintable characters.If description is not specified, the description for the volume group will not be set.",
     },
     force:          { 
@@ -63,7 +63,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Unique identifier of the migration session assigned to the volume group when it is part of a migration activity.",
     },
     name:          { 
-      type:      "String[1,128]",
+      type:      "String[0,128]",
       desc:      "Unique name for the volume group. The name should contain no special HTTP characters and no unprintable characters. Although the case of the name provided is reserved, uniqueness check is case-insensitive, so the same name in two different cases is not considered unique.",
       behaviour: :namevar,
     },

@@ -22,10 +22,10 @@ powerstore_host {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |add_initiators | Optional[Array[Struct[{Optional[chap_mutual_password] => Optional[String[12,64]], Optional[chap_mutual_username] => Optional[String[1,64]], Optional[chap_single_password] => Optional[String[12,64]], Optional[chap_single_username] => Optional[String[1,64]], port_name => Optional[String], port_type => Optional[Enum['iSCSI','FC']], }]]] | false |
-|description | Optional[String[1,256]] | false |
+|description | Optional[String[0,256]] | false |
 |initiators | Optional[Array[Struct[{Optional[chap_mutual_password] => Optional[String[12,64]], Optional[chap_mutual_username] => Optional[String[1,64]], Optional[chap_single_password] => Optional[String[12,64]], Optional[chap_single_username] => Optional[String[1,64]], port_name => Optional[String], port_type => Optional[Enum['iSCSI','FC']], }]]] | false |
 |modify_initiators | Optional[Array[Struct[{Optional[chap_mutual_password] => Optional[String[12,64]], Optional[chap_mutual_username] => Optional[String[1,64]], Optional[chap_single_password] => Optional[String[12,64]], Optional[chap_single_username] => Optional[String[1,64]], Optional[port_name] => Optional[String], }]]] | false |
-|name | String[1,128] | true |
+|name | String[0,128] | true |
 |os_type | Optional[Enum['Windows','Linux','ESXi','AIX','HP-UX','Solaris']] | false |
 |remove_initiators | Optional[Array[String]] | false |
 

@@ -31,7 +31,7 @@ powerstore_volume {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |appliance_id | Optional[String] | false |
-|description | Optional[String[1,128]] | false |
+|description | Optional[String[0,128]] | false |
 |expiration_timestamp | Optional[String] | false |
 |force | Optional[Boolean] | false |
 |host_group_id | Optional[String] | false |
@@ -39,7 +39,7 @@ powerstore_volume {
 |is_replication_destination | Optional[Boolean] | false |
 |logical_unit_number | Optional[Integer[0,16383]] | false |
 |min_size | Optional[Integer[0,9223372036854775807]] | false |
-|name | String[1,128] | true |
+|name | String[0,128] | true |
 |node_affinity | Optional[Enum['System_Select_At_Attach','System_Selected_Node_A','System_Selected_Node_B','Preferred_Node_A','Preferred_Node_B']] | false |
 |performance_policy_id | Optional[String] | false |
 |protection_policy_id | Optional[String] | false |

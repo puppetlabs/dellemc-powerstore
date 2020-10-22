@@ -103,7 +103,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     import_session = {}
-    import_session["id"] = resource[:id] unless resource[:id].nil?
     return import_session
   end
 

@@ -101,7 +101,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_interface_route = {}
-    file_interface_route["id"] = resource[:id] unless resource[:id].nil?
     return file_interface_route
   end
 

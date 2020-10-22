@@ -103,7 +103,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_kerberos = {}
-    file_kerberos["id"] = resource[:id] unless resource[:id].nil?
     return file_kerberos
   end
 

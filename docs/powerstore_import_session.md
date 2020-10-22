@@ -23,8 +23,8 @@ powerstore_import_session {
 | Name        | Type           | Required       |
 | ------------- | ------------- | ------------- |
 |automatic_cutover | Optional[Boolean] | false |
-|description | Optional[String[1,128]] | false |
-|name | String[1,128] | true |
+|description | Optional[String[0,128]] | false |
+|name | String[0,128] | true |
 |protection_policy_id | Optional[String] | false |
 |remote_system_id | Optional[String] | false |
 |scheduled_timestamp | Optional[String] | false |

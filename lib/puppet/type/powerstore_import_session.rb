@@ -28,7 +28,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Current transfer rate of a data import operation in bytes/sec. Before and after the import is in the Copy_In_Progress state, this value is null.",
     },
     description:          { 
-      type:      "Optional[String[1,128]]",
+      type:      "Optional[String[0,128]]",
       desc:      "Description of the import session. The name can contain a maximum of 128 unicode characters. It cannot contain unprintable characters.",
       behaviour: :init_only,
     },
@@ -62,7 +62,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Date and time when was the import was last updated. This value is updated each time the import job updates.",
     },
     name:          { 
-      type:      "String[1,128]",
+      type:      "String[0,128]",
       desc:      "Name of the import session. The name must be unique in the PowerStore cluster and can contain a maximum of 128 unicode characters. It cannot contain special HTTP characters, unprintable characters, or white space.",
       behaviour: :namevar,
     },

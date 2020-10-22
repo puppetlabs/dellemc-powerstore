@@ -23,7 +23,7 @@ Puppet::ResourceApi.register_type(
       desc:      "Time when the volume was created.",
     },
     description:          { 
-      type:      "Optional[String[1,128]]",
+      type:      "Optional[String[0,128]]",
       desc:      "Description of the volume. This value must contain 128 or fewer printable Unicode characters.",
     },
     expiration_timestamp:          { 
@@ -73,7 +73,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :init_only,
     },
     name:          { 
-      type:      "String[1,128]",
+      type:      "String[0,128]",
       desc:      "Unique name for the volume to be created. This value must contain 128 or fewer printable Unicode characters.",
       behaviour: :namevar,
     },

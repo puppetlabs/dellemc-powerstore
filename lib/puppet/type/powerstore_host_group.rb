@@ -19,7 +19,7 @@ Puppet::ResourceApi.register_type(
       desc:      "List of hosts to be added to host group. The operation fails if the host(s) to be added are attached to volume.",
     },
     description:          { 
-      type:      "Optional[String[1,256]]",
+      type:      "Optional[String[0,256]]",
       desc:      "An optional description for the host group. The description should not have any unprintable characters.",
     },
     host_ids:          { 
@@ -33,7 +33,7 @@ Puppet::ResourceApi.register_type(
       behaviour: :read_only,
     },
     name:          { 
-      type:      "String[1,128]",
+      type:      "String[0,128]",
       desc:      "The host group name. The name should not be more than 128 UTF-8 characters long and should not have any unprintable characters.",
       behaviour: :namevar,
     },

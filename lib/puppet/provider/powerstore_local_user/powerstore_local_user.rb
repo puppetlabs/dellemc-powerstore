@@ -101,7 +101,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     local_user = {}
-    local_user["id"] = resource[:id] unless resource[:id].nil?
     return local_user
   end
 

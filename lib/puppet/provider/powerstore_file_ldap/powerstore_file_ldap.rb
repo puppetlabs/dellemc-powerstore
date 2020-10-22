@@ -123,7 +123,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     file_ldap = {}
-    file_ldap["id"] = resource[:id] unless resource[:id].nil?
     return file_ldap
   end
 

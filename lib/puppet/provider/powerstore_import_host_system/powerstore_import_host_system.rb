@@ -103,7 +103,6 @@ context.debug("Entered get")
 
   def build_delete_hash(resource)
     import_host_system = {}
-    import_host_system["id"] = resource[:id] unless resource[:id].nil?
     return import_host_system
   end
 
