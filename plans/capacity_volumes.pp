@@ -1,6 +1,6 @@
 # list volumes with more than given capacity
 # @param threshold Volume capacity needed (in bytes)
-plan powerstore::volume_capacity(
+plan powerstore::capacity_volumes(
     TargetSpec $targets,
     Integer    $threshold,
 ){
