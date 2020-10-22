@@ -13,7 +13,11 @@ steps:
     description: get all file systems
     targets: $targets
 
+  - message: $threshold.to_bytes
+  - message: $threshold.to_bytes.type
+  - message: $file_systems[0].value['smb_test']['size_used']
+  - message: $file_systems[0].value['smb_test']['size_used'].type
   - name: filtered_file_systems
-    eval: $file_systems[0].value.filter |$k,$v| { $v['size_used'] < to_bytes($threshold)}
+    eval: $file_systems[0].value.filter |$k,$v| { $v['size_used'] != undef and $v['size_used'] < $threshold.to_bytes}
 
-return: $filtered_file_systems.map |$k, $v| { $k, format_bytes($v['size_used']) }
+return: $filtered_file_systems.map |$k, $v| { $k, $v['size_used']).format_bytes }

@@ -8,7 +8,7 @@ Puppet::Functions.create_function(:'to_bytes') do
   # Takes a single string value as an argument.
   # Supports both decimal and binary multiples: 1 MB = 1000 KB and 1 MiB = 1024 KiB.
   dispatch :to_bytes do
-    param 'String', :arg
+    param 'Variant[Numeric,String]', :arg
   end
 
   def to_bytes(arg)
