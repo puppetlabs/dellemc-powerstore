@@ -14,9 +14,9 @@ steps:
     targets: $targets
     parameters:
       query_string: 'select=name,smb_shares(id,name)'
-
+  
   - name: filtered_file_systems
     description: filter file systems to the one with the given name 
-    eval: $file_systems.filter | $k, $v | { $v['name'] == $filesystem_name }
+    eval: $file_systems[0].value.filter | $k, $v | { $v['name'] == $filesystem_name }
 
-return: $filtered_file_systems.map | $k, $v | { $k, $v['smb_shares'] }
+return: $filtered_file_systems
