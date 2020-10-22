@@ -10,15 +10,13 @@ plan powerstore::delete_multiple_volumes(
 
   Integer[1,$volume_count].each |$i| {
     $volume_name = "vol_${i}"
-    out::message($volume_name)
-    out::message($volumes_in_group)
     unless $volumes_in_group and $volume_name in $volumes_in_group { 
        next()
     }
     $volume_groups = $volumes_in_group[$volume_name]['volume_groups']
     if $volume_groups {
-      out::message("Removing volume ${volume_name} from volume groups ${volume_groups}")
       $volume_groups.each | $vg | {
+        out::message("Removing volume ${volume_name} from volume group ${vg}")
       	run_task('powerstore::volume_group_remove_members', $targets, {'id' => $vg['id'], 'volume_ids' => [$volumes[$volume_name]['id']]})
       }
     }
@@ -28,7 +26,7 @@ plan powerstore::delete_multiple_volumes(
       $volume_name = "vol_${i}"
       notice("Deleting volume vol_${i}")
       powerstore_volume { "vol_${i}":
-        ensure => absent,
+        ensure => 'absent',
       }
     }
   }
