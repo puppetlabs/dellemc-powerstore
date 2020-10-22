@@ -1,0 +1,19 @@
+description: This sample provides list of the filesystem ids which use less than the supplised threshold
+
+parameters:
+  targets:
+    type: TargetSpec
+  threshold:
+    type: String
+    description: Upper bound for user storage per filesystem
+
+steps:
+  - task: powerstore::file_system_collection_query
+    name: file_systems
+    description: get all file systems
+    targets: $targets
+
+  - name: filtered_file_systems
+    eval: $file_systems[0].value.filter |$k,$v| { $v['size_used'] < to_bytes($threshold)}
+
+return: $filtered_file_systems.map |$k, $v| { $k, format_bytes($v['size_used']) }
