@@ -1,5 +1,5 @@
 #
-# to_bytes.rb
+# format_bytes.rb
 #
 Puppet::Functions.create_function(:'format_bytes') do
   # Converts the bytes argument into a human-readable form, for example 1000000000 bytes becomes 1GB.
@@ -7,7 +7,7 @@ Puppet::Functions.create_function(:'format_bytes') do
   # @return a string containing a human-readable value
   # Takes a single integer value as an argument.
   dispatch :format_bytes do
-    param 'Variant[Integer,String]', :bytes
+    param 'Variant[Numeric,String]', :bytes
   end
 
   def format_bytes(bytes)
