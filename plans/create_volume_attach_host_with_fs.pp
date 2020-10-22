@@ -1,4 +1,4 @@
-plan powerstore::provision(
+plan powerstore::create_volume_attach_host_with_fs(
   TargetSpec                $targets,
   String                    $host_name,
   String                    $volume_name,
@@ -21,7 +21,7 @@ plan powerstore::provision(
 
   # Re-use a plan that was used previously to create a fresh volume
   #
-  run_plan('powerstore::volume', $targets, {
+  run_plan('powerstore::create_volume', $targets, {
     'volume_name' => $volume_name,
     'size'        => $volume_size,
   }) 
@@ -49,10 +49,9 @@ plan powerstore::provision(
   # bootstrapping the volume by creating it a mount point, ensure the device
   # has created device nodes for the disks, partition the disk, create a file
   # system, mount the disk, and finally print out `df` output to verify it
-  #  worked
+  # worked
   #
   get_targets($targets).each |$target| {
-    run_command("/usr/bin/mkdir -p ${mount_point}", get_target($host_name))
     run_command("rescan-scsi-bus.sh", get_target($host_name))
 
     # Seems to take a second or two for `/dev/disk/by-id` to be populated
@@ -61,19 +60,27 @@ plan powerstore::provision(
     $wwid   = "3${regsubst(vars($target)['wwn'], '^naa.(.*$)', '\1')}"
     $device = "/dev/disk/by-id/dm-uuid-mpath-${wwid}"
     $part   = "/dev/disk/by-id/dm-uuid-part1-mpath-${wwid}"
-  
-    run_command("/usr/sbin/parted ${device} mklabel gpt", get_target($host_name))
-    run_command("parted -a optimal ${device} mkpart primary 0% 100%", get_target($host_name))
 
-    run_command("rescan-scsi-bus.sh", get_target($host_name))
+    $check = run_command("df -h ${part}", get_target($host_name)).first
+    
+    unless $check.ok {
+      run_command("/usr/bin/mkdir -p ${mount_point}", get_target($host_name))
+    
+      run_command("/usr/sbin/parted ${device} mklabel gpt", get_target($host_name))
+      run_command("parted -a optimal ${device} mkpart primary 0% 100%", get_target($host_name))
 
-    ctrl::sleep(3)
-  
-    run_command("/usr/sbin/mkfs.xfs ${part}", get_target($host_name))
-  
-    run_command("/usr/bin/mount ${part} ${mount_point}", get_target($host_name))
-  
-    $df = run_command("df -h ${mount_point} | tail -1", get_target($host_name)).first.value['stdout']
-    out::message($df)
+      run_command("rescan-scsi-bus.sh", get_target($host_name))
+
+      ctrl::sleep(3)
+    
+      run_command("/usr/sbin/mkfs.xfs ${part}", get_target($host_name))
+    
+      run_command("/usr/bin/mount ${part} ${mount_point}", get_target($host_name))
+    
+      $df = run_command("df -h ${mount_point} | tail -1", get_target($host_name)).first.value['stdout']
+      out::message($df)
+    } else {
+      out::message("Volume already mounted on host...skipping...")
+    } 
   }
 }
