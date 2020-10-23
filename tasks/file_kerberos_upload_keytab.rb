@@ -26,6 +26,7 @@ class PowerstoreFileKerberosUploadKeytabTask < TaskHelper
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
     namevar = 'id'
+    namevar = 'id' if namevar.empty?
     operation_verb = 'Post'
     operation_path = '/file_kerberos/%{id}/upload_keytab'
     parent_consumes = 'application/json'

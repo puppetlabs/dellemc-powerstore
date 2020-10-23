@@ -26,6 +26,7 @@ class PowerstoreFileSystemModifyTask < TaskHelper
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
     namevar = 'name'
+    namevar = 'id' if namevar.empty?
     operation_verb = 'Patch'
     operation_path = '/file_system/%{id}'
     parent_consumes = 'application/json'

@@ -26,6 +26,7 @@ class PowerstoreSmbShareCreateTask < TaskHelper
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
     namevar = 'name'
+    namevar = 'id' if namevar.empty?
     operation_verb = 'Post'
     operation_path = '/smb_share'
     parent_consumes = 'application/json'

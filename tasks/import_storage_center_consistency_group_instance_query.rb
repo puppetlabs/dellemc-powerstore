@@ -26,6 +26,7 @@ class PowerstoreImportStorageCenterConsistencyGroupInstanceQueryTask < TaskHelpe
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
     namevar = ''
+    namevar = 'id' if namevar.empty?
     operation_verb = 'Get'
     operation_path = '/import_storage_center_consistency_group/%{id}'
     parent_consumes = 'application/json'

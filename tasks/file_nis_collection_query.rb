@@ -26,6 +26,7 @@ class PowerstoreFileNisCollectionQueryTask < TaskHelper
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
     namevar = 'id'
+    namevar = 'id' if namevar.empty?
     operation_verb = 'Get'
     operation_path = '/file_nis'
     parent_consumes = 'application/json'

@@ -74,11 +74,11 @@ context.debug("Entered get")
         should[:ensure] = 'present'
         Puppet.info("Added :ensure to property hash")
       else
-        raise("Flush failed.  The state of the resource is unknown.  Response is #{response} and body is #{response.body}")
+        raise("Update failed. The state of the resource is unknown.  Response is #{response} and body is #{response.body}")
       end
     end
   rescue Exception => ex
-    Puppet.alert("Exception during flush. ex is #{ex} and backtrace is #{ex.backtrace}")
+    Puppet.alert("Exception during update. ex is #{ex} and backtrace is #{ex.backtrace}")
     raise
   end
 

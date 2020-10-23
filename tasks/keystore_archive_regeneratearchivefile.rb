@@ -26,6 +26,7 @@ class PowerstoreKeystoreArchiveRegeneratearchivefileTask < TaskHelper
     # Remove task name from arguments - should contain all necessary parameters for URI
     arg_hash.delete('_task')
     namevar = ''
+    namevar = 'id' if namevar.empty?
     operation_verb = 'Post'
     operation_path = '/keystore_archive/regenerate'
     parent_consumes = 'application/json'
