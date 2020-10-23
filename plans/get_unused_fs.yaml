@@ -4,7 +4,7 @@ parameters:
   targets:
     type: TargetSpec
   threshold:
-    type: String
+    type: Variant[Numeric,String]
     description: Upper bound for user storage per filesystem (can use bytes or MB/GB/TB)
 
 steps:

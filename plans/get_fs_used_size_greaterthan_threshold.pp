@@ -3,7 +3,7 @@
 # @param format Output format: json (for automation use) or table (human-readable)
 plan powerstore::get_fs_used_size_greaterthan_threshold(
   TargetSpec $targets,
-  Integer $threshold = 90,
+  Integer[1,99] $threshold = 90,
   Enum['json','table'] $format = 'table',
 ){
   # query all available filesystems using a collection query task

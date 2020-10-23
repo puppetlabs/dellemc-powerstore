@@ -4,15 +4,13 @@ plan powerstore::delete_multiple_volumes(
   TargetSpec $targets,
   Integer[1,100] $volume_count,
 ){
-  $volumes = without_default_logging() || {
-     run_task("powerstore::volume_collection_query", $targets, 'Fetching volumes', {'query_string' => 'select=*,volume_groups'})[0].value
-  }
+  $volumes = run_task("powerstore::volume_collection_query", $targets, 'Fetching volumes', {'query_string' => 'select=*,volume_groups'})[0].value
  
   $volumes_in_group = $volumes.filter | $k, $v | { !$v['volume_groups'].empty }
 
   Integer[1,$volume_count].each |$i| {
     $volume_name = "vol_${i}"
-    unless $volumes_in_group and $volume_name in $volumes_in_group { 
+    unless $volume_name in $volumes_in_group { 
        next()
     }
     $volume_groups = $volumes_in_group[$volume_name]['volume_groups']
