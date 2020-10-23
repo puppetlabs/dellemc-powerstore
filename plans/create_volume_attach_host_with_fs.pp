@@ -61,7 +61,7 @@ plan powerstore::create_volume_attach_host_with_fs(
     $device = "/dev/disk/by-id/dm-uuid-mpath-${wwid}"
     $part   = "/dev/disk/by-id/dm-uuid-part1-mpath-${wwid}"
 
-    $check = run_command("df -h ${part}", get_target($host_name)).first
+    $check = run_command("df -h ${part}", get_target($host_name), '_catch_errors' => true).first
     
     unless $check.ok {
       run_command("/usr/bin/mkdir -p ${mount_point}", get_target($host_name))
