@@ -80,6 +80,7 @@ module Puppet::Transport
         uri_string = uri_string + '?' + to_query(query_params)
       end
       header_params['Content-Type'] = parent_consumes
+      header_params['Range'] = '0-2000' # FIXME: this always requests the first 2000 pages of results, might be better to implement dynamic pagination based on 206 HTTP return code.
       verify_mode= OpenSSL::SSL::VERIFY_NONE
       # if arg_hash['ca_file']
       #   verify_mode=OpenSSL::SSL::VERIFY_PEER
