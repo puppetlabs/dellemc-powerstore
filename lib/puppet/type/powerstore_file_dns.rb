@@ -42,7 +42,6 @@ Puppet::ResourceApi.register_type(
     transport:          { 
       type:      "Optional[Enum['UDP','TCP']]",
       desc:      "Transport used when connecting to the DNS Server:* UDP - DNS uses the UDP protocol (default)* TCP - DNS uses the TCP protocol",
-      default:   "UDP",
     },
     transport_l10n:          { 
       type:      "Optional[String]",

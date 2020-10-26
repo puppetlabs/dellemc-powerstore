@@ -25,7 +25,6 @@ Puppet::ResourceApi.register_type(
     is_replica:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates if this is a replica of a rule or policy on a remote system that is the source of a replication session replicating a resource to the local system.",
-      default:   false,
     },
     name:          { 
       type:      "String",

@@ -30,22 +30,18 @@ Puppet::ResourceApi.register_type(
     is_abe_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether Access-based Enumeration (ABE) is enabled. ABE filters the list of available files and folders on a server to include only those to which the requesting user has access. Values are:- true - ABE is enabled.- false - ABE is disabled.",
-      default:   false,
     },
     is_branch_cache_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether BranchCace optimization is enabled. BranchCache optimization technology copies content from your main office or hosted cloud content servers and caches the content at branch office locations, allowing client computers at branch offices to access the content locally rather than over the WAN. Values are:- true - BranchCache is enabled.- false - BranchCache is disabled.",
-      default:   false,
     },
     is_continuous_availability_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether continuous availability for Server Message Block (SMB) 3.0 is enabled for the SMB Share. Values are:- true - Continuous availability for SMB 3.0 is enabled for the SMB Share.- false - Continuous availability for SMB 3.0 is disabled for the SMB Share.",
-      default:   false,
     },
     is_encryption_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether encryption for Server Message Block (SMB) 3.0 is enabled at the shared folder level. Values are:- true - encryption for SMB 3.0 is enabled.- false - encryption for SMB 3.0 is disabled.",
-      default:   false,
     },
     name:          { 
       type:      "String[1,80]",
@@ -55,7 +51,6 @@ Puppet::ResourceApi.register_type(
     offline_availability:          { 
       type:      "Optional[Enum['Manual','Documents','Programs','None']]",
       desc:      "Defines valid states of Offline Availability,   * Manual - Only specified files will be available offline.   * Documents - All files that users open will be available offline.   * Programs - Program will preferably run from the offline cache even when connected to the network. All files that users open will be available offline.   * None - Prevents clients from storing documents and programs in offline cache (default).",
-      default:   "None",
     },
     offline_availability_l10n:          { 
       type:      "Optional[String]",
@@ -69,7 +64,6 @@ Puppet::ResourceApi.register_type(
     umask:          { 
       type:      "Optional[String]",
       desc:      "The default UNIX umask for new files created on the Share. If not specified the umask defaults to 022.",
-      default:   "022",
     },
   },
   autorequires: {

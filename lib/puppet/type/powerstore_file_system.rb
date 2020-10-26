@@ -16,7 +16,6 @@ Puppet::ResourceApi.register_type(
     access_policy:          { 
       type:      "Optional[Enum['Native','UNIX','Windows']]",
       desc:      "File system security access policies. Each file system uses its access policy to determine how to reconcile the differences between NFS and SMB access control. Selecting an access policy determines which mechanism is used to enforce file security on the particular file system. * Native - Native Security. * UNIX - UNIX Security. * Windows - Windows Security.",
-      default:   "Native",
     },
     access_policy_l10n:          { 
       type:      "Optional[String]",
@@ -25,7 +24,6 @@ Puppet::ResourceApi.register_type(
     access_type:          { 
       type:      "Optional[Enum['Snapshot','Protocol']]",
       desc:      "Indicates whether the snapshot directory or protocol access is granted to the file system snapshot.* Snapshot- Snapshot access is via the .snapshot folder in the file system.* Protocol - Protocol access is via normal file shares. Protocol access is not provided by default - the NFS and/or SMB share must be created explicitly for the snapshot.",
-      default:   "Snapshot",
     },
     access_type_l10n:          { 
       type:      "Optional[String]",
@@ -62,7 +60,6 @@ Puppet::ResourceApi.register_type(
     filesystem_type:          { 
       type:      "Optional[Enum['Primary','Snapshot']]",
       desc:      "* Primary - Normal file system or clone.* Snapshot - Snapshot of a file system.",
-      default:   "Primary",
     },
     filesystem_type_l10n:          { 
       type:      "Optional[String]",
@@ -71,7 +68,6 @@ Puppet::ResourceApi.register_type(
     folder_rename_policy:          { 
       type:      "Optional[Enum['All_Allowed','SMB_Forbidden','All_Forbidden']]",
       desc:      "File system folder rename policies for the file system with multiprotocol access enabled. These policies control whether the directory can be renamed from NFS or SMB clients when at least one file is opened in the directory, or in one of its child directories. * All_Allowed - All protocols are allowed to rename directories without any restrictions. * SMB_Forbidden - A directory rename from the SMB protocol will be denied if at least one file is opened in the directory or in one of its child directories. * All_Forbidden - Any directory rename request will be denied regardless of the protocol used, if at least one file is opened in the directory or in one of its child directories.",
-      default:   "All_Forbidden",
     },
     folder_rename_policy_l10n:          { 
       type:      "Optional[String]",
@@ -80,7 +76,6 @@ Puppet::ResourceApi.register_type(
     grace_period:          { 
       type:      "Optional[Integer[-1,2147483647]]",
       desc:      "Grace period of soft limits (seconds): -1: default: Infinite grace (Windows policy).  0: Use system default of 1 week. positive: Grace period after which the soft limit is treated as a hard limit (seconds).",
-      default:   -1,
     },
     id:          { 
       type:      "Optional[String]",
@@ -90,7 +85,6 @@ Puppet::ResourceApi.register_type(
     is_async_m_time_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether asynchronous MTIME is enabled on the file system or protocol snaps that are mounted writeable. Values are:* true - Asynchronous MTIME is enabled on the file system.* false - Asynchronous MTIME is disabled on the file system.",
-      default:   false,
     },
     is_modified:          { 
       type:      "Optional[Boolean]",
@@ -103,27 +97,22 @@ Puppet::ResourceApi.register_type(
     is_smb_no_notify_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether notifications of changes to directory file structure are enabled.* true - Change directory notifications are enabled.* false - Change directory notifications are disabled.                      ",
-      default:   false,
     },
     is_smb_notify_on_access_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether file access notifications are enabled on the file system. Values are:* true - File access notifications are enabled on the file system.* false - File access notifications are disabled on the file system.",
-      default:   false,
     },
     is_smb_notify_on_write_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether file writes notifications are enabled on the file system. Values are:* true - File writes notifications are enabled on the file system.* false - File writes notifications are disabled on the file system.",
-      default:   false,
     },
     is_smb_op_locks_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether opportunistic file locking is enabled on the file system. Values are:* true - Opportunistic file locking is enabled on the file system.* false - Opportunistic file locking is disabled on the file system.",
-      default:   true,
     },
     is_smb_sync_writes_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether the synchronous writes option is enabled on the file system. Values are:* true - Synchronous writes option is enabled on the file system.* false - Synchronous writes option is disabled on the file system.",
-      default:   false,
     },
     last_refresh_timestamp:          { 
       type:      "Optional[String]",
@@ -136,7 +125,6 @@ Puppet::ResourceApi.register_type(
     locking_policy:          { 
       type:      "Optional[Enum['Advisory','Mandatory']]",
       desc:      "File system locking policies. These policy choices control whether the NFSv4 range locks are honored. Because NFSv3 is advisory by design, this policy specifies that the NFSv4 locking feature behaves like NFSv3 (advisory mode), for backward compatiblity with applications expecting an advisory locking scheme.   * Advisory - No lock checking for NFS and honor SMB lock range only for SMB. * Mandatory - Honor SMB and NFS lock range.",
-      default:   "Advisory",
     },
     locking_policy_l10n:          { 
       type:      "Optional[String]",

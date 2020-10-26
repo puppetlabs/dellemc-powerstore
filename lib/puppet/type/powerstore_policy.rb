@@ -35,7 +35,6 @@ Note: Performance policies are predefined for high, low, and medium performance.
     is_replica:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether this is a replica policy, which is applied to replication destination storage resources. A policy of this type is restricted from many operations.",
-      default:   false,
     },
     name:          { 
       type:      "String",

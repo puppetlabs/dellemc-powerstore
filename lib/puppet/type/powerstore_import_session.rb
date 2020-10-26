@@ -16,7 +16,6 @@ Puppet::ResourceApi.register_type(
     automatic_cutover:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether the import session cutover is manual (true) or automatic (false).",
-      default:   false,
       behaviour: :init_only,
     },
     average_transfer_rate:          { 

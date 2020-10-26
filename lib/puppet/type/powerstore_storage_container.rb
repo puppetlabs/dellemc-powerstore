@@ -31,7 +31,6 @@ Puppet::ResourceApi.register_type(
     quota:          { 
       type:      "Optional[Integer[0,4611686018427387904]]",
       desc:      "The number of bytes that can be provisioned against this storage container. This must be a value greater than 10Gb and the default is 0 which means no limit.",
-      default:   0,
     },
   },
   autorequires: {

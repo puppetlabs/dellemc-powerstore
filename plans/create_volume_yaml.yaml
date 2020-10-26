@@ -1,0 +1,29 @@
+description: YAML plan example for creating a volume
+
+parameters:
+  targets:
+    type: TargetSpec
+  volume_name:
+    type: String
+  size:
+    type: Integer
+    default: 26843545600
+  description:
+    type: String
+    default: Created via Puppet powerstore_volume resource
+  ensure:
+    type: Enum['present', 'absent']
+    default: 'present'
+
+steps:
+  - description: Create/delete volume
+    name: manage_volume
+    targets: $targets
+    resources:
+      - powerstore_volume: $volume_name
+        parameters:
+          size: $size
+          description: $description
+          ensure: $ensure
+    
+return: $manage_volume

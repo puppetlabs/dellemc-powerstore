@@ -34,7 +34,6 @@ Puppet::ResourceApi.register_type(
     port_number:          { 
       type:      "Optional[Integer[0,65535]]",
       desc:      "KDC servers TCP port.",
-      default:   88,
     },
     realm:          { 
       type:      "Optional[String[1,255]]",

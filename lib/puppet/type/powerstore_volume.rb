@@ -33,7 +33,6 @@ Puppet::ResourceApi.register_type(
     force:          { 
       type:      "Optional[Boolean]",
       desc:      "Normally a replication destination volume cannot be modified since it is controlled by replication. However, there can be cases where replication has failed or is no longer active and the replication destination volume needs to be cleaned up.With the force option, the user will be allowed to remove the protection policy from the replication destination volume provided that the replication session has never been synchronized and the last_sync_timestamp property is empty.This parameter defaults to false, if not specified.",
-      default:   false,
     },
     host_group_id:          { 
       type:      "Optional[String]",

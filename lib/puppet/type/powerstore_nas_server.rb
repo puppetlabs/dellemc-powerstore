@@ -71,18 +71,15 @@ Puppet::ResourceApi.register_type(
     is_auto_user_mapping_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "A Windows user must have a corresponding matching Unix user (uid) in order to connect.This attribute enables you to automatically generates this Unix user (uid), if that Windows user does not have any in the configured Unix directory service (UDS).In a pure SMB or non multi-protocol environment, this should be set to true.",
-      default:   false,
     },
     is_skip_domain_unjoin:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether to keep the associated SMB servers joined to the Active Directory when the NAS server is deleted. Values are:\n - true - Keep the associated SMB servers joined to the Active Directory when the NAS server is deleted. - false - (Default) Try to unjoin the associated SMB servers from the Active Directory before deleting the NAS server.",
-      default:   false,
       behaviour: :parameter,
     },
     is_username_translation_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Enable the possibility to match a Windows account with an Unix account with different names.",
-      default:   false,
     },
     name:          { 
       type:      "String[1,255]",

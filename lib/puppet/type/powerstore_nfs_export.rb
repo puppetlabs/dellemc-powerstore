@@ -37,12 +37,10 @@ Puppet::ResourceApi.register_type(
     anonymous_gid:          { 
       type:      "Optional[Integer[-2147483648,2147483647]]",
       desc:      "Specifies the group ID of the anonymous account.",
-      default:   -2,
     },
     anonymous_uid:          { 
       type:      "Optional[Integer[-2147483648,2147483647]]",
       desc:      "Specifies the user ID of the anonymous account.",
-      default:   -2,
     },
     default_access:          { 
       type:      "Optional[Enum['No_Access','Read_Only','Read_Write','Root','Read_Only_Root']]",
@@ -69,7 +67,6 @@ Puppet::ResourceApi.register_type(
     is_no_suid:          { 
       type:      "Optional[Boolean]",
       desc:      "If set, do not allow access to set SUID. Otherwise, allow access.",
-      default:   false,
     },
     min_security:          { 
       type:      "Optional[Enum['Sys','Kerberos','Kerberos_With_Integrity','Kerberos_With_Encryption']]",

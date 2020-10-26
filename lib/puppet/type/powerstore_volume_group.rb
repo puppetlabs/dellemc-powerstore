@@ -20,7 +20,6 @@ Puppet::ResourceApi.register_type(
     delete_members:          { 
       type:      "Optional[Boolean]",
       desc:      "By default, the members of a volume group being deleted are only removed. Set this optional parameter to true to override this behavior and also delete the members after they are removed from the volume group.This parameter defaults to false, if not specified.",
-      default:   false,
       behaviour: :parameter,
     },
     description:          { 
@@ -30,7 +29,6 @@ Puppet::ResourceApi.register_type(
     force:          { 
       type:      "Optional[Boolean]",
       desc:      "Normally a replication destination volume group cannot be modified since it is controlled by replication. However, there can be cases where replication has failed or is no longer active and the replication destination volume group needs to be cleaned up.With the force option, the user will be allowed to remove the protection policy from the replication destination volume group provided that the replication session has never been synchronized.This parameter defaults to false, if not specified.",
-      default:   false,
     },
     id:          { 
       type:      "Optional[String]",
@@ -52,7 +50,6 @@ Puppet::ResourceApi.register_type(
     is_write_order_consistent:          { 
       type:      "Optional[Boolean]",
       desc:      "A boolean flag to indicate whether snapshot sets of the volume group will be write-order consistent.This parameter defaults to true, if not specified.",
-      default:   true,
     },
     location_history:          { 
       type:      "Optional[Array[Struct[{Optional[from_appliance_id] => Optional[String], Optional[migrated_on] => Optional[String], Optional[reason] => Optional[Enum['Initial','Manual','Recommended']], Optional[reason_l10n] => Optional[String], Optional[to_appliance_id] => Optional[String], }]]]",

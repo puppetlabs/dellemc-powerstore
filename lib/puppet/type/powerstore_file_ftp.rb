@@ -42,12 +42,10 @@ You can activate an FTP server and SFTP server independently on each NAS server.
     groups:          { 
       type:      "Optional[Array[String]]",
       desc:      "Allowed or denied user groups, depending on the value of the is_allowed_groups attribute.- If allowed groups exist, only users who are members of these groups and no others can connect to the NAS server through FTP or SFTP.- If denied groups exist, all users who are members of those groups always have access denied to the NAS server through FTP or SFTP.- If the list is empty, there is no restriction to the NAS server access through FTP or SFTP based on the user group.",
-      default:   [],
     },
     hosts:          { 
       type:      "Optional[Array[String]]",
       desc:      "Allowed or denied hosts, depending on the value of the is_allowed_hosts attribute. A host is defined using its IP address. Subnets using CIDR notation are also supported.- If allowed hosts exist, only those hosts and no others can connect to the NAS server through FTP or SFTP.- If denied hosts exist, they always have access denied to the NAS server through FTP or SFTP.- If the list is empty, there is no restriction to NAS server access through FTP or SFTP based on the host IP address.- The addresses may be IPv4 or IPv6.",
-      default:   [],
     },
     id:          { 
       type:      "String",
@@ -57,52 +55,42 @@ You can activate an FTP server and SFTP server independently on each NAS server.
     is_allowed_groups:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether the groups attribute contains allowed or denied user groups. Values are:- true - groups contains allowed user groups.- false - groups contains denied user groups.",
-      default:   true,
     },
     is_allowed_hosts:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether the hosts attribute contains allowed or denied hosts. Values are:true - hosts contains allowed hosts.false - hosts contains denied hosts.",
-      default:   true,
     },
     is_allowed_users:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether the users attribute contains allowed or denied users. Values are:- true - users contains allowed users.- false - users contains denied users.",
-      default:   true,
     },
     is_anonymous_authentication_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether FTP clients can be authenticated anonymously. Values are:- true - Anonymous user name is accepted.- false - Anonymous user name is not accepted.",
-      default:   false,
     },
     is_audit_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether the activity of FTP and SFTP clients is tracked in audit files. Values are:- true - FTP/SFTP activity is tracked.- false - FTP/SFTP activity is not tracked.",
-      default:   false,
     },
     is_ftp_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether the FTP server is enabled on the NAS server specified in the nasServer attribute. Values are:- true - FTP server is enabled on the specified NAS server.- false - FTP server is disabled on the specified NAS server.",
-      default:   false,
     },
     is_homedir_limit_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether an FTP or SFTP user access is limited to the home directory of the user. Values are:- true - An FTP or SFTP user can access only the home directory of the user.- false - FTP and SFTP users can access any NAS server directory, according to NAS server permissions.",
-      default:   true,
     },
     is_sftp_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether the SFTP server is enabled on the NAS server specified in the nasServer attribute. Values are:- true - SFTP server is enabled on the specified NAS server.- false - SFTP server is disabled on the specified NAS server.",
-      default:   false,
     },
     is_smb_authentication_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether FTP and SFTP clients can be authenticated using an SMB user name. These user names are defined in a Windows domain controller, and their formats are user@domain or domain\\user. Values are:- true - SMB user names are accepted for authentication.- false - SMB user names are not accepted for authentication.",
-      default:   true,
     },
     is_unix_authentication_enabled:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether FTP and SFTP clients can be authenticated using a Unix user name. Unix user names are defined in LDAP, NIS servers or in local passwd file. Values are:- true - Unix user names are accepted for authentication.- false - Unix user names are not accepted for authentication.",
-      default:   true,
     },
     message_of_the_day:          { 
       type:      "Optional[String]",
@@ -128,7 +116,6 @@ You can activate an FTP server and SFTP server independently on each NAS server.
     users:          { 
       type:      "Optional[Array[String]]",
       desc:      "Allowed or denied users, depending on the value of the is_allowed_user attribute.- If allowed users exist, only those users and no others can connect to the NAS server through FTP or SFTP.- If denied users exist, they have always access denied to the NAS server through FTP or SFTP.- If the list is empty, there is no restriction to the NAS server access through FTP or SFTP based on the user name.",
-      default:   [],
     },
     welcome_message:          { 
       type:      "Optional[String]",

@@ -23,7 +23,6 @@ The cluster supports third-party anti-virus servers that perform virus scans and
     is_config_file_uploaded:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether a virus checker configuration file has been uploaded.",
-      default:   false,
     },
     is_enabled:          { 
       type:      "Optional[Boolean]",

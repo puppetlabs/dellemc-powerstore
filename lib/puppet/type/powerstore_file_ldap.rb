@@ -20,7 +20,6 @@ Puppet::ResourceApi.register_type(
     addresses:          { 
       type:      "Optional[Array[String]]",
       desc:      "The list of LDAP server IP addresses. The addresses may be IPv4 or IPv6.",
-      default:   [],
     },
     authentication_type:          { 
       type:      "Optional[Enum['Anonymous','Simple','Kerberos']]",
@@ -50,12 +49,10 @@ Puppet::ResourceApi.register_type(
     is_certificate_uploaded:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether an LDAP certificate file has been uploaded.",
-      default:   false,
     },
     is_config_file_uploaded:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether an LDAP configuration file has been uploaded.",
-      default:   false,
     },
     is_smb_account_used:          { 
       type:      "Optional[Boolean]",

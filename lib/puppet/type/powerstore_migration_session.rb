@@ -16,7 +16,6 @@ Puppet::ResourceApi.register_type(
     automatic_cutover:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether the migration session cutover is manual or automatic. Default for virtual_volume resource type migrations is automatic, otherwise the default is manual.",
-      default:   false,
       behaviour: :init_only,
     },
     destination_appliance_id:          { 
@@ -32,7 +31,6 @@ Puppet::ResourceApi.register_type(
     force:          { 
       type:      "Optional[Boolean]",
       desc:      "Indicates whether all migration activities will be canceled before deleting the session.",
-      default:   false,
       behaviour: :parameter,
     },
     name:          { 
