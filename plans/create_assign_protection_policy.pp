@@ -1,3 +1,21 @@
+# @summary
+#   A Bolt Plan that creates a set of "organization default" snapshot rules,
+#   uses them to create a protection policy, then assigns that new protection
+#   policy to an existing volume
+#
+# @see https://github.com/puppetlabs/dellemc-powerstore
+#
+# @example Ensures a default set of snapshot rules have been created and assigned to the existing volume, `db_backups`
+#   bolt plan run powerstore::create_assign_protection_policy --targets powerstore volume_name=db_backups
+#
+# @param volume_name
+#   The name of an already existing volume on the array that we'll attach
+#   our protection policy to
+#
+# @param ensure
+#   Determines if the protection policy created by this plan is or is not
+#   assigned to the provided volume
+#
 plan powerstore::create_assign_protection_policy(
   TargetSpec                $targets,
   String                    $volume_name,

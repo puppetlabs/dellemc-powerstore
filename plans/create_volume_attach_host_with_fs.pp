@@ -1,9 +1,35 @@
+# @summary
+#   A Bolt Plan that creates a volume, maps that new volume to an existing
+#   host, scans that host's iSCSI bus to ensure device nodes have been created,
+#   computes the device name as viewed by the host, partitions the new disk
+#   device, puts new file system on partition, mounts fresh file system at
+#   designated location
+#
+# @see https://github.com/puppetlabs/dellemc-powerstore
+#
+# @example Create a volume of the name `db_backups` and mount it upon the host `backup1` with the size of 250GB
+#   bolt plan run powerstore::create_volume_attach_host_with_fs --targets powerstore host=backup1 volume_name=db_backups $volume_size=268435456000
+#
+# @param host_name
+#   An host as defined within the Bolt inventory that will be have the new
+#   volume mapped to mounted on with file systems created
+#
+# @param volume_name
+#   Name for the new volume that will be created on the powerstore array
+#
+# @param mount_point
+#   Override the default mount point of where the created volume will be
+#   mounted on the host once a file system has successfully been created
+#
+# @param volume_size
+#   Override the default size (25G) of the newly created volume
+#
 plan powerstore::create_volume_attach_host_with_fs(
   TargetSpec                $targets,
   String                    $host_name,
   String                    $volume_name,
   String                    $mount_point  = "/mnt/${volume_name}",
-  Integer                   $volume_size  = 26843545600,
+  Integer                   $volume_size  = 26843545600
 ) {
 
   # A very quick and dirty implementation that creates a volume on an array
@@ -23,8 +49,8 @@ plan powerstore::create_volume_attach_host_with_fs(
   #
   run_plan('powerstore::create_volume', $targets, {
     'volume_name' => $volume_name,
-    'size'        => $volume_size,
-  }) 
+    'size'        => $volume_size
+  })
 
   # Now that volume is created, capture its id for the attach operation and wwn
   # for later use on host
@@ -52,35 +78,35 @@ plan powerstore::create_volume_attach_host_with_fs(
   # worked
   #
   get_targets($targets).each |$target| {
-    run_command("rescan-scsi-bus.sh", get_target($host_name))
+    run_command('rescan-scsi-bus.sh', get_target($host_name))
 
     # Seems to take a second or two for `/dev/disk/by-id` to be populated
     ctrl::sleep(3)
-    
+
     $wwid   = "3${regsubst(vars($target)['wwn'], '^naa.(.*$)', '\1')}"
     $device = "/dev/disk/by-id/dm-uuid-mpath-${wwid}"
     $part   = "/dev/disk/by-id/dm-uuid-part1-mpath-${wwid}"
 
     $check = run_command("df -h ${part}", get_target($host_name), '_catch_errors' => true).first
-    
+
     unless $check.ok {
       run_command("/usr/bin/mkdir -p ${mount_point}", get_target($host_name))
-    
+
       run_command("/usr/sbin/parted ${device} mklabel gpt", get_target($host_name))
       run_command("parted -a optimal ${device} mkpart primary 0% 100%", get_target($host_name))
 
-      run_command("rescan-scsi-bus.sh", get_target($host_name))
+      run_command('rescan-scsi-bus.sh', get_target($host_name))
 
       ctrl::sleep(3)
-    
+
       run_command("/usr/sbin/mkfs.xfs ${part}", get_target($host_name))
-    
+
       run_command("/usr/bin/mount ${part} ${mount_point}", get_target($host_name))
-    
+
       $df = run_command("df -h ${mount_point} | tail -1", get_target($host_name)).first.value['stdout']
       out::message($df)
     } else {
-      out::message("Volume already mounted on host...skipping...")
-    } 
+      out::message('Volume already mounted on host...skipping...')
+    }
   }
 }
