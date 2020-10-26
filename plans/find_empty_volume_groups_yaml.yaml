@@ -17,6 +17,6 @@ steps:
     eval: $volume_groups_task[0].value
   
   - name: empty_volume_groups
-    eval: $volume_groups.filter |$k, $v| { $v['volumes'].empty }.map |$k, $v| { $k }
+    eval: $volume_groups.filter |$k, $v| { $v['volumes'].empty }.map |$k, $v| { $v['name'] }
 
 return: $empty_volume_groups
