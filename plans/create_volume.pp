@@ -1,5 +1,5 @@
 # @summary
-#   A Bolt Plan that creates or deletes a new volume
+#   A Bolt Plan that creates or deletes a volume
 #
 # @see https://github.com/puppetlabs/dellemc-powerstore
 #
