@@ -4,7 +4,7 @@ plan powerstore::find_empty_volume_groups(
 ){
   # Get volume groups with their names and assigned volumes
   # Use the query_string task parameter to override the query
-  $volume_groups = run_task('powerstore::volume_group_collection_query', $targets, 
+  $volume_groups = run_task('powerstore::volume_group_collection_query', $targets,
     {query_string=>'select=name,volumes'}).first.value
 
   # Filter volume_groups to only those without volumes and take their names
