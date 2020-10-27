@@ -5,18 +5,17 @@ parameters:
     type: TargetSpec
 
 steps:
-  - name: volume_groups_task
+  - name: volume_groups
     task: powerstore::volume_group_collection_query
     description: Get all volume groups
     targets: $targets
     parameters:
       query_string: select=name,volumes
 
-  - name: volume_groups
-    description: get the volume groups from task output
-    eval: $volume_groups_task[0].value
-  
   - name: empty_volume_groups
-    eval: $volume_groups.filter |$k, $v| { $v['volumes'].empty }.map |$k, $v| { $v['name'] }
+    eval: | 
+      $volume_groups.first.value
+         .filter |$k, $v| { $v['volumes'].empty }
+         .map |$k, $v| { $v['name'] }
 
 return: $empty_volume_groups
