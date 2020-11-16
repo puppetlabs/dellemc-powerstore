@@ -19,8 +19,8 @@
   - [Limitations](#limitations)
   - [Development](#development)
     - [Installing PDK](#installing-pdk)
+    - [Running syntax checks](#running-syntax-checks)
     - [Running unit tests](#running-unit-tests)
-    - [Running rubocop checks](#running-rubocop-checks)
     - [Setting up the prism mock API server](#setting-up-the-prism-mock-api-server)
     - [Running type/provider acceptance tests](#running-typeprovider-acceptance-tests)
     - [Running task acceptance tests](#running-task-acceptance-tests)
@@ -238,11 +238,33 @@ The module has been tested on CentOS 7 only but should work on any platform Bolt
 
 ### Installing PDK
 
-To run unit and acceptance tests, you need to first [install the Puppet Development Kit, or PDK](https://puppet.com/docs/pdk/1.x/pdk_install.html).
+To run syntax checks and unit and acceptance tests, you need to first [install the Puppet Development Kit, or PDK](https://puppet.com/docs/pdk/1.x/pdk_install.html).
+
+After installing, `cd` to the module directory to run various command explained below.
+
+### Running syntax checks
+
+```bash
+> pdk validate
+pdk (INFO): Using Ruby 2.5.8
+pdk (INFO): Using Puppet 6.17.0
+pdk (INFO): Running all available validators...
+┌ [✔] Running metadata validators ...
+├── [✔] Checking metadata syntax (metadata.json tasks/*.json).
+└── [✔] Checking module metadata style (metadata.json).
+┌ [✔] Running puppet validators ...
+└── [✔] Checking Puppet manifest style (**/*.pp).
+┌ [✔] Running ruby validators ...
+└── [✔] Checking Ruby code style (**/**.rb).
+┌ [✔] Running tasks validators ...
+├── [✔] Checking task names (tasks/**/*).
+└── [✔] Checking task metadata style (tasks/*.json).
+┌ [✔] Running yaml validators ...
+└── [✔] Checking YAML syntax (**/*.yaml **/*.yml).
+```
 
 ### Running unit tests
 
-To run unit tests, `cd` to the module directory and run:
 ```bash
 > pdk test unit
 ```
@@ -256,19 +278,6 @@ pdk (INFO): Using Puppet 6.17.0
 
 Finished in 2.25 seconds (files took 5.17 seconds to load)
 118 examples, 0 failures
-```
-
-### Running rubocop checks
-
-```
-> pdk bundle exec rake rubocop
-pdk (INFO): Using Ruby 2.5.8
-pdk (INFO): Using Puppet 6.17.0
-Running RuboCop...
-Inspecting 573 files
-..................................................................................................................................................................................
-
-573 files inspected, no offenses detected
 ```
 
 ### Setting up the prism mock API server
