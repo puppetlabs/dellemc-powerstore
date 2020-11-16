@@ -1,0 +1,34 @@
+{
+	"description": "Modify a property of a local user account using the unique identifier. You cannot modify the default 'admin' user account.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"current_password":{
+				"description": "Current password of the local user. Any local user can change his own password by providing current_password along with the new password.",
+				"type":        "Optional[String]"
+			},
+			"id":{
+				"description": "Unique identifier of the local user account to be modified.",
+				"type":        "String"
+			},
+			"is_locked":{
+				"description": "Lock or unlock the local user account. Local user with administration/security administration role can lock or unlock any other local user account. You cannot lock an account you are currently logged-in to.",
+				"type":        "Optional[Boolean]"
+			},
+			"password":{
+				"description": "New password of the local user. Local user with administrator or security administrator role can reset the password of other local user accounts without providing the current password. You cannot reset the password of the account you are currently logged-in to.",
+				"type":        "Optional[String]"
+			},
+			"role_id":{
+				"description": "The unique identifier of the new role to which the local user has to be mapped. Where role_id '1' is for Administrator, '2' is for Storage Administrator, '3' is for Operator, '4' is for VM Administrator and '5' is for Security Administrator. A local user with either an administration or a security administration role can change the role of any other local user. You cannot change the role of the account you are currently logged-in to.",
+				"type":        "Optional[String]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

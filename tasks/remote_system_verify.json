@@ -1,0 +1,18 @@
+{
+	"description": "Verify and update the remote system instance. Detects changes in the local and remote systems and reestablishes data connections, also taking the Challenge Handshake Authentication Protocol (CHAP) settings into account.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the remote system.",
+				"type":        "String"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

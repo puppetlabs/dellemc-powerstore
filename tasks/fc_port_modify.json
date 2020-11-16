@@ -1,0 +1,22 @@
+{
+	"description": "Modify an FC front-end port's speed. Setting the port's requested speed might not cause the port speed to change immediately. In cases where the Small Form-Factor Pluggable (SFP) is not inserted or the port is down, the requested speed is set, but the current_speed attribute shows the old value until the SFP is able to change speed. By default, the partner port speed on the other node in the appliance is set to the same requested speed. If the requested speed is not supported by the partner port, it is left unchanged.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the FC front-end port.",
+				"type":        "String"
+			},
+			"requested_speed":{
+				"description": "Possible Fibre Channel port speeds. For the current_speed attribute, these values show the current transmission speed on the port. For the requested_speed attribute, these values show the transmission speed set by the user. A requested speed of Auto means that the current speed value will be automatically detected.If this file is updated, also update FrontEndPortSpeedEnum.yaml* Auto - the speed value is automatically detected* 4_Gbps - 4 Gigabits per second* 8_Gbps - 8 Gigabits per second* 16_Gbps - 16 Gigabits per second* 32_Gbps - 32 Gigabits per second",
+				"type":        "Enum['Auto','4_Gbps','8_Gbps','16_Gbps','32_Gbps']"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

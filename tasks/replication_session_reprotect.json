@@ -1,0 +1,18 @@
+{
+	"description": "Reprotect a replication session instance. Activates the replication session and starts synchronization. This can only be used when the session is in the has been failed over.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the replication session.",
+				"type":        "String"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

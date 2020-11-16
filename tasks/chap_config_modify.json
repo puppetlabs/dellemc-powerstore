@@ -1,0 +1,22 @@
+{
+	"description": "Modify the CHAP configuration settings object. To enable either Single or Mutual CHAP modes, the username and password must already be set, or included in the same request as the new mode.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "The id of the CHAP configuration object (always '0').",
+				"type":        "String"
+			},
+			"mode":{
+				"description": "Available CHAP modes that describe or set the iSCSI CHAP mode for the entire cluster. * Disabled - CHAP is not used in the cluster * Single - CHAP is being used to authenticate the initiator  * Mutual - CHAP is used to authenticate both the initiator and target ",
+				"type":        "Enum['Disabled','Single','Mutual']"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

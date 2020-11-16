@@ -1,0 +1,23 @@
+{
+	"description": "Delete a volume group, snapshot set, or clone.Before you try deleting a volume group, snapshot set, or clone, ensure that you first detach it from all hosts. Note the following:* When a volume group or clone is deleted, all related snapshot sets will also be deleted.* When a snapshot set is deleted, all of its constituent snapshots will also be deleted.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"delete_members":{
+				"description": "By default, the members of a volume group being deleted are only removed. Set this optional parameter to true to override this behavior and also delete the members after they are removed from the volume group.This parameter defaults to false, if not specified.",
+				"type":        "Optional[Boolean]",
+				"default":     false
+			},
+			"id":{
+				"description": "Unique identifier of the volume group.",
+				"type":        "String"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

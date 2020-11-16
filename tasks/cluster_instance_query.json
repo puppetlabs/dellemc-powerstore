@@ -1,0 +1,22 @@
+{
+	"description": "Get details about the cluster. This does not support the following standard query functionality: property selection, and nested query embedding.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the Cluster.",
+				"type":        "String"
+			},
+			"query_string": {
+				"description": "API query string (optional)",
+				"type":        "Optional[String]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

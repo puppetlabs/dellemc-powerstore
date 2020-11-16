@@ -1,0 +1,18 @@
+{
+	"description": "Clean up an import session that is in Cleanup_Required state and requires user intervention to revert the source volume to its pre-import state as part of the recovery procedure to restore host IO operations.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the import session.",
+				"type":        "String"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

@@ -1,0 +1,14 @@
+{
+	"description": "Retrieve the license directly from the DellEMC Software Licensing Central. This runs automatically when the cluster is configured, and if it fails, once per day during the trial period. This allows a manual attempt, normally after attempting to correct the network connectivity issue preventing the automatic retrieval.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

@@ -1,0 +1,18 @@
+{
+	"description": "Start a software upgrade background job for the specified appliance within the cluster. If an  appliance is not specified, the upgrade is performed on all appliances in the cluster.Only specify a subset of appliances to upgrade if the time required to upgrade the entire cluster does not fit within a desired maintenance window. When upgrading a subset of appliances, you must adhere to the following ordering rules:* The primary appliance must always be upgraded first.* The secondary appliance, which is used as the cluster management database fail-over target, must be upgraded second.* After the primary and secondary appliances are upgraded, any remaining appliances in the cluster may be upgraded. By default, the process upgrades the appliances in the order they were added to the cluster if possible.Because this operation takes a long time to complete, using the 'is_async flag' is recommended. If the 'is_reboot_required' flag is set to true, the primary appliance reboots before the install completes and the operation cannot return synchronously.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the instance.",
+				"type":        "String"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

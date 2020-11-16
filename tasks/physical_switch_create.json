@@ -1,0 +1,26 @@
+{
+	"description": "Create a physical switch settings.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"connections":{
+				"description": "Supported connections for a physical switch.",
+				"type":        "Array[Struct[{address => Optional[String[1,255]], connect_method => Optional[Enum['SSH','SNMPv2c']], Optional[port] => Optional[Integer[0,65535]], Optional[snmp_community_string] => Optional[String[0,128]], Optional[ssh_password] => Optional[String[0,128]], Optional[username] => Optional[String[0,128]], }]]"
+			},
+			"name":{
+				"description": "Name of a physical switch.",
+				"type":        "String[1,128]"
+			},
+			"purpose":{
+				"description": "Physical switch purpose in network. Possible purposes are:  * Data_and_Management - Physical switch for all data and management networks.  * Management_Only - Physical switch for management network only.",
+				"type":        "Enum['Data_and_Management','Management_Only']"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

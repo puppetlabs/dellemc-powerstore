@@ -1,0 +1,28 @@
+{
+	"description": "Synchronize a migration session. During this phase, the majority of the background copy is completed and there are no interruptions to any services. Sync can be run multiple times to reduce the amount of data that must be copied during the cutover.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"automatic_cutover":{
+				"description": "Indicates whether the migration session cutover is manual or automatic. Default is manual.",
+				"type":        "Optional[Boolean]",
+				"default":     false
+			},
+			"id":{
+				"description": "Unique identifier of the migration session.",
+				"type":        "String"
+			},
+			"rescan_complete":{
+				"description": "Indicates whether a rescan will be performed during the sync operation. Default value is false. If the session creation completed with a message that rescan is required from one or more hosts, you must set this value to true during the subsequent sync operation. Otherwise, the sync operation will fail.",
+				"type":        "Optional[Boolean]",
+				"default":     false
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

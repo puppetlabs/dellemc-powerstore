@@ -1,0 +1,18 @@
+{
+	"description": "Obtain the login session for the current user. This resource type collection query does not support filtering, sorting or pagination",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"query_string": {
+				"description": "API query string (optional)",
+				"type":        "Optional[String]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

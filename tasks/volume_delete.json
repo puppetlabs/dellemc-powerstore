@@ -1,0 +1,18 @@
+{
+	"description": "Delete a volume. * A volume which is attached to a host or host group or is a member of a volume group cannot be deleted.* A volume which has protection policies attached to it cannot be deleted.* A volume which has snapshots that are part of a snapset cannot be deleted.* Clones of a deleted production volume or a clone are not deleted.* Snapshots of the volume are deleted along with the volume being deleted.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the volume to delete.",
+				"type":        "String"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

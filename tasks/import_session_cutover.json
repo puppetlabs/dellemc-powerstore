@@ -1,0 +1,18 @@
+{
+	"description": "Commit an import session that is in a Ready_For_Cutover state. When the import session is created with the automatic_cutover attribute set to false, you must use the Cutover operation to complete the import. Until the cutover is complete, PowerStore forwards IO to the source volume to keep it in sync with all host IOs. You can cancel the import during this state if you want to continue using the source volume.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of an import session",
+				"type":        "String"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

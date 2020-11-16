@@ -1,0 +1,22 @@
+{
+	"description": "Remove members from an existing primary or clone volume group.This cannot be used to remove members from a snapshot set. Members cannot be removed from a volume group that is a acting as the destination in a replication session.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the volume group.",
+				"type":        "String"
+			},
+			"volume_ids":{
+				"description": "A list of volumes that need to be removed from the volume group.This list cannot be empty.",
+				"type":        "Array[String]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

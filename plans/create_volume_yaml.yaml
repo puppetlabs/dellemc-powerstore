@@ -1,0 +1,33 @@
+description: YAML plan example for creating/deleting a volume
+
+parameters:
+  targets:
+    type: TargetSpec
+  volume_name:
+    type: String
+    description: A name for the new volume
+  size:
+    type: Integer
+    description: Override the default size (25GB) of the new volume
+    default: 26843545600
+  description:
+    type: String
+    description: A simple description to explain the purpose of the volume
+    default: Created via Puppet powerstore_volume resource
+  ensure:
+    type: Enum['present', 'absent']
+    description: If the volume should exist or be deleted
+    default: 'present'
+
+steps:
+  - description: Create/delete volume
+    name: manage_volume
+    targets: $targets
+    resources:
+      - powerstore_volume: $volume_name
+        parameters:
+          size: $size
+          description: $description
+          ensure: $ensure
+    
+return: $manage_volume

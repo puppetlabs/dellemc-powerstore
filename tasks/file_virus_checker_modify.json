@@ -1,0 +1,22 @@
+{
+	"description": "Modify the virus checker settings of a NAS Server.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the virus checker instance.",
+				"type":        "String"
+			},
+			"is_enabled":{
+				"description": "Indicates whether the anti-virus service is enabled on this NAS server. Value are:- true - Anti-virus service is enabled. Each file created or modified by an SMB client is scanned by the third-party anti-virus servers. If a virus is detected, the access to the file system is denied. If third-party anti-virus servers are not available, according the policy, the access to the file systems is denied to prevent potential viruses propagation.- false - Anti-virus service is disabled. File systems of the NAS servers are available for access without virus checking.",
+				"type":        "Boolean"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

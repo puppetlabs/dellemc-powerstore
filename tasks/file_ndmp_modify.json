@@ -1,0 +1,26 @@
+{
+	"description": "Modify an NDMP service configuration instance.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the NDMP service object.",
+				"type":        "String"
+			},
+			"password":{
+				"description": "Password for the NDMP service user.",
+				"type":        "Optional[String]"
+			},
+			"user_name":{
+				"description": "User name for accessing the NDMP service.",
+				"type":        "Optional[String]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

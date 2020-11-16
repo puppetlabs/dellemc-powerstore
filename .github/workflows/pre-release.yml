@@ -1,0 +1,37 @@
+name: Verify pre-release status
+
+on:
+  push:
+    branches: 
+    - main
+  pull_request:
+    branches: 
+    - main
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+
+    # - name: Set up Ruby 2.5
+    #   uses: actions/setup-ruby@v1
+    #   with:
+    #     ruby-version: 2.5
+
+    - name: install pdk
+      run: |
+        wget https://apt.puppet.com/puppet-tools-release-bionic.deb
+        sudo dpkg -i puppet-tools-release-bionic.deb
+        sudo apt-get update 
+        sudo apt-get install pdk
+
+    - name: Validate style and syntax 
+      run: pdk validate
+
+    - name: run unit tests 
+      run: pdk test unit
+
+    # - name: run rubocop check
+    #   run: pdk bundle exec rake rubocop

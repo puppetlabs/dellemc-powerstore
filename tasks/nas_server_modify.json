@@ -1,0 +1,72 @@
+{
+	"description": "Modify the settings of a NAS server.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"backup_i_pv4_interface_id":{
+				"description": "Unique identifier of the preferred IPv4 backup interface.",
+				"type":        "Optional[String]"
+			},
+			"backup_i_pv6_interface_id":{
+				"description": "Unique identifier of the preferred IPv6 backup interface.",
+				"type":        "Optional[String]"
+			},
+			"current_node_id":{
+				"description": "Unique identifier of the node on which the NAS server is running.",
+				"type":        "Optional[String]"
+			},
+			"current_unix_directory_service":{
+				"description": "Define the Unix directory service used for looking up identity information for Unix such as UIDs, GIDs, net groups, and so on.",
+				"type":        "Optional[Enum['None','NIS','LDAP','Local_Files','Local_Then_NIS','Local_Then_LDAP']]"
+			},
+			"default_unix_user":{
+				"description": "Default Unix user name used for granting access in case of Windows to Unix user mapping failure. When empty, access in such case is denied.",
+				"type":        "Optional[String[0,63]]"
+			},
+			"default_windows_user":{
+				"description": "Default Windows user name used for granting access in case of Unix to Windows user mapping failure. When empty, access in such case is denied.",
+				"type":        "Optional[String[0,1023]]"
+			},
+			"description":{
+				"description": "Description of the NAS server.",
+				"type":        "Optional[String[0,255]]"
+			},
+			"id":{
+				"description": "Unique identifier of the NAS server.",
+				"type":        "String"
+			},
+			"is_auto_user_mapping_enabled":{
+				"description": "A Windows user must have a corresponding matching Unix user (uid) in order to connect.This attribute enables you to automatically generate this Unix user (uid), if that Windows user does not have any in the configured Unix directory service (UDS).In a pure SMB or non multi-protocol environment, this should be set to true.",
+				"type":        "Optional[Boolean]",
+				"default":     false
+			},
+			"is_username_translation_enabled":{
+				"description": "Enable the possibility to match a windows account to a Unix account with different names",
+				"type":        "Optional[Boolean]",
+				"default":     false
+			},
+			"name":{
+				"description": "Name of the NAS server.",
+				"type":        "Optional[String[1,255]]"
+			},
+			"preferred_node_id":{
+				"description": "Unique identifier of the preferred node for the NAS server The initial value (on NAS server create) is taken from the current node.",
+				"type":        "Optional[String]"
+			},
+			"production_i_pv4_interface_id":{
+				"description": "Unique identifier of the preferred IPv4 production interface.",
+				"type":        "Optional[String]"
+			},
+			"production_i_pv6_interface_id":{
+				"description": "Unique identifier of the preferred IPv6 production interface.",
+				"type":        "Optional[String]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

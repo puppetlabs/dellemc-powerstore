@@ -1,0 +1,22 @@
+{
+	"description": "Get an SMB Share.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "SMB Share object id.",
+				"type":        "String"
+			},
+			"query_string": {
+				"description": "API query string (optional)",
+				"type":        "Optional[String]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

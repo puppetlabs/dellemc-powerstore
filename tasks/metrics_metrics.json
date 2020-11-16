@@ -1,0 +1,26 @@
+{
+	"description": "Retrieves metrics for specified type.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"entity":{
+				"description": "An enum describing the various entities supported by metrics.  * performance_metrics_by_appliance - Appliance performance metrics.  * performance_metrics_by_node - Node performance metrics.  * performance_metrics_by_volume - Volume performance metrics.  * performance_metrics_by_cluster - Cluster performance metrics.  * performance_metrics_by_vm - Virtual Machine performance metrics.  * performance_metrics_by_vg - Storage performance metrics for all volumes in a volume group  * performance_metrics_by_fe_fc_port - Frontend fibre channel port performance metrics.  * performance_metrics_by_fe_eth_port - Frontend ethernet port performance metrics.  * performance_metrics_by_fe_eth_node - Frontend ethernet performance metrics for node.  * performance_metrics_by_fe_fc_node - Frontend fibre channel performance metrics for node.  * wear_metrics_by_drive - Drive wear metrics.  * space_metrics_by_cluster - Cluster space metrics  * space_metrics_by_appliance - Appliance space metrics  * space_metrics_by_volume - Volume space metrics  * space_metrics_by_volume_family - Volume family space metrics  * space_metrics_by_vm - Virtual Machine space metrics  * space_metrics_by_storage_container - Storage Container space metrics  * space_metrics_by_vg - Volume space metrics in a volume group  * copy_metrics_by_appliance - Appliance copy metrics  * copy_metrics_by_cluster - Cluster copy metrics  * copy_metrics_by_vg - Copy metrics for each volume group  * copy_metrics_by_remote_system - Copy metrics for each remote system  * copy_metrics_by_volume - Copy metrics for each volume  * performance_metrics_by_file_system - Performance metrics for the file system.  * performance_metrics_smb_by_node - Performance metrics for the SMB protocol global  * performance_metrics_smb_builtinclient_by_node - Performance metrics for the SMB protocol built-in client  * performance_metrics_smb_branch_cache_by_node - Performance metrics for the SMB protocol Branch-Cache  * performance_metrics_smb1_by_node - Performance metrics for the SMB1 protocol basic  * performance_metrics_smb1_builtinclient_by_node - Performance metrics for the SMB1 protocol built-in client  * performance_metrics_smb2_by_node - Performance metrics for the SMB2 protocol basic  * performance_metrics_smb2_builtinclient_by_node - Performance metrics for the SMB2 protocol built-in client  * performance_metrics_nfs_by_node - Performance metrics for the NFS protocol  * performance_metrics_nfsv3_by_node - Performance metrics for the NFSv3 protocol  * performance_metrics_nfsv4_by_node - Performance metrics for the NFSv4 protocol",
+				"type":        "Enum['performance_metrics_by_appliance','performance_metrics_by_node','performance_metrics_by_volume','performance_metrics_by_cluster','performance_metrics_by_vm','performance_metrics_by_vg','performance_metrics_by_fe_fc_port','performance_metrics_by_fe_eth_port','performance_metrics_by_fe_eth_node','performance_metrics_by_fe_fc_node','wear_metrics_by_drive','space_metrics_by_cluster','space_metrics_by_appliance','space_metrics_by_volume','space_metrics_by_volume_family','space_metrics_by_vm','space_metrics_by_storage_container','space_metrics_by_vg','copy_metrics_by_appliance','copy_metrics_by_cluster','copy_metrics_by_vg','copy_metrics_by_remote_system','copy_metrics_by_volume','performance_metrics_by_file_system','performance_metrics_smb_by_node','performance_metrics_smb_builtinclient_by_node','performance_metrics_smb_branch_cache_by_node','performance_metrics_smb1_by_node','performance_metrics_smb1_builtinclient_by_node','performance_metrics_smb2_by_node','performance_metrics_smb2_builtinclient_by_node','performance_metrics_nfs_by_node','performance_metrics_nfsv3_by_node','performance_metrics_nfsv4_by_node']"
+			},
+			"entity_id":{
+				"description": "Identifier for specific entity.",
+				"type":        "String"
+			},
+			"interval":{
+				"description": "Intervals of which metrics can be provided.",
+				"type":        "Optional[Enum['Twenty_Sec','Five_Mins','One_Hour','One_Day']]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

@@ -1,0 +1,17 @@
+description: Find empty volume groups - yaml plan example
+
+parameters:
+  targets:
+    type: TargetSpec
+
+steps:
+  - name: volume_groups
+    task: powerstore::volume_group_collection_query
+    description: Get all volume groups
+    targets: $targets
+    parameters:
+      query_string: select=name,volumes&type=neq.Snapshot
+
+return: $volume_groups.first.value.filter |$k, $v| { $v['volumes'].empty }
+                                  .map |$k, $v| { $v['name'] }
+

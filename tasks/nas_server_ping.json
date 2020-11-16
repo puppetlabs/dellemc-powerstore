@@ -1,0 +1,27 @@
+{
+	"description": "Ping destination from NAS server.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"destination_address":{
+				"description": "Destination to ping, can be either an IP address (IPv4 or IPv6) or a hostname being resolved by the NAS server name resolvers.",
+				"type":        "Optional[String]"
+			},
+			"id":{
+				"description": "Unique identifier of the NAS server.",
+				"type":        "String"
+			},
+			"is_ipv6":{
+				"description": "When true, and the destination is a hostname, it will be resolved to IPv6. Otherwise the hostname is resolved preferably to an IPv4 address.",
+				"type":        "Optional[Boolean]",
+				"default":     false
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

@@ -1,0 +1,31 @@
+{
+	"description": "Delete a NAS server.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"domain_password":{
+				"description": "Administrator password used to unjoin the associated SMB servers from the Active Directory (AD) domain before deleting the NAS server. This parameter is required when the skipDomainUnjoin parameter is false or not set, and the NAS server has SMB servers joined to an AD domain.",
+				"type":        "Optional[String]"
+			},
+			"domain_user_name":{
+				"description": "Administrator login used to unjoin the associated SMB servers from the Active Directory (AD) domain before deleting the NAS server. This parameter is required when the skipDomainUnjoin parameter is false or not set, and the NAS server has SMB servers joined to an AD domain.",
+				"type":        "Optional[String]"
+			},
+			"id":{
+				"description": "Unique identifier of the NAS server.",
+				"type":        "String"
+			},
+			"is_skip_domain_unjoin":{
+				"description": "Indicates whether to keep the associated SMB servers joined to the Active Directory when the NAS server is deleted. Values are:\n - true - Keep the associated SMB servers joined to the Active Directory when the NAS server is deleted. - false - (Default) Try to unjoin the associated SMB servers from the Active Directory before deleting the NAS server.",
+				"type":        "Optional[Boolean]",
+				"default":     false
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

@@ -1,0 +1,22 @@
+{
+	"description": "Modify the service configuration for an appliance.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the instance.",
+				"type":        "String"
+			},
+			"is_ssh_enabled":{
+				"description": "Current SSH service access state.* true  - Enables SSH access* false - Disables SSH access",
+				"type":        "Boolean"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

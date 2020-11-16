@@ -1,0 +1,47 @@
+{
+	"description": "Create a new import session. The source storage system and hosts that access the volumes or consistency groups must be added prior to creating an import session. The volumes or consistency groups must be in a migration-ready state.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"automatic_cutover":{
+				"description": "Indicates whether the import session cutover is manual (true) or automatic (false).",
+				"type":        "Optional[Boolean]",
+				"default":     false
+			},
+			"description":{
+				"description": "Description of the import session. The name can contain a maximum of 128 unicode characters. It cannot contain unprintable characters.",
+				"type":        "Optional[String[0,128]]"
+			},
+			"name":{
+				"description": "Name of the import session. The name must be unique in the PowerStore cluster and can contain a maximum of 128 unicode characters. It cannot contain special HTTP characters, unprintable characters, or white space.",
+				"type":        "String[0,128]"
+			},
+			"protection_policy_id":{
+				"description": "Unique identifier of the protection policy that will be applied to an imported volume or consistency group after the import completes. Only snapshot policies are supported in an import. Once the import completes, you can add a replication policy. If you try to import a replication policy, the import job will fail.",
+				"type":        "Optional[String]"
+			},
+			"remote_system_id":{
+				"description": "Unique identifier of the storage system that contains the source volume or consistency group to be imported. You can query the source volume or consistency group object to get the identifier of the source system that the volume or consistency group are part of. Alternatively, you can use the remote_system object to get this information.",
+				"type":        "String"
+			},
+			"scheduled_timestamp":{
+				"description": "Date and time at which the import session is scheduled to start. The date time is specified in ISO 8601 format with the time expressed in UTC format.",
+				"type":        "Optional[String]"
+			},
+			"source_resource_id":{
+				"description": "Unique identifier of the volume or consistency group to be imported. Refer to the following objects for more information: * Storage Center : import_storage_center_volume, import_storage_center_consistency_group * VNX : import_vnx_volume, import_vnx_consistency_group * PS Series : import_psgroup_volume * Unity : import_unity_volume, import_unity_consistency_group",
+				"type":        "String"
+			},
+			"volume_group_id":{
+				"description": "Unique identifier of the volume group to which the imported volume will belong, if any.",
+				"type":        "Optional[String]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

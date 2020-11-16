@@ -1,0 +1,22 @@
+{
+	"description": "Mount a storage container as a vVol datastore in vCenter.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"datastore_name":{
+				"description": "This will be the vVol datastore name in vCenter when it is mounted.",
+				"type":        "Optional[String]"
+			},
+			"id":{
+				"description": "Storage container ID.",
+				"type":        "String"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

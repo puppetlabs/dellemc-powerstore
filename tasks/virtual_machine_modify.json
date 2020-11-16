@@ -1,0 +1,22 @@
+{
+	"description": "Modify a virtual machine. This operation cannot be used on virtual machine snapshots or templates.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the virtual machine to modify.",
+				"type":        "String"
+			},
+			"protection_policy_id":{
+				"description": "Unique identifier of the protection policy.",
+				"type":        "Optional[String]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

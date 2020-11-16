@@ -1,0 +1,34 @@
+{
+	"description": "Exchange certificates between two clusters. Add CA certificates to the trust store of each cluster and assign roles to the client certificates. After this process, certificate-based authentication can be used for communication between clusters. This exchange REST API can only be triggered with service Replication_HTTP.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"address":{
+				"description": "Peer's ip v4 or v6 address or dns name.",
+				"type":        "String"
+			},
+			"password":{
+				"description": "Password used in basic authentication to remote PowerStore cluster.",
+				"type":        "String"
+			},
+			"port":{
+				"description": "Peer's port number.",
+				"type":        "Integer[0,65535]"
+			},
+			"service":{
+				"description": "Type of the service for which the certificate is used:* Management HTTP - Management Web server* Replication HTTP - Remote Replication service* VASA HTTP - VASA provider service* Import HTTP - External web service",
+				"type":        "Enum['Management_HTTP','Replication_HTTP','VASA_HTTP','Import_HTTP']"
+			},
+			"username":{
+				"description": "Username used in basic authentication to remote PowerStore cluster.",
+				"type":        "String"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

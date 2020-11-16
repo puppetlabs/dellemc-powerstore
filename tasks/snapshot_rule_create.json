@@ -1,0 +1,34 @@
+{
+	"description": "Create a new snapshot rule.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"days_of_week":{
+				"description": "Days of the week when the rule should be applied. Applies only for rules where the time_of_day parameter is set.",
+				"type":        "Optional[Array[Enum['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']]]"
+			},
+			"desired_retention":{
+				"description": "Desired snapshot retention period in hours. The system will retain snapshots for this time period, if space is available.",
+				"type":        "Integer[1,8760]"
+			},
+			"interval":{
+				"description": "Interval between snapshots. Either the interval parameter or the time_of_day parameter may be set. Setting one clears the other parameter.",
+				"type":        "Optional[Enum['Five_Minutes','Fifteen_Minutes','Thirty_Minutes','One_Hour','Two_Hours','Three_Hours','Four_Hours','Six_Hours','Eight_Hours','Twelve_Hours','One_Day']]"
+			},
+			"name":{
+				"description": "Snapshot rule name.",
+				"type":        "String"
+			},
+			"time_of_day":{
+				"description": "Time of the day to take a daily snapshot, with format 'hh:mm' in 24 hour time format. Either the interval parameter or the time_of_day parameter may be set, but not both.",
+				"type":        "Optional[String]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

@@ -1,0 +1,26 @@
+{
+	"description": "Unjoin the secure NFS server from the NAS server's Active Directory domain. If you unjoin with secure NFS exports active, exports will be unavailable to the clients.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"domain_password":{
+				"description": "Password of the domain-user specified to unjoin from the Active Directory domain.",
+				"type":        "String"
+			},
+			"domain_user_name":{
+				"description": "Name of a domain-user with privileges to unjoin from the Active Directory domain.",
+				"type":        "String"
+			},
+			"id":{
+				"description": "Unique identifier of the NFS server.",
+				"type":        "String"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

@@ -1,0 +1,22 @@
+description: This sample lists the IDs of all the SMB Shares created on a given file system name.
+
+parameters:
+  targets:
+    type: TargetSpec
+  filesystem_name:
+    type: String
+    description: Name of the file system
+
+steps:
+  - task: powerstore::file_system_collection_query
+    description: get all file systems with their smb shares
+    name: file_systems
+    targets: $targets
+    parameters:
+      query_string: 'select=name,smb_shares(id,name)'
+  
+  - name: filtered_file_systems
+    description: filter file systems to the one with the given name 
+    eval: $file_systems[0].value.filter | $k, $v | { $v['name'] == $filesystem_name }
+
+return: $filtered_file_systems

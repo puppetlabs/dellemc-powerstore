@@ -1,0 +1,22 @@
+{
+	"description": "Modify a DNS setting.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"addresses":{
+				"description": "DNS server addresses in IPv4 or IPv6 format.",
+				"type":        "Array[String]"
+			},
+			"id":{
+				"description": "Unique identifier of the DNS setting.",
+				"type":        "String"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

@@ -1,0 +1,30 @@
+{
+	"description": "Attach a volume to a host or host group.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"host_group_id":{
+				"description": "Unique identifier of the host group to be attached to the volume. Only one of host_id or host_group_id can be supplied.",
+				"type":        "Optional[String]"
+			},
+			"host_id":{
+				"description": "Unique identifier of the host to be attached to the volume. Only one of host_id or host_group_id can be supplied.",
+				"type":        "Optional[String]"
+			},
+			"id":{
+				"description": "Unique identifier of volume to attach.",
+				"type":        "String"
+			},
+			"logical_unit_number":{
+				"description": "Logical unit number for the host volume access.",
+				"type":        "Optional[Integer[0,16383]]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

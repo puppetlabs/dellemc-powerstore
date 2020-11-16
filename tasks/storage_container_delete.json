@@ -1,0 +1,22 @@
+{
+	"description": "Delete a storage container.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"force":{
+				"description": "Normally, deletion of a storage container that is mounted or still contains virtual volumes will be rejected. This option overrides that error and allows the delete to continue. Use with great caution.",
+				"type":        "Optional[Boolean]"
+			},
+			"id":{
+				"description": "Storage container ID.",
+				"type":        "String"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

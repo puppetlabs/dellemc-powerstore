@@ -1,0 +1,17 @@
+description: Search volumes by name 
+
+parameters:
+  targets:
+    type: TargetSpec
+  pattern:
+    type: String
+    description: Volume name pattern for search
+
+steps:
+  - name: found_volumes
+    task: powerstore::volume_collection_query
+    targets: $targets
+    parameters:
+      query_string: "select=name&name=ilike.${pattern}*"
+
+  - message: $found_volumes[0].value.map |$k,$v| { $k }

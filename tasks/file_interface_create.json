@@ -1,0 +1,44 @@
+{
+	"description": "Create a file interface.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"gateway":{
+				"description": "Gateway address for the network interface. IPv4 and IPv6 are supported.",
+				"type":        "Optional[String[1,45]]"
+			},
+			"ip_address":{
+				"description": "IP address of the network interface. IPv4 and IPv6 are supported.",
+				"type":        "String[1,45]"
+			},
+			"is_disabled":{
+				"description": "Indicates whether the network interface is disabled.",
+				"type":        "Optional[Boolean]",
+				"default":     false
+			},
+			"nas_server_id":{
+				"description": "Unique identifier of the NAS server to which the network interface belongs, as defined by the nas_server resource type.",
+				"type":        "String"
+			},
+			"prefix_length":{
+				"description": "Prefix length for the interface. IPv4 and IPv6 are supported.",
+				"type":        "Integer[1,128]"
+			},
+			"role":{
+				"description": "- Production - This type of network interface is used for all file protocols and services of a NAS server. This type of interface is inactive while a NAS server is in destination mode. - Backup  - This type of network interface is used only for NDMP/NFS backup or disaster recovery testing. This type of interface is always active in all NAS server modes.",
+				"type":        "Optional[Enum['Production','Backup']]"
+			},
+			"vlan_id":{
+				"description": "Virtual Local Area Network (VLAN) identifier for the interface. The interface uses the identifier to accept packets that have matching VLAN tags.",
+				"type":        "Optional[Integer[0,4094]]",
+				"default":     0
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

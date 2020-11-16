@@ -1,0 +1,33 @@
+{
+	"description": "Fail over a replication session instance. Failing over the replication session changes the role of the destination system. After a failover, the original destination system becomes the source system, and production access is enabled for hosts and applications for recovery. Failovers can be planned or unplanned. Planned failovers are issued from the source system and are indicated by setting the is_planned parameter to true. When you fail over a replication session from the source system, the destination system is fully synchronized with the source to ensure that there is no data loss. During a planned failover, stop I/O operations for any applications and hosts. If a synchronization error occurs during a planned failover, the replication session enters the System_Paused state. You cannot pause a replication session during a planned failover. The following operations can be performed during planned failover:* Unplanned failover* Delete the replication session by removing the protection policy on the storage resourceAfter a planned failover, the replication session is in an inactive state. You can use the reprotect action to synchronize the destination storage resource, and then resume the replication session. The auto-reprotect feature can also be used after a planned failover by using the reverse parameter, which activates the session in the reverse direction. Unplanned failures are events such as source system failure or an event on the source system that leads to downtime for production access.Unplanned failovers are issued from the destination system, and are indicated by setting the is_planned parameter to false. Unplanned failovers provide production access to the original destination resource from a preview synchronized point-in-time snapshot referred to as replication common-base. After an unplanned failover, you can restore the system from any point-in-time snapshots on the new source resource. Unplanned failovers place the original source resource into destination mode once it reestablishes a connection to the source system.  You can use the reprotect action to synchronize the destination storage resource, and then resume the replication session.After the replication session has failed over, you can resize the volume group or change the volume group membership on the new source resource.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"force":{
+				"description": "Indicates whether an unplanned failover needs to be done for a session that is already in failed over state",
+				"type":        "Optional[Boolean]",
+				"default":     false
+			},
+			"id":{
+				"description": "Unique identifier of the replication session.",
+				"type":        "String"
+			},
+			"is_planned":{
+				"description": "Indicates whether the replication session failover is planned or unplanned. For planned failovers, the value is true. For unplanned failovers, the value is false.",
+				"type":        "Optional[Boolean]",
+				"default":     true
+			},
+			"reverse":{
+				"description": "Indicates whether the system is auto-reprotected. Auto-reprotect is combination of failover and reprotect. ",
+				"type":        "Optional[Boolean]",
+				"default":     false
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

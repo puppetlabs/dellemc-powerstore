@@ -1,0 +1,26 @@
+{
+	"description": "Modify cluster properties, such as physical MTU.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the Cluster.",
+				"type":        "String"
+			},
+			"name":{
+				"description": "The name of the cluster. The name can be up to 64 UTF-8 characters and cannot be an empty string.",
+				"type":        "Optional[String[1,64]]"
+			},
+			"physical_mtu":{
+				"description": "The physical ethernet port (eth_port resource) MTU setting, global for all ports in the cluster. This is the default MTU setting for IP traffic, and the upper limit on network-specific MTU settings (network resource), where this can be overridden for some specific kinds of traffic (management, data, and vmotion). This value must be in the range 1500-9000.",
+				"type":        "Optional[Integer[1500,9000]]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

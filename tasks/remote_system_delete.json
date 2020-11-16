@@ -1,0 +1,18 @@
+{
+	"description": "Delete a remote system. Deleting the remote system deletes the management and data connections established with the remote system. You cannot delete a remote system if there are active import sessions, or if there are remote protection policies active in the system referencing the remote system instance.For PowerStore remote systems, the relationship is deleted in both directions if the remote system is up and connectable. You cannot delete a PowerStore remote system if there is no management connectivity between the local and remore systems. Only the local end of the relationship is deleted. Manually log in to the remote PowerStore system and remove the relationship.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the remote system.",
+				"type":        "String"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

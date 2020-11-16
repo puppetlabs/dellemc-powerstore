@@ -1,0 +1,18 @@
+{
+	"description": "Generate a recommendation for redistributing storage utilization between appliances.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"evacuate_appliance":{
+				"description": "Evacuate appliance by specifying optional space_to_free",
+				"type":        "Struct[{appliance_id => Optional[String], Optional[space_to_free] => Optional[Integer], Optional[target_appliance_ids] => Optional[Array[String]], }]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

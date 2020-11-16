@@ -1,0 +1,22 @@
+{
+	"description": "Query a specific local user account instance using an unique identifier.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"id":{
+				"description": "Unique identifier of the local user account.",
+				"type":        "String"
+			},
+			"query_string": {
+				"description": "API query string (optional)",
+				"type":        "Optional[String]"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

@@ -1,0 +1,31 @@
+{
+	"description": "Refresh the contents of the target volume from another volume in the same family. By default, a backup snapshot of the target volume is not created before the refresh is attempted. To create a snapshot before refreshing, set __create_backup_snap__ to true. If a snapshot is taken, the response includes the resulting snapshot id; otherwise it is empty. If a custom profile is not specified, the profile for the backup snapshot is automatically generated. The automatically generated profile only provides the name as an automatically generated, unique value. Other optional parameters are not specified. When a volume is refreshed, the source_time is the source_time of the volume from which it is refreshed.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"backup_snap_profile":{
+				"description": "",
+				"type":        "Optional[Hash]"
+			},
+			"create_backup_snap":{
+				"description": "Indicates whether to create a backup snapshot of the volume before refreshing.",
+				"type":        "Optional[Boolean]",
+				"default":     false
+			},
+			"from_object_id":{
+				"description": "Unique identifier of the source object of the refresh operation. The refresh operation only refreshes the data.",
+				"type":        "String"
+			},
+			"id":{
+				"description": "Unique identifier of volume for which to refresh contents.",
+				"type":        "String"
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}

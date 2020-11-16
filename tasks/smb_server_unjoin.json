@@ -1,0 +1,31 @@
+{
+	"description": "Unjoin the SMB server from an Active Directory domain.",
+	"input_method": "stdin",
+	"supports_noop": false,
+	"remote": true,
+	"parameters":{
+			"domain_password":{
+				"description": "Password of the domain-user specified to unjoin from the Active Directory domain.",
+				"type":        "Optional[String]"
+			},
+			"domain_user_name":{
+				"description": "Name of a domain-user with sufficient privileges to unjoin from the Active Directory domain.",
+				"type":        "Optional[String]"
+			},
+			"id":{
+				"description": "Unique identifier of the SMB server.",
+				"type":        "String"
+			},
+			"is_skip_ad_unjoin":{
+				"description": "If set to yes: Will not remove the account from the Active Directory. This is to be used in case that no DC is available.",
+				"type":        "Optional[Boolean]",
+				"default":     false
+			}},
+
+	"files": [
+		"powerstore/lib/puppet/util/task_helper.rb",
+		"powerstore/lib/puppet/transport/powerstore.rb",
+		"powerstore/lib/puppet/transport/schema/powerstore.rb"
+  ]
+
+}
