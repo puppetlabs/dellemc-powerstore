@@ -1,8 +1,8 @@
-# Puppet module for a PowerStore Storage Appliance
+# Puppet module for Dell EMC PowerStore
 
 #### Table of Contents
 
-- [Puppet module for a PowerStore Storage Appliance](#puppet-module-for-a-powerstore-storage-appliance)
+- [Puppet module for Dell EMC PowerStore](#puppet-module-for-dell-emc-powerstore)
       - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [License](#license)
@@ -11,7 +11,7 @@
     - [Installation](#installation)
   - [Usage](#usage)
     - [Using Tasks](#using-tasks)
-      - [Introduction to PowerStore tasks](#introduction-to-powerstore-tasks)
+      - [Introduction to Dell EMC PowerStore tasks](#introduction-to-dell-emc-powerstore-tasks)
       - [Examples](#examples)
     - [Using Plans](#using-plans)
     - [Using Idempotent Puppet Resource Types](#using-idempotent-puppet-resource-types)
@@ -31,11 +31,11 @@
 
 ## Overview
 
-The `dellemc-powerstore` module manages resources on a Dell EMC PowerStore Storage Appliance.
+The `dellemc-powerstore` module manages resources on Dell EMC PowerStore.
 
-Dell EMC PowerStore is a next-generation midrange data storage solution targeted at customers who are looking for value, flexibility, and simplicity. PowerStore provides our customers with data-centric, intelligent, and adaptable infrastructure that supports both traditional and modern workloads.
+Dell EMC PowerStore is a next-generation midrange data storage solution targeted at customers who are looking for value, flexibility, and simplicity. Dell EMC PowerStore provides our customers with data-centric, intelligent, and adaptable infrastructure that supports both traditional and modern workloads.
 
-The `dellemc-powerstore` Puppet module allows you to configure and deploy the PowerStore appliance using Puppet Bolt. To that end it offers resource types, tasks and plans.
+The `dellemc-powerstore` Puppet module allows you to configure and deploy Dell EMC PowerStore using Puppet Bolt. To that end it offers resource types, tasks and plans.
 
 ## License
 
@@ -86,9 +86,9 @@ The `dellemc-powerstore` Puppet module allows you to configure and deploy the Po
 
 ### Using Tasks
 
-#### Introduction to PowerStore tasks
+#### Introduction to Dell EMC PowerStore tasks
 
-Every PowerStore API endpoint has a corresponding task. For example, for manipulating PowerStore volumes, the following tasks are available:
+Every Dell EMC PowerStore API endpoint has a corresponding task. For example, for manipulating Dell EMC PowerStore volumes, the following tasks are available:
 - volume_collection_query
 - volume_instance_query
 - volume_attach
@@ -154,7 +154,7 @@ Tasks live in the `tasks/` folder of the module repository.
 
 ### Using Plans
 
-Plans are higher-level workflows that can leverage logic, tasks and commands to perform orchestrated operations on managed devices. Plans can be written using YAML or Puppet language (see documentation on [writing Plans](https://puppet.com/docs/bolt/latest/plans.html)). Example `PowerStore` plans can be found in the [plans](plans) directory of this repository and are documented [here](REFERENCE.md#plans).
+Plans are higher-level workflows that can leverage logic, tasks and commands to perform orchestrated operations on managed devices. Plans can be written using YAML or Puppet language (see documentation on [writing Plans](https://puppet.com/docs/bolt/latest/plans.html)). Example `dellemc-powerstore` plans can be found in the [plans](plans) directory of this repository and are documented [here](REFERENCE.md#plans).
 
 For displaying usage information for a plan, run `bolt plan show`, for example:
 ```
@@ -287,7 +287,7 @@ The current acceptance test suite assumes that the `prism` API server is up and 
 Although - in theory - it is possible to run acceptance tests against a real device, that is much harder to automate because of unknown `id`s of existing resources.
 
 1. Install prism by following [the documentation](https://meta.stoplight.io/docs/prism/docs/getting-started/01-installation.md)
-1. Make sure you have a copy of the PowerStore OpenAPI json file, let's call it `powerstore.json`
+1. Make sure you have a copy of the Dell EMC PowerStore OpenAPI json file, let's call it `powerstore.json`
 1. Remove all cyclical dependencies from the OpenAPI json file since `prism` does not support cycles inside OpenAPI specifications, producing the file `powerstore-nocycles.json`
 1. Start the mock API server:
    ```bash
