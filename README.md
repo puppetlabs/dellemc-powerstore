@@ -1,9 +1,9 @@
 # Puppet module for Dell EMC PowerStore
 
-#### Table of Contents
+## Table of Contents
 
 - [Puppet module for Dell EMC PowerStore](#puppet-module-for-dell-emc-powerstore)
-      - [Table of Contents](#table-of-contents)
+  - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [License](#license)
   - [Setup](#setup)
