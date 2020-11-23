@@ -1,0 +1,52 @@
+name: Perform a release to the Puppet Forge
+
+on:
+  release:
+    types: [published]
+#   push:
+#     branches: [release_prep]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+# Uncomment to debug the workflow using tmate
+    # - name: Setup tmate session
+    #   uses: mxschmitt/action-tmate@v3
+
+    - name: Install pdk
+      run: |
+        wget https://apt.puppet.com/puppet-tools-release-bionic.deb -P /tmp
+        sudo dpkg -i /tmp/puppet-tools-release-bionic.deb
+        sudo apt-get update 
+        sudo apt-get install pdk
+
+    - name: Update metadata version to match release tag
+      run: |
+        export TAG=$(git tag --points-at HEAD) || true # if this fails, we are not triggered by a release
+        [[ "${TAG}" == "" ]] && export TAG=$(git describe --tags `git rev-list --tags --max-count=1`) # take last available tag, just for testing
+        which egrep
+        echo ${TAG} | egrep -e "^v[0-9]+\.[0-9]+\.[0-9]+$" || (echo "Tag should match v[0-9]+\.[0-9]+\.[0-9]+" && exit 1)
+        export VERSION=$(echo ${TAG} | egrep -oe "[0-9]+\.[0-9]+\.[0-9]+")
+        echo "Tag: ${TAG}"
+        echo "Version: ${VERSION}"
+        pdk bundle exec rake "module:bump_to_version[${VERSION}]"
+        rm Gemfile.lock # cleanup after our pdk action
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git tag -d ${TAG}
+        git push --delete origin ${TAG}
+        git commit -am "Auto-tagging release ${VERSION}"
+        git tag ${TAG}
+        git push --tags origin HEAD:main
+
+    - name: Publish module on the forge
+      uses: barnumbirr/action-forge-publish@v2.3.0
+      env:
+       FORGE_API_KEY: ${{ secrets.FORGE_API_KEY }}
+       REPOSITORY_URL: https://forgeapi.puppet.com/v3/releases
