@@ -1,8 +1,8 @@
 {
   "name": "dellemc-powerstore",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Puppet and Dell",
-  "summary": "Puppet module for managing the DellEMC PowerStore storage appliance",
+  "summary": "Puppet module for managing Dell EMC PowerStore",
   "license": "Apache-2.0",
   "source": "https://github.com/puppetlabs/dellemc-powerstore",
   "project_page": "https://github.com/puppetlabs/dellemc-powerstore",

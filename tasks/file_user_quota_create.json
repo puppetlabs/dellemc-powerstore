@@ -29,7 +29,7 @@
 				"type":        "Optional[String]"
 			},
 			"windows_name":{
-				"description": "Windows username. The format is domain\\user for the domain user. Identifers are exclusive. Only one of the four identifiers among 'user uid' / 'unix username' / 'windows username' / 'windows SID' can be used at a time.",
+				"description": "Windows username. The format is domain\\\\user for the domain user. Identifers are exclusive. Only one of the four identifiers among 'user uid' / 'unix username' / 'windows username' / 'windows SID' can be used at a time.",
 				"type":        "Optional[String]"
 			},
 			"windows_sid":{

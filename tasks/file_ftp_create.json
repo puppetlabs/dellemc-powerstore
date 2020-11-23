@@ -67,7 +67,7 @@
 				"default":     false
 			},
 			"is_smb_authentication_enabled":{
-				"description": "Indicates whether FTP and SFTP clients can be authenticated using an SMB user name. These user names are defined in a Windows domain controller, and their formats are user@domain or domain\\user. Values are:- true - SMB user names are accepted for authentication.- false - SMB user names are not accepted for authentication.",
+				"description": "Indicates whether FTP and SFTP clients can be authenticated using an SMB user name. These user names are defined in a Windows domain controller, and their formats are user@domain or domain\\\\user. Values are:- true - SMB user names are accepted for authentication.- false - SMB user names are not accepted for authentication.",
 				"type":        "Optional[Boolean]",
 				"default":     true
 			},

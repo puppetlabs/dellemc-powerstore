@@ -4461,7 +4461,7 @@ Indicates whether the SFTP server is enabled on the NAS server specified in the 
 
 Data type: `Optional[Boolean]`
 
-Indicates whether FTP and SFTP clients can be authenticated using an SMB user name. These user names are defined in a Windows domain controller, and their formats are user@domain or domain\user. Values are:- true - SMB user names are accepted for authentication.- false - SMB user names are not accepted for authentication.
+Indicates whether FTP and SFTP clients can be authenticated using an SMB user name. These user names are defined in a Windows domain controller, and their formats are user@domain or domain\\user. Values are:- true - SMB user names are accepted for authentication.- false - SMB user names are not accepted for authentication.
 
 ##### `is_unix_authentication_enabled`
 
@@ -4641,7 +4641,7 @@ Indicates whether the SFTP server is enabled on the NAS server specified in the 
 
 Data type: `Optional[Boolean]`
 
-Indicates whether FTP and SFTP clients can be authenticated using an SMB user name. These user names are defined in a Windows domain controller, and their formats are user@domain or domain\user. Values are:- true - SMB user names are accepted for authentication.- false - SMB user names are not accepted for authentication.
+Indicates whether FTP and SFTP clients can be authenticated using an SMB user name. These user names are defined in a Windows domain controller, and their formats are user@domain or domain\\user. Values are:- true - SMB user names are accepted for authentication.- false - SMB user names are not accepted for authentication.
 
 ##### `is_unix_authentication_enabled`
 
@@ -6351,7 +6351,7 @@ Unix username. Identifers are exclusive. Only one of the four identifiers among 
 
 Data type: `Optional[String]`
 
-Windows username. The format is domain\user for the domain user. Identifers are exclusive. Only one of the four identifiers among 'user uid' / 'unix username' / 'windows username' / 'windows SID' can be used at a time.
+Windows username. The format is domain\\user for the domain user. Identifers are exclusive. Only one of the four identifiers among 'user uid' / 'unix username' / 'windows username' / 'windows SID' can be used at a time.
 
 ##### `windows_sid`
 
@@ -6435,8 +6435,7 @@ API query string (optional)
 
 ### `file_virus_checker_create`
 
-Add a new virus checker setting to a NAS Server. Only one instance can be created per NAS Server.Workflow to enable the virus checker settings on the NAS Server is as follows: 
-1. Create a virus checker instance on NAS Server.2. Download template virus checker configuration file.3. Edit the configuration file with virus checker configuration details.4. Upload the configuration file.5. Enable the virus checker on the NAS Server.
+Add a new virus checker setting to a NAS Server. Only one instance can be created per NAS Server.Workflow to enable the virus checker settings on the NAS Server is as follows: \n1. Create a virus checker instance on NAS Server.2. Download template virus checker configuration file.3. Edit the configuration file with virus checker configuration details.4. Upload the configuration file.5. Enable the virus checker on the NAS Server.
 
 **Supports noop?** false
 
@@ -8668,8 +8667,7 @@ Unique identifier of the NAS server.
 
 Data type: `Optional[Boolean]`
 
-Indicates whether to keep the associated SMB servers joined to the Active Directory when the NAS server is deleted. Values are:
- - true - Keep the associated SMB servers joined to the Active Directory when the NAS server is deleted. - false - (Default) Try to unjoin the associated SMB servers from the Active Directory before deleting the NAS server.
+Indicates whether to keep the associated SMB servers joined to the Active Directory when the NAS server is deleted. Values are:\n - true - Keep the associated SMB servers joined to the Active Directory when the NAS server is deleted. - false - (Default) Try to unjoin the associated SMB servers from the Active Directory before deleting the NAS server.
 
 ### `nas_server_download_group`
 
@@ -10939,7 +10937,7 @@ Unique identifier of the NAS server.
 
 Data type: `Optional[String[1,15]]`
 
-NetBIOS name is the network name of the standalone SMB server.SMB servers joined to Active Directory also have NetBIOS Name, defaulted to the 15 first characters of the computer_name attribute.Administrators can specify a custom NetBIOS Name for a SMB server using this attribute.NetBIOS name is limited to 15 characters and cannot contain the following characters -  - backslash ()  - slash mark (/)  - colon (:)  - asterisk (*)  - question mark (?)  - quotation mark ('')  - less than sign (<)  - greater than sign (>)  - vertical bar (|)as defined by the Microsoft naming convention (see https://support.microsoft.com/en-us/help/909264/)
+NetBIOS name is the network name of the standalone SMB server.SMB servers joined to Active Directory also have NetBIOS Name, defaulted to the 15 first characters of the computer_name attribute.Administrators can specify a custom NetBIOS Name for a SMB server using this attribute.NetBIOS name is limited to 15 characters and cannot contain the following characters -  - backslash (\)  - slash mark (/)  - colon (:)  - asterisk (*)  - question mark (?)  - quotation mark ('')  - less than sign (<)  - greater than sign (>)  - vertical bar (|)as defined by the Microsoft naming convention (see https://support.microsoft.com/en-us/help/909264/)
 
 ##### `workgroup`
 
@@ -11073,7 +11071,7 @@ Password for the local administrator account of the SMB server.
 
 Data type: `Optional[String]`
 
-NetBIOS name is the network name of the standalone SMB server.SMB servers joined to Active Directory also have NetBIOS Name, defaulted to the 15 first characters of the computer_name attribute.Administrators can specify a custom NetBIOS Name for an SMB server using this attribute.NetBIOS name is limited to 15 characters and cannot contain the following characters -  - backslash ()  - slash mark (/)  - colon (:)  - asterisk (*)  - question mark (?)  - quotation mark ('')  - less than sign (<)  - greater than sign (>)  - vertical bar (|)as defined by the Microsoft naming convention (see https://support.microsoft.com/en-us/help/909264/)
+NetBIOS name is the network name of the standalone SMB server.SMB servers joined to Active Directory also have NetBIOS Name, defaulted to the 15 first characters of the computer_name attribute.Administrators can specify a custom NetBIOS Name for an SMB server using this attribute.NetBIOS name is limited to 15 characters and cannot contain the following characters -  - backslash (\)  - slash mark (/)  - colon (:)  - asterisk (*)  - question mark (?)  - quotation mark ('')  - less than sign (<)  - greater than sign (>)  - vertical bar (|)as defined by the Microsoft naming convention (see https://support.microsoft.com/en-us/help/909264/)
 
 ##### `workgroup`
 
