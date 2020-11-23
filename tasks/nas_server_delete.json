@@ -17,7 +17,7 @@
 				"type":        "String"
 			},
 			"is_skip_domain_unjoin":{
-				"description": "Indicates whether to keep the associated SMB servers joined to the Active Directory when the NAS server is deleted. Values are:\n - true - Keep the associated SMB servers joined to the Active Directory when the NAS server is deleted. - false - (Default) Try to unjoin the associated SMB servers from the Active Directory before deleting the NAS server.",
+				"description": "Indicates whether to keep the associated SMB servers joined to the Active Directory when the NAS server is deleted. Values are:\\n - true - Keep the associated SMB servers joined to the Active Directory when the NAS server is deleted. - false - (Default) Try to unjoin the associated SMB servers from the Active Directory before deleting the NAS server.",
 				"type":        "Optional[Boolean]",
 				"default":     false
 			}},

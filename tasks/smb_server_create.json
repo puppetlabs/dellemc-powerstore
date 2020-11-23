@@ -29,7 +29,7 @@
 				"type":        "String"
 			},
 			"netbios_name":{
-				"description": "NetBIOS name is the network name of the standalone SMB server.SMB servers joined to Active Directory also have NetBIOS Name, defaulted to the 15 first characters of the computer_name attribute.Administrators can specify a custom NetBIOS Name for a SMB server using this attribute.NetBIOS name is limited to 15 characters and cannot contain the following characters -  - backslash (\)  - slash mark (/)  - colon (:)  - asterisk (*)  - question mark (?)  - quotation mark ('')  - less than sign (<)  - greater than sign (>)  - vertical bar (|)as defined by the Microsoft naming convention (see https://support.microsoft.com/en-us/help/909264/)",
+				"description": "NetBIOS name is the network name of the standalone SMB server.SMB servers joined to Active Directory also have NetBIOS Name, defaulted to the 15 first characters of the computer_name attribute.Administrators can specify a custom NetBIOS Name for a SMB server using this attribute.NetBIOS name is limited to 15 characters and cannot contain the following characters -  - backslash (\\)  - slash mark (/)  - colon (:)  - asterisk (*)  - question mark (?)  - quotation mark ('')  - less than sign (<)  - greater than sign (>)  - vertical bar (|)as defined by the Microsoft naming convention (see https://support.microsoft.com/en-us/help/909264/)",
 				"type":        "Optional[String[1,15]]"
 			},
 			"workgroup":{
