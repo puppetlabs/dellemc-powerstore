@@ -41,3 +41,9 @@ Gemfile:
 
 spec/spec_helper.rb:
   mock_with: ':rspec'
+
+.gitignore:
+  paths:
+    - /spec/fixtures/sut.json
+    - /spec/fixtures/inventory.yaml
+    - /spec/fixtures/acceptance-device.conf
