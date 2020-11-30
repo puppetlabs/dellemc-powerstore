@@ -17,6 +17,9 @@
 /pkg/
 /spec/fixtures/manifests/
 /spec/fixtures/modules/
+/spec/fixtures/sut.json
+/spec/fixtures/inventory.yaml
+/spec/fixtures/acceptance-device.conf
 /tmp/
 /vendor/
 /convert_report.txt
