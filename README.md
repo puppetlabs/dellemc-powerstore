@@ -8,13 +8,15 @@
   - [License](#license)
   - [Setup](#setup)
     - [Requirements](#requirements)
-    - [Installation](#installation)
-  - [Usage](#usage)
+    - [Installation for use with Bolt](#installation-for-use-with-bolt)
+- [Installation for use with Puppet Enterprise](#installation-for-use-with-puppet-enterprise)
+  - [Usage with Bolt](#usage-with-bolt)
     - [Using Tasks](#using-tasks)
       - [Introduction to Dell EMC PowerStore tasks](#introduction-to-dell-emc-powerstore-tasks)
       - [Examples](#examples)
     - [Using Plans](#using-plans)
     - [Using Idempotent Puppet Resource Types](#using-idempotent-puppet-resource-types)
+  - [Usage with Puppet Enterprise](#usage-with-puppet-enterprise)
   - [Reference](#reference)
   - [Limitations](#limitations)
   - [Development](#development)
@@ -46,8 +48,10 @@ The `dellemc-powerstore` Puppet module allows you to configure and deploy Dell E
 ### Requirements
 
  * Puppet Bolt `2.29.0` or later
+ or
+ * Puppet Enterprise `2019.8` or later
 
-### Installation
+### Installation for use with Bolt
 
 1. Follow [instructions for installing Puppet Bolt](https://puppet.com/docs/bolt/latest/bolt_installing.html).
 
@@ -82,7 +86,21 @@ The `dellemc-powerstore` Puppet module allows you to configure and deploy Dell E
           remote-transport: powerstore
    ```
 
-## Usage
+# Installation for use with Puppet Enterprise
+
+Installation of this module needs to be done using PE Code Manager. To that end, 
+
+1. Add the following to the `Puppetfile`:
+
+    ```bash
+    mod 'dellemc-powerstore', :latest
+    mod 'puppet-format', :latest
+    ```
+1. Perform a code deploy using Code Manager webhook, CD4PE or by using the command `puppet code deploy` on the Primary PE Server.
+   
+Note that it is often recommended to pin the installed modules to specific versions in the `Puppetfile`. For the purposes of this document, we use `:latest` which will fetch the latest available module version each time Code Manager code deploy is done in PE.
+
+## Usage with Bolt
 
 ### Using Tasks
 
@@ -124,7 +142,7 @@ PARAMETERS:
 
 The `--targets` parameter (abbreviated by `-t`) is the name of the device as configured in the inventory file (see above).
 
-Every parameter is displayed along with its data type. Optional parameters have a type starting with the word `Optional`. So in the above example, the task accepts 3 parameters:
+Every parameter is displayed along with its data type. Optional parameters have a type starting with the word `Optional`. So in the above example, the task accepts 4 parameters:
 - `host_group_id`: optional String parameter
 - `host_id`: optional String parameter
 - `id`: required String parameter
@@ -193,7 +211,7 @@ Plan completed successfully with no result
 
 ### Using Idempotent Puppet Resource Types
 
-Tasks are an imperative way to query or manipulate state. In addition, the `dellemc-powerstore` module offers Puppet resource types which offer an idempotent way of managing the devices's desired state.
+Tasks are an imperative way to query or manipulate state. In addition, the `dellemc-powerstore` module offers Puppet resource types which offer a declarative and idempotent way of managing the device's desired state.
 
 Example of managing a volume called `my_volume` and ensuring it is created if it does not exist:
 
@@ -219,6 +237,12 @@ See the [create_volume.pp](plans/create_volume.pp) and [create_volume_yaml.yaml]
 
 See the reference documentation for a list of all available [Resource types](REFERENCE.md#resource-types).
 
+## Usage with Puppet Enterprise
+
+After the module and its dependencies have been deployed inside PE (see [Installation for use with Puppet Enterprise](#installation-for-use-with-puppet-enterprise)), its tasks and plans should become usable in the PE Console and through the PE Orchestrator APIs.
+
+You can onboard the devices using the Nodes | Add | Add Network Device menu option. Please enter the device's credentials (see the `inventory.yaml` above for an example of the credential parameters). After the device has been created you can start managing it as a standard PE node using Puppet manifests with resources and run tasks and plans against the device.
+
 ## Reference
 
 Please see [REFERENCE](REFERENCE.md) for detailed information on available resource types, tasks and plans.
@@ -232,7 +256,7 @@ Direct links to the various parts of the reference documentation:
 
 ## Limitations
 
-The module has been tested on CentOS 7 only but should work on any platform Bolt supports.
+The module has been tested on CentOS 7 and Windows 10 only but should work on any platform Bolt supports.
 
 ## Development
 
@@ -412,5 +436,4 @@ pdk bundle exec rake strings:generate:reference
 
 ## Release Notes
 
-- 0.1.0
-  * Initial release
+See [CHANGELOG](CHANGELOG.md)
