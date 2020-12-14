@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Use these resources to manage the Network Information Service (NIS) settings object for a NAS Server. One NIS settings object may be configured per NAS server. NIS consists of a directory service protocol for maintaining and distributing system configuration information, such as user and group information, hostnames, and such. The port for NIS Service is 111.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_file_nis',
   features: ['remote_resource'],

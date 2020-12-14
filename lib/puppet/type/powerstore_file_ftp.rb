@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Use these resources to configure one File Transfer Protocol (FTP) server per NAS server. One FTP server can be configured per NAS server to have both secure and unsecure services running. By default when an FTP server is created, the unsecure service will be running. FTP is a standard network protocol used to transfer files from one host to another host over a TCP-based network, such as the Internet. For secure transmission that encrypts the username, password, and content, FTP is secured with SSH (SFTP). SFTP listens on port 22.You can activate an FTP server and SFTP server independently on each NAS server. The FTP and SFTP clients are authenticated using credentials defined on a Unix name server (such as an NIS server or an LDAP server) or a Windows domain. Windows user names need to be entered using the 'username@domain' or 'domain\\username' formats. Each secure and unsecure service must have a home directory defined in the name server that must be accessible on the NAS server. FTP also allows clients to connect as anonymous users.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_file_ftp',
   features: ['remote_resource'],

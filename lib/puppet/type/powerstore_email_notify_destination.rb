@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Use these resource types to configure outgoing SMTP and email notifications.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_email_notify_destination',
   features: ['remote_resource'],

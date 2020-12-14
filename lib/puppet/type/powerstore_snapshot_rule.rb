@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Use this resource type to manage snapshot rules that are used in protection policies.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_snapshot_rule',
   features: ['remote_resource'],

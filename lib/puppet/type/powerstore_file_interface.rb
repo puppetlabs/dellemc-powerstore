@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Information about File network interfaces in the storage system. These interfaces control access to Windows (CIFS) and UNIX/Linux (NFS) file storage.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_file_interface',
   features: ['remote_resource'],

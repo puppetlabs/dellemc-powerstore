@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Use this resource type to manage protection policies and to view information about performance policies.Note: Performance policies are predefined for high, low, and medium performance. They cannot be added to or changed.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_policy',
   features: ['remote_resource'],

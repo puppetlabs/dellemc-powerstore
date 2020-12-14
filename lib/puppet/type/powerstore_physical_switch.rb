@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Manage physical switches settings for the cluster.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_physical_switch',
   features: ['remote_resource'],

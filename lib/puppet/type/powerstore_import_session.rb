@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Use the import_session resource type to initiate and manage the migration of volumes and consistency groups from a heritage Dell EMC storage system to a PowerStore storage system. The import is non-disruptive to hosts that access the volume during the import. The import process runs as a background job. Clients should poll the job status until the import completes.   Note: In these descriptions, LUNs are referred to as volumes and storage arrays are referred to as storage systems.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_import_session',
   features: ['remote_resource'],

@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Manage volumes, including snapshots and clones of volumes.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_volume',
   features: ['remote_resource'],

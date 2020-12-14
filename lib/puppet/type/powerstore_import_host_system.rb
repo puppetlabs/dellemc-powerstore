@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Use these resource types to manage import host systems. Import host enables communication with multipathing software on the host system to perform import operations. While configuring the import_host_system if the host is not present a new Host will be created. If Host is already present, the same Host will be updated with the import_host_system details. Also, import_host_system supports FC and ISCSI connections between Host and source arrays. So for a single import_host_system which supports both FC and ISCSI; there would be two Hosts entries for representing the FC and iSCSI connections.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_import_host_system',
   features: ['remote_resource'],

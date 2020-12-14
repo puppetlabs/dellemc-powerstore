@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Use these resources to manage static IP routes, including creating, modifying, and deleting these routes.A route determines where to send a packet next so it can reach its final destination. A static route is set explicitly and does not automatically adapt to the changing network infrastructure. A route is defined by an interface, destination IP address range and an IP address of a corresponding gateway.**Note**: IP routes connect an interface (IP address) to the larger network through gateways. Without routes and gateway specified, the interface is no longer accessible outside of its immediate subnet. As a result, network shares and exports associated with the interface are no longer available to clients outside their immediate subnet.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_file_interface_route',
   features: ['remote_resource'],

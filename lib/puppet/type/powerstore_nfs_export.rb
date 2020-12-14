@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# NFS Exports use the NFS protocol to provide an access point for configured Linux/Unix hosts or IP subnets to access file_systems or file_snapshots.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_nfs_export',
   features: ['remote_resource'],

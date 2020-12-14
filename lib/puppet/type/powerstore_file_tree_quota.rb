@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Tree quota settings in the storage system. A tree quota instance represents a quota limit applied to a specific directory tree in a file system.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_file_tree_quota',
   features: ['remote_resource'],
