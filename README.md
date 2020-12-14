@@ -9,7 +9,7 @@
   - [Setup](#setup)
     - [Requirements](#requirements)
     - [Installation for use with Bolt](#installation-for-use-with-bolt)
-- [Installation for use with Puppet Enterprise](#installation-for-use-with-puppet-enterprise)
+    - [Installation for use with Puppet Enterprise](#installation-for-use-with-puppet-enterprise)
   - [Usage with Bolt](#usage-with-bolt)
     - [Using Tasks](#using-tasks)
       - [Introduction to Dell EMC PowerStore tasks](#introduction-to-dell-emc-powerstore-tasks)
@@ -27,7 +27,6 @@
     - [Running type/provider acceptance tests](#running-typeprovider-acceptance-tests)
     - [Running task acceptance tests](#running-task-acceptance-tests)
     - [Generating REFERENCE.md](#generating-referencemd)
-  - [Contributors](#contributors)
   - [Contact](#contact)
   - [Release Notes](#release-notes)
 
@@ -37,7 +36,7 @@ The `dellemc-powerstore` module manages resources on Dell EMC PowerStore.
 
 Dell EMC PowerStore is a next-generation midrange data storage solution targeted at customers who are looking for value, flexibility, and simplicity. Dell EMC PowerStore provides our customers with data-centric, intelligent, and adaptable infrastructure that supports both traditional and modern workloads.
 
-The `dellemc-powerstore` Puppet module allows you to configure and deploy Dell EMC PowerStore using Puppet Bolt. To that end it offers resource types, tasks and plans.
+The `dellemc-powerstore` Puppet module allows you to configure and deploy Dell EMC PowerStore using Puppet Bolt and Puppet Enterprise. To that end it offers resource types, tasks and plans.
 
 ## License
 
@@ -47,31 +46,37 @@ The `dellemc-powerstore` Puppet module allows you to configure and deploy Dell E
 
 ### Requirements
 
- * Puppet Bolt `2.29.0` or later
- or
- * Puppet Enterprise `2019.8` or later
+- Puppet Bolt `2.29.0` or later or
+- Puppet Enterprise `2019.8` or later
 
 ### Installation for use with Bolt
 
 1. Follow [instructions for installing Puppet Bolt](https://puppet.com/docs/bolt/latest/bolt_installing.html).
 
 1. Create a Bolt project with a name of your choosing, for example:
+
     ```bash
     mkdir pws
     cd pws
     bolt project init --modules dellemc-powerstore
     ```
+
     Your new Bolt project is ready to go. To list available plans, run
+
     ```bash
     bolt plan show
     ```
+
     To list all Bolt tasks related to the `volume` resource, run
+
     ```bash
     bolt task show --filter volume
     ```
+
     See [Bolt documentation](https://puppet.com/docs/bolt/latest/bolt.html) for more information on Puppet Bolt.
 
 1. Create an `inventory.yaml` in your project directory, like so:
+
    ```yaml
     version: 2
     targets:
@@ -86,9 +91,9 @@ The `dellemc-powerstore` Puppet module allows you to configure and deploy Dell E
           remote-transport: powerstore
    ```
 
-# Installation for use with Puppet Enterprise
+### Installation for use with Puppet Enterprise
 
-Installation of this module needs to be done using PE Code Manager. To that end, 
+Installation of this module needs to be done using PE Code Manager. To that end,
 
 1. Add the following to the `Puppetfile`:
 
@@ -96,8 +101,9 @@ Installation of this module needs to be done using PE Code Manager. To that end,
     mod 'dellemc-powerstore', :latest
     mod 'puppet-format', :latest
     ```
-1. Perform a code deploy using Code Manager webhook, CD4PE or by using the command `puppet code deploy` on the Primary PE Server.
-   
+
+1. Perform a code deploy using Code Manager web hook, CD4PE or by using the command `puppet code deploy` on the Primary PE Server.
+
 Note that it is often recommended to pin the installed modules to specific versions in the `Puppetfile`. For the purposes of this document, we use `:latest` which will fetch the latest available module version each time Code Manager code deploy is done in PE.
 
 ## Usage with Bolt
@@ -107,6 +113,7 @@ Note that it is often recommended to pin the installed modules to specific versi
 #### Introduction to Dell EMC PowerStore tasks
 
 Every Dell EMC PowerStore API endpoint has a corresponding task. For example, for manipulating Dell EMC PowerStore volumes, the following tasks are available:
+
 - volume_collection_query
 - volume_instance_query
 - volume_attach
@@ -121,7 +128,7 @@ Every Dell EMC PowerStore API endpoint has a corresponding task. For example, fo
 
 Task usage is displayed by running `bolt task show`, for example:
 
-```
+```log
 bolt task show powerstore::volume_attach
 
 powerstore::volume_attach - Attach a volume to a host or host group.
@@ -143,6 +150,7 @@ PARAMETERS:
 The `--targets` parameter (abbreviated by `-t`) is the name of the device as configured in the inventory file (see above).
 
 Every parameter is displayed along with its data type. Optional parameters have a type starting with the word `Optional`. So in the above example, the task accepts 4 parameters:
+
 - `host_group_id`: optional String parameter
 - `host_id`: optional String parameter
 - `id`: required String parameter
@@ -175,7 +183,8 @@ Tasks live in the `tasks/` folder of the module repository.
 Plans are higher-level workflows that can leverage logic, tasks and commands to perform orchestrated operations on managed devices. Plans can be written using YAML or Puppet language (see documentation on [writing Plans](https://puppet.com/docs/bolt/latest/plans.html)). Example `dellemc-powerstore` plans can be found in the [plans](plans) directory of this repository and are documented [here](REFERENCE.md#plans).
 
 For displaying usage information for a plan, run `bolt plan show`, for example:
-```
+
+```log
 > bolt plan show powerstore::capacity_volumes
 
 powerstore::capacity_volumes - list volumes with more than given capacity
@@ -191,7 +200,7 @@ PARAMETERS:
 
 Example of running the plan:
 
-```
+```log
 > bolt plan run powerstore::capacity_volumes -t my_array threshold=220G
 Starting: plan powerstore::capacity_volumes
 Starting: task powerstore::volume_collection_query on my_array
@@ -216,6 +225,7 @@ Tasks are an imperative way to query or manipulate state. In addition, the `dell
 Example of managing a volume called `my_volume` and ensuring it is created if it does not exist:
 
 1. Example using YAML-language plan:
+
     ```yaml
         resources:
           - powerstore_volume: my_volume
@@ -224,7 +234,9 @@ Example of managing a volume called `my_volume` and ensuring it is created if it
               description: My 25G Volume
               ensure: present
     ```
+
 1. Example using a Puppet-language plan:
+
     ```puppet
           powerstore_volume { 'my_volume':
             ensure      => present,
@@ -294,6 +306,7 @@ pdk (INFO): Running all available validators...
 ```
 
 You should expect to see something like this - the most important thing is that you should have 0 failures:
+
 ```bash
 pdk (INFO): Using Ruby 2.5.8
 pdk (INFO): Using Puppet 6.17.0
@@ -314,11 +327,14 @@ Although - in theory - it is possible to run acceptance tests against a real dev
 1. Make sure you have a copy of the Dell EMC PowerStore OpenAPI json file, let's call it `powerstore.json`
 1. Remove all cyclical dependencies from the OpenAPI json file since `prism` does not support cycles inside OpenAPI specifications, producing the file `powerstore-nocycles.json`
 1. Start the mock API server:
+
    ```bash
    prism mock powerstore-nocycles.json
    ```
+
    You will see something like:
-   ```
+
+   ```log
    [5:43:55 PM] › [CLI] …  awaiting  Starting Prism…
    [5:43:56 PM] › [CLI] ℹ  info      GET        http://127.0.0.1:4010/appliance
    [5:43:56 PM] › [CLI] ℹ  info      GET        http://127.0.0.1:4010/appliance/vel
@@ -342,8 +358,10 @@ Although - in theory - it is possible to run acceptance tests against a real dev
 ```bash
 > MOCK_ACCEPTANCE=true pdk bundle rspec spec/acceptance
 ```
+
 The test output will be something like this:
-```
+
+```log
 pdk (INFO): Using Ruby 2.5.8
 pdk (INFO): Using Puppet 6.17.0
 Running tests against this machine !
@@ -354,9 +372,10 @@ powerstore_email_notify_destination
   create powerstore_email_notify_destination
   delete powerstore_email_notify_destination
 ```
+
 and the prism log will show something like this:
 
-```
+```log
 [5:47:39 PM] › [HTTP SERVER] get /email_notify_destination ℹ  info      Request received
 [5:47:39 PM] ›     [NEGOTIATOR] ℹ  info      Request contains an accept header: */*
 [5:47:39 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
@@ -400,7 +419,7 @@ The `get /appliance` request is done for authentication purposes.
 
 To execute all available acceptance tests for tasks, run the following:
 
-```
+```log
 > MOCK_ACCEPTANCE=true pdk bundle exec rspec spec/task
 pdk (INFO): Using Ruby 2.5.8
 pdk (INFO): Using Puppet 6.17.0
@@ -416,7 +435,8 @@ powerstore_email_notify_destination
 ```
 
 To run a subset of task tests, for example volume-related, do:
-```
+
+```log
 > MOCK_ACCEPTANCE=true pdk bundle exec rspec spec/task -e volume
 ```
 
@@ -424,15 +444,17 @@ To run a subset of task tests, for example volume-related, do:
 
 To (re-)generate the REFERENCE.md file which documents the available types, tasks, functions and plans, run:
 
-```
+```log
 pdk bundle exec rake strings:generate:reference
 ```
 
-## Contributors
-
 ## Contact
 
-... forthcoming ...
+... Dell contacts here ...
+
+- For general help with using Puppet and this module, please see the `#puppet` channel in [https://puppetcommunity.slack.com/](https://puppetcommunity.slack.com/)
+- For code contributions, you can create pull requests at [https://github.com/puppetlabs/dellemc-powerstore](https://github.com/puppetlabs/dellemc-powerstore)
+- If you would like to discuss large scale deployments or have other questions, feel free to email us at `dellemc-puppet-integrations@puppet.com`
 
 ## Release Notes
 
