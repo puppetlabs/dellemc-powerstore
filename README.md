@@ -450,11 +450,13 @@ pdk bundle exec rake strings:generate:reference
 
 ## Contact
 
-... Dell contacts here ...
+Dell EMC does not provide support for any source code modifications. For any Dell EMC PowerStore issues, questions or feedback, please contact support [https://www.dell.com/support/](https://www.dell.com/support/).
 
-- For general help with using Puppet and this module, please see the `#puppet` channel in [https://puppetcommunity.slack.com/](https://puppetcommunity.slack.com/)
-- For code contributions, you can create pull requests at [https://github.com/puppetlabs/dellemc-powerstore](https://github.com/puppetlabs/dellemc-powerstore)
-- If you would like to discuss large scale deployments or have other questions, feel free to email us at `dellemc-puppet-integrations@puppet.com`
+For general help with using Puppet and this module, please see the `#puppet` channel in [https://puppetcommunity.slack.com/](https://puppetcommunity.slack.com/).
+
+For code contributions, you can create pull requests at [https://github.com/puppetlabs/dellemc-powerstore](https://github.com/puppetlabs/dellemc-powerstore).
+
+If you would like to discuss large scale deployments or have other questions, feel free to email us at `dellemc-puppet-integrations@puppet.com`.
 
 ## Release Notes
 
