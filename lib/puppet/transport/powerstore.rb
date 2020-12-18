@@ -71,6 +71,10 @@ module Puppet::Transport
         uri_string = uri_string + '?' + to_query(query_params) unless query_params.empty?
       end
       header_params['Content-Type'] = parent_consumes
+
+      # FIXME: Obtain the version value for 'Application-Type' dynamically (at least, upon first initialization)
+      header_params['Application-Type'] = 'Puppet Module for PowerStore/0.8'
+
       # FIXME: this always requests the first 2000 pages of results, might be better to implement dynamic pagination based on 206 HTTP return code.
       header_params['Range'] = '0-2000'
       verify_mode = OpenSSL::SSL::VERIFY_NONE
