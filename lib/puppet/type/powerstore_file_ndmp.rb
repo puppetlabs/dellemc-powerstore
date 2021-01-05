@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# The Network Data Management Protocol (NDMP) provides a standard for backing up file servers on a network. NDMP allows centralized applications to back up file servers that run on various platforms and platform versions. NDMP reduces network congestion by isolating control path traffic from data path traffic, which permits centrally managed and monitored local backup operations. Storage systems support NDMP v2-v4 over the network. Direct-attach NDMP is not supported. This means that the tape drives need to be connected to a media server, and the NAS server communicates with the media server over the network. NDMP has an advantage when using multiprotocol file systems because it backs up the Windows ACLs as well as the UNIX security information.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_file_ndmp',
   features: ['remote_resource'],

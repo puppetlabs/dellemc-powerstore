@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Use these resources to manage the Kerberos service for a NAS server. One Kerberos service object may be configured per NAS Server. Kerberos is a distributed authentication service designed to provide strong authentication with secret-key cryptography. It works on the basis of "tickets" that allow nodes communicating over a non-secure network to prove their identity in a secure manner. When configured to act as a secure NFS server, the NAS Server uses the RPCSEC_GSS security framework and Kerberos authentication protocol to verify users and services. You can configure a secure NFS environment for a multiprotocol NAS Server or one that supports Unix-only shares. In this environment, user access to NFS file systems is granted based on Kerberos principal names.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_file_kerberos',
   features: ['remote_resource'],

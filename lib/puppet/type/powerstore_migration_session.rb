@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Manage migration sessions.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_migration_session',
   features: ['remote_resource'],

@@ -6,36 +6,36 @@
 
 ### Resource types
 
-* [`powerstore_email_notify_destination`](#powerstore_email_notify_destination): rubocop:disable Style/StringLiterals
-* [`powerstore_file_dns`](#powerstore_file_dns): rubocop:disable Style/StringLiterals
-* [`powerstore_file_ftp`](#powerstore_file_ftp): rubocop:disable Style/StringLiterals
-* [`powerstore_file_interface`](#powerstore_file_interface): rubocop:disable Style/StringLiterals
-* [`powerstore_file_interface_route`](#powerstore_file_interface_route): rubocop:disable Style/StringLiterals
-* [`powerstore_file_kerberos`](#powerstore_file_kerberos): rubocop:disable Style/StringLiterals
-* [`powerstore_file_ldap`](#powerstore_file_ldap): rubocop:disable Style/StringLiterals
-* [`powerstore_file_ndmp`](#powerstore_file_ndmp): rubocop:disable Style/StringLiterals
-* [`powerstore_file_nis`](#powerstore_file_nis): rubocop:disable Style/StringLiterals
-* [`powerstore_file_system`](#powerstore_file_system): rubocop:disable Style/StringLiterals
-* [`powerstore_file_tree_quota`](#powerstore_file_tree_quota): rubocop:disable Style/StringLiterals
-* [`powerstore_file_virus_checker`](#powerstore_file_virus_checker): rubocop:disable Style/StringLiterals
-* [`powerstore_host`](#powerstore_host): rubocop:disable Style/StringLiterals
-* [`powerstore_host_group`](#powerstore_host_group): rubocop:disable Style/StringLiterals
-* [`powerstore_import_host_system`](#powerstore_import_host_system): rubocop:disable Style/StringLiterals
-* [`powerstore_import_session`](#powerstore_import_session): rubocop:disable Style/StringLiterals
-* [`powerstore_local_user`](#powerstore_local_user): rubocop:disable Style/StringLiterals
-* [`powerstore_migration_session`](#powerstore_migration_session): rubocop:disable Style/StringLiterals
-* [`powerstore_nas_server`](#powerstore_nas_server): rubocop:disable Style/StringLiterals
-* [`powerstore_nfs_export`](#powerstore_nfs_export): rubocop:disable Style/StringLiterals
-* [`powerstore_physical_switch`](#powerstore_physical_switch): rubocop:disable Style/StringLiterals
-* [`powerstore_policy`](#powerstore_policy): rubocop:disable Style/StringLiterals
-* [`powerstore_remote_system`](#powerstore_remote_system): rubocop:disable Style/StringLiterals
-* [`powerstore_replication_rule`](#powerstore_replication_rule): rubocop:disable Style/StringLiterals
-* [`powerstore_smb_share`](#powerstore_smb_share): rubocop:disable Style/StringLiterals
-* [`powerstore_snapshot_rule`](#powerstore_snapshot_rule): rubocop:disable Style/StringLiterals
-* [`powerstore_storage_container`](#powerstore_storage_container): rubocop:disable Style/StringLiterals
-* [`powerstore_vcenter`](#powerstore_vcenter): rubocop:disable Style/StringLiterals
-* [`powerstore_volume`](#powerstore_volume): rubocop:disable Style/StringLiterals
-* [`powerstore_volume_group`](#powerstore_volume_group): rubocop:disable Style/StringLiterals
+* [`powerstore_email_notify_destination`](#powerstore_email_notify_destination): Use these resource types to configure outgoing SMTP and email notifications.
+* [`powerstore_file_dns`](#powerstore_file_dns): Use these resources to configure the Domain Name System (DNS) settings for a NAS server. One DNS settings object may be configured per NAS se
+* [`powerstore_file_ftp`](#powerstore_file_ftp): Use these resources to configure one File Transfer Protocol (FTP) server per NAS server. One FTP server can be configured per NAS server to h
+* [`powerstore_file_interface`](#powerstore_file_interface): Information about File network interfaces in the storage system. These interfaces control access to Windows (CIFS) and UNIX/Linux (NFS) file 
+* [`powerstore_file_interface_route`](#powerstore_file_interface_route): Use these resources to manage static IP routes, including creating, modifying, and deleting these routes.A route determines where to send a p
+* [`powerstore_file_kerberos`](#powerstore_file_kerberos): Use these resources to manage the Kerberos service for a NAS server. One Kerberos service object may be configured per NAS Server. Kerberos i
+* [`powerstore_file_ldap`](#powerstore_file_ldap): Use these resources to manage the Lightweight Directory Access Protocol (LDAP) settings for the NAS Server. You can configure one LDAP settin
+* [`powerstore_file_ndmp`](#powerstore_file_ndmp): The Network Data Management Protocol (NDMP) provides a standard for backing up file servers on a network. NDMP allows centralized application
+* [`powerstore_file_nis`](#powerstore_file_nis): Use these resources to manage the Network Information Service (NIS) settings object for a NAS Server. One NIS settings object may be configur
+* [`powerstore_file_system`](#powerstore_file_system): Manage NAS file systems.
+* [`powerstore_file_tree_quota`](#powerstore_file_tree_quota): Tree quota settings in the storage system. A tree quota instance represents a quota limit applied to a specific directory tree in a file syst
+* [`powerstore_file_virus_checker`](#powerstore_file_virus_checker): Use these resource types to manage the virus checker service of a NAS server. A virus checker instance is created each time the anti-virus se
+* [`powerstore_host`](#powerstore_host): Manage hosts that access the cluster.
+* [`powerstore_host_group`](#powerstore_host_group): Manage host groups. A host group is a mechanism to provision hosts and volumes to be consistent across the Cyclone cluster. Operations that c
+* [`powerstore_import_host_system`](#powerstore_import_host_system): Use these resource types to manage import host systems. Import host enables communication with multipathing software on the host system to pe
+* [`powerstore_import_session`](#powerstore_import_session): Use the import_session resource type to initiate and manage the migration of volumes and consistency groups from a heritage Dell EMC storage 
+* [`powerstore_local_user`](#powerstore_local_user): Use this resource type to manage local user accounts.
+* [`powerstore_migration_session`](#powerstore_migration_session): Manage migration sessions.
+* [`powerstore_nas_server`](#powerstore_nas_server): Use these resource types to manage NAS servers. NAS servers are software components used to transfer data and provide the connection ports fo
+* [`powerstore_nfs_export`](#powerstore_nfs_export): NFS Exports use the NFS protocol to provide an access point for configured Linux/Unix hosts or IP subnets to access file_systems or file_snap
+* [`powerstore_physical_switch`](#powerstore_physical_switch): Manage physical switches settings for the cluster.
+* [`powerstore_policy`](#powerstore_policy): Use this resource type to manage protection policies and to view information about performance policies.Note: Performance policies are predef
+* [`powerstore_remote_system`](#powerstore_remote_system): Information about remote storage systems that connect to the local PowerStore system. The system uses the configuration to access and communi
+* [`powerstore_replication_rule`](#powerstore_replication_rule): Use this resource type to manage the replication rules that are used in protection policies.
+* [`powerstore_smb_share`](#powerstore_smb_share): SMB Shares use the SMB protocol to provide an access point for configured Windows hosts to access file system storage. The system uses Active
+* [`powerstore_snapshot_rule`](#powerstore_snapshot_rule): Use this resource type to manage snapshot rules that are used in protection policies.
+* [`powerstore_storage_container`](#powerstore_storage_container): Manage storage containers. A storage container is a logical grouping of related storage objects in a cluster. A storage container corresponds
+* [`powerstore_vcenter`](#powerstore_vcenter): Use this resource type to manage vCenter instances. Registered vCenter enables discovering of virtual machines, managing virtual machine snap
+* [`powerstore_volume`](#powerstore_volume): Manage volumes, including snapshots and clones of volumes.
+* [`powerstore_volume_group`](#powerstore_volume_group): Manage volume_groups. A volume_group is a group of related volumes treated as a single unit. It can optionally be write-order consistent.
 
 ### Functions
 
@@ -454,7 +454,7 @@ host
 
 ### `powerstore_email_notify_destination`
 
-rubocop:disable Style/StringLiterals
+Use these resource types to configure outgoing SMTP and email notifications.
 
 #### Properties
 
@@ -512,7 +512,7 @@ Unique identifier of the email notification destination.
 
 ### `powerstore_file_dns`
 
-rubocop:disable Style/StringLiterals
+Use these resources to configure the Domain Name System (DNS) settings for a NAS server. One DNS settings object may be configured per NAS server. A DNS is a hierarchical system responsible for converting domain names to their corresponding IP addresses. A NAS server\'s DNS settings should allow DNS resolution of all names within an SMB server\'s domain in order for the SMB protocol to operate normally within an Active Directory domain. The DNS default port is 53.
 
 #### Properties
 
@@ -582,7 +582,7 @@ Unique identifier of the DNS object.
 
 ### `powerstore_file_ftp`
 
-rubocop:disable Style/StringLiterals
+Use these resources to configure one File Transfer Protocol (FTP) server per NAS server. One FTP server can be configured per NAS server to have both secure and unsecure services running. By default when an FTP server is created, the unsecure service will be running. FTP is a standard network protocol used to transfer files from one host to another host over a TCP-based network, such as the Internet. For secure transmission that encrypts the username, password, and content, FTP is secured with SSH (SFTP). SFTP listens on port 22.You can activate an FTP server and SFTP server independently on each NAS server. The FTP and SFTP clients are authenticated using credentials defined on a Unix name server (such as an NIS server or an LDAP server) or a Windows domain. Windows user names need to be entered using the 'username@domain' or 'domain\\username' formats. Each secure and unsecure service must have a home directory defined in the name server that must be accessible on the NAS server. FTP also allows clients to connect as anonymous users.
 
 #### Properties
 
@@ -760,7 +760,7 @@ Unique identifier of the FTP/SFTP Server object.
 
 ### `powerstore_file_interface`
 
-rubocop:disable Style/StringLiterals
+Information about File network interfaces in the storage system. These interfaces control access to Windows (CIFS) and UNIX/Linux (NFS) file storage.
 
 #### Properties
 
@@ -842,7 +842,7 @@ Unique identifier of the file interface.
 
 ### `powerstore_file_interface_route`
 
-rubocop:disable Style/StringLiterals
+Use these resources to manage static IP routes, including creating, modifying, and deleting these routes.A route determines where to send a packet next so it can reach its final destination. A static route is set explicitly and does not automatically adapt to the changing network infrastructure. A route is defined by an interface, destination IP address range and an IP address of a corresponding gateway.**Note**: IP routes connect an interface (IP address) to the larger network through gateways. Without routes and gateway specified, the interface is no longer accessible outside of its immediate subnet. As a result, network shares and exports associated with the interface are no longer available to clients outside their immediate subnet.
 
 #### Properties
 
@@ -906,7 +906,7 @@ Unique identifier of the file interface route object.
 
 ### `powerstore_file_kerberos`
 
-rubocop:disable Style/StringLiterals
+Use these resources to manage the Kerberos service for a NAS server. One Kerberos service object may be configured per NAS Server. Kerberos is a distributed authentication service designed to provide strong authentication with secret-key cryptography. It works on the basis of "tickets" that allow nodes communicating over a non-secure network to prove their identity in a secure manner. When configured to act as a secure NFS server, the NAS Server uses the RPCSEC_GSS security framework and Kerberos authentication protocol to verify users and services. You can configure a secure NFS environment for a multiprotocol NAS Server or one that supports Unix-only shares. In this environment, user access to NFS file systems is granted based on Kerberos principal names.
 
 #### Properties
 
@@ -970,7 +970,7 @@ Unique identifier of the Kerberos service object.
 
 ### `powerstore_file_ldap`
 
-rubocop:disable Style/StringLiterals
+Use these resources to manage the Lightweight Directory Access Protocol (LDAP) settings for the NAS Server. You can configure one LDAP settings object per NAS Server. LDAP is an application protocol for querying and modifying directory services running on TCP/IP networks. LDAP provides central management for network authentication and authorization operations by helping to centralize user and group management across the network. A NAS Server can use LDAP as a Unix Directory Service to map users, retrieve netgroups, and build a Unix credential. When an initial LDAP configuration is applied, the system checks for the type of LDAP server. It can be an Active Directory schema or an RFC 2307 schema.
 
 #### Properties
 
@@ -1130,7 +1130,7 @@ LDAP settings object Id.
 
 ### `powerstore_file_ndmp`
 
-rubocop:disable Style/StringLiterals
+The Network Data Management Protocol (NDMP) provides a standard for backing up file servers on a network. NDMP allows centralized applications to back up file servers that run on various platforms and platform versions. NDMP reduces network congestion by isolating control path traffic from data path traffic, which permits centrally managed and monitored local backup operations. Storage systems support NDMP v2-v4 over the network. Direct-attach NDMP is not supported. This means that the tape drives need to be connected to a media server, and the NAS server communicates with the media server over the network. NDMP has an advantage when using multiprotocol file systems because it backs up the Windows ACLs as well as the UNIX security information.
 
 #### Properties
 
@@ -1176,7 +1176,7 @@ Unique identifier of the NDMP service object.
 
 ### `powerstore_file_nis`
 
-rubocop:disable Style/StringLiterals
+Use these resources to manage the Network Information Service (NIS) settings object for a NAS Server. One NIS settings object may be configured per NAS server. NIS consists of a directory service protocol for maintaining and distributing system configuration information, such as user and group information, hostnames, and such. The port for NIS Service is 111.
 
 #### Properties
 
@@ -1234,7 +1234,7 @@ Unique identifier of the NIS object.
 
 ### `powerstore_file_system`
 
-rubocop:disable Style/StringLiterals
+Manage NAS file systems.
 
 #### Properties
 
@@ -1472,7 +1472,7 @@ Name of the file system. (255 UTF-8 characters).
 
 ### `powerstore_file_tree_quota`
 
-rubocop:disable Style/StringLiterals
+Tree quota settings in the storage system. A tree quota instance represents a quota limit applied to a specific directory tree in a file system.
 
 #### Properties
 
@@ -1560,7 +1560,7 @@ Unique identifier of the tree quota.
 
 ### `powerstore_file_virus_checker`
 
-rubocop:disable Style/StringLiterals
+Use these resource types to manage the virus checker service of a NAS server. A virus checker instance is created each time the anti-virus service is enabled on a NAS server. A configuration file (named viruschecker.conf) needs to be uploaded before enabling the anti-virus service.The cluster supports third-party anti-virus servers that perform virus scans and reports back to the storage system. For example, when an SMB client creates, moves, or modifies a file, the NAS server invokes the anti-virus server to scan the file for known viruses. During the scan any access to this file is blocked. If the file does not contain a virus, it is written to the file system. If the file is infected, corrective action (fixed, removed or placed in quarantine) is taken as defined by the anti-virus server. You can optionally set up the service to scan the file on read access based on last access of the file compared to last update of the third-party anti-virus date.
 
 #### Properties
 
@@ -1606,7 +1606,7 @@ Unique identifier of the virus checker instance.
 
 ### `powerstore_host`
 
-rubocop:disable Style/StringLiterals
+Manage hosts that access the cluster.
 
 #### Properties
 
@@ -1695,7 +1695,7 @@ characters.
 
 ### `powerstore_host_group`
 
-rubocop:disable Style/StringLiterals
+Manage host groups. A host group is a mechanism to provision hosts and volumes to be consistent across the Cyclone cluster. Operations that can be performed include, creating or deleting a host group, modifying host group(i.e. adding or removing hosts from a host group).
 
 #### Properties
 
@@ -1754,7 +1754,7 @@ characters.
 
 ### `powerstore_import_host_system`
 
-rubocop:disable Style/StringLiterals
+Use these resource types to manage import host systems. Import host enables communication with multipathing software on the host system to perform import operations. While configuring the import_host_system if the host is not present a new Host will be created. If Host is already present, the same Host will be updated with the import_host_system details. Also, import_host_system supports FC and ISCSI connections between Host and source arrays. So for a single import_host_system which supports both FC and ISCSI; there would be two Hosts entries for representing the FC and iSCSI connections.
 
 #### Properties
 
@@ -1890,7 +1890,7 @@ Unique identifier of the import host system
 
 ### `powerstore_import_session`
 
-rubocop:disable Style/StringLiterals
+Use the import_session resource type to initiate and manage the migration of volumes and consistency groups from a heritage Dell EMC storage system to a PowerStore storage system. The import is non-disruptive to hosts that access the volume during the import. The import process runs as a background job. Clients should poll the job status until the import completes.   Note: In these descriptions, LUNs are referred to as volumes and storage arrays are referred to as storage systems.
 
 #### Properties
 
@@ -2039,7 +2039,7 @@ characters. It cannot contain special HTTP characters, unprintable characters, o
 
 ### `powerstore_local_user`
 
-rubocop:disable Style/StringLiterals
+Use this resource type to manage local user accounts.
 
 #### Properties
 
@@ -2110,7 +2110,7 @@ alphanumeric characters. Dot(.) is the only special character allowed.
 
 ### `powerstore_migration_session`
 
-rubocop:disable Style/StringLiterals
+Manage migration sessions.
 
 #### Properties
 
@@ -2169,7 +2169,7 @@ It cannot contain unprintable characters, special HTTP characters, or whitespace
 
 ### `powerstore_nas_server`
 
-rubocop:disable Style/StringLiterals
+Use these resource types to manage NAS servers. NAS servers are software components used to transfer data and provide the connection ports for hosts to access file-based storage resources. NAS servers are independent from each other.
 
 #### Properties
 
@@ -2329,7 +2329,7 @@ Name of the NAS server.
 
 ### `powerstore_nfs_export`
 
-rubocop:disable Style/StringLiterals
+NFS Exports use the NFS protocol to provide an access point for configured Linux/Unix hosts or IP subnets to access file_systems or file_snapshots.
 
 #### Properties
 
@@ -2519,7 +2519,7 @@ NFS Export name.
 
 ### `powerstore_physical_switch`
 
-rubocop:disable Style/StringLiterals
+Manage physical switches settings for the cluster.
 
 #### Properties
 
@@ -2571,7 +2571,7 @@ Name of a physical switch.
 
 ### `powerstore_policy`
 
-rubocop:disable Style/StringLiterals
+Use this resource type to manage protection policies and to view information about performance policies.Note: Performance policies are predefined for high, low, and medium performance. They cannot be added to or changed.
 
 #### Properties
 
@@ -2665,7 +2665,7 @@ Policy name.
 
 ### `powerstore_remote_system`
 
-rubocop:disable Style/StringLiterals
+Information about remote storage systems that connect to the local PowerStore system. The system uses the configuration to access and communicate with the remote system for management and data transfer communications. For example, to use remote replication, create a configuration that specifies the remote system to use as the destination for the replication session.The PowerStore local system can establish a remote system relationship with different types of remote storage systems for replication remote protection and import use-cases. Refer to the RemoteSystemTypeEnum specification for a list of system types supported.  **NOTE**Before creating a remote system relationship with PowerStore remote systems, first establish a Certificate Based Trust between the local and remote PowerStore systems using the *verify* and *exchange* operations on the **x509_certificate** resource type.
 
 #### Properties
 
@@ -2827,7 +2827,7 @@ printable Unicode characters.
 
 ### `powerstore_replication_rule`
 
-rubocop:disable Style/StringLiterals
+Use this resource type to manage the replication rules that are used in protection policies.
 
 #### Properties
 
@@ -2891,7 +2891,7 @@ Name of the replication rule.
 
 ### `powerstore_smb_share`
 
-rubocop:disable Style/StringLiterals
+SMB Shares use the SMB protocol to provide an access point for configured Windows hosts to access file system storage. The system uses Active Directory to authenticate user and user group access to the Share.
 
 #### Properties
 
@@ -2985,7 +2985,7 @@ SMB share name.
 
 ### `powerstore_snapshot_rule`
 
-rubocop:disable Style/StringLiterals
+Use this resource type to manage snapshot rules that are used in protection policies.
 
 #### Properties
 
@@ -3067,7 +3067,7 @@ Snapshot rule name.
 
 ### `powerstore_storage_container`
 
-rubocop:disable Style/StringLiterals
+Manage storage containers. A storage container is a logical grouping of related storage objects in a cluster. A storage container corresponds to a vVol datastore in vCenter and is used to group related vVols and track the amount of space that is used/free.
 
 #### Properties
 
@@ -3115,7 +3115,7 @@ and 64 UTF-8 characters (inclusive), and not more than 127 bytes.
 
 ### `powerstore_vcenter`
 
-rubocop:disable Style/StringLiterals
+Use this resource type to manage vCenter instances. Registered vCenter enables discovering of virtual machines, managing virtual machine snapshots, automatic mounting of storage container and other functionality that requires communication with vCenter. In Unified+ deployments, the one vCenter instance residing in the PowerStore cluster will be prepopulated here and cannot be deleted, nor may any other vCenters be added. For Unified deployments, one external vCenter may be configured if desired.
 
 #### Properties
 
@@ -3167,7 +3167,7 @@ Unique identifier of the vCenter to delete.
 
 ### `powerstore_volume`
 
-rubocop:disable Style/StringLiterals
+Manage volumes, including snapshots and clones of volumes.
 
 #### Properties
 
@@ -3351,7 +3351,7 @@ Unique name for the volume to be created. This value must contain 128 or fewer p
 
 ### `powerstore_volume_group`
 
-rubocop:disable Style/StringLiterals
+Manage volume_groups. A volume_group is a group of related volumes treated as a single unit. It can optionally be write-order consistent.
 
 #### Properties
 

@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Use this resource type to manage local user accounts.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_local_user',
   features: ['remote_resource'],

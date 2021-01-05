@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Manage host groups. A host group is a mechanism to provision hosts and volumes to be consistent across the Cyclone cluster. Operations that can be performed include, creating or deleting a host group, modifying host group(i.e. adding or removing hosts from a host group).
 Puppet::ResourceApi.register_type(
   name: 'powerstore_host_group',
   features: ['remote_resource'],

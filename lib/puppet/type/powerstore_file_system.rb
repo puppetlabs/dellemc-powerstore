@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Manage NAS file systems.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_file_system',
   features: ['remote_resource'],

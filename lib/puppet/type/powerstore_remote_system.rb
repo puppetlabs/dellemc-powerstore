@@ -1,6 +1,8 @@
 require 'puppet/resource_api'
 
 # rubocop:disable Style/StringLiterals
+
+# Information about remote storage systems that connect to the local PowerStore system. The system uses the configuration to access and communicate with the remote system for management and data transfer communications. For example, to use remote replication, create a configuration that specifies the remote system to use as the destination for the replication session.The PowerStore local system can establish a remote system relationship with different types of remote storage systems for replication remote protection and import use-cases. Refer to the RemoteSystemTypeEnum specification for a list of system types supported.  **NOTE**Before creating a remote system relationship with PowerStore remote systems, first establish a Certificate Based Trust between the local and remote PowerStore systems using the *verify* and *exchange* operations on the **x509_certificate** resource type.
 Puppet::ResourceApi.register_type(
   name: 'powerstore_remote_system',
   features: ['remote_resource'],
