@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - Added contact information to README.md.
+- Module now sends "Application-Type" header
 
 ### Bugfixes
 

@@ -37,6 +37,19 @@ plan powerstore::create_volume_attach_host_with_fs(
   # for new iSCSI devices, partitions the new device, creates XFS file system,
   # and then mounts the disk
 
+  # Before we go anywhere, ensure we'll be able to complete iSCSI operations on
+  # remote hosts
+  $package_status = [ 'iscsi-initiator-utils', 'device-mapper-multipath' ].map |$package| {
+    run_task('package', get_target($host_name), {
+      'name' => $package,
+      'action' => 'status',
+    }).first.value['status']
+  }
+
+  if 'uninstalled' in $package_status {
+    fail_plan('Packages iscsi-initiator-utils and device-mapper-multipath must be present on the system for this plan to function')
+  }
+
   # Gets the id of the host we want to attach volumes to
   #
   run_task('powerstore::host_collection_query', $targets, {
