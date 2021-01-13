@@ -1,6 +1,6 @@
 {
   "name": "dellemc-powerstore",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "author": "Puppet and Dell",
   "summary": "Puppet module for managing Dell EMC PowerStore",
   "license": "Apache-2.0",
